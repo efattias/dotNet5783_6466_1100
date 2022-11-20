@@ -2,6 +2,6 @@
 {
     public class DalList
     {
-
+        // להעתיק מנורית
     }
 }

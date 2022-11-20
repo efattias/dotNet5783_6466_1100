@@ -12,7 +12,7 @@ public struct Order
 {/// <summary>
 /// Unique ID of order struct
 /// </summary>
-    public int? ID { get; set; }
+    public int ID { get; set; }
     /// <summary>
     /// Unique CustomerName of order struct
     /// </summary>

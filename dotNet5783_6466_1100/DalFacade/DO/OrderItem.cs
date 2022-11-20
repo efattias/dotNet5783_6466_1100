@@ -10,7 +10,7 @@ public struct OrderItem
     /// <summary>
     /// Unique Id of OrderItem struct
     /// </summary>
-    public int? ID { get; set; }
+    public int ID { get; set; }
     /// <summary>
     ///  Unique ProductID of OrderItem struct
     /// </summary>

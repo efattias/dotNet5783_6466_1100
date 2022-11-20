@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace DalApi;
 
-public interface ICrud<T>
+public interface ICrud<T> where T : struct
 {
-    public int add(ICrud<T> item);
-    public void delete(int id);
-    public void update(T? item);
-    public ICrud<T> getByID(int id);
-    public IEnumerable<T> getAll();
 
+     int Add(T item);
+     void Delete(int id);
+     void Update(T item);
+     T GetByID(int id);
+    // IEnumerable<T> getAll();
 
+    //אם מוסיפים שדה נמחק להוסיף פונקציה שמחזיקה עם הנמחקים
 }

@@ -12,7 +12,7 @@ public struct Product
     /// <summary>
     ///  Unique Id of Product struct
     /// </summary>
-    public int? ID { get; set; }
+    public int ID { get; set; }
     /// <summary>
     ///  Unique Name of Product struct
     /// </summary>
