@@ -14,6 +14,5 @@ public interface ICrud<T> where T : struct
      void Update(T item);
      T GetByID(int id);
     // IEnumerable<T> getAll();
-
     //אם מוסיפים שדה נמחק להוסיף פונקציה שמחזיקה עם הנמחקים
 }

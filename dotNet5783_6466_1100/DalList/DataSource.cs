@@ -1,5 +1,4 @@
 ﻿
-
 using DO;
 
 namespace Dal;
@@ -8,7 +7,7 @@ public class DataSource
 {
     internal static DataSource s_instance { get; }= new DataSource();// יצירת מופע  נתונים
     private DataSource() { s_initialize(); }
-    internal readonly static Random R = new Random();
+    public readonly Random R = new Random();
     internal  List<Order?> Orders { get; } = new List<Order?> {};
     internal  List<OrderItem?> OrderItems { get; } = new List<OrderItem?>  {};
     internal  List<Product?> products { get; } = new List<Product?>{};
@@ -20,14 +19,12 @@ public class DataSource
         /// function- Update next id
         /// </summary>
         internal static int NextOrderNumber { get => ++s_nextOrderNumber; }
-
         internal const int s_startOrderItemNumber = 100000;
         private static int s_nextOrderItemNumber = s_startOrderNumber;
         /// <summary>
         /// function- Update next id
         /// </summary>
         internal static int NextOrderItemNumber { get => ++s_nextOrderNumber; }
-
     }
     #region all add functions
     private void addProduct()
@@ -35,15 +32,15 @@ public class DataSource
         string[] name = { "Iphone12", "Iphone11", "HeadPhones", "galaxy s22", "galaxy s21", "galaxy s21", " Xiaomi Mi Smart Band Pro", "screen Protector Iphone11", "samsung galaxy Tab 6", "pink cover", "black cover" };
         for (int i = 0; i < 10; i++)
         {
-            Product product = new Product()
+            Category category = (Category)R.Next(1, 6);
+            products.Add(new Product
             {
                 ID = Config.NextOrderNumber,
                 Name = name[R.Next(name.Length)],
                 Price = R.Next(50, 1500),
-                Category = (Enums.Category)(i%5),
+                Category = (Category)(i%5),
                 InStock = R.Next(0,50)
-            };
-            products.Add(product);
+            });
         }
     }
 
@@ -87,7 +84,6 @@ public class DataSource
             OrderItems.Add(orderItem);
         }
     }
-
     #endregion 
 
     private void s_initialize()
@@ -96,7 +92,4 @@ public class DataSource
         addOrder();
         addOrderItem();
     }
-
-
-
 }

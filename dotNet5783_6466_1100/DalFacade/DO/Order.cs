@@ -1,10 +1,4 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
-
-namespace DO;
+﻿namespace DO;
 /// <summary>
 /// structure for order
 /// </summary>
@@ -42,14 +36,12 @@ public struct Order
     /// </summary>
     /// <returns></returns>
     public override string ToString() => $@"
-        ID={{ID}}
-        Customer name: {{CustomerName}}
-        Customer email: {{CustomerEmail}}
-        Customer adress: {{CustomerAdress}}
-        date of order: {{OrderDate}}
-        date of ship:{{ShipDate}}
-        date of delivery: {{DeliveryDate}}
+        ID={ID}
+        Customer name: {CustomerName}
+        Customer email: {CustomerEmail}
+        Customer adress: {CustomerAdress}
+        date of order: {OrderDate}
+        date of ship:{ShipDate}
+        date of delivery: {DeliveryDate}
 ";
-
-
 }

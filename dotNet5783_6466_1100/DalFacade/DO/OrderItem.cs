@@ -1,6 +1,4 @@
-﻿
-
-namespace DO;
+﻿namespace DO;
 
 /// <summary>
 /// structure for order item
@@ -33,12 +31,10 @@ public struct OrderItem
     /// </summary>
     /// <returns></returns>
     public override string ToString() => $@"
-        ID={{ID}}
-        Product ID={{ProductID}}
-        Order ID={{OrderID}}
-    	Price: {{Price}}
-    	Amount: {{Amount}}
+        ID={ID}
+        Product ID={ProductID}
+        Order ID={OrderID}
+    	Price: {Price}
+    	Amount: {Amount}
 ";
-
-
 }

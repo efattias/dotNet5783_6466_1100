@@ -1,9 +1,4 @@
-﻿
-
-using System.ComponentModel;
-using static DO.Enums;
-
-namespace DO;
+﻿namespace DO;
 /// <summary>
 /// structure for product
 /// </summary>
@@ -24,7 +19,7 @@ public struct Product
     /// <summary>
     ///  Unique Category of Product struct
     /// </summary>
-    public Category Category { get; set; }
+    public Category? Category { get; set; }
     /// <summary>
     ///  Unique InStock of Product struct
     /// </summary>
@@ -37,13 +32,9 @@ public struct Product
     /// <returns></returns>
     public override string ToString() => $@"
     
-        Product ID={{ID}}: {{Name}}, 
-        category - {{Category}}
-    	Price: {{Price}}
-    	Amount in stock: {{InStock}}
+        Product ID={ID}: {Name}, 
+        category - {Category}
+    	Price: {Price}
+    	Amount in stock: {InStock}
 ";
-
-
-
-
 }
