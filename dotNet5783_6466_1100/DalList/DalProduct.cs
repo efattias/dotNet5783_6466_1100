@@ -34,4 +34,8 @@ public class DalProduct:IProduct
         Delete(item.ID);
         Add(item);
     }
+    public IEnumerable<Product> getAll()
+    {
+        return (from Product product in ds.products select product).ToList<Product>();
+    }
 }

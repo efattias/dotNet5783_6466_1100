@@ -53,7 +53,9 @@ class Program
                         order.GetByID(id);
                         Console.WriteLine(order.GetByID(id));
                         break;
-                    case 3:///////// לסדר את getallllllll
+                    case 3:
+                        var list= order.getAll();
+                        foreach (var item in list)Console.WriteLine(item.ToString());
 
 
                         break;
@@ -74,7 +76,7 @@ class Program
                         order.Update(temp1);
                         break;
                     case 5:
-                        Console.WriteLine("insert id to get order:");
+                        Console.WriteLine("insert id to delete order:");
                         int.TryParse(Console.ReadLine(), out id);
                         order.Delete(id);
                         break;
@@ -140,9 +142,9 @@ class Program
                         orderItem.GetByID(id);
                         Console.WriteLine(orderItem.GetByID(id));
                         break;
-                    case 3:///////// לסדר את getallllllll
-
-
+                    case 3:
+                        var list = orderItem.getAll();
+                        foreach (var item in list) Console.WriteLine(item.ToString());
                         break;
 
                     case 4:
@@ -166,7 +168,7 @@ class Program
                         orderItem.Update(temp1);
                         break;
                     case 5:
-                        Console.WriteLine("insert id to get order:");
+                        Console.WriteLine("insert id to delete order:");
                         int.TryParse(Console.ReadLine(), out id);
                         orderItem.Delete(id);
                         break;
@@ -225,7 +227,7 @@ class Program
                                         3-tablets, 
                                         4-smart Watchs");
                         int.TryParse(Console.ReadLine(), out cat);
-         
+
                         switch (cat)
                         {
                             case 0:
@@ -259,9 +261,9 @@ class Program
                         product.GetByID(id);
                         Console.WriteLine(product.GetByID(id));
                         break;
-                    case 3:///////// לסדר את getallllllll
-
-
+                    case 3:
+                        var list = product.getAll();
+                        foreach (var item in list) Console.WriteLine(item.ToString());
                         break;
 
                     case 4:
@@ -312,15 +314,16 @@ class Program
                         product.Update(temp1);
                         break;
                     case 5:
-                        Console.WriteLine("insert id to get product:");
+                        Console.WriteLine("insert id to delete product:");
                         int.TryParse(Console.ReadLine(), out id);
                         product.Delete(id);
                         break;
                     case 0:
                         break;
+
+                    if (choice == 0)
+                            break;
                 }
-                if (choice == 0)
-                    break;
             }
         }
         catch (Exception ex)
@@ -359,10 +362,6 @@ class Program
                     break;
                 case 0:
                     break;
-
-
-
-
             }
             if (choice == 0)
                 break;

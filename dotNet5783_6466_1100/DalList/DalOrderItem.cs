@@ -46,5 +46,9 @@ public class DalOrderItem:IOrderItem
             return (OrderItem)temp;
         else throw new Exception(" product not exist");
     }
+    public IEnumerable<OrderItem> getAll()
+    {
+        return (from OrderItem order in ds.OrderItems select order).ToList<OrderItem>();
+    }
 }
 

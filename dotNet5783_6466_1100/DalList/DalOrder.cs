@@ -39,8 +39,9 @@ public class DalOrder : IOrder// לממש את המתודות של iorder
         Delete(item.ID);
         Add(item);
     }
-    //public IEnumerable<Order> getAll()
-    //{
-    //    return (from Order in ds.Orders select Order).ToList<Order>();
-    //}
+    public IEnumerable<Order> getAll()
+    {
+        return (from Order order in ds.Orders select order).ToList<Order>();
+       
+    }
 }
