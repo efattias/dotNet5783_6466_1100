@@ -5,28 +5,41 @@ namespace Dal;
 
 public class DataSource
 {
-    internal static DataSource s_instance { get; }= new DataSource();// יצירת מופע  נתונים
-    private DataSource() { s_initialize(); }
-    public readonly Random R = new Random();
-    internal  List<Order?> Orders { get; } = new List<Order?> {};
+    internal static DataSource s_instance { get; }= new DataSource();// create data source
+    private DataSource() { s_initialize(); }// ctor for data source
+    public readonly Random R = new Random();// random field
+    #region create lists
+    /// <summary>
+    /// list for orders
+    /// </summary>
+    internal List<Order?> Orders { get; } = new List<Order?> {};
+    /// <summary>
+    /// list for item orders
+    /// </summary>
     internal  List<OrderItem?> OrderItems { get; } = new List<OrderItem?>  {};
+    /// <summary>
+    /// list for products
+    /// </summary>
     internal  List<Product?> products { get; } = new List<Product?>{};
+    /// <summary>
+    /// class for running number
+    /// </summary>
+    #endregion
     internal static class Config
     {
         internal const int s_startOrderNumber = 000000;
         private static int s_nextOrderNumber = s_startOrderNumber;
-        /// <summary>
-        /// function- Update next id
-        /// </summary>
         internal static int NextOrderNumber { get => ++s_nextOrderNumber; }
+
+
         internal const int s_startOrderItemNumber = 100000;
         private static int s_nextOrderItemNumber = s_startOrderNumber;
-        /// <summary>
-        /// function- Update next id
-        /// </summary>
         internal static int NextOrderItemNumber { get => ++s_nextOrderNumber; }
     }
-    #region all add functions
+    #region add functions
+    /// <summary>
+    /// funcion- add products to list of products in data source
+    /// </summary>
     private void addProduct()
     {
         string[] name = { "Iphone12", "Iphone11", "HeadPhones", "galaxy s22", "galaxy s21", "galaxy s21", " Xiaomi Mi Smart Band Pro", "screen Protector Iphone11", "samsung galaxy Tab 6", "pink cover", "black cover" };
@@ -44,6 +57,9 @@ public class DataSource
         }
     }
 
+    /// <summary>
+    /// funcion- add orders to list of orders in data source
+    /// </summary>
     private void addOrder()
     {
         string[] customerNames = {"sara","rivka","rachel","lea","efrat","miryam","avraham","yaakov","maayan","dani","shir","ori","tamar","reut","yosi" };
@@ -65,6 +81,9 @@ public class DataSource
         }
     }
 
+    /// <summary>
+    /// funcion- add order items to list of order items in data source
+    /// </summary>
     private void addOrderItem()
     {
         string[] customerNames = { "sara", "rivka", "rachel", "lea", "efrat", "miryam", "avraham", "yaakov", "maayan", "dani", "shir", "ori", "tamar", "reut", "yosi" };
@@ -86,6 +105,9 @@ public class DataSource
     }
     #endregion 
 
+    /// <summary>
+    /// funcion - initialize data source
+    /// </summary>
     private void s_initialize()
     {
         addProduct();

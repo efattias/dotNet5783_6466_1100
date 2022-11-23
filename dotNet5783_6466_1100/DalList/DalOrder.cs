@@ -1,13 +1,20 @@
 ﻿using DalApi;
 using DO;
-//using System.Collections.Generic;
-
 namespace Dal;
 
-public class DalOrder : IOrder// לממש את המתודות של iorder
+/// <summary>
+/// class for implement the funcions of order
+/// </summary>
+public class DalOrder : IOrder
 {
-    public readonly Random rnd = new Random();
+    public readonly Random rnd = new Random();// random variable 
     DataSource ds = DataSource.s_instance;
+    /// <summary>
+    /// function- add order to order list
+    /// </summary>
+    /// <param name="item"></param>
+    /// <returns></returns>
+    /// <exception cref="Exception"></exception>
     public int Add(Order item)
     {
         Order? temp = ds.Orders.Find(x => x?.ID == item.ID);
@@ -19,18 +26,34 @@ public class DalOrder : IOrder// לממש את המתודות של iorder
         ds.Orders.Add(item);
         return item.ID;
     }
+    /// <summary>
+    /// function- delete order from order list
+    /// </summary>
+    /// <param name="id"></param>
+    /// <exception cref="Exception"></exception>
     public void Delete(int id)
     {
         if (ds.Orders.RemoveAll(Order => Order?.ID == id) == 0)
             throw new Exception("cant Delete that does not exist");
     }
-    public Order GetByID(int id) //=> ds.Orders.FirstOrDefault() ?? throw new Exception("missing order id");
-    {
+    /// <summary>
+    ///function- get order from list by given id
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    /// <exception cref="Exception"></exception>
+    public Order GetByID(int id)
+    { 
         Order? temp = ds.Orders.Find(x => x?.ID == id);
         if (temp == null)
             throw new Exception("order is not exists");
         return (Order)temp;
     }
+    /// <summary>
+    /// function- update order in the list
+    /// </summary>
+    /// <param name="item"></param>
+    /// <exception cref="Exception"></exception>
     public void Update(Order item)
     {
         Order? temp = ds.Orders.Find(x => x?.ID == item.ID);
@@ -39,6 +62,10 @@ public class DalOrder : IOrder// לממש את המתודות של iorder
         Delete(item.ID);
         Add(item);
     }
+    /// <summary>
+    /// function- return list of orders
+    /// </summary>
+    /// <returns></returns>
     public IEnumerable<Order> getAll()
     {
         return (from Order order in ds.Orders select order).ToList<Order>();

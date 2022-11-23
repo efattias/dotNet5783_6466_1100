@@ -7,7 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 class Program
-{
+{/// <summary>
+/// function- test order actions 
+/// </summary>
+/// <param name="order"></param>
     static void TestOrder(DalOrder order)
     {
         try
@@ -93,6 +96,10 @@ class Program
         }
         
     }
+    /// <summary>
+    ///function- test order items actions
+    /// </summary>
+    /// <param name="orderItem"></param>
     static void TestOrderItem(DalOrderItem orderItem)
     {
         try
@@ -184,6 +191,10 @@ class Program
             Console.WriteLine(ex.Message);
         }
     }
+    /// <summary>
+    /// function- test product actions
+    /// </summary>
+    /// <param name="product"></param>
     static void TestProduct(DalProduct product)
     {
         try
@@ -332,7 +343,10 @@ class Program
         }
     }
 
-
+    /// <summary>
+    /// funcion- Main 
+    /// </summary>
+    /// <param name="args"></param>
     static void Main(string[] args)
 	{
         DalOrder order = new DalOrder();

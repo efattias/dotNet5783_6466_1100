@@ -6,7 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DalApi;
-
+/// <summary>
+///  interface for implement orderItem
+/// </summary>
 public interface IOrderItem:ICrud<OrderItem>
 {
     // List<OrderItem> getItemList(int orderId);

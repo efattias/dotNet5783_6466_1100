@@ -1,6 +1,6 @@
 ﻿namespace DO;
 /// <summary>
-/// structure for enums
+/// enum for category
 /// </summary>
     public enum Category
     {
