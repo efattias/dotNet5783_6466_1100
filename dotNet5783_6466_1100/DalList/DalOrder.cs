@@ -19,7 +19,7 @@ public class DalOrder : IOrder
     {
         Order? temp = ds.Orders.Find(x => x?.ID == item.ID);
         if (temp != null)
-            throw new Exception("order allready exists");
+            throw new AlreadyExistExeption("order allready exists");
         item.OrderDate = DateTime.Now - new TimeSpan(rnd.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L));
         item.ShipDate = DateTime.Now - new TimeSpan(rnd.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L));
         item.DeliveryDate = DateTime.Now - new TimeSpan(rnd.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L));
@@ -34,7 +34,7 @@ public class DalOrder : IOrder
     public void Delete(int id)
     {
         if (ds.Orders.RemoveAll(Order => Order?.ID == id) == 0)
-            throw new Exception("cant Delete that does not exist");
+            throw new DoesntExistException("cant Delete that- order does not exist");
     }
     /// <summary>
     ///function- get order from list by given id
@@ -46,7 +46,7 @@ public class DalOrder : IOrder
     { 
         Order? temp = ds.Orders.Find(x => x?.ID == id);
         if (temp == null)
-            throw new Exception("order is not exists");
+            throw new DoesntExistException("order does not exist");
         return (Order)temp;
     }
     /// <summary>
@@ -58,7 +58,7 @@ public class DalOrder : IOrder
     {
         Order? temp = ds.Orders.Find(x => x?.ID == item.ID);
         if (temp == null)
-            throw new Exception("not exist");
+            throw new DoesntExistException("order does not exist");
         Delete(item.ID);
         Add(item);
     }

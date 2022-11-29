@@ -18,7 +18,7 @@ public class DalOrderItem:IOrderItem
     {
         OrderItem? temp = ds.OrderItems.Find(x => x?.ID == item.ID);
         if (temp != null)
-            throw new Exception("order allready exists");
+            throw new AlreadyExistExeption("order item allready exists");
         ds.OrderItems.Add(item);
         return item.ID;
     }
@@ -30,7 +30,7 @@ public class DalOrderItem:IOrderItem
     public void Delete(int id)
     {
         if (ds.OrderItems.RemoveAll(OrderItem => OrderItem?.ID == id) == 0)
-            throw new Exception("cant Delete that does not exist");
+            throw new DoesntExistException("cant Delete that-order item does not exist");
     }
     /// <summary>
     /// function- get order item from list by given id
@@ -42,7 +42,7 @@ public class DalOrderItem:IOrderItem
     {
         OrderItem? temp = ds.OrderItems.Find(x => x?.ID == id);
         if (temp == null)
-            throw new Exception("order is not exists");
+            throw new DoesntExistException("order item does not exist");
         return (OrderItem)temp;
     }
     /// <summary>
@@ -54,7 +54,7 @@ public class DalOrderItem:IOrderItem
     {
         OrderItem? temp = ds.OrderItems.Find(x => x?.ID == item.ID);
         if (temp == null)
-            throw new Exception("not exist");
+            throw new DoesntExistException(" does not exist");
         Delete(item.ID);
         Add(item);
     }
@@ -71,10 +71,10 @@ public class DalOrderItem:IOrderItem
 
         //OrderItem? temp1 = ds.OrderItems.Find(x => x?.ProductID == productId);
         if (temp == null)
-            throw new Exception("order not exist");
+            throw new DoesntExistException("order not exist");
         if (temp?.ProductID == productId)
             return (OrderItem)temp;
-        else throw new Exception(" product not exist");
+        else throw new DoesntExistException(" product not exist");
     }
     /// <summary>
     /// function- return order item list

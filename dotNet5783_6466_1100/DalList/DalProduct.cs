@@ -1,5 +1,6 @@
 ﻿using DalApi;
 using DO;
+using System.ComponentModel.Design;
 
 namespace Dal;
 /// <summary>
@@ -18,7 +19,7 @@ public class DalProduct:IProduct
     {
         Product? temp = ds.products.Find(x => x?.ID == item.ID);
         if (temp != null)
-            throw new Exception("product allready exists");
+            throw new AlreadyExistExeption("product allready exists");
         ds.products.Add(item);
         return item.ID;
     }
@@ -30,7 +31,7 @@ public class DalProduct:IProduct
     public void Delete(int id)
     {
         if (ds.products.RemoveAll(Product => Product?.ID == id) == 0)
-            throw new Exception("cant Delete that does not exist");
+            throw new DoesntExistException("cant Delete that - does not exist");
     }
     /// <summary>
     /// function- get product from list by given id
@@ -42,7 +43,7 @@ public class DalProduct:IProduct
     { 
         Product? temp = ds.products.Find(x => x?.ID == id);
         if (temp == null)
-            throw new Exception("product is not exists");
+            throw new DoesntExistException("product does not exist");
         return (Product)temp;
     }
     /// <summary>
@@ -54,7 +55,7 @@ public class DalProduct:IProduct
     {
         Product? temp = ds.products.Find(x => x?.ID == item.ID);
         if (temp == null)
-            throw new Exception("not exist");
+            throw new DoesntExistException("does not exist");
         Delete(item.ID);
         Add(item);
     }
