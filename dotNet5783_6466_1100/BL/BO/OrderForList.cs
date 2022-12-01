@@ -7,9 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BO;
-/// <summary>
-/// list of orders detail
-/// </summary>
 public class OrderForList
 {
     /// <summary>

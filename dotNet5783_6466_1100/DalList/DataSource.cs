@@ -42,7 +42,7 @@ public class DataSource
     /// </summary>
     private void addProduct()
     {
-        string[] name = { "Iphone12", "Iphone11", "HeadPhones", "galaxy s22", "galaxy s21", "galaxy s21", " Xiaomi Mi Smart Band Pro", "screen Protector Iphone11", "samsung galaxy Tab 6", "pink cover", "black cover" };
+        string[] name = { "kipa aduma", "tehilim","harry poter1","history book- 8th grage","samech bamitbach", "harry poter2", "harry poter3", "harry poter4", "harry poter5", "harry poter6", "harry poter7" , "ayelet metayelet","pinokiyo","bereshit","shmot","bamidbar", "dvarim"};
         for (int i = 0; i < 10; i++)
         {
             Category category = (Category)R.Next(1, 6);
