@@ -16,9 +16,9 @@ public struct Order
     /// </summary>
     public string? CustomerEmail { get; set; }
     /// <summary>
-    /// Unique CustomerAdress of order struct
+    /// Unique CustomerAddress of order struct
     /// </summary>
-    public string? CustomerAdress { get; set; }
+    public string? CustomerAddress { get; set; }
     /// <summary>
     /// Unique OrderDate of order struct
     /// </summary>
@@ -39,9 +39,9 @@ public struct Order
         ID={ID}
         Customer name: {CustomerName}
         Customer email: {CustomerEmail}
-        Customer adress: {CustomerAdress}
-        date of order: {OrderDate}
-        date of ship:{ShipDate}
-        date of delivery: {DeliveryDate}
+        Customer address: {CustomerAddress}
+        Date of order: {OrderDate}
+        Date of ship:{ShipDate}
+        Date of delivery: {DeliveryDate}
 ";
 }
