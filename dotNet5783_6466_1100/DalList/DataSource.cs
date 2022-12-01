@@ -42,7 +42,7 @@ public class DataSource
     /// </summary>
     private void addProduct()
     {
-        string[] name = { "harry poter 1", "harry poter 2", "harry poter 3", "harry poter 4", "harry poter 5", "harry poter 6", "harry poter 7", "סידור","חומש בראשית","חומש שמות","חומש ויקרא","חומש במדבר", "חומש דברים","האריה שאהב תות","דירה להשכיר","חנן הגנן","איילת מטיילת","מדור לדור","שבילים1","שבילים2","שבילים 3" };
+        string[] name = { "Iphone12", "Iphone11", "HeadPhones", "galaxy s22", "galaxy s21", "galaxy s21", " Xiaomi Mi Smart Band Pro", "screen Protector Iphone11", "samsung galaxy Tab 6", "pink cover", "black cover" };
         for (int i = 0; i < 10; i++)
         {
             Category category = (Category)R.Next(1, 6);
@@ -72,7 +72,7 @@ public class DataSource
                 ID = Config.NextOrderNumber,
                 CustomerName = customerNames[R.Next(customerNames.Length)],
                 CustomerEmail = customerEmails[R.Next(customerEmails.Length)],
-                CustomerAdress = adress[R.Next(adress.Length)],
+                CustomerAddress = adress[R.Next(adress.Length)],
                 OrderDate = DateTime.Now - new TimeSpan(R.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L)),
                 ShipDate = DateTime.Now - new TimeSpan(R.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L)),
                 DeliveryDate = DateTime.Now - new TimeSpan(R.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L))

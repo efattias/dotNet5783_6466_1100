@@ -47,7 +47,7 @@ class Program
                         temp.CustomerEmail = n;
                         Console.WriteLine("customer adress:");
                         n = Console.ReadLine();
-                        temp.CustomerAdress = n;
+                        temp.CustomerAddress = n;
                         order.Add(temp);
                         break;
                     case 2:
@@ -75,7 +75,7 @@ class Program
                         Console.WriteLine("costumer email:");
                         temp1.CustomerEmail = Console.ReadLine();
                         Console.WriteLine("costumer adress:");
-                        temp1.CustomerAdress = Console.ReadLine();
+                        temp1.CustomerAddress = Console.ReadLine();
                         order.Update(temp1);
                         break;
                     case 5:
@@ -232,29 +232,29 @@ class Program
                         double.TryParse(Console.ReadLine(), out price);
                         temp.Price = price;
                         Console.WriteLine(@"choose product catgory: 
-                                        0-kids books, 
-                                        1-teens books, 
-                                        2-cook books, 
-                                        3-kodesh books, 
-                                        4-learning books");
+                                        0-phones, 
+                                        1-gadgets, 
+                                        2-audio, 
+                                        3-tablets, 
+                                        4-smart Watchs");
                         int.TryParse(Console.ReadLine(), out cat);
 
                         switch (cat)
                         {
                             case 0:
-                                temp.Category = Category.kids;
+                                temp.Category = Category.phone;
                                 break;
                             case 1:
-                                temp.Category = Category.teens;
+                                temp.Category = Category.Gadget;
                                 break;
                             case 2:
-                                temp.Category = Category.cook;
+                                temp.Category = Category.audio;
                                 break;
                             case 3:
-                                temp.Category = Category.kodesh;
+                                temp.Category = Category.tablet;
                                 break;
                             case 4:
-                                temp.Category = Category.learn;
+                                temp.Category = Category.smartWatch;
                                 break;
                             default:
                                 Console.WriteLine("ERROR- category does not exist");
@@ -300,19 +300,19 @@ class Program
                         switch (cat)
                         {
                             case 0:
-                                temp1.Category = Category.kids;
+                                temp1.Category = Category.phone;
                                 break;
                             case 1:
-                                temp1.Category = Category.teens;
+                                temp1.Category = Category.Gadget;
                                 break;
                             case 2:
-                                temp1.Category = Category.cook;
+                                temp1.Category = Category.audio;
                                 break;
                             case 3:
-                                temp1.Category = Category.kodesh;
+                                temp1.Category = Category.tablet;
                                 break;
                             case 4:
-                                temp1.Category = Category.learn;
+                                temp1.Category = Category.smartWatch;
                                 break;
                             default:
                                 Console.WriteLine("ERROR- category does not exist");
