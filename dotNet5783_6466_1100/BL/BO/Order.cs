@@ -5,50 +5,53 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BO;
+/// <summary>
+/// class for order
+/// </summary>
 public class Order
 {
     /// <summary>
-    /// Unique ID of order class
+    /// id of order
     /// </summary>
     public int ID { get; set; }
     /// <summary>
-    /// Unique customer name of order class
+    /// purchaser name
     /// </summary>
     public string? CustomerName { get; set; }
     /// <summary>
-    /// Unique customer email of order class
+    /// purchaser email
     /// </summary>
     public string? CustomerEmail { get; set; }
     /// <summary>
-    /// Unique customer address of order class
+    /// purchaser address
     /// </summary>
     public string? CustomerAddress { get; set; }
     /// <summary>
-    /// Unique order date of order class
-    /// </summary>
-    public DateTime? OrderDate { get; set; }
-    /// <summary>
-    /// Unique order status of order class
+    /// order status
     /// </summary>
     public Status? OrderStatus { get; set; }
     /// <summary>
-    /// Unique paymant date of order class
+    /// the date of making order
+    /// </summary>
+    public DateTime? OrderDate { get; set; }
+    /// <summary>
+    /// date of the pay on the order
     /// </summary>
     public DateTime? PaymantDate { get; set; }
     /// <summary>
-    /// Unique ship date of order class
+    /// ship date of order
     /// </summary>
     public DateTime? ShipDate { get; set; }
     /// <summary>
-    /// Unique delivery date of order class
+    /// delivery date of order 
     /// </summary>
     public DateTime? DeliveryDate { get; set; }
     /// <summary>
-    /// Unique items of order class
+    /// List of ordered items
     /// </summary>
     public OrderItem? Items { get; set; }
     /// <summary>
-    /// Unique total price of order class
+    /// total price of order
     /// </summary>
     public double? TotalPrice { get; set; }
     /// <summary>
