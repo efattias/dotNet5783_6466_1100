@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BO;
-    public class OrderTracking
-    {
-    public int ID {get; set;}
-    public Status? OrderStatus {get; set;}
-    }
+public class OrderTracking
+{
+    public int ID { get; set; }
+    public Status? OrderStatus { get; set; }
+}
 

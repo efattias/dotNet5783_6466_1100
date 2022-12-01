@@ -4,7 +4,7 @@
 /// </summary>
 public enum Category
 {
-    phone, Gadget, audio, tablet, smartWatch
+    kids, teens, cook, kodesh, learn
 }
 public enum Status
 {

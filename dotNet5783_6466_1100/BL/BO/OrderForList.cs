@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BO;
-
 public class OrderForList
 {
     public int Id { get; set; }

@@ -1,5 +1,6 @@
 ﻿namespace DO;
 
+
 /// <summary>
 /// structure for order item
 /// </summary>
