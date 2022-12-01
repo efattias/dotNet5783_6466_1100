@@ -16,7 +16,7 @@ class Program
         try
         {
             int choice = 1;
-            int i;
+            //int i;
             while (choice != 0)
             {
                 Console.WriteLine(@"
@@ -105,7 +105,7 @@ class Program
         try
         {
             int choice = 1;
-            int i;
+            //int i;
             while (choice != 0)
             {
                 Console.WriteLine(@"
@@ -118,7 +118,7 @@ class Program
                 5-delete order item from list");
                 bool flag = int.TryParse(Console.ReadLine(), out choice);
                 int detail;
-                string n;
+               // string n;
                 int id;
                 double price;
                 switch (choice)
@@ -200,7 +200,7 @@ class Program
         try
         {
             int choice = 1;
-            int i;
+            //int i;
             while (choice != 0)
             {
                 Console.WriteLine(@"
@@ -232,29 +232,29 @@ class Program
                         double.TryParse(Console.ReadLine(), out price);
                         temp.Price = price;
                         Console.WriteLine(@"choose product catgory: 
-                                        0-phones, 
-                                        1-gadgets, 
-                                        2-audio, 
-                                        3-tablets, 
-                                        4-smart Watchs");
+                                        0-kids books, 
+                                        1-teens books, 
+                                        2-cook books, 
+                                        3-kodesh books, 
+                                        4-learning books");
                         int.TryParse(Console.ReadLine(), out cat);
 
                         switch (cat)
                         {
                             case 0:
-                                temp.Category = Category.phone;
+                                temp.Category = Category.kids;
                                 break;
                             case 1:
-                                temp.Category = Category.Gadget;
+                                temp.Category = Category.teens;
                                 break;
                             case 2:
-                                temp.Category = Category.audio;
+                                temp.Category = Category.cook;
                                 break;
                             case 3:
-                                temp.Category = Category.tablet;
+                                temp.Category = Category.kodesh;
                                 break;
                             case 4:
-                                temp.Category = Category.smartWatch;
+                                temp.Category = Category.learn;
                                 break;
                             default:
                                 Console.WriteLine("ERROR- category does not exist");
@@ -290,29 +290,29 @@ class Program
                         double.TryParse(Console.ReadLine(), out price);
                         temp1.Price = price;
                         Console.WriteLine(@"choose product catgory: 
-                                        0-phones, 
-                                        1-gadgets, 
-                                        2-audio, 
-                                        3-tablets, 
-                                        4-smart Watchs");
+                                        0-kids book, 
+                                        1-teens book, 
+                                        2-cook books, 
+                                        3-kodesh books, 
+                                        4-learning books");
                         int.TryParse(Console.ReadLine(), out cat);
 
                         switch (cat)
                         {
                             case 0:
-                                temp1.Category = Category.phone;
+                                temp1.Category = Category.kids;
                                 break;
                             case 1:
-                                temp1.Category = Category.Gadget;
+                                temp1.Category = Category.teens;
                                 break;
                             case 2:
-                                temp1.Category = Category.audio;
+                                temp1.Category = Category.cook;
                                 break;
                             case 3:
-                                temp1.Category = Category.tablet;
+                                temp1.Category = Category.kodesh;
                                 break;
                             case 4:
-                                temp1.Category = Category.smartWatch;
+                                temp1.Category = Category.learn;
                                 break;
                             default:
                                 Console.WriteLine("ERROR- category does not exist");
