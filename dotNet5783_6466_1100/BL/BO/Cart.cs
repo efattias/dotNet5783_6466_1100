@@ -9,23 +9,23 @@ namespace BO;
 public class Cart
 {
     /// <summary>
-    /// Unique CustomerName of Cart class
+    /// Unique customer name of cart class
     /// </summary>
     public string? CustomerName { get; set; }
     /// <summary>
-    /// Unique CustomerEmail of Cart class
+    /// Unique customer email of cart class
     /// </summary>
     public string? CustomerEmail { get; set; }
     /// <summary>
-    /// Unique CustomerAddress of Cart class
+    /// Unique customer address of cart class
     /// </summary>
     public string? CustomerAddress { get; set; }
     /// <summary>
-    /// Unique Items of Cart class
+    /// Unique items of cart class
     /// </summary>
     public OrderItem? Items { get; set; }
     /// <summary>
-    /// Unique CustomerEmail of Cart class
+    /// Unique total price of cart class
     /// </summary>
     public double? TotalPrice { get; set; }
     /// <summary>
