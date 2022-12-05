@@ -68,8 +68,6 @@ public class DalOrderItem:IOrderItem
     public OrderItem GetProductByOrderAndID(int orderId, int productId)
     {
         OrderItem? temp = ds.OrderItems.Find(x => x?.OrderID == orderId);
-
-        //OrderItem? temp1 = ds.OrderItems.Find(x => x?.ProductID == productId);
         if (temp == null)
             throw new DoesntExistException("order not exist");
         if (temp?.ProductID == productId)
