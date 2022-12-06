@@ -69,4 +69,19 @@ public class DalProduct:IProduct
                 
                 select product).ToList<Product>();
     }
+
+    public int Add(Product? item)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Update(Product? item)
+    {
+        throw new NotImplementedException();
+    }
+
+    public IEnumerable<Product?> getAll(Func<Product?, bool>? filter = null)
+    {
+        throw new NotImplementedException();
+    }
 }

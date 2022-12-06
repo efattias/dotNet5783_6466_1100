@@ -82,5 +82,30 @@ public class DalOrderItem:IOrderItem
     {
         return (from OrderItem order in ds.OrderItems select order).ToList<OrderItem>();
     }
+
+    public int Add(OrderItem? item)
+    {
+        if(item == null)
+            throw new DO.InvalidItemException("null item");
+
+        OrderItem? temp = ds.OrderItems.Find(x => x?.ID == item?.ID);
+
+        if (temp != null)
+            throw new AlreadyExistExeption("order item allready exists");
+        OrderItem orderItem = (OrderItem)item;
+        ds.OrderItems.Add(orderItem);
+        
+        return orderItem.ID;
+    }
+
+    public void Update(OrderItem? item)
+    {
+        throw new NotImplementedException();
+    }
+
+    public IEnumerable<OrderItem?> getAll(Func<OrderItem?, bool>? filter = null)
+    {
+        throw new NotImplementedException();
+    }
 }
 

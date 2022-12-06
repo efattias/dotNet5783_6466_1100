@@ -56,7 +56,7 @@ internal class BoProduct :IBoProduct
     /// <exception cref="CantDeleteItem"></exception>
     public void DeledeProduct(int IDProduct)
     {
-        IEnumerable<DO.Order> tempList = dal.Order.getAll();// create temp list 
+        IEnumerable<DO.Order> tempList = (IEnumerable<DO.Order>)dal.Order.getAll();// create temp list 
         foreach (DO.Order o in tempList)// go over the list
         {
             DO.OrderItem? item = new DO.OrderItem();// create orderItem for testing

@@ -15,16 +15,24 @@ public class DalOrder : IOrder
     /// <param name="item"></param>
     /// <returns></returns>
     /// <exception cref="Exception"></exception>
-    public int Add(Order item)
+    public int Add(Order? item)
     {
-        Order? temp = ds.Orders.Find(x => x?.ID == item.ID);
+        if (item == null)
+            throw new DO.InvalidItemException("null item");
+
+        Order? temp = ds.Orders.Find(x => x?.ID == item?.ID );
         if (temp != null)
             throw new AlreadyExistExeption("order allready exists");
-        item.OrderDate = DateTime.Now - new TimeSpan(rnd.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L));
-        item.ShipDate = DateTime.Now - new TimeSpan(rnd.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L));
-        item.DeliveryDate = DateTime.Now - new TimeSpan(rnd.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L));
-        ds.Orders.Add(item);
-        return item.ID;
+
+        Order order = (Order)item;
+
+        order.OrderDate = DateTime.Now - new TimeSpan(rnd.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L));
+        order.ShipDate = DateTime.Now - new TimeSpan(rnd.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L));
+        order.DeliveryDate = DateTime.Now - new TimeSpan(rnd.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L));
+        
+        ds.Orders.Add(order);
+
+        return order.ID;
     }
     /// <summary>
     /// function- delete order from order list
@@ -54,21 +62,25 @@ public class DalOrder : IOrder
     /// </summary>
     /// <param name="item"></param>
     /// <exception cref="Exception"></exception>
-    public void Update(Order item)
+    public void Update(Order? item)
     {
-        Order? temp = ds.Orders.Find(x => x?.ID == item.ID);
+        Order? temp = ds.Orders.Find(x => x?.ID == item?.ID);
         if (temp == null)
             throw new DoesntExistException("order does not exist");
-        Delete(item.ID);
-        Add(item);
+        Order order = (Order)item;
+
+        Delete(order.ID);
+        Add(order);
     }
     /// <summary>
     /// function- return list of orders
     /// </summary>
     /// <returns></returns>
-    public IEnumerable<Order> getAll()
+    
+    public IEnumerable<Order?> getAll(Func<Order?, bool>? filter = null)
     {
-        return (from Order order in ds.Orders select order).ToList<Order>();
-       
+        if(filter == null) 
+            return  ds.Orders?.ToList<Order?>() ?? throw new DO.DoesntExistException("Orders list invalid");
+        return ds.Orders.Where(x => filter(x)) ?? throw new DO.DoesntExistException("Orders list invalid"); ;
     }
 }
