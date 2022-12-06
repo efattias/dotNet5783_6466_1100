@@ -21,9 +21,9 @@ public class Cart
     /// </summary>
     public string? CustomerAddress { get; set; }
     /// <summary>
-    /// Unique Items of Cart class
+    /// Unique list of Items of Cart class
     /// </summary>
-    public OrderItem? Items { get; set; }
+    public List<OrderItem>? Items { get; set; }
     /// <summary>
     /// Unique CustomerEmail of Cart class
     /// </summary>

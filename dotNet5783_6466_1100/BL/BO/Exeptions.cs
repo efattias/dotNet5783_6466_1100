@@ -33,12 +33,22 @@ public class AlreadyExistExeption : Exception, ISerializable
     protected AlreadyExistExeption(SerializationInfo info, StreamingContext context) : base(info, context) { }
 }
 [Serializable]
-public class CantDeleteItem : Exception, ISerializable
+public class CantDeleteItemException : Exception, ISerializable
 {
-    public CantDeleteItem() : base() { }
-    public CantDeleteItem(string message) : base(message) { }
-    public CantDeleteItem(string message, Exception inner) : base(message, inner) { }
-    protected CantDeleteItem(SerializationInfo info, StreamingContext context) : base(info, context) { }
+    public CantDeleteItemException() : base() { }
+    public CantDeleteItemException(string message) : base(message) { }
+    public CantDeleteItemException(string message, Exception inner) : base(message, inner) { }
+    protected CantDeleteItemException(SerializationInfo info, StreamingContext context) : base(info, context) { }
 }
+[Serializable]
+
+public class ProductRequestFailedException : Exception, ISerializable
+{
+    public ProductRequestFailedException() : base() { }
+    public ProductRequestFailedException(string message) : base(message) { }
+    public ProductRequestFailedException(string message, Exception inner) : base(message, inner) { }
+    protected ProductRequestFailedException(SerializationInfo info, StreamingContext context) : base(info, context) { }
+}
+
 
 

@@ -20,7 +20,8 @@ public class OrderTracking
     /// order status
     /// </summary>
     public Status? OrderStatus { get; set; }
-    //public List<DateTime,string>
+
+    public List<Tuple<DateTime?, string>>? trackList { get; set; }  
 
     /// <summary>
     /// function- print OrderTracking class
