@@ -17,24 +17,18 @@ public class DalOrder : IOrder
     /// <param name="item"></param>
     /// <returns></returns>
     /// <exception cref="Exception"></exception>
-    public int Add(Order? item)
+    public int Add(Order item)
     {
-        if (item == null)
-            throw new DO.InvalidItemException("null item");
-
-        Order? temp = ds.Orders.Find(x => x?.ID == item?.ID );
+        Order? temp = ds.Orders.Find(x => x?.ID == item.ID );
         if (temp != null)
             throw new AlreadyExistExeption("order allready exists");
 
-        Order order = (Order)item;
-
-        order.OrderDate = DateTime.Now - new TimeSpan(rnd.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L));
-        order.ShipDate = DateTime.Now - new TimeSpan(rnd.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L));
-        order.DeliveryDate = DateTime.Now - new TimeSpan(rnd.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L));
+        item.OrderDate = DateTime.Now - new TimeSpan(rnd.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L));
+        item.ShipDate = DateTime.Now - new TimeSpan(rnd.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L));
+        item.DeliveryDate = DateTime.Now - new TimeSpan(rnd.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L));
         
-        ds.Orders.Add(order);
-
-        return order.ID;
+        ds.Orders.Add(item);
+        return item.ID;
     }
     
     /// <summary>
@@ -67,17 +61,15 @@ public class DalOrder : IOrder
     /// </summary>
     /// <param name="item"></param>
     /// <exception cref="Exception"></exception>
-    public void Update(Order? item)
+    public void Update(Order item)
     {
-        Order? temp = ds.Orders.Find(x => x?.ID == item?.ID);
+        Order? temp = ds.Orders.Find(x => x?.ID == item.ID);
 
         if (temp == null)
             throw new DoesntExistException("order does not exist");
 
-        Order order = (Order)item;
-
-        Delete(order.ID);
-        Add(order);
+        Delete(item.ID);
+        Add(item);
     }
     #endregion
 

@@ -16,20 +16,16 @@ public class DalOrderItem:IOrderItem
     /// <param name="item"></param>
     /// <returns></returns>
     /// <exception cref="Exception"></exception>
-    public int Add(OrderItem? item)
+    public int Add(OrderItem item)
     {
-        if (item == null)
-            throw new DO.InvalidItemException("null item");
-
-        OrderItem? temp = ds.OrderItems.Find(x => x?.ID == item?.ID);
+        OrderItem? temp = ds.OrderItems.Find(x => x?.ID == item.ID);
 
         if (temp != null)
             throw new AlreadyExistExeption("order item allready exists");
 
-        OrderItem orderItem = (OrderItem)item;
-        ds.OrderItems.Add(orderItem);
+        ds.OrderItems.Add(item);
 
-        return orderItem.ID;
+        return item.ID;
     }
     
     /// <summary>
@@ -64,19 +60,15 @@ public class DalOrderItem:IOrderItem
     /// </summary>
     /// <param name="item"></param>
     /// <exception cref="Exception"></exception>
-    public void Update(OrderItem? item)
+    public void Update(OrderItem item)
     {
-        if (item == null)
-            throw new DO.InvalidItemException("null item");
-
-        OrderItem? temp = ds.OrderItems.Find(x => x?.ID == item?.ID);
+        OrderItem? temp = ds.OrderItems.Find(x => x?.ID == item.ID);
 
         if (temp == null)
             throw new DoesntExistException(" does not exist");
 
-        OrderItem orderItem = (OrderItem)item;
-        Delete(orderItem.ID);
-        Add(orderItem);
+        Delete(item.ID);
+        Add(item);
     }
     #endregion
 
