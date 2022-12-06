@@ -18,7 +18,7 @@ internal class BoProduct :IBoProduct
             throw new BO.InvalidInputExeption("ID is out of range");
         }
        if(product.Name=="")// name test
-        {
+        {   
             throw new BO.InvalidInputExeption("Name is not correct");
         }
         if (product.Price < 0)// price test

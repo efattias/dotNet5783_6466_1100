@@ -18,20 +18,17 @@ public class DalProduct:IProduct
     /// <param name="item"></param>
     /// <returns></returns>
     /// <exception cref="Exception"></exception>
-    public int Add(Product? item)
+    public int Add(Product item)
     {
-        if (item == null)
-            throw new DO.InvalidItemException("null item");
-
-        Product? temp = ds.products.Find(x => x?.ID == item?.ID);
+        Product? temp = ds.products.Find(x => x?.ID == item.ID);
 
         if (temp != null)
             throw new AlreadyExistExeption("product allready exists");
 
         Product product = (Product)item;
 
-        ds.products.Add(product);
-        return product.ID;
+        ds.products.Add(item);
+        return item.ID;
     }
     
     /// <summary>
@@ -64,20 +61,15 @@ public class DalProduct:IProduct
     /// </summary>
     /// <param name="item"></param>
     /// <exception cref="Exception"></exception>
-    public void Update(Product? item)
+    public void Update(Product item)
     {
-        if (item == null)
-            throw new DO.InvalidItemException("null item");
-
-        Product? temp = ds.products.Find(x => x?.ID == item?.ID);
+        Product? temp = ds.products.Find(x => x?.ID == item.ID);
 
         if (temp == null)
             throw new DoesntExistException("does not exist");
 
-        Product product = (Product)item;
-
-        Delete(product.ID);
-        Add(product);
+        Delete(item.ID);
+        Add(item);
     }
 
     #endregion
