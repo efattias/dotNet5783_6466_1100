@@ -87,7 +87,7 @@ public class DalOrder : IOrder
     /// <returns></returns>
     public IEnumerable<Order?> getAll(Func<Order?, bool>? filter = null)
     {
-        if(filter == null) 
+        if(filter == null)  
             return  ds.Orders?.ToList<Order?>() ?? throw new DO.DoesntExistException("Orders list invalid");
         return ds.Orders.Where(x => filter(x)) ?? throw new DO.DoesntExistException("Orders list invalid"); ;
     }

@@ -7,8 +7,6 @@ sealed internal class DalList : IDal
 {
     public static IDal Instance { get; } = new DalList();
     private DalList() {}
-
-    // IDal dal=new Dal.DalList();
     public IOrder Order => new DalOrder();
     public IProduct Product => new DalProduct();
     public IOrderItem OrderItem => new DalOrderItem();
