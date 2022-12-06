@@ -41,8 +41,10 @@ public class DalOrderItem:IOrderItem
     public OrderItem GetByID(int id)
     {
         OrderItem? temp = ds.OrderItems.Find(x => x?.ID == id);
+
         if (temp == null)
             throw new DoesntExistException("order item does not exist");
+
         return (OrderItem)temp;
     }
     /// <summary>

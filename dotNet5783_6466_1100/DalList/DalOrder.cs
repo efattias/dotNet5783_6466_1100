@@ -65,8 +65,10 @@ public class DalOrder : IOrder
     public void Update(Order? item)
     {
         Order? temp = ds.Orders.Find(x => x?.ID == item?.ID);
+
         if (temp == null)
             throw new DoesntExistException("order does not exist");
+
         Order order = (Order)item;
 
         Delete(order.ID);
@@ -76,7 +78,6 @@ public class DalOrder : IOrder
     /// function- return list of orders
     /// </summary>
     /// <returns></returns>
-    
     public IEnumerable<Order?> getAll(Func<Order?, bool>? filter = null)
     {
         if(filter == null) 

@@ -121,18 +121,16 @@ internal class BoProduct :IBoProduct
 
     public IEnumerable<BO.ProductForList> getProductForList()
     {
-        IEnumerable<BO.ProductForList> productsBO = new List<BO.ProductForList>();
-        IEnumerable<DO.Product> productsDO= (IEnumerable<DO.Product>)dal.Product.getAll();
-        List<DO.Product> temp = (List<DO.Product>)dal.Product.getAll();
+        //IEnumerable<BO.ProductForList> productsBO = new List<BO.ProductForList>();
+        //IEnumerable<DO.Product> productsDO= (IEnumerable<DO.Product>)dal.Product.getAll();
+        //List<DO.Product> temp = (List<DO.Product>)dal.Product.getAll();
 
-        foreach(DO.Product product in productsDO)
-        {
+        //foreach(DO.Product product in productsDO)
+        //{
 
-        }
-      
-
+        //}
+ 
     }
-
     public void UpdateDetailProduct(BO.Product product)
     {
         throw new NotImplementedException();
