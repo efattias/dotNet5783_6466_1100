@@ -1,5 +1,4 @@
 ﻿using BlApi;
-using BO;
 
 namespace BlImplementation;
 
@@ -70,7 +69,7 @@ internal class BoProduct :IBoProduct
             }
             if (item != null)// if the product exists
             {
-                throw new BO.CantDeleteItem("Product exists in order - can not delete");
+                throw new BO.CantDeleteItemException("Product exists in order - can not delete");
             }
         }
         try
@@ -115,35 +114,23 @@ internal class BoProduct :IBoProduct
     }
 
     public BO.ProductItem GetProductByIDAndCart(int ID, BO.Cart cart)
-    {
-        if (ID < 0)// test id
-        {
-            throw new BO.InvalidInputExeption("ID is out of range");
-        }
-        try
-        {
-            BO.ProductItem productTempBO = new BO.ProductItem();// create BO product
-          
-            
-            // copy details
-            //productTempBO.ID = productTempDO.ID;
-            //productTempBO.Name = productTempDO.Name;
-            //productTempBO.Price = productTempDO.Price;
-            //productTempBO.Category = (BO.Category?)productTempDO.Category;
-            //productTempBO.InStock = productTempDO.InStock;
+    {   
 
-            return productTempBO;// return the product
-        }
-        catch (DO.DoesntExistException ex)
-        {
-            throw new BO.DoesntExistException(ex.Message, ex);
-        }
 
     }
 
     public IEnumerable<BO.ProductForList> getProductForList()
     {
-        throw new NotImplementedException();
+        IEnumerable<BO.ProductForList> productsBO = new List<BO.ProductForList>();
+        IEnumerable<DO.Product> productsDO= dal.Product.getAll();
+        List<DO.Product> temp = (List<DO.Product>)dal.Product.getAll();
+
+        foreach(DO.Product product in productsDO)
+        {
+
+        }
+      
+
     }
 
     public void UpdateDetailProduct(BO.Product product)
