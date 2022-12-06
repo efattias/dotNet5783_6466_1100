@@ -9,6 +9,8 @@ public class DalOrder : IOrder
 {
     public readonly Random rnd = new Random();// random variable 
     DataSource ds = DataSource.s_instance;
+
+    #region CRUD function
     /// <summary>
     /// function- add order to order list
     /// </summary>
@@ -34,6 +36,7 @@ public class DalOrder : IOrder
 
         return order.ID;
     }
+    
     /// <summary>
     /// function- delete order from order list
     /// </summary>
@@ -44,6 +47,7 @@ public class DalOrder : IOrder
         if (ds.Orders.RemoveAll(Order => Order?.ID == id) == 0)
             throw new DoesntExistException("cant Delete that- order does not exist");
     }
+    
     /// <summary>
     ///function- get order from list by given id
     /// </summary>
@@ -57,6 +61,7 @@ public class DalOrder : IOrder
             throw new DoesntExistException("order does not exist");
         return (Order)temp;
     }
+    
     /// <summary>
     /// function- update order in the list
     /// </summary>
@@ -72,11 +77,12 @@ public class DalOrder : IOrder
         Delete(order.ID);
         Add(order);
     }
+    #endregion
+
     /// <summary>
     /// function- return list of orders
     /// </summary>
-    /// <returns></returns>
-    
+    /// <returns></returns>   
     public IEnumerable<Order?> getAll(Func<Order?, bool>? filter = null)
     {
         if(filter == null) 

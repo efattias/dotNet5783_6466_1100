@@ -9,20 +9,31 @@ namespace Dal;
 public class DalProduct:IProduct
 {
     DataSource ds = DataSource.s_instance;
+
+    #region CRUD function
+
     /// <summary>
     /// function- add product to list
     /// </summary>
     /// <param name="item"></param>
     /// <returns></returns>
     /// <exception cref="Exception"></exception>
-    public int Add(Product item)
+    public int Add(Product? item)
     {
-        Product? temp = ds.products.Find(x => x?.ID == item.ID);
+        if (item == null)
+            throw new DO.InvalidItemException("null item");
+
+        Product? temp = ds.products.Find(x => x?.ID == item?.ID);
+
         if (temp != null)
             throw new AlreadyExistExeption("product allready exists");
-        ds.products.Add(item);
-        return item.ID;
+
+        Product product = (Product)item;
+
+        ds.products.Add(product);
+        return product.ID;
     }
+    
     /// <summary>
     /// function- delete product from list
     /// </summary>
@@ -33,6 +44,7 @@ public class DalProduct:IProduct
         if (ds.products.RemoveAll(Product => Product?.ID == id) == 0)
             throw new DoesntExistException("cant Delete that - does not exist");
     }
+    
     /// <summary>
     /// function- get product from list by given id
     /// </summary>
@@ -46,42 +58,39 @@ public class DalProduct:IProduct
             throw new DoesntExistException("product does not exist");
         return (Product)temp;
     }
+    
     /// <summary>
     /// function- update product in list
     /// </summary>
     /// <param name="item"></param>
     /// <exception cref="Exception"></exception>
-    public void Update(Product item)
+    public void Update(Product? item)
     {
-        Product? temp = ds.products.Find(x => x?.ID == item.ID);
+        if (item == null)
+            throw new DO.InvalidItemException("null item");
+
+        Product? temp = ds.products.Find(x => x?.ID == item?.ID);
+
         if (temp == null)
             throw new DoesntExistException("does not exist");
-        Delete(item.ID);
-        Add(item);
+
+        Product product = (Product)item;
+
+        Delete(product.ID);
+        Add(product);
     }
+
+    #endregion
+    
     /// <summary>
     /// function- returns list of products
     /// </summary>
     /// <returns></returns>
-    public IEnumerable<Product> getAll()
-    {
-        return (from Product product in ds.products
-                
-                select product).ToList<Product>();
-    }
-
-    public int Add(Product? item)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void Update(Product? item)
-    {
-        throw new NotImplementedException();
-    }
-
     public IEnumerable<Product?> getAll(Func<Product?, bool>? filter = null)
     {
-        throw new NotImplementedException();
+        if (filter == null)
+            return ds.products?.ToList<Product?>() ?? throw new DO.DoesntExistException("Orders list invalid");
+        return ds.products.Where(x => filter(x)) ?? throw new DO.DoesntExistException("Orders list invalid"); ;
+
     }
 }
