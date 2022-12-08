@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BO;
 namespace BlApi;
 public interface IBoProduct
 {
-    public IEnumerable<ProductForList> getProductForList();
-    public Product GetProductbyId(int ID);
-    public ProductItem GetProductByIDAndCart(int ID,Cart cart);
-    public void AddProduct(Product product);    
+    public IEnumerable<BO.ProductForList> getProductForList();
+    public BO.Product GetProductbyId(int ID);
+    public BO.ProductItem GetProductByIDAndCart(int ID,BO.Cart? cart);
+    public void AddProduct(BO.Product? product);    
     public void DeledeProduct(int ID);
-    public void UpdateDetailProduct(Product product);
+    public void UpdateDetailProduct(BO.Product? product);
 }

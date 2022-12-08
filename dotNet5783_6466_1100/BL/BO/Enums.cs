@@ -11,5 +11,5 @@ public enum Category
 /// </summary>
 public enum Status
 {
-    approved, sent, provided
+    approved, sent, provided, none 
 }

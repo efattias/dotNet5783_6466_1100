@@ -11,38 +11,32 @@ internal class BoProduct :IBoProduct
     /// <param name="product"></param>
     /// <exception cref="BO.InvalidInputExeption"></exception>
     /// <exception cref="BO.AlreadyExistExeption"></exception>
-    public void AddProduct(BO.Product product)
+    public void AddProduct(BO.Product? product)
     {
-       if(product.ID>0000000&&product.ID<1000000)// id test
-        {
+        if (product?.ID > 0000000 && product?.ID < 1000000)// id test
             throw new BO.InvalidInputExeption("ID is out of range");
-        }
-       if(product.Name=="")// name test
-        {   
-            throw new BO.InvalidInputExeption("Name is not correct");
-        }
-        if (product.Price < 0)// price test
-        {
-            throw new BO.InvalidInputExeption("Price is out of range");
-        }
-       if(product.InStock<0)// stock test
-        { 
-             throw new BO.InvalidInputExeption("Product is out of stock");  
-        }
 
-        DO.Product productTemp = new DO.Product()// create DO product to enter the DAL
+        if (product?.Name == "")// name test 
+            throw new BO.InvalidInputExeption("Name is not correct");
+
+        if (product?.Price < 0)// price test
+            throw new BO.InvalidInputExeption("Price is out of range");
+
+        if (product?.InStock < 0)// stock test
+            throw new BO.InvalidInputExeption("Product is out of stock");
+        try
         {
-            ID = product.ID,
-            Name = product.Name,
-            Price = product.Price,
-            Category = (DO.Category?)product.Category,
-            InStock = product.InStock 
-       };
-       try
-        {
-            dal.Product.Add(productTemp); // adding
+            DO.Product productTempDO = new DO.Product()// create DO product to enter the DAL
+            {
+                ID = product!.ID,
+                Name = product?.Name,
+                Price = product?.Price,
+                Category = (DO.Category?)product?.Category,
+                InStock = product?.InStock
+            };
+            dal.Product.Add(productTempDO); // adding
         }
-        catch(DO.AlreadyExistExeption ex)// if doesnt work catch exeption
+        catch (DO.AlreadyExistExeption ex)// if doesnt work catch exeption
         {
             throw new BO.AlreadyExistExeption(ex.Message, ex);
         } 
@@ -113,26 +107,57 @@ internal class BoProduct :IBoProduct
         }  
     }
 
-    public BO.ProductItem GetProductByIDAndCart(int ID, BO.Cart cart)
-    {   
-            
-
+    public BO.ProductItem GetProductByIDAndCart(int ID, BO.Cart? cart)
+    {
     }
-
+    /// <summary>
+    /// function- returns list of ProductForList 
+    /// </summary>
+    /// <returns></returns>
     public IEnumerable<BO.ProductForList> getProductForList()
     {
-        //IEnumerable<BO.ProductForList> productsBO = new List<BO.ProductForList>();
-        //IEnumerable<DO.Product> productsDO= (IEnumerable<DO.Product>)dal.Product.getAll();
-        //List<DO.Product> temp = (List<DO.Product>)dal.Product.getAll();
+        List<DO.Product> productListDO = (List<DO.Product>)dal.Product.getAll();
 
-        //foreach(DO.Product product in productsDO)
-        //{
-
-        //}
- 
+        return (from p in productListDO
+                let productFromBL = GetProductbyId(p.ID)
+                select new BO.ProductForList()
+                {
+                    ID = p.ID,
+                    Name = p.Name,
+                    Price = p.Price,
+                    Category = (BO.Category?)p.Category
+                }).ToList();
     }
-    public void UpdateDetailProduct(BO.Product product)
+    public void UpdateDetailProduct(BO.Product? product)
     {
-        throw new NotImplementedException();
+        if (product?.ID > 0000000 && product?.ID < 1000000)// id test
+            throw new BO.InvalidInputExeption("ID is out of range");
+
+        if (product?.Name == "")// name test 
+            throw new BO.InvalidInputExeption("Name is not correct");
+
+        if (product?.Price < 0)// price test
+            throw new BO.InvalidInputExeption("Price is out of range");
+
+        if (product?.InStock < 0)// stock test
+            throw new BO.InvalidInputExeption("Product is out of stock");
+
+        try
+        {
+            DO.Product productTempDO = new DO.Product()// create DO product to update in DAL
+            {
+                ID = product!.ID,
+                Name = product?.Name,
+                Price = product?.Price,
+                Category = (DO.Category?)product?.Category,
+                InStock = product?.InStock
+            };
+
+            dal.Product.Update(productTempDO); // updating
+        }
+        catch (DO.DoesntExistException ex)// if doesnt work catch exeption
+        {
+            throw new BO.DoesntExistException(ex.Message, ex);
+        }
     }
 }

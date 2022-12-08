@@ -40,6 +40,6 @@ public interface ICrud<T> where T : struct
     /// funcion- returns item list
     /// </summary>
     /// <returns></returns>
-     IEnumerable<T?> getAll(Func<T?,bool> filter = null);
+     IEnumerable<T?> getAll(Func<T?,bool>? filter = null);
     //אם מוסיפים שדה נמחק להוסיף פונקציה שמחזיקה עם הנמחקים
 }

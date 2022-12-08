@@ -99,5 +99,23 @@ public class DalOrderItem:IOrderItem
             return ds.OrderItems?.ToList<OrderItem?>()?? throw new DO.DoesntExistException("Orders list invalid");
         return ds.OrderItems.Where(x => filter(x)) ?? throw new DO.DoesntExistException("Orders list invalid"); ;
     }
+    /// <summary>
+    /// function-the function returns the items in order by given id
+    /// </summary>
+    /// <param name="orderId"></param>
+    /// <returns></returns>
+    public IEnumerable<OrderItem> GetItemsList(int orderId)
+    {
+        Order? order = ds.Orders.Find(x => x.GetValueOrDefault().ID == orderId);
+        if (order == null)
+            throw new DoesntExistException("the order does not exist");
+        List<OrderItem>? listToReturn = new List<OrderItem>();
+        foreach(OrderItem? item in ds.OrderItems)
+        {
+            if (item != null && item?.ID == orderId)
+                listToReturn.Add((OrderItem)item);  
+        }
+        return listToReturn;
+    }
 }
 

@@ -37,10 +37,6 @@ public class Order
     /// <summary>
     /// date of the pay on the order
     /// </summary>
-    public DateTime? PaymantDate { get; set; }
-    /// <summary>
-    /// ship date of order
-    /// </summary>
     public DateTime? ShipDate { get; set; }
     /// <summary>
     /// delivery date of order 
@@ -65,7 +61,6 @@ public class Order
         Customer address: {CustomerAddress}
         Date of order: {OrderDate}
         Order status: {OrderStatus}
-        Date of paymant: {PaymantDate}
         Date of ship:{ShipDate}
         Date of delivery: {DeliveryDate}
         Items: {Items}

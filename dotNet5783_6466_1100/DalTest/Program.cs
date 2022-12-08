@@ -29,7 +29,7 @@ class Program
                 5-delete order from list");
                 bool flag = int.TryParse(Console.ReadLine(), out choice);
                 int detail;
-                string n;
+                string? n;
                 int id;
                 switch (choice)
                 {
@@ -213,7 +213,7 @@ class Program
                 5-delete product from list");
                 bool flag = int.TryParse(Console.ReadLine(), out choice);
                 int detail;
-                string n;
+                string? n;
                 int cat;
                 int id;
                 double price;
@@ -332,8 +332,8 @@ class Program
                     case 0:
                         break;
 
-                    if (choice == 0)
-                            break;
+                    //if (choice == 0)
+                    //        break;
                 }
             }
         }
