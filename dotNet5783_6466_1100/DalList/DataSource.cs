@@ -27,12 +27,12 @@ public class DataSource
     #endregion
     internal static class Config
     {
-        internal const int s_startOrderNumber = 000000;
+        internal const int s_startOrderNumber = 99999;
         private static int s_nextOrderNumber = s_startOrderNumber;
         internal static int NextOrderNumber { get => ++s_nextOrderNumber; }
 
 
-        internal const int s_startOrderItemNumber = 100000;
+        internal const int s_startOrderItemNumber = 99999;
         private static int s_nextOrderItemNumber = s_startOrderNumber;
         internal static int NextOrderItemNumber { get => ++s_nextOrderNumber; }
     }
@@ -76,7 +76,17 @@ public class DataSource
                 OrderDate = DateTime.Now - new TimeSpan(R.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L)),
                 ShipDate = DateTime.Now - new TimeSpan(R.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L)),
                 DeliveryDate = DateTime.Now - new TimeSpan(R.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L))
+
+
             };
+            if (i <= 16)
+                order.ShipDate = null;
+
+            if (i<=8)
+            {
+                order.DeliveryDate = null;
+
+            }
             Orders.Add(order);
         }
     }

@@ -1,4 +1,5 @@
-﻿using DO;
+﻿using BlApi;
+using DO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,24 +29,29 @@ public class ProductItem
     /// </summary>
     public Category? Category { get; set; }
     /// <summary>
-    /// amount of this product int the customer cart
+    /// amount of this product in stock 
     /// </summary>
-    public int? Amount { get; set; }
-    /// <summary>
-    /// if the product exist in stock
-    /// </summary>
+  
     public bool InStock { get; set; }
 
+  
+    /// <summary>
+    /// amount of product in cart
+    /// </summary>
+    public int? Amount { get; set; }
     /// <summary>
     /// function- print ProductItem class
     /// </summary>
     /// <returns></returns>
-    public override string ToString() => $@"
-        ID={ID}
-        Name={Name}
-    	Price: {Price}
-        Category:{Category}
-    	Amount:{Amount}
-        In stock:{InStock}
-";
+    /// 
+    public override string ToString() => this.ToStringProperty();
+
+    //    public override string ToString() => $@"
+    //        ID={ID}
+    //        Name={Name}
+    //    	Price: {Price}
+    //        Category:{Category}
+    //    	Amount:{Amount}
+    //        In stock:{InStock}
+    //";
 }

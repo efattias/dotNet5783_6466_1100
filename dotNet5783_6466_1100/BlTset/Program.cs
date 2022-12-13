@@ -135,9 +135,9 @@ internal class Program
         }
         catch (Exception ex)
         {
-            Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.Message);
+            }
         }
-    }
 
     static void TestBoCart()
     {
@@ -156,7 +156,7 @@ internal class Program
                 bool flag = int.TryParse(Console.ReadLine(), out choice);
                 int id;
                 int amount;
-                string? name;
+               // string? name;
 
                 switch (choice)
                 {
@@ -219,8 +219,8 @@ internal class Program
                     "2-get order by ID\n" +
                     "3-update ship date order\n" +
                     "4-update provision date order \n" +
-                    "5-track order\n" +
-                    "6-update order\n");
+                    "5-track order\n");
+                //    "6-update order\n");
                 bool flag = int.TryParse(Console.ReadLine(), out choice);
                 BO.Product temp = new BO.Product();
                 int id;
@@ -267,16 +267,16 @@ internal class Program
                         Console.WriteLine(bl.Order.TrackOrder(id));
                         #endregion
                         break;
-                    case 6:
-                        #region case 6
-                        InsertProductDetails(ref temp);
+                    //case 6:
+                    //    #region case 6
+                    //    InsertProductDetails(ref temp);
 
-                        Console.WriteLine("insert amount to update order:");
-                        int.TryParse(Console.ReadLine(), out amount);
+                    //    Console.WriteLine("insert amount to update order:");
+                    //    int.TryParse(Console.ReadLine(), out amount);
 
-                        Console.WriteLine(bl.Order.UpdateOrder(temp, amount));
-                        #endregion
-                        break;
+                    //    Console.WriteLine(bl.Order.UpdateOrder(temp, amount));
+                    //    #endregion
+                    //    break;
                     case 0:
                         break;
                 }

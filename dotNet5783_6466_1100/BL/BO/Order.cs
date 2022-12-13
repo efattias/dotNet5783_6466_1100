@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BlApi;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -45,7 +46,7 @@ public class Order
     /// <summary>
     /// List of ordered items
     /// </summary>
-    public List<OrderItem>? Items { get; set; }
+    public List<OrderItem?>? Items { get; set; }
     /// <summary>
     /// total price of order
     /// </summary>
@@ -54,16 +55,19 @@ public class Order
     /// function- print order class
     /// </summary>
     /// <returns></returns>
-    public override string ToString() => $@"
-        ID={ID}
-        Customer name: {CustomerName}
-        Customer email: {CustomerEmail}
-        Customer address: {CustomerAddress}
-        Date of order: {OrderDate}
-        Order status: {OrderStatus}
-        Date of ship:{ShipDate}
-        Date of delivery: {DeliveryDate}
-        Items: {Items}
-        Total price {TotalPrice}
-";
+    /// 
+    public override string ToString() => this.ToStringProperty();
+
+    //    public override string ToString() => $@"
+    //        ID={ID}
+    //        Customer name: {CustomerName}
+    //        Customer email: {CustomerEmail}
+    //        Customer address: {CustomerAddress}
+    //        Date of order: {OrderDate}
+    //        Order status: {OrderStatus}
+    //        Date of ship:{ShipDate}
+    //        Date of delivery: {DeliveryDate}
+    //        Items: {Items}
+    //        Total price {TotalPrice}
+    //";
 }

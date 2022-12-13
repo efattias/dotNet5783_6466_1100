@@ -13,13 +13,13 @@ internal class BoProduct :IBoProduct
     /// <exception cref="BO.AlreadyExistExeption"></exception>
     public void AddProduct(BO.Product? product)
     {
-        if (product?.ID > 0000000 && product?.ID < 1000000)// id test
+        if (!(product?.ID >= 100000 && product?.ID < 1000000))// id test
             throw new BO.InvalidInputExeption("ID is out of range");
 
         if (product?.Name == "")// name test 
             throw new BO.InvalidInputExeption("Name is not correct");
 
-        if (product?.Price < 0)// price test
+        if (product?.Price <= 0)// price test
             throw new BO.InvalidInputExeption("Price is out of range");
 
         if (product?.InStock < 0)// stock test
@@ -49,25 +49,30 @@ internal class BoProduct :IBoProduct
     /// <exception cref="CantDeleteItem"></exception>
     public void DeledeProduct(int IDProduct)
     {
-        IEnumerable<DO.Order> tempList = (IEnumerable<DO.Order>)dal.Order.getAll();// create temp list 
-        foreach (DO.Order o in tempList)// go over the list
+        bool flag = true;
+        List<DO.Order?> tempList = (List<DO.Order?>)dal.Order.getAll();// create temp list 
+        foreach (DO.Order? o in tempList)// go over the list
         {
             DO.OrderItem? item = new DO.OrderItem();// create orderItem for testing
             try
             {
-                item = dal.OrderItem.GetProductByOrderAndID(o.ID, IDProduct);// search the product in orders
+                item = dal.OrderItem.GetProductByOrderAndID((int)(o?.ID!), IDProduct);// search the product in orders
+
+                if (item != null)// if the product exists
+                {
+                    flag = false;
+                    throw new BO.CantDeleteItemException("Product exists in order - can not delete");
+                }
             }
             catch (DO.DoesntExistException ex)
             {
-                throw new BO.DoesntExistException(ex.Message, ex);
-            }
-            if (item != null)// if the product exists
-            {
-                throw new BO.CantDeleteItemException("Product exists in order - can not delete");
+            
+                //throw new BO.DoesntExistException(ex.Message, ex);
             }
         }
         try
         {
+            if (flag)
             dal.Product.Delete(IDProduct); // deleting
         }
         catch (DO.DoesntExistException ex)// if doesnt work catch exeption
@@ -82,7 +87,7 @@ internal class BoProduct :IBoProduct
     /// <returns></returns>
     /// <exception cref="InvalidInputExeption"></exception>
     /// <exception cref="BO.DoesntExistException"></exception>
-    public BO.Product GetProductbyId(int ID)
+    public BO.Product? GetProductbyId(int ID)
     {
         if(ID < 0)// test id
         {
@@ -109,6 +114,29 @@ internal class BoProduct :IBoProduct
 
     public BO.ProductItem GetProductByIDAndCart(int ID, BO.Cart? cart)
     {
+        if (ID<0)
+        {
+            throw new BO.InvalidInputExeption("id is out of range");
+        }
+        try
+        {
+            DO.Product? productTempDO = dal.Product.GetByID(ID);
+            BO.ProductItem productItemBO = new BO.ProductItem()
+            {
+                ID = (int)(productTempDO?.ID!),
+                Name = productTempDO?.Name,
+                Price = productTempDO?.Price,
+                Category = (BO.Category?)productTempDO?.Category,
+                InStock = Tools.inStock((int)productTempDO?.InStock!),
+                Amount = Tools.getAmountOfProduct( cart?.Items!, (int)(productTempDO?.ID!))
+            };
+            return productItemBO;
+
+        }
+        catch (DO.DoesntExistException ex)
+        {
+            throw new BO.DoesntExistException(ex.Message, ex);
+        }
     }
     /// <summary>
     /// function- returns list of ProductForList 
@@ -116,27 +144,27 @@ internal class BoProduct :IBoProduct
     /// <returns></returns>
     public IEnumerable<BO.ProductForList> getProductForList()
     {
-        List<DO.Product> productListDO = (List<DO.Product>)dal.Product.getAll();
+        List<DO.Product?> productListDO = (List<DO.Product?>)dal.Product.getAll();
 
         return (from p in productListDO
-                let productFromBL = GetProductbyId(p.ID)
+                let productFromBL = GetProductbyId((int)(p?.ID!))
                 select new BO.ProductForList()
                 {
-                    ID = p.ID,
-                    Name = p.Name,
-                    Price = p.Price,
-                    Category = (BO.Category?)p.Category
+                    ID = (int)(p?.ID!),
+                    Name = p?.Name,
+                    Price = p?.Price,
+                    Category = (BO.Category?)p?.Category
                 }).ToList();
     }
     public void UpdateDetailProduct(BO.Product? product)
     {
-        if (product?.ID > 0000000 && product?.ID < 1000000)// id test
+        if (!(product?.ID >= 100000 && product?.ID < 1000000))// id test
             throw new BO.InvalidInputExeption("ID is out of range");
 
         if (product?.Name == "")// name test 
             throw new BO.InvalidInputExeption("Name is not correct");
 
-        if (product?.Price < 0)// price test
+        if (product?.Price <= 0)// price test
             throw new BO.InvalidInputExeption("Price is out of range");
 
         if (product?.InStock < 0)// stock test

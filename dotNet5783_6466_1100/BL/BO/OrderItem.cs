@@ -1,4 +1,5 @@
-﻿using DO;
+﻿using BlApi;
+using DO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,12 +40,15 @@ public class OrderItem
     /// function- print OrderItem class
     /// </summary>
     /// <returns></returns>
-    public override string ToString() => $@"
-        ID={ID}
-        Name={Name}
-        Product ID={ProductID}
-    	Price: {Price}
-    	Amount: {Amount}
-        Total price: {TotalPrice}
-";
+    /// 
+    public override string ToString() => this.ToStringProperty();
+
+    //    public override string ToString() => $@"
+    //        ID={ID}
+    //        Name={Name}
+    //        Product ID={ProductID}
+    //    	Price: {Price}
+    //    	Amount: {Amount}
+    //        Total price: {TotalPrice}
+    //";
 }

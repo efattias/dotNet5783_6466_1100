@@ -1,4 +1,6 @@
 ﻿
+using BlApi;
+
 namespace BO;
 public class Cart
 {
@@ -26,13 +28,17 @@ public class Cart
     /// function- print Cart struct
     /// </summary>
     /// <returns></returns>
-    public override string ToString() => $@"
-        Customer name: {CustomerName}
-        Customer email: {CustomerEmail}
-        Customer address: {CustomerAddress}
-        Items: {Items}
-        Total price:{TotalPrice}
-";
+    /// 
+
+    public override string ToString()=>this.ToStringProperty();
+    
+    //    public override string ToString() => $@"
+    //        Customer name: {CustomerName}
+    //        Customer email: {CustomerEmail}
+    //        Customer address: {CustomerAddress}
+    //        Items: {Items}
+    //        Total price:{TotalPrice}
+    //";
 }
 
 

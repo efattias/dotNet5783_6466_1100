@@ -1,4 +1,5 @@
-﻿using DO;
+﻿using BlApi;
+using DO;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -21,15 +22,18 @@ public class OrderTracking
     /// </summary>
     public Status? OrderStatus { get; set; }
 
-    public List<Tuple<DateTime?, string>>? trackList { get; set; }  
+    public List<Tuple<DateTime?, string>>? trackList { get; set; }
 
     /// <summary>
     /// function- print OrderTracking class
     /// </summary>
     /// <returns></returns>
-    public override string ToString() => $@"
-        ID={ID}
-        Order status={OrderStatus}
-";
+    /// 
+    public override string ToString() => this.ToStringProperty();
+
+    //    public override string ToString() => $@"
+    //        ID={ID}
+    //        Order status={OrderStatus}
+    //";
 }
 

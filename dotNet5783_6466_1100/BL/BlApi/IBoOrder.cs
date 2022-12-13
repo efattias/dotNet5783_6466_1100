@@ -14,7 +14,7 @@ public interface IBoOrder
     public BO.OrderTracking TrackOrder(int ID);    
 
     //בונוווסססססס
-    public BO.Order UpdateOrder(BO.Product product, int amount);
+ //   public BO.Order UpdateOrder(BO.Product product, int amount);
 
 
 

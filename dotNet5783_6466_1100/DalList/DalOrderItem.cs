@@ -83,10 +83,10 @@ public class DalOrderItem:IOrderItem
     {
         OrderItem? temp = ds.OrderItems.Find(x => x?.OrderID == orderId);
         if (temp == null)
-            throw new DoesntExistException("order not exist");
+            throw new DoesntExistException("orderItem not exists");
         if (temp?.ProductID == productId)
             return (OrderItem)temp;
-        else throw new DoesntExistException(" product not exist");
+        else throw new DoesntExistException(" product not exist in order");
     }
     
     /// <summary>
@@ -104,12 +104,12 @@ public class DalOrderItem:IOrderItem
     /// </summary>
     /// <param name="orderId"></param>
     /// <returns></returns>
-    public IEnumerable<OrderItem> GetItemsList(int orderId)
+    public IEnumerable<OrderItem?> GetItemsList(int orderId)
     {
         Order? order = ds.Orders.Find(x => x.GetValueOrDefault().ID == orderId);
         if (order == null)
             throw new DoesntExistException("the order does not exist");
-        List<OrderItem>? listToReturn = new List<OrderItem>();
+        List<OrderItem?> listToReturn = new List<OrderItem?>();
         foreach(OrderItem? item in ds.OrderItems)
         {
             if (item != null && item?.ID == orderId)

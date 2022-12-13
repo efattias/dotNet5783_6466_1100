@@ -1,4 +1,5 @@
-﻿using DO;
+﻿using BlApi;
+using DO;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -34,13 +35,16 @@ public class OrderForList
     /// function- print OrderForList class
     /// </summary>
     /// <returns></returns>
-    public override string ToString() => $@"
-        ID={ID}
-        Customer name={CustomerName}
-        Order status={OrderStatus}
-        Amount of items: {AmountOfItems}
-    	Total price: {TotalPrice}
-";
+    /// 
+    public override string ToString() => this.ToStringProperty();
+
+    //    public override string ToString() => $@"
+    //        ID={ID}
+    //        Customer name={CustomerName}
+    //        Order status={OrderStatus}
+    //        Amount of items: {AmountOfItems}
+    //    	Total price: {TotalPrice}
+    //";
 
 }
 
