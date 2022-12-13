@@ -14,11 +14,12 @@ internal class Program
     static Cart? cart = new Cart() { CustomerAddress = "", CustomerEmail = "", CustomerName = "", Items = new List<BO.OrderItem?>(), TotalPrice = 0 };
     static void TestBoProduct()
     {
-        try
-        {
-            int choice = 1;
 
-            while (choice != 0)
+        int choice = 1;
+
+        while (choice != 0)
+        {
+            try
             {
                 Console.WriteLine("Enter your choice:\n" +
                     "0-exit\n" +
@@ -128,35 +129,39 @@ internal class Program
                         break;
                     case 0:
                         break;
+                    default:
+                        Console.WriteLine("ERROR- your choice does not exist");
+                        break;
                 }
                 if (choice == 0)
                     break;
             }
-        }
-        catch (Exception ex)
-        {
+            catch (Exception ex)
+            {
                 Console.WriteLine(ex.Message);
             }
         }
+    }
+
 
     static void TestBoCart()
     {
-        try
-        {
-            int choice = 1;
+        int choice = 1;
 
-            while (choice != 0)
+        while (choice != 0)
+        {
+            try
             {
                 Console.WriteLine("Enter your choice:\n" +
-                    "0-exit\n" +
-                    "1-add product to cart\n" +
-                    "2-update product in cart\n" +
-                    "3-make order by this cart\n");
+                "0-exit\n" +
+                "1-add product to cart\n" +
+                "2-update product in cart\n" +
+                "3-make order by this cart\n");
 
                 bool flag = int.TryParse(Console.ReadLine(), out choice);
                 int id;
                 int amount;
-               // string? name;
+                // string? name;
 
                 switch (choice)
                 {
@@ -195,23 +200,27 @@ internal class Program
                         break;
                     case 0:
                         break;
+                    default:
+                        Console.WriteLine("ERROR- your choice does not exist");
+                        break;
                 }
                 if (choice == 0)
                     break;
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex.Message);
-        }
+
     }
     static void TestBoOrder()
     {
-        try
-        {
-            int choice = 1;
+        int choice = 1;
 
-            while (choice != 0)
+        while (choice != 0)
+        {
+            try
             {
                 Console.WriteLine("Enter your choice:\n" +
                     "0-exit\n" +
@@ -279,14 +288,17 @@ internal class Program
                     //    break;
                     case 0:
                         break;
+                    default:
+                        Console.WriteLine("ERROR- your choice does not exist");
+                        break;
                 }
                 if (choice == 0)
                     break;
             }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex.Message);
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 
@@ -311,12 +323,12 @@ internal class Program
         double.TryParse(Console.ReadLine(), out price);
         temp.Price = price;
 
-        Console.WriteLine(@"choose product catgory: 
-                                        0-kids books, 
-                                        1-teens books, 
-                                        2-cook books, 
-                                        3-kodesh books, 
-                                        4-learning books");
+        Console.WriteLine("choose product catgory:\n" +
+            "0-kids books\n" +
+            "1-teens books\n" +
+            "2-cook books\n" +
+            "3-kodesh books\n" +
+            "4-learning books\n");
 
         int.TryParse(Console.ReadLine(), out cat);
 
@@ -369,6 +381,9 @@ internal class Program
                     TestBoOrder();
                     break;
                 case 0:
+                    break;
+                default:
+                    Console.WriteLine("ERROR- your choice does not exist");
                     break;
             }
             if (choice == 0)

@@ -10,9 +10,8 @@ internal class BoOrder : IBoOrder
     public BO.Order GetOrder(int ID)
     {
         if (ID < 0)// test id
-        {
             throw new BO.InvalidInputExeption("ID is out of range");
-        }
+        
         try
         {
             List<DO.Order?> orderListDO = (List<DO.Order?>)dal.Order.getAll();
@@ -29,7 +28,6 @@ internal class BoOrder : IBoOrder
             orderTempBO.DeliveryDate = orderTempDO.DeliveryDate;
             orderTempBO.Items = (List<BO.OrderItem?>)Tools.getBOList(itemsListDO!);
             orderTempBO.TotalPrice = BlApi.Tools.GetTotalPrice(itemsListDO!);
-
 
             return orderTempBO;// return the order
         }
@@ -61,9 +59,8 @@ internal class BoOrder : IBoOrder
     public BO.OrderTracking TrackOrder(int ID)
     {
         if (ID < 0)
-        {
             throw new BO.InvalidInputExeption("id is not in range");
-        }
+        
         try
         {
             DO.Order orderDO = dal.Order.GetByID(ID);// הזמנה מ DO
@@ -104,9 +101,8 @@ internal class BoOrder : IBoOrder
     public BO.Order UpdateProvisionOrder(int ID)
     {
         if (ID < 0)
-        {
             throw new BO.InvalidInputExeption("id is out of range");
-        }
+        
         try
         {
             DO.Order orderDO = dal.Order.GetByID(ID);
@@ -140,9 +136,8 @@ internal class BoOrder : IBoOrder
     public BO.Order UpdateShipOrder(int ID)
     {
         if (ID<0)
-        {
             throw new BO.InvalidInputExeption("id is out of range");
-        }
+        
         try
         {
             DO.Order orderDO = dal.Order.GetByID(ID);

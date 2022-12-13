@@ -43,7 +43,6 @@ internal class BoCart : IBoCart
                 }
                 cart!.TotalPrice = Tools.GetTotalPrice((IEnumerable<DO.OrderItem?>)(cart?.Items!));
             }
-
         }
         return cart;
     }
@@ -82,7 +81,6 @@ internal class BoCart : IBoCart
             Items = (List<BO.OrderItem?>)Tools.getBOList((IEnumerable<DO.OrderItem?>)(cart?.Items!)),
             TotalPrice = cart?.TotalPrice
         };///////////////// לסייםםםםםם
-
     }
 
     public BO.Cart UpdateProductInCart(BO.Cart? cart, int ID, int amount)

@@ -90,9 +90,8 @@ internal class BoProduct :IBoProduct
     public BO.Product? GetProductbyId(int ID)
     {
         if(ID < 0)// test id
-        {
             throw new BO.InvalidInputExeption("ID is out of range");
-        }
+        
         try
         {
             BO.Product productTempBO = new BO.Product();// create BO product
@@ -115,9 +114,8 @@ internal class BoProduct :IBoProduct
     public BO.ProductItem GetProductByIDAndCart(int ID, BO.Cart? cart)
     {
         if (ID<0)
-        {
             throw new BO.InvalidInputExeption("id is out of range");
-        }
+        
         try
         {
             DO.Product? productTempDO = dal.Product.GetByID(ID);
