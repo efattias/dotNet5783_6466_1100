@@ -6,13 +6,14 @@ internal class BoProduct :IBoProduct
 {
     DalApi.IDal dal = DalApi.Factory.Get() ?? throw new NullReferenceException("Missing Dal");
     /// <summary>
-    /// function- adding product to Dal
+    /// function- adding product to data source
     /// </summary>
     /// <param name="product"></param>
     /// <exception cref="BO.InvalidInputExeption"></exception>
     /// <exception cref="BO.AlreadyExistExeption"></exception>
     public void AddProduct(BO.Product? product)
     {
+        //testing 
         if (!(product?.ID >= 100000 && product?.ID < 1000000))// id test
             throw new BO.InvalidInputExeption("ID is out of range");
 
@@ -27,14 +28,14 @@ internal class BoProduct :IBoProduct
         try
         {
             DO.Product productTempDO = new DO.Product()// create DO product to enter the DAL
-            {
+            {//copy from given product
                 ID = product!.ID,
                 Name = product?.Name,
                 Price = product?.Price,
                 Category = (DO.Category?)product?.Category,
                 InStock = product?.InStock
             };
-            dal.Product.Add(productTempDO); // adding
+            dal.Product.Add(productTempDO); // adding to DAL
         }
         catch (DO.AlreadyExistExeption ex)// if doesnt work catch exeption
         {
@@ -49,31 +50,28 @@ internal class BoProduct :IBoProduct
     /// <exception cref="CantDeleteItem"></exception>
     public void DeledeProduct(int IDProduct)
     {
-        bool flag = true;
-        List<DO.Order?> tempList = (List<DO.Order?>)dal.Order.getAll();// create temp list 
-        foreach (DO.Order? o in tempList)// go over the list
+        List<DO.Order?> tempList = (List<DO.Order?>)dal.Order.getAll();// create temp list to get all orders from DAL
+        foreach (DO.Order? o in tempList )// go over the list of orders
         {
-            DO.OrderItem? item = new DO.OrderItem();// create orderItem for testing
+            List<DO.OrderItem?> itemsInO = new List<DO.OrderItem?>();// create orderItem list for testing
             try
             {
-                item = dal.OrderItem.GetProductByOrderAndID((int)(o?.ID!), IDProduct);// search the product in orders
-
-                if (item != null)// if the product exists
-                {
-                    flag = false;
+                itemsInO = (List<DO.OrderItem?>)dal.OrderItem.GetItemsList((int)(o?.ID!));
+                if(itemsInO.Find((x => x?.ProductID == IDProduct))!=null)// product was found in order
                     throw new BO.CantDeleteItemException("Product exists in order - can not delete");
-                }
+
             }
-            catch (DO.DoesntExistException ex)
+            catch (BO.CantDeleteItemException ex)// exeption for product in order case
             {
             
-                //throw new BO.DoesntExistException(ex.Message, ex);
+                throw new BO.CantDeleteItemException(ex.Message, ex);
+
             }
         }
         try
         {
-            if (flag)
-            dal.Product.Delete(IDProduct); // deleting
+           
+            dal.Product.Delete(IDProduct); // deleting from DAL
         }
         catch (DO.DoesntExistException ex)// if doesnt work catch exeption
         {
@@ -112,7 +110,7 @@ internal class BoProduct :IBoProduct
     }
 
     public BO.ProductItem GetProductByIDAndCart(int ID, BO.Cart? cart)
-    {
+    {//testing
         if (ID<0)
             throw new BO.InvalidInputExeption("id is out of range");
         

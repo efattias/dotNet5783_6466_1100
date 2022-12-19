@@ -10,6 +10,8 @@ namespace BlApi;
 
 public static class Tools
 {
+    
+    //DO to BO
     public static Target CopyPropTo<Source, Target>(this Source source, Target target)
     {
 
@@ -31,12 +33,14 @@ public static class Tools
         }
         return target;
     }
+    // BO to DO
     public static object CopyPropToStruct<S>(this S from, Type type)//get the type we want to copy to 
     {
         object copy = Activator.CreateInstance(type); // new object of the Type
         from.CopyPropTo(copy);//copy all value of properties with the same name to the new object
         return copy!;
     }
+
     public static Status GetStatus(DO.Order order)
     {  
         if (order.DeliveryDate != null && order.DeliveryDate < DateTime.Now)
@@ -80,9 +84,11 @@ public static class Tools
     {
         return (
         from o in ListItems
+       
         select new BO.OrderItem
         {
-            ID = (int)(o?.OrderID!),
+          
+            ID = (int)(o?.ID!),
             ProductID = (int)(o?.ProductID!),
             Price = o?.Price,
             Amount = o?.Amount,

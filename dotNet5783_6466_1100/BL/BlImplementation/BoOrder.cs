@@ -26,7 +26,19 @@ internal class BoOrder : IBoOrder
             orderTempBO.OrderDate = orderTempDO.OrderDate;
             orderTempBO.ShipDate = orderTempDO.ShipDate;
             orderTempBO.DeliveryDate = orderTempDO.DeliveryDate;
-            orderTempBO.Items = (List<BO.OrderItem?>)Tools.getBOList(itemsListDO!);
+
+            var v = (from o in itemsListDO
+                     let name = dal.Product.GetByID((int)(o?.ProductID)).Name
+                     select new BO.OrderItem
+                     {
+                         Name = name,
+                         ID = (int)(o?.ID!),
+                         ProductID = (int)(o?.ProductID!),
+                         Price = o?.Price,
+                         Amount = o?.Amount,
+                         TotalPrice = o?.Price * o?.Amount
+                     }).ToList();
+            orderTempBO.Items = v;
             orderTempBO.TotalPrice = BlApi.Tools.GetTotalPrice(itemsListDO!);
 
             return orderTempBO;// return the order
@@ -64,7 +76,7 @@ internal class BoOrder : IBoOrder
         try
         {
             DO.Order orderDO = dal.Order.GetByID(ID);// הזמנה מ DO
-            List<Tuple<DateTime?, string>>? tempTrackList = new List<Tuple<DateTime?, string>>();// רשימת צמדים
+            List<Tuple<DateTime? , string>>? tempTrackList = new List<Tuple<DateTime? , string>>();// רשימת צמדים
 
             if (orderDO.OrderDate != null)
             {
@@ -93,11 +105,6 @@ internal class BoOrder : IBoOrder
     }
 
 
-    //public BO.Order UpdateOrder(BO.Product product, int amount)
-    //{
-    //    throw new NotImplementedException();
-    //}
-
     public BO.Order UpdateProvisionOrder(int ID)
     {
         if (ID < 0)
@@ -106,7 +113,18 @@ internal class BoOrder : IBoOrder
         try
         {
             DO.Order orderDO = dal.Order.GetByID(ID);
-            IEnumerable<DO.OrderItem?>? itemsListDO = dal.OrderItem.GetItemsList(orderDO.ID);                                            // copy details
+            IEnumerable<DO.OrderItem?>? itemsListDO = dal.OrderItem.GetItemsList(orderDO.ID); // copy details
+            var v = (from o in itemsListDO
+                     let name = dal.Product.GetByID((int)(o?.ProductID)).Name
+                     select new BO.OrderItem
+                     {
+                         Name = name,
+                         ID = (int)(o?.ID!),
+                         ProductID = (int)(o?.ProductID!),
+                         Price = o?.Price,
+                         Amount = o?.Amount,
+                         TotalPrice = o?.Price * o?.Amount
+                     }).ToList();
 
             if (orderDO.DeliveryDate != null && orderDO.DeliveryDate < DateTime.Now)
             {
@@ -119,13 +137,25 @@ internal class BoOrder : IBoOrder
                 CustomerName = orderDO.CustomerName,
                 CustomerEmail = orderDO.CustomerEmail,
                 CustomerAddress = orderDO.CustomerAddress,
-                OrderStatus = BlApi.Tools.GetStatus(orderDO),
+                OrderStatus = BO.Status.provided,
                 OrderDate = orderDO.OrderDate,
                 ShipDate = orderDO.ShipDate,
-                DeliveryDate = orderDO.DeliveryDate,
-                Items = (List<BO.OrderItem?>)dal.OrderItem.GetItemsList(orderDO.ID),
-                TotalPrice = BlApi.Tools.GetTotalPrice(itemsListDO!)
+                DeliveryDate = DateTime.Now,
+                Items =v, //(List<BO.OrderItem?>)Tools.getBOList(dal.OrderItem.GetItemsList(orderDO.ID)),
+                TotalPrice = Tools.GetTotalPrice(itemsListDO!)
+                //ID = orderDO.ID,
+                //CustomerName = orderDO.CustomerName,
+                //CustomerEmail = orderDO.CustomerEmail,
+                //CustomerAddress = orderDO.CustomerAddress,
+                //OrderStatus = BO.Status.provided,
+                //OrderDate = orderDO.OrderDate,
+                //ShipDate = orderDO.ShipDate,
+                //DeliveryDate = DateTime.Now,
+                //Items = (List<BO.OrderItem?>)dal.OrderItem.GetItemsList(orderDO.ID),
+                //TotalPrice = BlApi.Tools.GetTotalPrice(itemsListDO!)
             };
+            DO.Order orderToUpdate = (DO.Order)Tools.CopyPropToStruct(orderToReturn, typeof(DO.Order));
+            dal.Order.Update(orderToUpdate);
             return orderToReturn;
         }
         catch (DO.DoesntExistException ex)
@@ -142,7 +172,17 @@ internal class BoOrder : IBoOrder
         {
             DO.Order orderDO = dal.Order.GetByID(ID);
             IEnumerable<DO.OrderItem?> itemsListDO = dal.OrderItem.GetItemsList(orderDO.ID);                                            // copy details
-
+            var v = (from o in itemsListDO
+                     let name = dal.Product.GetByID((int)(o?.ProductID)).Name
+                     select new BO.OrderItem
+                     {
+                         Name = name,
+                         ID = (int)(o?.ID!),
+                         ProductID = (int)(o?.ProductID!),
+                         Price = o?.Price,
+                         Amount = o?.Amount,
+                         TotalPrice = o?.Price * o?.Amount
+                     }).ToList();
             if (orderDO.ShipDate != null && orderDO.ShipDate < DateTime.Now)
             {
                 orderDO.ShipDate = DateTime.Now;
@@ -154,13 +194,15 @@ internal class BoOrder : IBoOrder
                 CustomerName = orderDO.CustomerName,
                 CustomerEmail = orderDO.CustomerEmail,
                 CustomerAddress = orderDO.CustomerAddress,
-                OrderStatus = BlApi.Tools.GetStatus(orderDO),
+                OrderStatus = BO.Status.sent,
                 OrderDate = orderDO.OrderDate,
-                ShipDate = orderDO.ShipDate,
+                ShipDate = DateTime.Now,
                 DeliveryDate = orderDO.DeliveryDate,
-                Items = (List<BO.OrderItem?>)Tools.getBOList(dal.OrderItem.GetItemsList(orderDO.ID)),
+                Items = v,//(List<BO.OrderItem?>)Tools.getBOList(dal.OrderItem.GetItemsList(orderDO.ID)),
                 TotalPrice = Tools.GetTotalPrice(itemsListDO!)
             };
+            DO.Order orderToUpdate = (DO.Order)Tools.CopyPropToStruct(orderToReturn, typeof(DO.Order));
+            dal.Order.Update(orderToUpdate);
             return orderToReturn;
         }
         catch (DO.DoesntExistException ex)
@@ -168,4 +210,8 @@ internal class BoOrder : IBoOrder
             throw new BO.DoesntExistException(ex.Message, ex);
         }
     }
+    //public BO.Order UpdateOrder(BO.Product product, int amount)
+    //{
+    //    throw new NotImplementedException();
+    //}
 }

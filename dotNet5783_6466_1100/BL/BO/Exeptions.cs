@@ -49,6 +49,13 @@ public class ProductRequestFailedException : Exception, ISerializable
     public ProductRequestFailedException(string message, Exception inner) : base(message, inner) { }
     protected ProductRequestFailedException(SerializationInfo info, StreamingContext context) : base(info, context) { }
 }
+public class ProductOutOfStockException : Exception, ISerializable
+{
+    public ProductOutOfStockException() : base() { }
+    public ProductOutOfStockException(string message) : base(message) { }
+    public ProductOutOfStockException(string message, Exception inner) : base(message, inner) { }
+    protected ProductOutOfStockException(SerializationInfo info, StreamingContext context) : base(info, context) { }
+}
 
 
 

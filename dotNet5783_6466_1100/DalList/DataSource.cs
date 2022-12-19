@@ -25,16 +25,24 @@ public class DataSource
     /// class for running number
     /// </summary>
     #endregion
-    internal static class Config
+    public static class ConfigOrder
     {
-        internal const int s_startOrderNumber = 99999;
+        internal const int s_startOrderNumber = 999;
         private static int s_nextOrderNumber = s_startOrderNumber;
         internal static int NextOrderNumber { get => ++s_nextOrderNumber; }
+    }
+    internal static class ConfigOrderItem
+    {
+        internal const int s_startOrderItemNumber = 999;
+        private static int s_nextOrderItemNumber = s_startOrderItemNumber;
+        internal static int NextOrderItemNumber { get => ++s_nextOrderItemNumber; }
 
-
-        internal const int s_startOrderItemNumber = 99999;
-        private static int s_nextOrderItemNumber = s_startOrderNumber;
-        internal static int NextOrderItemNumber { get => ++s_nextOrderNumber; }
+    }
+    internal static class ConfigProduct
+    { 
+        internal const int s_startProductNumber = 99999;
+        private static int s_nextProductNumber = s_startProductNumber;
+        internal static int NextProductNumber { get => ++s_nextProductNumber; }
     }
     #region add functions
     /// <summary>
@@ -48,9 +56,9 @@ public class DataSource
             Category category = (Category)R.Next(1, 6);
             products.Add(new Product
             {
-                ID = Config.NextOrderNumber,
+                ID = ConfigProduct.NextProductNumber,
                 Name = name[R.Next(name.Length)],
-                Price = R.Next(50, 1500),
+                Price = R.Next(50, 150),
                 Category = (Category)(i%5),
                 InStock = R.Next(0,50)
             });
@@ -69,7 +77,7 @@ public class DataSource
         {
             Order order = new Order()
             {
-                ID = Config.NextOrderNumber,
+                ID = ConfigOrder.NextOrderNumber,
                 CustomerName = customerNames[R.Next(customerNames.Length)],
                 CustomerEmail = customerEmails[R.Next(customerEmails.Length)],
                 CustomerAddress = adress[R.Next(adress.Length)],
@@ -99,18 +107,26 @@ public class DataSource
         string[] customerNames = { "sara", "rivka", "rachel", "lea", "efrat", "miryam", "avraham", "yaakov", "maayan", "dani", "shir", "ori", "tamar", "reut", "yosi" };
         string[] customerEmails = { "miri2451@gmail.com", "efrat@gmail.com", "eli111@gmail.com", "david324@gmail.com", "nurit444@gmail.com", "shoshi234@gmail.com", "yosi878@gmail.com", "yakov656@gmail.com", "liat121@gmail.com", "sason1990@gmail.com" };
         string[] adress = { "Avivim", "Jerusalem", "Tel-Aviv", "Haifa", "Ashdod", "zefat", "beit-El", "Eilat", "Raanana", "Yafo", "Meiron", "Afula", "Arad" };
-        for (int i = 0; i < 40; i++)
+        for (int i = 0; i < 20; i++)
         {
-            OrderItem orderItem = new OrderItem()
+            Product? product = products[R.Next(10)];// choose randomly product
+            int numItemsInOrder = R.Next(1, 5);
+            Order? order = Orders[i];
+            for (int j = 0; j < numItemsInOrder; j++)
             {
-                ID = Config.NextOrderNumber,
-                ProductID = Config.NextOrderNumber,
-                OrderID = Config.NextOrderNumber,
-                Price = R.Next(50, 1500),
-                Amount = R.Next(1,10) ,
+                OrderItem orderItem = new OrderItem()
+                {
+                    ID = ConfigOrderItem.NextOrderItemNumber,
+                    ProductID = product?.ID??0,
+                    OrderID = order?.ID??0,
+                    Price = product?.Price ?? 0,    
+                    Amount = R.Next(2, 5),
 
-            };
-            OrderItems.Add(orderItem);
+                };
+                OrderItems.Add(orderItem);
+                product = products[R.Next(10)];
+            }
+           
         }
     }
     #endregion 

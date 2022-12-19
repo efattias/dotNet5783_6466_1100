@@ -27,7 +27,7 @@ internal class Program
                     "2-get product by ID\n" +
                     "3-get product by ID and cart\n" +
                     "4-get product list \n" +
-                    "5-update order\n" +
+                    "5-update product\n" +
                     "6-delete product\n");
                 bool flag = int.TryParse(Console.ReadLine(), out choice);
 
@@ -207,6 +207,7 @@ internal class Program
                 if (choice == 0)
                     break;
             }
+            
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
@@ -233,7 +234,7 @@ internal class Program
                 bool flag = int.TryParse(Console.ReadLine(), out choice);
                 BO.Product temp = new BO.Product();
                 int id;
-                int amount;
+               // int amount;
 
                 switch (choice)
                 {
@@ -241,14 +242,13 @@ internal class Program
                         #region case 1
                         var p = bl.Order.getOrderForList();
                         foreach (var item in p)
-                            Console.WriteLine(item?.ToString());
+                            Console.WriteLine(item?.ToStringProperty());
                         #endregion
                         break;
                     case 2:
                         #region case 2
                         Console.WriteLine("insert id to get order:");
                         int.TryParse(Console.ReadLine(), out id);
-
                         Console.WriteLine(bl.Order.GetOrder(id));
                         #endregion
                         break;

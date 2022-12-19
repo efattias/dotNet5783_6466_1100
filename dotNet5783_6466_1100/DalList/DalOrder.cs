@@ -19,14 +19,19 @@ public class DalOrder : IOrder
     /// <exception cref="Exception"></exception>
     public int Add(Order item)
     {
-        Order? temp = ds.Orders.Find(x => x?.ID == item.ID );
-        if (temp != null)
-            throw new AlreadyExistExeption("order allready exists");
+      
+        Order? temp = ds.Orders.Find(x => x?.ID == item.ID);
 
-        item.OrderDate = DateTime.Now - new TimeSpan(rnd.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L));
-        item.ShipDate = DateTime.Now - new TimeSpan(rnd.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L));
-        item.DeliveryDate = DateTime.Now - new TimeSpan(rnd.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L));
-        
+        if (item.ID >= 1000 && temp == null)
+        {
+            ds.Orders.Add(item);
+            return item.ID;
+        }
+
+        if (temp != null)
+            throw new AlreadyExistExeption("order item allready exists");
+
+        item.ID = DataSource.ConfigOrder.NextOrderNumber;
         ds.Orders.Add(item);
         return item.ID;
     }

@@ -20,11 +20,17 @@ public class DalOrderItem:IOrderItem
     {
         OrderItem? temp = ds.OrderItems.Find(x => x?.ID == item.ID);
 
+        if (item.ID >= 1000 && temp==null)
+        {
+            ds.OrderItems.Add(item);
+            return item.ID;
+        }
+
         if (temp != null)
             throw new AlreadyExistExeption("order item allready exists");
 
+        item.ID = DataSource.ConfigOrderItem.NextOrderItemNumber;
         ds.OrderItems.Add(item);
-
         return item.ID;
     }
     
@@ -112,8 +118,8 @@ public class DalOrderItem:IOrderItem
         List<OrderItem?> listToReturn = new List<OrderItem?>();
         foreach(OrderItem? item in ds.OrderItems)
         {
-            if (item != null && item?.ID == orderId)
-                listToReturn.Add((OrderItem)item);  
+            if (item != null && item?.OrderID == order?.ID)
+                listToReturn.Add((OrderItem?)item);  
         }
         return listToReturn;
     }
