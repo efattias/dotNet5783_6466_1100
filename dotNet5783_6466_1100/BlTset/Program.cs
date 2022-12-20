@@ -143,7 +143,6 @@ internal class Program
         }
     }
 
-
     static void TestBoCart()
     {
         int choice = 1;
@@ -161,7 +160,6 @@ internal class Program
                 bool flag = int.TryParse(Console.ReadLine(), out choice);
                 int id;
                 int amount;
-                // string? name;
 
                 switch (choice)
                 {
@@ -215,6 +213,7 @@ internal class Program
         }
 
     }
+
     static void TestBoOrder()
     {
         int choice = 1;
@@ -350,14 +349,16 @@ internal class Program
                 temp.Category = BO.Category.learn;
                 break;
             default:
-                Console.WriteLine("ERROR- category does not exist");
                 break;
         }
 
         Console.WriteLine("product in stock:");
         int.TryParse(Console.ReadLine(), out detail);
         temp.InStock = detail;
+        if(cat>4||cat<0)
+            throw new BO.InvalidInputExeption("category is out of range");
     }
+
     static void Main(string[] args)
     {
         int choice = 1;

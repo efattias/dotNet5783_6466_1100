@@ -73,7 +73,7 @@ internal class BoCart : IBoCart
         {
            
             DO.Product prodectDO = dal.Product.GetByID(o!.ProductID);
-            if (prodectDO.InStock <= o?.Amount)
+            if (prodectDO.InStock < o?.Amount)
                 throw new ProductOutOfStockException("product out of stock- cant be in cart");
             if (o?.TotalPrice < 0 || o?.Price < 0 || o?.Amount < 0 || o?.ID < 0 || (!(o?.ProductID >= 100000 && o?.ProductID < 1000000)))
                     throw new BO.InvalidInputExeption("one of the details in orderItem list is out of range");
