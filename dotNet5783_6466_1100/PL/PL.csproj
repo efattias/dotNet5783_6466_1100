@@ -1,25 +1,19 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
 	<BaseOutputPath>$(SolutionDir)\bin\</BaseOutputPath>
 	<OutputPath>$(SolutionDir)\bin\</OutputPath>
 	<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 	<AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
 	<UseCommonOutputDirectory>true</UseCommonOutputDirectory>
-	<RootNamespace>Dal</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="DO\**" />
-    <EmbeddedResource Remove="DO\**" />
-    <None Remove="DO\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\DalFacade\DalFacade.csproj" />
+    <ProjectReference Include="..\BL\BL.csproj" />
   </ItemGroup>
 
 </Project>

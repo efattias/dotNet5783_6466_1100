@@ -123,5 +123,11 @@ public class DalOrderItem:IOrderItem
         }
         return listToReturn;
     }
+
+    public OrderItem? getByFilter(Func<OrderItem?, bool>? filter)
+    {
+            var orderItem = ds.OrderItems.Where(x => filter(x)) ?? throw new DoesntExistException("order by filter doesnt exists");
+            return orderItem.First(); 
+    }
 }
 

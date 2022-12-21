@@ -6,7 +6,7 @@ namespace Dal;
 /// <summary>
 /// class for implement the funcions of order product
 /// </summary>
-public class DalProduct:IProduct
+public class DalProduct : IProduct
 {
     DataSource ds = DataSource.s_instance;
 
@@ -30,7 +30,7 @@ public class DalProduct:IProduct
         ds.products.Add(item);
         return item.ID;
     }
-    
+
     /// <summary>
     /// function- delete product from list
     /// </summary>
@@ -41,21 +41,21 @@ public class DalProduct:IProduct
         if (ds.products.RemoveAll(Product => Product?.ID == id) == 0)
             throw new DoesntExistException("cant Delete that - does not exist");
     }
-    
+
     /// <summary>
     /// function- get product from list by given id
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
     /// <exception cref="Exception"></exception>
-    public Product GetByID(int id) 
-    { 
+    public Product GetByID(int id)
+    {
         Product? temp = ds.products.Find(x => x?.ID == id);
         if (temp == null)
             throw new DoesntExistException("product does not exist");
         return (Product)temp;
     }
-    
+
     /// <summary>
     /// function- update product in list
     /// </summary>
@@ -73,7 +73,7 @@ public class DalProduct:IProduct
     }
 
     #endregion
-    
+
     /// <summary>
     /// function- returns list of products
     /// </summary>
@@ -84,5 +84,11 @@ public class DalProduct:IProduct
             return ds.products?.ToList<Product?>() ?? throw new DO.DoesntExistException("Orders list invalid");
         return ds.products.Where(x => filter(x)) ?? throw new DO.DoesntExistException("Orders list invalid"); ;
 
+    }
+
+    public Product? getByFilter(Func<Product?, bool>? filter)
+    {
+        var product = ds.products.Where(x => filter(x)) ?? throw new DoesntExistException("product by filter doesnt exists");
+        return product.First();
     }
 }

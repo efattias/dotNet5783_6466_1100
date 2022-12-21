@@ -88,4 +88,15 @@ public class DalOrder : IOrder
             return  ds.Orders?.ToList<Order?>() ?? throw new DO.DoesntExistException("Orders list invalid");
         return ds.Orders.Where(x => filter(x)) ?? throw new DO.DoesntExistException("Orders list invalid"); ;
     }
+    /// <summary>
+    /// function- returns an order by filter
+    /// </summary>
+    /// <param name="filter"></param>
+    /// <returns></returns>
+
+    public Order? getByFilter(Func<Order?, bool>? filter)
+    { 
+        var order= ds.Orders.Where(x => filter(x)) ?? throw new DoesntExistException("order by filter doesnt exists");
+        return order.First();
+    }
 }
