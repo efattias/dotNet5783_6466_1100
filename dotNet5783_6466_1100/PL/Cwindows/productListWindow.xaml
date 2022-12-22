@@ -21,17 +21,29 @@ VerticalAlignment="Stretch" Width="auto" IsEnabled="False">
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions >
+            <ComboBox x:Name="categorySelector" HorizontalAlignment="Left" Margin="248,0,0,0" VerticalAlignment="Center" Width="152" Height="46" SelectionChanged="categorySelector_SelectionChanged">
+                <ComboBoxItem Content="קודש ויהדות"/>
+                <ComboBoxItem Content="פעוטות וילדים"/>
+                <ComboBoxItem Content="נוער"/>
+                <ComboBoxItem Content="בישול ואפיה"/>
+                <ComboBoxItem Content=" עיון"/>
 
-            <ComboBox Name="categorySelector"
-                      RenderTransformOrigin="-6.953,0.376"
-                      Margin="119,0,0,0" SelectionChanged="categorySelector_SelectionChanged"/>
+
+
+            </ComboBox>
+            <Label x:Name="category" Grid.Column="1" Content="קטגוריה" HorizontalAlignment="Left" Margin="53,0,0,0" VerticalAlignment="Center" Height="46" Width="81" FontSize="18">
+                
+
+            </Label>
+
+
+
+
         </Grid>
 
-        <Label Content=":קטגוריה" 
-               HorizontalAlignment="Left"
-               Background="#FF7680C1" 
-               FontSize="18" Margin="400,0,0,0"/>
-        
+
+
+
         <ListView x:Name="productListView" Grid.Row="1"
                   d:ItemsSource="{d:SampleData ItemCount=5}"
                   SelectionChanged="ListView_SelectionChanged"

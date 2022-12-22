@@ -26,14 +26,8 @@ namespace PL.Cwindows
         {
             InitializeComponent();
             productListView.ItemsSource = bl.Product.getProductForList();
-            categorySelector.ItemsSource = Enum.GetValues(typeof(BO.Category));
+           // categorySelector.ItemsSource = Enum.GetValues(typeof(BO.Category));
         }
-
-        private void ComboBoxItem_Selected(object sender, RoutedEventArgs e)
-        {
-               
-        }
-
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
