@@ -13,17 +13,43 @@
             <RowDefinition Height="500*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Grid Name="UpGrid" HorizontalAlignment="Stretch" Height="auto" Grid.Row="0"
+        <Grid Name="UpGrid"
+              HorizontalAlignment="Stretch" 
+              Height="auto" Grid.Row="0"
 VerticalAlignment="Stretch" Width="auto" IsEnabled="False">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions >
 
-            <ComboBox Name="categorySelector" 
-                      HorizontalAlignment="Left" Width="72" Margin="240,0,0,0"/>
+            <ComboBox Name="categorySelector"
+                      RenderTransformOrigin="-6.953,0.376"
+                      Margin="119,0,0,0" SelectionChanged="categorySelector_SelectionChanged"/>
         </Grid>
-        <Label Content=":קטגוריה" HorizontalAlignment="Left" Margin="572,0,0,0" Height="36" Width="85" Cursor="None" Background="#FF7680C1"/>
+
+        <Label Content=":קטגוריה" 
+               HorizontalAlignment="Left"
+               Background="#FF7680C1" 
+               FontSize="18" Margin="400,0,0,0"/>
+        
+        <ListView x:Name="productListView" Grid.Row="1"
+                  d:ItemsSource="{d:SampleData ItemCount=5}"
+                  SelectionChanged="ListView_SelectionChanged"
+                  Margin="2,7,3,5">
+            <ListView.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.136"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ListView.RenderTransform>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 
 

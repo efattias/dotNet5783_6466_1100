@@ -1,6 +1,5 @@
 ﻿using BlApi;
-using BO;
-using DO;
+
 
 namespace BlImplementation;
 internal class BoCart : IBoCart
@@ -74,7 +73,7 @@ internal class BoCart : IBoCart
            
             DO.Product prodectDO = dal.Product.GetByID(o!.ProductID);
             if (prodectDO.InStock < o?.Amount)
-                throw new ProductOutOfStockException("product out of stock- cant be in cart");
+                throw new BO.ProductOutOfStockException("product out of stock- cant be in cart");
             if (o?.TotalPrice < 0 || o?.Price < 0 || o?.Amount < 0 || o?.ID < 0 || (!(o?.ProductID >= 100000 && o?.ProductID < 1000000)))
                     throw new BO.InvalidInputExeption("one of the details in orderItem list is out of range");
             itemList.Add(o);
@@ -129,7 +128,7 @@ internal class BoCart : IBoCart
         try
         {
             DO.Product? p = dal.Product.GetByID(ID);
-            if (cart.Items == null)
+            if (cart?.Items == null)
                 throw new BO.DoesntExistException("cart is empty");
 
             foreach (BO.OrderItem? item in cart.Items)

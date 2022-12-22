@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BlApi;
+using BlImplementation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,27 @@ namespace PL.Cwindows
     /// </summary>
     public partial class productListWindow : Window
     {
+        private IBL bl = new Bl();
         public productListWindow()
         {
             InitializeComponent();
+            productListView.ItemsSource = bl.Product.getProductForList();
+            categorySelector.ItemsSource = Enum.GetValues(typeof(BO.Category));
+        }
+
+        private void ComboBoxItem_Selected(object sender, RoutedEventArgs e)
+        {
+               
+        }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void categorySelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
         }
     }
 }

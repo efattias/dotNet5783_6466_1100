@@ -12,7 +12,8 @@
             <RowDefinition Height="200*"/>
             <RowDefinition Height="200"/>
         </Grid.RowDefinitions>
-       
+        <Button x:Name="showProductListWindow" Content="לרשימת המוצרים" HorizontalAlignment="Left" Margin="571,59,0,0" Grid.Row="1" VerticalAlignment="Top" Click="showProductListWindow_Click"/>
+
 
     </Grid>
 </Window>
