@@ -23,7 +23,7 @@ public class DalProduct : IProduct
         Product? temp = ds.products.Find(x => x?.ID == item.ID);
 
         if (temp != null)
-            throw new AlreadyExistExeption("product allready exists");
+            throw new AlreadyExistExeption("ID is allready used");
 
         Product product = (Product)item;
 

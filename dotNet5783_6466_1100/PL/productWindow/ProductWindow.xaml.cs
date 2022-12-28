@@ -1,0 +1,83 @@
+﻿using BlApi;
+using BlImplementation;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
+namespace PL.productWindow
+{
+    /// <summary>
+    /// Interaction logic for ProductWindow.xaml
+    /// </summary>
+    public partial class ProductWindow : Window
+    {
+        IBL bl = new Bl();
+        BO.Product? p= new BO.Product();
+        public ProductWindow(BO.ProductForList? updateP=null)
+        {
+            InitializeComponent();
+            categoryComboBox.ItemsSource=Enum.GetValues(typeof(BO.Category));
+            if (updateP != null)
+            {
+
+                addToButton.Visibility = Visibility.Hidden;
+                p = bl.Product.GetProductbyId(updateP.ID);
+                UpdateButton.DataContext = p;
+                IDTextBox.Text = p!.ID.ToString();
+                
+            }
+            else
+            {
+                UpdateButton.Visibility = Visibility.Hidden;
+                addToButton.DataContext=p;
+            }
+        }
+
+        private void UpdateButton_Click(object sender, RoutedEventArgs e)
+        {
+            //create the drone
+            try
+            {
+                p!.ID = int.Parse(IDTextBox.Text);
+                p!.Name= NameTextBox.Text;
+                p!.InStock = int.Parse(AmountOfItemTextBox.Text);
+                p!.Category = (BO.Category?)categoryComboBox.SelectedItem;
+                p!.Price = double.Parse(PriceTextBox.Text);
+
+                bl.Product.UpdateDetailProduct(p);
+                Close();
+                MessageBox.Show("המוצר עודכן בהצלחה");
+            }
+            catch (Exception x)
+            { MessageBox.Show(x.Message); }
+        }
+
+        private void addToButton_Click(object sender, RoutedEventArgs e)
+        {
+            //create the drone
+            try
+            {
+                p!.ID = int.Parse(IDTextBox.Text);
+                p!.Name = NameTextBox.Text;
+                p!.InStock = int.Parse(AmountOfItemTextBox.Text);
+                p!.Category = (BO.Category?)categoryComboBox.SelectedItem;
+                p!.Price = double.Parse(PriceTextBox.Text);
+                bl.Product.AddProduct(p);
+                Close();
+                MessageBox.Show("המוצר הוסף בהצלחה");
+            }
+            catch (Exception x)
+            { MessageBox.Show(x.Message); }
+        }
+    }
+}

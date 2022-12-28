@@ -4,7 +4,7 @@
 /// </summary>
 public enum Category
 {
-    kids, teens, cook, kodesh, learn
+    kids, teens, cook, kodesh, learn,all
 }
 /// <summary>
 /// enum for status

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,4 +13,5 @@ public interface IBoProduct
     public void AddProduct(BO.Product? product);    
     public void DeledeProduct(int ID);
     public void UpdateDetailProduct(BO.Product? product);
+    public IEnumerable<ProductForList> GetPartOfProduct(Predicate<ProductForList> check);
 }

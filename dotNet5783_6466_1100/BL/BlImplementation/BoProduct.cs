@@ -1,4 +1,5 @@
 ﻿using BlApi;
+using BO;
 
 namespace BlImplementation;
 
@@ -15,9 +16,9 @@ internal class BoProduct :IBoProduct
     {
         //testing 
         if (!(product?.ID >= 100000 && product?.ID < 1000000))// id test
-            throw new BO.InvalidInputExeption("ID is out of range");
-
-        if (product?.Name == "")// name test 
+           throw new BO.InvalidInputExeption("ID is out of range");
+  
+        if (product?.Name == null)// name test 
             throw new BO.InvalidInputExeption("Name is not correct");
 
         if (product?.Price <= 0)// price test
@@ -151,6 +152,13 @@ internal class BoProduct :IBoProduct
                     Price = p?.Price,
                     Category = (BO.Category?)p?.Category
                 }).ToList();
+    }
+    public IEnumerable<ProductForList> GetPartOfProduct(Predicate<ProductForList> check)
+    {       
+        var listToReturn = (from p in getProductForList()
+                     where check(p)
+                     select p).ToList<ProductForList>();
+        return listToReturn;  
     }
     public void UpdateDetailProduct(BO.Product? product)
     {
