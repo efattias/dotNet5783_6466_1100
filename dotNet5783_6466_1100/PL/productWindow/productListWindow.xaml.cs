@@ -1,5 +1,4 @@
-﻿using BlApi;
-using BlImplementation;
+﻿
 using BO;
 using PL.productWindow;
 using System;
@@ -24,7 +23,8 @@ namespace PL.Cwindows;
 /// </summary>
 public partial class productListWindow : Window
 {
-    private IBL bl = new Bl();
+    BlApi.IBL? bl = BlApi.Factory.GetBl() ??throw new NullReferenceException("Missing bl");
+    // private IBL bl = Factory.GetBl();
     ObservableCollection<ProductForList> productList = new();
 
     public productListWindow()
@@ -41,11 +41,11 @@ public partial class productListWindow : Window
     private void categorySelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         if (categorySelector.SelectedItem is BO.Category.all)
-            IEnumerableToObservable(bl.Product.getProductForList());
+            IEnumerableToObservable(bl!.Product.getProductForList());
         else if (categorySelector.SelectedItem is BO.Category)
-            IEnumerableToObservable(bl.Product.GetPartOfProduct(p => p.Category == (BO.Category)categorySelector.SelectedItem));
+            IEnumerableToObservable(bl!.Product.GetPartOfProduct(p => p.Category == (BO.Category)categorySelector.SelectedItem));
         else if (categorySelector.SelectedItem is "")
-            IEnumerableToObservable(bl.Product.getProductForList());
+            IEnumerableToObservable(bl!.Product.getProductForList());
     }
 
     private void IEnumerableToObservable(IEnumerable<ProductForList> listTOConvert)

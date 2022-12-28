@@ -4,7 +4,7 @@
 namespace BlImplementation;
 internal class BoCart : IBoCart
 {
-    DalApi.IDal dal = DalApi.Factory.Get() ?? throw new NullReferenceException("Missing Dal");
+    DalApi.IDal? dal = DalApi.Factory.Get() ?? throw new NullReferenceException("Missing Dal");
 
     public BO.Cart? AddProductToCart(BO.Cart? cart, int ID)
     {
@@ -13,7 +13,7 @@ internal class BoCart : IBoCart
             //BO.OrderItem? item = cart?.Items?.FirstOrDefault(o => o?.ProductID == ID);
             //if (item == null)
             //{ BO.OrderItem orderItemToReturn}
-            DO.Product? productDO = dal.Product.GetByID(ID);// find the product if exists
+            DO.Product? productDO = dal!.Product.GetByID(ID);// find the product if exists
             BO.OrderItem? temp = cart?.Items?.Find(x => x?.ProductID == productDO?.ID);// search in cart
             if (temp == null)//item  does not in cart
             {
@@ -71,7 +71,7 @@ internal class BoCart : IBoCart
         foreach (BO.OrderItem? o in cart?.Items!)
         {
            
-            DO.Product prodectDO = dal.Product.GetByID(o!.ProductID);
+            DO.Product prodectDO = dal!.Product.GetByID(o!.ProductID);
             if (prodectDO.InStock < o?.Amount)
                 throw new BO.ProductOutOfStockException("product out of stock- cant be in cart");
             if (o?.TotalPrice < 0 || o?.Price < 0 || o?.Amount < 0 || o?.ID < 0 || (!(o?.ProductID >= 100000 && o?.ProductID < 1000000)))
@@ -88,7 +88,7 @@ internal class BoCart : IBoCart
             ShipDate = null,
             OrderDate = DateTime.Now,
         };
-            int idNewOrder = dal.Order.Add(orderToReturn);
+            int idNewOrder = dal!.Order.Add(orderToReturn);
             foreach (BO.OrderItem? item in itemList)
             {
                 DO.Product productDO = dal.Product.GetByID(item!.ProductID);
@@ -127,7 +127,7 @@ internal class BoCart : IBoCart
     {
         try
         {
-            DO.Product? p = dal.Product.GetByID(ID);
+            DO.Product? p = dal!.Product.GetByID(ID);
             if (cart?.Items == null)
                 throw new BO.DoesntExistException("cart is empty");
 

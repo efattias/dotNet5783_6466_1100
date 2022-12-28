@@ -1,5 +1,4 @@
-﻿using BlApi;
-using BlImplementation;
+﻿
 using PL.Cwindows;
 using System;
 using System.Collections.Generic;
@@ -23,7 +22,8 @@ namespace PL
     /// </summary>
     public partial class MainWindow : Window
     {
-       private IBL bL = new Bl();
+        //private IBL bL = Factory.GetBl();
+        BlApi.IBL? bl = BlApi.Factory.GetBl() ?? throw new NullReferenceException("Missing bl");
 
         public MainWindow()
         {

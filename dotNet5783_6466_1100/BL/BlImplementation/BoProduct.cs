@@ -5,7 +5,7 @@ namespace BlImplementation;
 
 internal class BoProduct :IBoProduct
 {
-    DalApi.IDal dal = DalApi.Factory.Get() ?? throw new NullReferenceException("Missing Dal");
+    DalApi.IDal? dal = DalApi.Factory.Get() ?? throw new NullReferenceException("Missing Dal");
     /// <summary>
     /// function- adding product to data source
     /// </summary>
@@ -36,7 +36,7 @@ internal class BoProduct :IBoProduct
                 Category = (DO.Category?)product?.Category,
                 InStock = product?.InStock
             };
-            dal.Product.Add(productTempDO); // adding to DAL
+            dal!.Product.Add(productTempDO); // adding to DAL
         }
         catch (DO.AlreadyExistExeption ex)// if doesnt work catch exeption
         {
@@ -51,7 +51,7 @@ internal class BoProduct :IBoProduct
     /// <exception cref="CantDeleteItem"></exception>
     public void DeledeProduct(int IDProduct)
     {
-        List<DO.Order?> tempList = (List<DO.Order?>)dal.Order.getAll();// create temp list to get all orders from DAL
+        List<DO.Order?> tempList = (List<DO.Order?>)dal!.Order.getAll();// create temp list to get all orders from DAL
         foreach (DO.Order? o in tempList )// go over the list of orders
         {
             List<DO.OrderItem?> itemsInO = new List<DO.OrderItem?>();// create orderItem list for testing
@@ -94,7 +94,7 @@ internal class BoProduct :IBoProduct
         try
         {
             BO.Product productTempBO = new BO.Product();// create BO product
-            DO.Product productTempDO = dal.Product.GetByID(ID);// create DO product
+            DO.Product productTempDO = dal!.Product.GetByID(ID);// create DO product
             // copy details
             productTempBO.ID = productTempDO.ID;
             productTempBO.Name = productTempDO.Name;
@@ -117,7 +117,7 @@ internal class BoProduct :IBoProduct
         
         try
         {
-            DO.Product? productTempDO = dal.Product.GetByID(ID);
+            DO.Product? productTempDO = dal?.Product.GetByID(ID);
             BO.ProductItem productItemBO = new BO.ProductItem()
             {
                 ID = (int)(productTempDO?.ID!),
@@ -141,7 +141,7 @@ internal class BoProduct :IBoProduct
     /// <returns></returns>
     public IEnumerable<BO.ProductForList> getProductForList()
     {
-        List<DO.Product?> productListDO = (List<DO.Product?>)dal.Product.getAll();
+        List<DO.Product?> productListDO = (List<DO.Product?>)dal?.Product.getAll();
 
         return (from p in productListDO
                 let productFromBL = GetProductbyId((int)(p?.ID!))
@@ -185,7 +185,7 @@ internal class BoProduct :IBoProduct
                 InStock = product?.InStock
             };
 
-            dal.Product.Update(productTempDO); // updating
+            dal!.Product.Update(productTempDO); // updating
         }
         catch (DO.DoesntExistException ex)// if doesnt work catch exeption
         {

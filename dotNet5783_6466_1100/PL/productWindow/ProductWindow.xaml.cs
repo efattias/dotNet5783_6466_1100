@@ -1,5 +1,5 @@
-﻿using BlApi;
-using BlImplementation;
+﻿
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +21,9 @@ namespace PL.productWindow
     /// </summary>
     public partial class ProductWindow : Window
     {
-        IBL bl = new Bl();
+        BlApi.IBL? bl = BlApi.Factory.GetBl() ?? throw new NullReferenceException("Missing bl") ;
+     
+        //IBL bl =  Factory.GetBl();
         BO.Product? p= new BO.Product();
         public ProductWindow(BO.ProductForList? updateP=null)
         {
@@ -54,7 +56,7 @@ namespace PL.productWindow
                 p!.Category = (BO.Category?)categoryComboBox.SelectedItem;
                 p!.Price = double.Parse(PriceTextBox.Text);
 
-                bl.Product.UpdateDetailProduct(p);
+                bl!.Product.UpdateDetailProduct(p);
                 Close();
                 MessageBox.Show("המוצר עודכן בהצלחה");
             }
@@ -72,7 +74,7 @@ namespace PL.productWindow
                 p!.InStock = int.Parse(AmountOfItemTextBox.Text);
                 p!.Category = (BO.Category?)categoryComboBox.SelectedItem;
                 p!.Price = double.Parse(PriceTextBox.Text);
-                bl.Product.AddProduct(p);
+                bl!.Product.AddProduct(p);
                 Close();
                 MessageBox.Show("המוצר הוסף בהצלחה");
             }

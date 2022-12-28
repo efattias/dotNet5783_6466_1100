@@ -1,7 +1,7 @@
 ﻿using BlApi;
 namespace BlImplementation
 {
-    public class Bl:IBL
+    internal class Bl:IBL
     {
         public Bl() { }
 
