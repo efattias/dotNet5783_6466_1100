@@ -35,5 +35,12 @@ namespace PL
             productListWindow window = new productListWindow();
             window.Show();
         }
+
+        private void Manager_Click(object sender, RoutedEventArgs e)
+        {
+            ManagerButton.Visibility = Visibility.Hidden;
+            ManagerButton.IsEnabled = false;
+
+        }
     }
 }
