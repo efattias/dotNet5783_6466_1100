@@ -23,7 +23,6 @@
                RenderTransformOrigin="-7.932,0.579" Height="26" Width="59"/>
 
         <TextBox x:Name="IDTextBox" Height="20"
-                    FontSize="8"
                     VerticalAlignment="Top"
                  Margin="120,54,7,0"
                     IsReadOnly="false" IsEnabled="True"/>
@@ -37,7 +36,6 @@
                RenderTransformOrigin="-7.932,0.579" Height="26" Width="58"/>
 
         <TextBox x:Name="NameTextBox" Height="20"
-                    FontSize="8"
                     VerticalAlignment="Top"
                  Margin="120,95,7,0"
                     IsReadOnly="false" IsEnabled="True"/>
@@ -50,13 +48,10 @@
                RenderTransformOrigin="-7.932,0.579" Height="26" Width="42"/>
 
         <TextBox x:Name="PriceTextBox" Height="20"
-                    FontSize="8"
                     VerticalAlignment="Top"
                  Margin="120,138,7,0"
                     Text="{Binding Name}"
-                    IsReadOnly="false" IsEnabled="true" >
-
-        </TextBox>
+                    IsReadOnly="false" IsEnabled="true" />
         <Label x:Name="AmountOfItemsLabel"
                Content="Amount:" 
                HorizontalAlignment="Left" 
@@ -64,7 +59,6 @@
                VerticalAlignment="Top"
                RenderTransformOrigin="-7.932,0.579" Height="26" Width="59"/>
         <TextBox x:Name="AmountOfItemTextBox" Height="20"
-                    FontSize="8"
                     VerticalAlignment="Top"
                  Margin="120,173,7,0"
                     Text="{Binding Price}"
@@ -76,7 +70,6 @@
                VerticalAlignment="Top"
                RenderTransformOrigin="-7.932,0.579" Height="26" Width="59"/>
         <ComboBox x:Name="categoryComboBox"
-                      FontSize="10"
                       Margin="120,211,7,136" 
                       ItemsSource="{Binding }" 
                   IsEnabled="true"

@@ -53,8 +53,27 @@
                 </TransformGroup>
             </ListView.RenderTransform>
             <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
+                <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Employee Information">
+
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=ID}" Header="מזהה" Width="120"/>
+
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Header="שם" Width="120"/>
+
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Price}" Header="מחיר" Width="120"/>
+
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Category}" Header="קטגוריה" Width="120"/>
+
+                    <!--<GridViewColumn DisplayMemberBinding="{Binding Path=LastName}" Width="100">
+                        <GridViewColumnHeader>Last Name
+                            <GridViewColumnHeader.ContextMenu>
+                                <ContextMenu MenuItem.Click="LastNameCM_Click" Name="LastNameCM">
+                                    <MenuItem Header="Ascending" />
+                                    <MenuItem Header="Descending" />
+                                </ContextMenu>
+                            </GridViewColumnHeader.ContextMenu>
+                        </GridViewColumnHeader>
+                    </GridViewColumn>-->
+
                 </GridView>
             </ListView.View>
         </ListView>
