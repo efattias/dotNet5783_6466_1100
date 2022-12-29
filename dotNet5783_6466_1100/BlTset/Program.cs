@@ -53,10 +53,10 @@ internal class Program
                         temp.Price = price;
 
                         Console.WriteLine(@"choose product catgory: 
-                                        0-kids books, 
-                                        1-teens books, 
-                                        2-cook books, 
-                                        3-kodesh books, 
+                                        0-ילדים books, 
+                                        1-נוער books, 
+                                        2-בישול books, 
+                                        3-קודש books, 
                                         4-learning books");
 
                         int.TryParse(Console.ReadLine(), out cat);
@@ -64,19 +64,19 @@ internal class Program
                         switch (cat)
                         {
                             case 0:
-                                temp.Category = BO.Category.kids;
+                                temp.Category = BO.Category.ילדים;
                                 break;
                             case 1:
-                                temp.Category = BO.Category.teens;
+                                temp.Category = BO.Category.נוער;
                                 break;
                             case 2:
-                                temp.Category = BO.Category.cook;
+                                temp.Category = BO.Category.בישול;
                                 break;
                             case 3:
-                                temp.Category = BO.Category.kodesh;
+                                temp.Category = BO.Category.קודש;
                                 break;
                             case 4:
-                                temp.Category = BO.Category.learn;
+                                temp.Category = BO.Category.לימוד;
                                 break;
                             default:
                                 Console.WriteLine("ERROR- category does not exist");
@@ -323,10 +323,10 @@ internal class Program
         temp.Price = price;
 
         Console.WriteLine("choose product catgory:\n" +
-            "0-kids books\n" +
-            "1-teens books\n" +
-            "2-cook books\n" +
-            "3-kodesh books\n" +
+            "0-ילדים books\n" +
+            "1-נוער books\n" +
+            "2-בישול books\n" +
+            "3-קודש books\n" +
             "4-learning books\n");
 
         int.TryParse(Console.ReadLine(), out cat);
@@ -334,19 +334,19 @@ internal class Program
         switch (cat)
         {
             case 0:
-                temp.Category = BO.Category.kids;
+                temp.Category = BO.Category.ילדים;
                 break;
             case 1:
-                temp.Category = BO.Category.teens;
+                temp.Category = BO.Category.נוער;
                 break;
             case 2:
-                temp.Category = BO.Category.cook;
+                temp.Category = BO.Category.בישול;
                 break;
             case 3:
-                temp.Category = BO.Category.kodesh;
+                temp.Category = BO.Category.קודש;
                 break;
             case 4:
-                temp.Category = BO.Category.learn;
+                temp.Category = BO.Category.לימוד;
                 break;
             default:
                 break;

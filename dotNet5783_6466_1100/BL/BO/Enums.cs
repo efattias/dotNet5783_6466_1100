@@ -4,7 +4,7 @@
 /// </summary>
 public enum Category
 {
-    kids, teens, cook, kodesh, learn,all
+    ילדים, נוער, בישול, קודש, לימוד,הכל
 }
 /// <summary>
 /// enum for status

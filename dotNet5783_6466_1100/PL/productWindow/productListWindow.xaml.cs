@@ -40,7 +40,7 @@ public partial class productListWindow : Window
 
     private void categorySelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        if (categorySelector.SelectedItem is BO.Category.all)
+        if (categorySelector.SelectedItem is BO.Category.הכל)
             IEnumerableToObservable(bl!.Product.getProductForList());
         else if (categorySelector.SelectedItem is BO.Category)
             IEnumerableToObservable(bl!.Product.GetPartOfProduct(p => p.Category == (BO.Category)categorySelector.SelectedItem));

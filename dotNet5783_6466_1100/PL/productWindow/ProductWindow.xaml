@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL.productWindow"
         mc:Ignorable="d"
-        Title="ProductWindow" Height="398" Width="301">
+        Title="חלון מוצר" Height="398" Width="301">
     <Grid  Name="mainGrid" RenderTransformOrigin="1.424,0.455" Margin="0,0,0,-6">
 
         <Grid.RowDefinitions>
@@ -16,66 +16,66 @@
         </Grid.ColumnDefinitions>
 
         <Label x:Name="IDLabel"
-               Content="ID:" 
+               Content=":מזהה" 
                HorizontalAlignment="Left" 
-               Margin="53,51,0,0" 
+               Margin="207,50,0,0" 
                VerticalAlignment="Top"
-               RenderTransformOrigin="-7.932,0.579" Height="26" Width="59"/>
+               RenderTransformOrigin="-7.932,0.579" Height="25" Width="60" HorizontalContentAlignment="Right"/>
 
-        <TextBox x:Name="IDTextBox" Height="20"
+        <TextBox x:Name="IDTextBox" Height="25"
                     VerticalAlignment="Top"
-                 Margin="120,54,7,0"
+                 Margin="33,50,94,0"
                     IsReadOnly="false" IsEnabled="True"/>
 
 
         <Label x:Name="NameLabel"
-               Content="Name:" 
+               Content=":שם" 
                HorizontalAlignment="Left" 
-               Margin="39,89,0,0" 
+               Margin="207,100,0,0" 
                VerticalAlignment="Top"
-               RenderTransformOrigin="-7.932,0.579" Height="26" Width="58"/>
+               RenderTransformOrigin="-7.932,0.579" Height="25" Width="60" HorizontalContentAlignment="Right"/>
 
-        <TextBox x:Name="NameTextBox" Height="20"
+        <TextBox x:Name="NameTextBox" Height="25"
                     VerticalAlignment="Top"
-                 Margin="120,95,7,0"
+                 Margin="33,100,94,0"
                     IsReadOnly="false" IsEnabled="True"/>
 
         <Label x:Name="PriceLabel"
-               Content="Price:" 
+               Content=":מחיר" 
                HorizontalAlignment="Left" 
-               Margin="40,130,0,0" 
+               Margin="207,150,0,0" 
                VerticalAlignment="Top"
-               RenderTransformOrigin="-7.932,0.579" Height="26" Width="42"/>
+               RenderTransformOrigin="-7.932,0.579" Height="25" Width="60" HorizontalContentAlignment="Right"/>
 
-        <TextBox x:Name="PriceTextBox" Height="20"
+        <TextBox x:Name="PriceTextBox" Height="25"
                     VerticalAlignment="Top"
-                 Margin="120,138,7,0"
+                 Margin="33,150,94,0"
                     Text="{Binding Name}"
                     IsReadOnly="false" IsEnabled="true" />
         <Label x:Name="AmountOfItemsLabel"
-               Content="Amount:" 
+               Content=":כמות" 
                HorizontalAlignment="Left" 
-               Margin="39,173,0,0" 
+               Margin="207,200,0,0" 
                VerticalAlignment="Top"
-               RenderTransformOrigin="-7.932,0.579" Height="26" Width="59"/>
-        <TextBox x:Name="AmountOfItemTextBox" Height="20"
+               RenderTransformOrigin="-7.932,0.579" Height="25" Width="60" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="AmountOfItemTextBox" Height="25"
                     VerticalAlignment="Top"
-                 Margin="120,173,7,0"
+                 Margin="33,200,94,0"
                     Text="{Binding Price}"
                     IsReadOnly="false" IsEnabled="true"/>
         <Label x:Name="categoryLabel"
-               Content="category:" 
-               HorizontalAlignment="Left" 
-               Margin="39,218,0,0" 
+               Content=":קטגוריה" 
+               HorizontalAlignment="Right" 
+               Margin="0,250,18,0" 
                VerticalAlignment="Top"
-               RenderTransformOrigin="-7.932,0.579" Height="26" Width="59"/>
+               RenderTransformOrigin="-7.932,0.579" Height="25" Width="60" HorizontalContentAlignment="Right"/>
         <ComboBox x:Name="categoryComboBox"
-                      Margin="120,211,7,136" 
+                      Margin="33,250,94,89" 
                       ItemsSource="{Binding }" 
-                  IsEnabled="true"
+                  IsEnabled="true" Height="25"
                       />
-        <Button x:Name="addToButton" Content="add" HorizontalAlignment="Center" Margin="0,274,0,0" VerticalAlignment="Top" Height="22" Width="57" FontSize="14" Click="addToButton_Click" />
-        <Button x:Name="UpdateButton" Content="update" HorizontalAlignment="Left" Margin="148,274,0,0" VerticalAlignment="Top" Height="22" Width="58" FontSize="14" Click="UpdateButton_Click" />
+        <Button x:Name="addToButton" Content="הוספה" HorizontalAlignment="Left" Margin="120,329,0,0" VerticalAlignment="Top" Height="22" Width="57" FontSize="14" Click="addToButton_Click" />
+        <Button x:Name="UpdateButton" Content="עדכון" HorizontalAlignment="Left" Margin="149,329,0,0" VerticalAlignment="Top" Height="22" Width="58" FontSize="14" Click="UpdateButton_Click" />
 
     </Grid>
 </Window>

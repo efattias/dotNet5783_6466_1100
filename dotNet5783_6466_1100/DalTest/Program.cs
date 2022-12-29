@@ -232,29 +232,29 @@ class Program
                         double.TryParse(Console.ReadLine(), out price);
                         temp.Price = price;
                         Console.WriteLine(@"choose product catgory: 
-                                        0-kids books, 
-                                        1-teens books, 
-                                        2-cook books, 
-                                        3-kodesh books, 
+                                        0-ילדים books, 
+                                        1-נוער books, 
+                                        2-בישול books, 
+                                        3-קודש books, 
                                         4-learning books");
                         int.TryParse(Console.ReadLine(), out cat);
 
                         switch (cat)
                         {
                             case 0:
-                                temp.Category = Category.kids;
+                                temp.Category = Category.ילדים;
                                 break;
                             case 1:
-                                temp.Category = Category.teens;
+                                temp.Category = Category.נוער;
                                 break;
                             case 2:
-                                temp.Category = Category.cook;
+                                temp.Category = Category.בישול;
                                 break;
                             case 3:
-                                temp.Category = Category.kodesh;
+                                temp.Category = Category.קודש;
                                 break;
                             case 4:
-                                temp.Category = Category.learn;
+                                temp.Category = Category.לימוד;
                                 break;
                             default:
                                 Console.WriteLine("ERROR- category does not exist");
@@ -290,29 +290,29 @@ class Program
                         double.TryParse(Console.ReadLine(), out price);
                         temp1.Price = price;
                         Console.WriteLine(@"choose product catgory: 
-                                        0-kids book, 
-                                        1-teens book, 
-                                        2-cook books, 
-                                        3-kodesh books, 
+                                        0-ילדים book, 
+                                        1-נוער book, 
+                                        2-בישול books, 
+                                        3-קודש books, 
                                         4-learning books");
                         int.TryParse(Console.ReadLine(), out cat);
 
                         switch (cat)
                         {
                             case 0:
-                                temp1.Category = Category.kids;
+                                temp1.Category = Category.ילדים;
                                 break;
                             case 1:
-                                temp1.Category = Category.teens;
+                                temp1.Category = Category.נוער;
                                 break;
                             case 2:
-                                temp1.Category = Category.cook;
+                                temp1.Category = Category.בישול;
                                 break;
                             case 3:
-                                temp1.Category = Category.kodesh;
+                                temp1.Category = Category.קודש;
                                 break;
                             case 4:
-                                temp1.Category = Category.learn;
+                                temp1.Category = Category.לימוד;
                                 break;
                             default:
                                 Console.WriteLine("ERROR- category does not exist");

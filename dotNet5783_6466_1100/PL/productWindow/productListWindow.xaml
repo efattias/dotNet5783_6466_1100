@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL.Cwindows"
         mc:Ignorable="d"
-        Title="productListWindow" Height="640" Width="800">
+        Title="חלון רשימת מוצרים" Height="640" Width="800">
 
     <Grid Name="MainGrid">
         <Grid.ColumnDefinitions>
@@ -24,8 +24,8 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions >
-            <ComboBox x:Name="categorySelector" 
-                      HorizontalAlignment="Left" 
+            <ComboBox x:Name="categorySelector"
+                HorizontalAlignment="Left" 
                       Margin="200,0,0,0" 
                       VerticalAlignment="Top"
                       Width="174" Height="46"
@@ -78,12 +78,12 @@
             </ListView.View>
         </ListView>
 
-        <Button x:Name="addProduct" Content="add new product" 
+        <Button x:Name="addProduct" Content="הוספת מוצר חדש" 
                 HorizontalAlignment="Left"
-               Margin="693,5,0,5"
+               Margin="668,5,0,5"
                 Padding="5"
                 Grid.Row="2" 
-                Click="AddProductButton_Click" Grid.ColumnSpan="2"/>
+                Click="AddProductButton_Click"/>
 
 
     </Grid>

@@ -51,7 +51,7 @@ internal class BoProduct :IBoProduct
     /// <exception cref="CantDeleteItem"></exception>
     public void DeledeProduct(int IDProduct)
     {
-        List<DO.Order?> tempList = (List<DO.Order?>)dal!.Order.getAll();// create temp list to get all orders from DAL
+        List<DO.Order?> tempList = (List<DO.Order?>)dal!.Order.getAll();// create temp list to get הכל orders from DAL
         foreach (DO.Order? o in tempList )// go over the list of orders
         {
             List<DO.OrderItem?> itemsInO = new List<DO.OrderItem?>();// create orderItem list for testing

@@ -33,7 +33,7 @@ public class OrderItem
     /// </summary>
     public int? Amount { get; set; }
     /// <summary>
-    /// the price of all the item from product type
+    /// the price of הכל the item from product type
     /// </summary>
     public double? TotalPrice { get; set; }
     /// <summary>

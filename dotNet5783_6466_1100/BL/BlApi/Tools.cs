@@ -37,7 +37,7 @@ public static class Tools
     public static object CopyPropToStruct<S>(this S from, Type type)//get the type we want to copy to 
     {
         object copy = Activator.CreateInstance(type); // new object of the Type
-        from.CopyPropTo(copy);//copy all value of properties with the same name to the new object
+        from.CopyPropTo(copy);//copy הכל value of properties with the same name to the new object
         return copy!;
     }
 
