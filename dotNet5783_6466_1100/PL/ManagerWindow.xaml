@@ -39,7 +39,7 @@
                           Background="AliceBlue" FontWeight="Bold"
                           MouseDoubleClick="OpenLists_MouseDoubleClick">
                     <ListViewItem Height="80"
-                                  Background="AliceBlue" Selected="ListViewItem_Selected_1">
+                                  Background="AliceBlue">
 
                         <StackPanel Orientation="Horizontal">
                             <!--<Image Source="/Drone/drone.png"

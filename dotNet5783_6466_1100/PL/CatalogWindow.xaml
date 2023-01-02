@@ -1,0 +1,20 @@
+﻿<Window x:Class="PL.CatalogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PL"
+        mc:Ignorable="d"
+        Title="CatalogWindow" Height="600" Width="950">
+    <Grid>
+        <Grid Height="80" 
+                      VerticalAlignment="Top" Background="#FFFAFAFA">
+            <ToggleButton Name="ToggleButton"
+                                  Style="{DynamicResource MaterialDesignHamburgerToggleButton}" HorizontalAlignment="Left"
+                                  Height="40" VerticalAlignment="Top" 
+                                  Background="Transparent" 
+                                  BorderBrush="Transparent"
+                          Margin="903,0,0,0" Checked="ToggleButton_Checked"/>
+        </Grid>
+    </Grid>
+</Window>

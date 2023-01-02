@@ -22,7 +22,7 @@ namespace PL
         public ManagerWindow()
         {
             InitializeComponent();
-            ListFrame.Content = new ManagerWindow();
+            ListFrame.Content = new ManagerPageWindow();
         }
         private void OpenLists_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
