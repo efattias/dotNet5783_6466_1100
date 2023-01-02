@@ -38,7 +38,7 @@ namespace PL.PO
                     name = value;
                     if (PropertyChanged != null)
                     {
-                        PropertyChanged(this, new PropertyChangedEventArgs("Model"));
+                        PropertyChanged(this, new PropertyChangedEventArgs("Name"));
                     }
                 }
             }
@@ -53,7 +53,7 @@ namespace PL.PO
                     price = value;
                     if (PropertyChanged != null)
                     {
-                        PropertyChanged(this, new PropertyChangedEventArgs("Weight"));
+                        PropertyChanged(this, new PropertyChangedEventArgs("Price"));
                     }
                 }
             }
@@ -68,7 +68,7 @@ namespace PL.PO
                     category = value;
                     if (PropertyChanged != null)
                     {
-                        PropertyChanged(this, new PropertyChangedEventArgs("Battery"));
+                        PropertyChanged(this, new PropertyChangedEventArgs("Category"));
                     }
                 }
             }
@@ -83,7 +83,7 @@ namespace PL.PO
                     inStock = value;
                     if (PropertyChanged != null)
                     {
-                        PropertyChanged(this, new PropertyChangedEventArgs("Status"));
+                        PropertyChanged(this, new PropertyChangedEventArgs("InStock"));
                     }
                 }
             }
