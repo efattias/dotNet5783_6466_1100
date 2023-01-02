@@ -41,9 +41,10 @@ namespace PL
 
         private void Manager_Click(object sender, RoutedEventArgs e)
         {
-            ManagerButton.Visibility = Visibility.Hidden;
-            ManagerButton.IsEnabled = false;
-
+            //ManagerButton.Visibility = Visibility.Hidden;
+            //ManagerButton.IsEnabled = false;
+            ManagerWindow managerWindow = new ManagerWindow();
+            managerWindow.Show();
         }
     }
 }
