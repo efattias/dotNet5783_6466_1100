@@ -32,8 +32,11 @@ namespace PL
 
         private void showProductListWindow_Click(object sender, RoutedEventArgs e)
         {
-            productListWindow window = new productListWindow();
-            window.Show();
+            //productListWindow window = new productListWindow();
+            //window.Show();
+            ProductListPage page= new ProductListPage();
+            this.Content = page;
+            
         }
 
         private void Manager_Click(object sender, RoutedEventArgs e)

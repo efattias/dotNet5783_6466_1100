@@ -5,17 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL.Cwindows"
         mc:Ignorable="d"
-        Title="חלון רשימת מוצרים" Height="640" Width="800">
+        Title="חלון רשימת מוצרים" Height="600" Width="800">
 
     <Grid Name="MainGrid">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="791*"/>
-            <ColumnDefinition Width="9*"/>
+            <ColumnDefinition Width="800*"/>
+           
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="40*"/>
             <RowDefinition Height="500*"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
         <Grid Name="UpGrid" 
               Height="auto" Grid.Row="0"
@@ -62,28 +62,25 @@
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Price}" Header="מחיר" Width="120"/>
 
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Category}" Header="קטגוריה" Width="120"/>
+               
 
-                    <!--<GridViewColumn DisplayMemberBinding="{Binding Path=LastName}" Width="100">
-                        <GridViewColumnHeader>Last Name
-                            <GridViewColumnHeader.ContextMenu>
-                                <ContextMenu MenuItem.Click="LastNameCM_Click" Name="LastNameCM">
-                                    <MenuItem Header="Ascending" />
-                                    <MenuItem Header="Descending" />
-                                </ContextMenu>
-                            </GridViewColumnHeader.ContextMenu>
-                        </GridViewColumnHeader>
-                    </GridViewColumn>-->
 
                 </GridView>
             </ListView.View>
         </ListView>
 
-        <Button x:Name="addProduct" Content="הוספת מוצר חדש" 
-                HorizontalAlignment="Left"
-               Margin="668,5,0,5"
-                Padding="5"
-                Grid.Row="2" 
-                Click="AddProductButton_Click"/>
+        <Grid x:Name="downGrid" Grid.Row="2">
+
+            <Button
+                x:Name="addP" Content="להוספת מוצר"
+                HorizontalAlignment="Left" Margin="639,34,0,0" Click="addP_Click" >
+
+
+
+            </Button>
+
+        </Grid>       
+      
 
 
     </Grid>
