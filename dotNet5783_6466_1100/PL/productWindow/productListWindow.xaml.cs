@@ -65,7 +65,10 @@ public partial class productListWindow : Window
             window.Show();
         
     }
-
+    private void addTOList(BO.ProductForList product)
+    {
+        productList.Add(product);
+    }
 
 
 

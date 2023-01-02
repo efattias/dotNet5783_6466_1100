@@ -51,16 +51,19 @@ namespace PL
             productListPO.Clear();
             foreach (var p in listTOConvert)
                 productListPO.Add(p);
+
         }
 
         private void addProduct_Click(object sender, RoutedEventArgs e)
         {
             ProductWindow window = new ProductWindow();
             window.Show();
+          //  IEnumerableToObservable(productListPO);
         }
 
         private void doubleClickUpdateProduct( object sender, MouseButtonEventArgs e) => new ProductWindow((BO.ProductForList)productListV.SelectedItem).Show();
 
+       
     }
 
 

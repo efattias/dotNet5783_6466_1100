@@ -16,6 +16,7 @@ public class Product
     /// <summary>
     /// product id
     /// </summary>
+    /// 
     public int ID { get; set; }
     /// <summary>
     /// product name 
@@ -33,6 +34,11 @@ public class Product
     /// the amount of product in the stock
     /// </summary>
     public int? InStock { get; set; }
+
+  /// <summary>
+  /// path for image
+  /// </summary>
+    public string? Path { get; set; }
 
     /// <summary>
     /// function- print Product class
