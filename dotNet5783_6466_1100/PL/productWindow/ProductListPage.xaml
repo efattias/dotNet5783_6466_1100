@@ -24,8 +24,8 @@
             <Label x:Name="category"
                    Content="קטגוריה"
                    HorizontalAlignment="Left"
-                   Margin="456,0,0,0"
-                   VerticalAlignment="Center"
+                   Margin="670,22,0,0"
+                   VerticalAlignment="Top"
                    Height="46" Width="80"
                    FontSize="18">
             </Label>
@@ -33,7 +33,7 @@
                  x:Name="categorySelector"
                 Height="25"
                 HorizontalAlignment="Left" 
-                      Margin="252,12,0,0"
+                      Margin="484,32,0,12"
                       Width="181"
                       SelectionChanged="categorySelector_SelectionChanged"/>
 

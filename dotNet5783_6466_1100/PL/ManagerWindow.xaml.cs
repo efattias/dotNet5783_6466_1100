@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PL.orderWindow;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,7 +31,7 @@ namespace PL
             {
                 case 0:
                     {
-                        ListFrame.Content = new OrderPageWindow();
+                        ListFrame.Content = new orderListPage();
                         break;
                     }
                 case 1:

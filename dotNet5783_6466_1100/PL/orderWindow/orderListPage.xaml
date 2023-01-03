@@ -44,6 +44,7 @@
                   MouseDoubleClick="doubleClickUpdateOrder">
             <ListView.View>
                 <GridView>
+                    
 
                     <GridViewColumn DisplayMemberBinding="{Binding Path=ID}" Header="מזהה" Width="120"/>
 

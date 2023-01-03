@@ -39,9 +39,9 @@ namespace PL.orderWindow
 
         private void categorySelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (orderSelector.SelectedItem is BO.Category.הכל)
+            if (orderSelector.SelectedItem is BO.Status.הכל)
                 IEnumerableToObservable(bl!.Order.getOrderForList());
-            else if (orderSelector.SelectedItem is BO.Category)
+            else if (orderSelector.SelectedItem is BO.Status)
                 IEnumerableToObservable(bl!.Order.GetPartOfOrder(o => o.OrderStatus == (BO.Status)orderSelector.SelectedItem));
             else if (orderSelector.SelectedItem is "")
                 IEnumerableToObservable(bl!.Order.getOrderForList());

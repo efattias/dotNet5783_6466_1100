@@ -44,14 +44,14 @@ public static class Tools
     public static Status GetStatus(DO.Order order)
     {  
         if (order.DeliveryDate != null && order.DeliveryDate < DateTime.Now)
-            return Status.provided;
+            return Status.סופקו;
         else if (order.ShipDate != null && order.ShipDate < DateTime.Now)
-            return Status.sent;
+            return Status.נשלחו;
         else if (order.OrderDate != null && order.OrderDate < DateTime.Now)
-            return Status.approved;
+            return Status.אושרו;
         else
-            return Status.none;
-        
+            return Status.הכל;
+
     }
     public static int GetAmountOfItems(IEnumerable<DO.OrderItem?> orderFromBL)
     {

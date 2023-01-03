@@ -14,7 +14,7 @@
                NavigationUIVisibility="Hidden"/>
 
         <Grid x:Name="sidePanel" 
-              HorizontalAlignment="Left" Width="200" Height="550"
+              HorizontalAlignment="Right" Width="200" Height="550"
               VerticalAlignment="Bottom" >
 
             <StackPanel Background="AliceBlue">
@@ -25,6 +25,7 @@
                                   Style="{DynamicResource MaterialDesignHamburgerToggleButton}" HorizontalAlignment="Right"
                                   Height="40" VerticalAlignment="Top" 
                                   Background="AliceBlue"
+                                  
                                   BorderBrush="AliceBlue"
                                   Margin="0,0,10,0"/>
                 </Grid>
