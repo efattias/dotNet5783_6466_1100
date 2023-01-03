@@ -109,6 +109,7 @@
             </Style.Triggers>
         </Style>
     </Window.Resources>
+    
     <Grid Background="#BCAA99" RenderTransformOrigin="0.578,0.536">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200*"/>

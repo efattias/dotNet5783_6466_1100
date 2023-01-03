@@ -42,14 +42,18 @@ namespace PL
         {
             //ManagerButton.Visibility = Visibility.Hidden;
             //ManagerButton.IsEnabled = false;
-            ManagerWindow managerWindow = new ManagerWindow();
-            managerWindow.Show();
+            //ManagerWindow managerWindow = new ManagerWindow();
+            //managerWindow.Show();
+            ManagerPage mPage = new ManagerPage();
+            this.Content = mPage;
         }
 
         private void customerButton_Click(object sender, RoutedEventArgs e)
         {
-            CatalogWindow catalog = new CatalogWindow();
-            catalog.Show();
+            CatalogPageWindow catalogPage = new CatalogPageWindow();
+            this.Content= catalogPage;
+            //ProductListPage page = new ProductListPage();
+            //this.Content = page;
         }
     }
 }
