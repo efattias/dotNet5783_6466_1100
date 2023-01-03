@@ -34,10 +34,8 @@ namespace PL
         {
             //productListWindow window = new productListWindow();
             //window.Show();
-            //ProductListPage page= new ProductListPage();
-            //this.Content = page;
-            CatalogWindow catalog=new CatalogWindow();
-            catalog.Show();
+            ProductListPage page = new ProductListPage();
+            this.Content = page;
         }
 
         private void Manager_Click(object sender, RoutedEventArgs e)
@@ -46,6 +44,12 @@ namespace PL
             //ManagerButton.IsEnabled = false;
             ManagerWindow managerWindow = new ManagerWindow();
             managerWindow.Show();
+        }
+
+        private void customerButton_Click(object sender, RoutedEventArgs e)
+        {
+            CatalogWindow catalog = new CatalogWindow();
+            catalog.Show();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿
 
+using BO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,18 +26,23 @@ namespace PL.productWindow
      
         //IBL bl =  Factory.GetBl();
         BO.Product? p= new BO.Product();
+        Cart cart = new Cart() { CustomerAddress = "", CustomerEmail = "", CustomerName = "", Items = new List<BO.OrderItem?>(), TotalPrice = 0 };
+
+
         public ProductWindow(BO.ProductForList? updateP=null)
         {
             InitializeComponent();
             categoryComboBox.ItemsSource=Enum.GetValues(typeof(BO.Category));
             if (updateP != null)
             {
-
                 addToButton.Visibility = Visibility.Hidden;
                 p = bl.Product.GetProductbyId(updateP.ID);
                 UpdateButton.DataContext = p;
                 IDTextBox.Text = p!.ID.ToString();
-                
+                NameTextBox.Text=p!.Name.ToString();
+                PriceTextBox.Text = p!.Price.ToString();
+                AmountOfItemTextBox.Text = p!.InStock.ToString();
+                categoryComboBox.SelectedItem=p!.Category;
             }
             else
             {
@@ -47,7 +53,7 @@ namespace PL.productWindow
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
-            //create the drone
+            //create the product
             try
             {
                 p!.ID = int.Parse(IDTextBox.Text);
@@ -66,7 +72,7 @@ namespace PL.productWindow
 
         private void addToButton_Click(object sender, RoutedEventArgs e)
         {
-            //create the drone
+            //create the product
             try
             {
                 p!.ID = int.Parse(IDTextBox.Text);
@@ -80,6 +86,13 @@ namespace PL.productWindow
             }
             catch (Exception x)
             { MessageBox.Show(x.Message); }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            bl.cart.AddProductToCart(cart, p!.ID);
+            this.Close();
+
         }
     }
 }

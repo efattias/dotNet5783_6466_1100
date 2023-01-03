@@ -7,14 +7,10 @@
         mc:Ignorable="d"
         Title="CatalogWindow" Height="600" Width="950">
     <Grid>
-        <Grid Height="80" 
-                      VerticalAlignment="Top" Background="#FFFAFAFA">
-            <ToggleButton Name="ToggleButton"
-                                  Style="{DynamicResource MaterialDesignHamburgerToggleButton}" HorizontalAlignment="Left"
-                                  Height="40" VerticalAlignment="Top" 
-                                  Background="Transparent" 
-                                  BorderBrush="Transparent"
-                          Margin="903,0,0,0" Checked="ToggleButton_Checked"/>
-        </Grid>
+        <Frame x:Name="ListFrame"
+               HorizontalAlignment="Right" 
+               VerticalAlignment="Bottom"
+               Width="890" Height="550"
+               NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

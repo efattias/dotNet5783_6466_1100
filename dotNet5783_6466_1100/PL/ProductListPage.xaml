@@ -62,7 +62,6 @@
                 Content="הוספת מוצר "
                 Width="120"
                 HorizontalAlignment="Right"
-                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                 Style="{StaticResource MaterialDesignRaisedSecondaryLightButton}"
                 ToolTip="Resource name: MaterialDesignRaisedSecondaryLightButton" RenderTransformOrigin="0.5,0.5" Click="addProduct_Click" >
                 <Button.RenderTransform>
@@ -75,7 +74,7 @@
                 </Button.RenderTransform>
 
             </Button>
-
+            <!--IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"-->
         </StackPanel>
 
 

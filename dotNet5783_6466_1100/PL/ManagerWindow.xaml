@@ -46,7 +46,7 @@
                                    Width="40" Height="40"
                                    VerticalAlignment="Top"
                                    HorizontalAlignment="Left"/>-->
-                            <TextBlock Text="Drones" 
+                            <TextBlock Text="הזמנות" 
                                        HorizontalAlignment="Center" 
                                        Margin="20,5,0,0"/>
                         </StackPanel>
@@ -60,7 +60,7 @@
                                    Width="40" Height="40"
                                    VerticalAlignment="Top"
                                    HorizontalAlignment="Left"/>-->
-                            <TextBlock Text="Drones" 
+                            <TextBlock Text="מוצרים" 
                                        HorizontalAlignment="Center" 
                                        Margin="20,5,0,0"/>
                         </StackPanel>

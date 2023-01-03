@@ -144,7 +144,7 @@
                 FontFamily="aharoni"
                 Background="#443850"
                 Foreground="White"
-                Margin="54,84,54,276"/>
+                Margin="54,84,54,276" Click="customerButton_Click"/>
 
         
 

@@ -23,12 +23,13 @@ namespace PL
         public CatalogWindow()
         {
             InitializeComponent();
+            ListFrame.Content=new ProductListPage();
             //ProductListPage productListPage = new ProductListPage();
         }
 
         private void ToggleButton_Checked(object sender, RoutedEventArgs e)
         {
-            ProductListPage productListPage = new ProductListPage();
+            //ProductListPage productListPage = new ProductListPage();
         }
     }
 }
