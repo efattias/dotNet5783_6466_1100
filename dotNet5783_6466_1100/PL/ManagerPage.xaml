@@ -1,11 +1,14 @@
-﻿<Window x:Class="PL.ManagerWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:PL"
-        mc:Ignorable="d"
-        Title="ManagerWindow" Height="600" Width="950">
+﻿<Page x:Class="PL.ManagerPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PL"
+      mc:Ignorable="d" 
+      Background="AliceBlue"
+      d:DesignHeight="600" d:DesignWidth="950"
+      Title="ManagerPage">
+
     <Grid>
         <Frame x:Name="ListFrame"
                HorizontalAlignment="Right" 
@@ -14,7 +17,7 @@
                NavigationUIVisibility="Hidden"/>
 
         <Grid x:Name="sidePanel" 
-              HorizontalAlignment="Right" Width="200" Height="550"
+              HorizontalAlignment="Left" Width="200" Height="550"
               VerticalAlignment="Bottom" >
 
             <StackPanel Background="AliceBlue">
@@ -25,7 +28,6 @@
                                   Style="{DynamicResource MaterialDesignHamburgerToggleButton}" HorizontalAlignment="Right"
                                   Height="40" VerticalAlignment="Top" 
                                   Background="AliceBlue"
-                                  
                                   BorderBrush="AliceBlue"
                                   Margin="0,0,10,0"/>
                 </Grid>
@@ -71,4 +73,4 @@
         </Grid>
 
     </Grid>
-</Window>
+</Page>
