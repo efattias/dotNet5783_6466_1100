@@ -63,7 +63,11 @@ namespace PL
 
         private void doubleClickUpdateProduct( object sender, MouseButtonEventArgs e) => new ProductWindow((BO.ProductForList)productListV.SelectedItem).Show();
 
-       
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            CartWindow caWindow = new CartWindow();
+            caWindow.Show();
+        }
     }
 
 

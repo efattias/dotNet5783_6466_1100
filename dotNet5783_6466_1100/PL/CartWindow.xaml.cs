@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PL.productWindow;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,10 +21,11 @@ namespace PL
     public partial class CartWindow : Window
     {
         BlApi.IBL? bl = BlApi.Factory.GetBl() ?? throw new NullReferenceException("Missing bl");
+        BO.Cart? c = new BO.Cart();
         public CartWindow()
         {
             InitializeComponent();
-            //CartListView.ItemsSource=bl.cart.items
+            CartListView.ItemsSource=c.Items;
         }
     }
 }

@@ -27,10 +27,24 @@
                    Height="46" Width="81" FontSize="18"/>
         </Grid>
 
-        <ListView x:Name="CartListView" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}">
+        <ListView x:Name="CartListView" Grid.Row="1" 
+                  d:ItemsSource="{d:SampleData ItemCount=5}"
+                  ItemsSource="{Binding}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=ID}" Header="מזהה הזמנה" Width="135"/>
+
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Header="שם הזמנה" Width="130"/>
+
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=ProductID}" Header="מזהה מוצר" Width="130"/>
+
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Price}" Header="מחיר" Width="120"/>
+
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Amount}" Header="כמות" Width="120"/>
+
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=TotalPrice}" Header="מחיר סופי" Width="120"/>
+
                 </GridView>
             </ListView.View>
         </ListView>
