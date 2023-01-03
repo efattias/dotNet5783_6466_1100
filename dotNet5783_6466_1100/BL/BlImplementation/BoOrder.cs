@@ -1,5 +1,5 @@
 ﻿using BlApi;
-
+using BO;
 
 namespace BlImplementation;
 internal class BoOrder : IBoOrder
@@ -51,7 +51,7 @@ internal class BoOrder : IBoOrder
         }
     }
 
-    public IEnumerable<BO.OrderForList?> getOrderForList()
+    public IEnumerable<BO.OrderForList> getOrderForList()
     {
         List<DO.Order?> orderListDO = (List<DO.Order?>)dal!.Order.getAll();// get order list drom DO
 
@@ -106,7 +106,13 @@ internal class BoOrder : IBoOrder
         }
     }
 
-
+    public IEnumerable<OrderForList> GetPartOfOrder(Predicate<OrderForList> check)
+    {
+        var listToReturn = (from p in getOrderForList()
+                            where check(p)
+                            select p).ToList<OrderForList>();
+        return listToReturn;
+    }
     public BO.Order UpdateProvisionOrder(int ID)
     {
         if (ID < 0)
