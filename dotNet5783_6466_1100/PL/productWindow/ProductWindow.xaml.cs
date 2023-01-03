@@ -80,7 +80,18 @@ namespace PL.productWindow
                 p!.InStock = int.Parse(AmountOfItemTextBox.Text);
                 p!.Category = (BO.Category?)categoryComboBox.SelectedItem;
                 p!.Price = double.Parse(PriceTextBox.Text);
-                bl!.Product.AddProduct(p);
+               int id= bl!.Product.AddProduct(p);
+                BO.Product? productTemp = bl.Product.GetProductbyId(id);
+                ProductForList pToReturn = new()
+                {
+                    Category = p.Category,
+                    Price = p.Price,
+                    ID = id,
+                    Name = p.Name,
+                    Path = p.Path
+                };
+               
+
                 Close();
                 MessageBox.Show("המוצר הוסף בהצלחה");
             }

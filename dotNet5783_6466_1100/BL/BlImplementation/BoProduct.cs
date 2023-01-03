@@ -12,7 +12,7 @@ internal class BoProduct :IBoProduct
     /// <param name="product"></param>
     /// <exception cref="BO.InvalidInputExeption"></exception>
     /// <exception cref="BO.AlreadyExistExeption"></exception>
-    public void AddProduct(BO.Product? product)
+    public int AddProduct(BO.Product? product)
     {
         //testing 
         if (!(product?.ID >= 100000 && product?.ID < 1000000))// id test
@@ -36,7 +36,8 @@ internal class BoProduct :IBoProduct
                 Category = (DO.Category?)product?.Category,
                 InStock = product?.InStock
             };
-            dal!.Product.Add(productTempDO); // adding to DAL
+           int id= dal!.Product.Add(productTempDO); // adding to DAL
+            return id;
         }
         catch (DO.AlreadyExistExeption ex)// if doesnt work catch exeption
         {

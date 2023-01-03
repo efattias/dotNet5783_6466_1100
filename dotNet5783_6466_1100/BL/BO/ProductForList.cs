@@ -26,15 +26,21 @@ public class ProductForList
     /// </summary>
     public double? Price { get; set; }
     /// <summary>
-    /// producct category
+    /// product category
     /// </summary>
     public Category? Category { get; set; }
+
+    /// <summary>
+    /// path for image
+    /// </summary>
+    public string? Path { get; set; }
 
     /// <summary>
     /// function- print ProductForList class
     /// </summary>
     /// <returns></returns>
     /// 
+
     public override string ToString() => this.ToStringProperty();
 
     //    public override string ToString() => $@"

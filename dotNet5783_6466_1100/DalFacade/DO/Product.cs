@@ -30,6 +30,12 @@ public struct Product
     /// function ToString- print product struct
     /// </summary>
     /// <returns></returns>
+    /// 
+
+    /// <summary>
+    /// path for image
+    /// </summary>
+    public string? path { get; set; }
     public override string ToString() => $@"
     
         Product ID={ID}: {Name}, 
