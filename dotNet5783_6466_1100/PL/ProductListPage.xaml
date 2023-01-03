@@ -10,7 +10,7 @@
      
       d:DesignHeight="600" d:DesignWidth="800"
       Title="ProductListPage">
-   
+
 
     <Grid x:Name="productList"
           Background="{DynamicResource MaterialDesignBackground}">
@@ -60,8 +60,11 @@
             </ListView.View>
         </ListView>
 
-        <StackPanel Grid.Row="2">
-         
+        <Grid Grid.Row="2">
+
+            <Button Content="סל קניות"
+                    Margin="523,9,154,9" Click="Button_Click"/>
+
             <Button
                 x:Name="addProduct"  
                 Content="הוספת מוצר "
@@ -80,16 +83,16 @@
                 </Button.RenderTransform>
 
             </Button>
-            
-           
-        
-          
 
 
 
 
 
-        </StackPanel>
+
+
+
+
+        </Grid>
 
 
 
