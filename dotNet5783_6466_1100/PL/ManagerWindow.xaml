@@ -5,29 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL"
         mc:Ignorable="d"
-        Title="ManagerWindow" Height="600" Width="950">
+        Title="ManagerWindow" Height="600" Width="900">
     <Grid>
         <Frame x:Name="ListFrame"
                HorizontalAlignment="Right" 
                VerticalAlignment="Bottom"
-               Width="890" Height="550"
+               Width="800" Height="450"
                NavigationUIVisibility="Hidden"/>
 
         <Grid x:Name="sidePanel" 
-              HorizontalAlignment="Right" Width="200" Height="550"
+              HorizontalAlignment="Right" Width="200" Height="500"
               VerticalAlignment="Bottom" >
 
-            <StackPanel Background="AliceBlue">
+            <StackPanel Background="AliceBlue" >
+                
                 <Grid Height="80" 
                       VerticalAlignment="Top" Background="AliceBlue">
                     <!--השלוש פסים של פתיחת תפריט-->
                     <ToggleButton x:Name="ToggleButton"
                                   Style="{DynamicResource MaterialDesignHamburgerToggleButton}" HorizontalAlignment="Right"
-                                  Height="40" VerticalAlignment="Top" 
+                                  Height="40" VerticalAlignment="Bottom" 
                                   Background="AliceBlue"
                                   
                                   BorderBrush="AliceBlue"
-                                  Margin="0,0,10,0"/>
+                                  Margin="0,0,10,40" />
                 </Grid>
                 <!--שטח ריק לרווח-->
                 <Rectangle Height="50" Fill="AliceBlue"/>

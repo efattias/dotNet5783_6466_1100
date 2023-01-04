@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL"
         mc:Ignorable="d"
-        Title="חלון ראשי" Height="450" Width="800">
+        Title="חלון ראשי" Height="650" Width="900">
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
@@ -109,17 +109,15 @@
             </Style.Triggers>
         </Style>
     </Window.Resources>
-    
-    <Grid Background="#BCAA99" RenderTransformOrigin="0.578,0.536">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200*"/>
-            <ColumnDefinition Width="200*"/>
 
-        </Grid.ColumnDefinitions>
+    <Grid RenderTransformOrigin="0.578,0.536">
+        <Grid.Background>
+            <ImageBrush ImageSource="/bookStore.png"/>
+        </Grid.Background>
 
 
-        
 
+ 
         <Button x:Name="showProductListWindow"
             Content="לרשימת המוצרים"
                 HorizontalAlignment="Left" 
@@ -133,21 +131,27 @@
 
         <Button Style="{DynamicResource managerButtonstyle}" 
                 x:Name="ManagerButton" Content="מנהל"
-                FontSize="48"
+                Width="120"
+                Height="80"
+                FontSize="24"
+                HorizontalAlignment="Right"
                 FontFamily="aharoni"
                 Background="#443850"
                 Foreground="White"
-               Margin="48,84,60,276" Grid.Column="1"
-                    Click="Manager_Click" />
+              
+                    Click="Manager_Click" RenderTransformOrigin="0.914,2.011" />
         <Button Style="{DynamicResource managerButtonstyle}" 
                 x:Name="customerButton" Content="לקוח"
-                FontSize="48"
+                HorizontalAlignment="Left"
+                Width="120"
+                Height="80"
+                FontSize="24"
                 FontFamily="aharoni"
                 Background="#443850"
                 Foreground="White"
-                Margin="54,84,54,276" Click="customerButton_Click"/>
+                Click="customerButton_Click"/>
 
-        
+
 
 
     </Grid>

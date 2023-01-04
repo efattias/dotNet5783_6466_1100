@@ -13,12 +13,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Book store opening.png" />
+    <None Remove="bookStore.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MaterialDesignColors" Version="2.0.9" />
     <PackageReference Include="MaterialDesignThemes" Version="4.6.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BL\BL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Book store opening.png" />
+    <Resource Include="bookStore.png" />
   </ItemGroup>
 
 </Project>

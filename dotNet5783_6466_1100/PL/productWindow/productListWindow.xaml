@@ -55,13 +55,13 @@
             <ListView.View>
                 <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Employee Information">
 
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=ID}" Header="מזהה" Width="120"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=ID}" Header="מזהה" Width="100"/>
 
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Header="שם" Width="120"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Header="שם" Width="140"/>
 
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Price}" Header="מחיר" Width="120"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Price}" Header="מחיר" Width="100"/>
 
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Category}" Header="קטגוריה" Width="120"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Category}" Header="קטגוריה" Width="100"/>
                
 
 

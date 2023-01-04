@@ -13,11 +13,12 @@
         <Frame x:Name="ListFrame"
                HorizontalAlignment="Right" 
                VerticalAlignment="Bottom"
-               Width="890" Height="550"
+                Width="890" Height="550"
+               Margin="0,0,0,0"
                NavigationUIVisibility="Hidden"/>
 
         <Grid x:Name="sidePanel" 
-              HorizontalAlignment="Left" Width="200" Height="550"
+              HorizontalAlignment="Right" Width="200" Height="600"
               VerticalAlignment="Bottom" >
 
             <StackPanel Background="AliceBlue">

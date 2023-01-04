@@ -68,6 +68,11 @@ namespace PL
             CartWindow caWindow = new CartWindow();
             caWindow.Show();
         }
+
+        private void GridViewColumn_Selected(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
 

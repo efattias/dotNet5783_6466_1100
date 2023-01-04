@@ -6,16 +6,18 @@
       xmlns:local="clr-namespace:PL.orderWindow"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="600" d:DesignWidth="950"
       Title="orderListPage">
 
     <Grid
+        
         Background="{DynamicResource MaterialDesignBackground}">
         <Grid.RowDefinitions>
             <RowDefinition Height="80*"/>
             <RowDefinition Height="550*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
+        
         <Grid x:Name="upStack"
               Grid.Row="0">
             <Label x:Name="orders"
@@ -46,15 +48,15 @@
                 <GridView>
                     
 
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=ID}" Header="מזהה" Width="120"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=ID}" Header="מזהה" Width="100"/>
 
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=CustomerName}" Header="שם לקוח" Width="120"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=CustomerName}" Header="שם לקוח" Width="120" />
 
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=OrderStatus}" Header="סטטוס המשלוח" Width="120"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=OrderStatus}" Header="סטטוס המשלוח" Width="160"/>
 
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=AmountOfItems}" Header="מספר פריטים " Width="120"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=AmountOfItems}" Header="מספר פריטים " Width="160"/>
                     
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=TotalPrice}" Header= "סך לתשלום" Width="120"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=TotalPrice}" Header= "סך לתשלום" Width="140"/>
 
 
                 </GridView>
