@@ -8,12 +8,13 @@
       xmlns:local="clr-namespace:PL" 
       mc:Ignorable="d" 
  
+      d:DesignHeight="600" d:DesignWidth="950"
       Title="ProductListPage" Width="800">
 
 
     <Grid x:Name="productList"
          
-          Background="{DynamicResource MaterialDesignBackground}">
+          Background="{DynamicResource MaterialDesignBackground}" Margin="32,0,0,45">
         <Grid.RowDefinitions>
             <RowDefinition Height="80*"/>
             <RowDefinition Height="550*"/>
@@ -80,7 +81,9 @@
                 HorizontalAlignment="Right"
                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                 Style="{StaticResource MaterialDesignRaisedSecondaryLightButton}"
-                ToolTip="Resource name: MaterialDesignRaisedSecondaryLightButton" RenderTransformOrigin="0.5,0.5" Click="addProduct_Click" >
+                ToolTip="Resource name: MaterialDesignRaisedSecondaryLightButton" 
+                RenderTransformOrigin="0.5,0.5" 
+                Click="addProduct_Click" >
                 <Button.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>

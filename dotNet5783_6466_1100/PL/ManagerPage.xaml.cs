@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace PL
 {
@@ -21,11 +22,46 @@ namespace PL
     /// </summary>
     public partial class ManagerPage : Page
     {
+        DispatcherTimer timer;
+        readonly double panelWidth;
+        private bool hidden = true;
+
         public ManagerPage()
         {
             InitializeComponent();
+            timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 0, 0, 10);
+            timer.Tick += Timer_Tick;
+
+            panelWidth = sidePanel.Width;
+            sidePanel.Width = 60;
             ListFrame.Content = new ManagerPageWindow();
         }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            if (hidden)
+            {
+                sidePanel.Width += 5;
+                if (sidePanel.Width >= panelWidth)
+                {
+                    timer.Stop();
+                    hidden = false;
+                }
+            }
+            else
+            {
+                sidePanel.Width -= 5;
+                if (sidePanel.Width <= 60)
+                {
+                    timer.Stop();
+                    hidden = true;
+                }
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e) => timer.Start();
+
         private void OpenLists_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             switch (((ListView)sender).SelectedIndex)
@@ -42,6 +78,16 @@ namespace PL
                     }
                 default:
                     break;
+            }
+        }
+
+        private void SidePanel_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (sidePanel.Width > 60)
+            {
+                ToggleButton.IsChecked = false;
+                hidden = false;
+                timer.Start();
             }
         }
 
