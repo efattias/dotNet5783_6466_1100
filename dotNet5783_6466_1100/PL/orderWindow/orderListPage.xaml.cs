@@ -61,7 +61,7 @@ namespace PL.orderWindow
             //  IEnumerableToObservable(productListPO);
         }
 
-        private void doubleClickUpdateOrder(object sender, MouseButtonEventArgs e) => new ProductWindow((BO.ProductForList)orderListV.SelectedItem).Show();
+       // private void doubleClickUpdateOrder(object sender, MouseButtonEventArgs e) => new OrderPageWindow((BO.OrderForList)orderListV.SelectedItem).Show();
 
 
     }

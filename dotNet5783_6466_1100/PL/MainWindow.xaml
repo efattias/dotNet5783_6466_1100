@@ -132,24 +132,25 @@
         <Button Style="{DynamicResource managerButtonstyle}" 
                 x:Name="ManagerButton" Content="מנהל"
                 Width="120"
-                Height="80"
+                Height="60"
                 FontSize="24"
+               
                 HorizontalAlignment="Right"
                 FontFamily="aharoni"
-                Background="#443850"
-                Foreground="White"
+                Background="DarkTurquoise"
+                Foreground="white"
               
-                    Click="Manager_Click" RenderTransformOrigin="0.914,2.011" />
+                    Click="Manager_Click" RenderTransformOrigin="0.914,2.011" Margin="0,412,104,142" />
         <Button Style="{DynamicResource managerButtonstyle}" 
                 x:Name="customerButton" Content="לקוח"
                 HorizontalAlignment="Left"
                 Width="120"
-                Height="80"
+                Height="60"
                 FontSize="24"
                 FontFamily="aharoni"
-                Background="#443850"
+                Background="DarkTurquoise"
                 Foreground="White"
-                Click="customerButton_Click"/>
+                Click="customerButton_Click" Margin="93,412,0,142"/>
 
 
 

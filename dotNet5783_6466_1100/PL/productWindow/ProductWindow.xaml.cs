@@ -99,11 +99,11 @@ namespace PL.productWindow
             { MessageBox.Show(x.Message); }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            bl.cart.AddProductToCart(cart, p!.ID);
-            this.Close();
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
+        //    bl.cart.AddProductToCart(cart, p!.ID);
+        //    this.Close();
 
-        }
+        //}
     }
 }
