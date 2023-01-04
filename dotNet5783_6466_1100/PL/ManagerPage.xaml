@@ -13,15 +13,16 @@
         <Frame x:Name="ListFrame"
                HorizontalAlignment="Right" 
                VerticalAlignment="Bottom"
-                Width="890" Height="550"
-               Margin="0,0,0,0"
+                Width="855" Height="550"
+               Margin="0,0,35,0"
                NavigationUIVisibility="Hidden"/>
 
         <Grid x:Name="sidePanel" 
               HorizontalAlignment="Right" Width="200" Height="600"
               VerticalAlignment="Bottom" >
 
-            <StackPanel Background="AliceBlue">
+            <StackPanel Background="AliceBlue"
+                        MouseLeave="SidePanel_MouseLeave">
                 <Grid Height="80" 
                       VerticalAlignment="Top" Background="AliceBlue">
                     <!--השלוש פסים של פתיחת תפריט-->
@@ -30,6 +31,7 @@
                                   Height="40" VerticalAlignment="Top" 
                                   Background="AliceBlue"
                                   BorderBrush="AliceBlue"
+                                  Click="Button_Click"
                                   Margin="0,0,10,0"/>
                 </Grid>
                 <!--שטח ריק לרווח-->
