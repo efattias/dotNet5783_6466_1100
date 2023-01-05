@@ -112,7 +112,7 @@
 
     <Grid RenderTransformOrigin="0.578,0.536">
         <Grid.Background>
-            <ImageBrush ImageSource="/bookStore.png"/>
+            <ImageBrush ImageSource="/Wood Wall And Wood Floor With Some Notebooks Photography Backdrop.jpg"/>
         </Grid.Background>
 
 
@@ -132,25 +132,25 @@
         <Button Style="{DynamicResource managerButtonstyle}" 
                 x:Name="ManagerButton" Content="מנהל"
                 Width="120"
-                Height="60"
+                Height="80"
                 FontSize="24"
                
                 HorizontalAlignment="Right"
                 FontFamily="aharoni"
-                Background="DarkTurquoise"
+                Background="#006bb3"
                 Foreground="white"
               
-                    Click="Manager_Click" RenderTransformOrigin="0.914,2.011" Margin="0,412,104,142" />
+                    Click="Manager_Click" RenderTransformOrigin="0.914,2.011" Margin="0,510,181,44" />
         <Button Style="{DynamicResource managerButtonstyle}" 
                 x:Name="customerButton" Content="לקוח"
                 HorizontalAlignment="Left"
                 Width="120"
-                Height="60"
+                Height="80"
                 FontSize="24"
                 FontFamily="aharoni"
-                Background="DarkTurquoise"
+                Background="#006bb3"
                 Foreground="White"
-                Click="customerButton_Click" Margin="93,412,0,142"/>
+                Click="customerButton_Click" Margin="103,504,0,50"/>
 
 
 

@@ -54,14 +54,15 @@ namespace PL.orderWindow
 
         }
 
-        private void addProduct_Click(object sender, RoutedEventArgs e)
-        {
-            ProductWindow window = new ProductWindow();
-            window.Show();
-            //  IEnumerableToObservable(productListPO);
-        }
+        //private void addProduct_Click(object sender, RoutedEventArgs e)
+        //{
+        //    ProductWindow window = new ProductWindow();
+        //    window.Show();
+        //    //  IEnumerableToObservable(productListPO);
+        //}
 
-       // private void doubleClickUpdateOrder(object sender, MouseButtonEventArgs e) => new OrderPageWindow((BO.OrderForList)orderListV.SelectedItem).Show();
+        //  private void doubleClickShowOrder(object sender, MouseButtonEventArgs e) => new orderWindow((BO.Order)orderListV.SelectedItem).Show();
+        private void doubleClickShowOrder(object sender, MouseButtonEventArgs e) => new orderWindow((BO.OrderForList)orderListV.SelectedItem).Show();
 
 
     }

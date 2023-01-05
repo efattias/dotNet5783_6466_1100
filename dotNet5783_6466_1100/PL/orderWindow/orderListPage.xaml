@@ -42,7 +42,7 @@
 
         <ListView x:Name="orderListV" Grid.Row="1" 
                   d:ItemsSource="{d:SampleData ItemCount=5}"
-                  ItemsSource="{Binding}" 
+                  ItemsSource="{Binding}" MouseDoubleClick="doubleClickShowOrder" 
                 >
             <ListView.View>
                 <GridView>

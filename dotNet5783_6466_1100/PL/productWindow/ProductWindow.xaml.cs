@@ -32,23 +32,27 @@ namespace PL.productWindow
         public ProductWindow(BO.ProductForList? updateP=null)
         {
             InitializeComponent();
+          
             categoryComboBox.ItemsSource=Enum.GetValues(typeof(BO.Category));
             if (updateP != null)
             {
                 addToButton.Visibility = Visibility.Hidden;
                 p = bl.Product.GetProductbyId(updateP.ID);
                 UpdateButton.DataContext = p;
-                IDTextBox.Text = p!.ID.ToString();
-                NameTextBox.Text=p!.Name.ToString();
-                PriceTextBox.Text = p!.Price.ToString();
-                AmountOfItemTextBox.Text = p!.InStock.ToString();
-                categoryComboBox.SelectedItem=p!.Category;
+               
+                   //  IDTextBox.Text = p!.ID.ToString();
+               // NameTextBox.Text=p!.Name.ToString();
+               // PriceTextBox.Text = p!.Price.ToString();
+               // AmountOfItemTextBox.Text = p!.InStock.ToString();
+                //categoryComboBox.SelectedItem=p!.Category;
             }
             else
             {
+                
                 UpdateButton.Visibility = Visibility.Hidden;
                 addToButton.DataContext=p;
             }
+            DataContext = p; 
         }
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)

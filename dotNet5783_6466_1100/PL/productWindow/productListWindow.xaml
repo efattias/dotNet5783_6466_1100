@@ -72,8 +72,10 @@
         <Grid x:Name="downGrid" Grid.Row="2">
 
             <Button
-                x:Name="addP" Content="להוספת מוצר"
-                HorizontalAlignment="Left" Margin="639,34,0,0" Click="addP_Click" >
+                x:Name="addP" Content="להוספת מוצר" Background="CadetBlue"
+                HorizontalAlignment="Left" Margin="639,34,0,0"
+                Click="addP_Click">
+
 
 
 

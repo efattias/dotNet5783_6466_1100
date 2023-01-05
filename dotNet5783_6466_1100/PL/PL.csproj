@@ -13,8 +13,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Book store opening.png" />
-    <None Remove="bookStore.png" />
+    <None Remove="Notepads On Table In Front Of Chalkboard For Children Backdrop.jpg" />
+    <None Remove="Premium Photo _ Front view pile of books with copy space.jpg" />
+    <None Remove="Premium Photo _ Front view piles of books with copy space.jpg" />
+    <None Remove="Wood Wall And Wood Floor With Some Notebooks Photography Backdrop.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,8 +29,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Book store opening.png" />
-    <Resource Include="bookStore.png" />
+    <Resource Include="Notepads On Table In Front Of Chalkboard For Children Backdrop.jpg" />
+    <Resource Include="Premium Photo _ Front view pile of books with copy space.jpg" />
+    <Resource Include="Premium Photo _ Front view piles of books with copy space.jpg" />
+    <Resource Include="Wood Wall And Wood Floor With Some Notebooks Photography Backdrop.jpg" />
   </ItemGroup>
 
 </Project>

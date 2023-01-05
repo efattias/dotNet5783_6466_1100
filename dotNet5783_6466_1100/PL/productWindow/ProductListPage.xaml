@@ -79,6 +79,7 @@
                 Content="הוספת מוצר "
                 Width="120"
                 HorizontalAlignment="Right"
+                Background="CadetBlue"
                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                 Style="{StaticResource MaterialDesignRaisedSecondaryLightButton}"
                 ToolTip="Resource name: MaterialDesignRaisedSecondaryLightButton" 
