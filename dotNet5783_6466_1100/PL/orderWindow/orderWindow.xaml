@@ -5,22 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL.orderWindow"
         mc:Ignorable="d"
-        Title="orderWindow" Height="400" Width="300">
-    <Grid Name="orderDisplay">
+        Title="orderWindow" Height="450" Width="400">
+    <Grid Name="orderDisplay" Width="400" Height="450">
         <Label x:Name="IDLabel"
                Content=":הזמנה" 
                HorizontalAlignment="Left" 
-               Margin="207,20,0,0" 
-               VerticalAlignment="Top"
+               Margin="294,20,0,381"              
+               
                RenderTransformOrigin="-7.932,0.579" Height="25" Width="60" HorizontalContentAlignment="Right">
 
         </Label>
 
         <TextBox x:Name="IDTextBox" Height="25"
+                 Width="140"
                  FlowDirection="RightToLeft"
                     VerticalAlignment="Top"
-                 Margin="33,20,94,0"
-                    IsReadOnly="false" IsEnabled="True">
+                 Margin="130,20,130,0"
+                    IsReadOnly="false" IsEnabled="True" 
+                 Text="{Binding ID}">
 
         </TextBox>
 
@@ -28,37 +30,40 @@
         <Label x:Name="CustomerNameLabel"
                Content=":שם לקוח" 
                HorizontalAlignment="Left" 
-               Margin="207,60,0,0" 
+               Margin="294,60,0,0" 
                VerticalAlignment="Top"
                RenderTransformOrigin="-7.932,0.579" Height="25" Width="60" HorizontalContentAlignment="Right"/>
 
         <TextBox x:Name="CustomerNameTextBox" Height="25"
                     VerticalAlignment="Top"
+                 Width="140"
                  FlowDirection="RightToLeft"
-                 Margin="33,60,94,0"
-                    IsReadOnly="false" IsEnabled="True"/>
+                 Margin="130,60,130,0"
+                    IsReadOnly="false" IsEnabled="True"
+                 Text="{Binding CustomerName}"/>
         <Label x:Name="MailLabel"
                Content=":דואר אלקטרוני" 
                HorizontalAlignment="Left" 
-               Margin="207,100,0,0" 
+               Margin="294,100,0,0"              
                VerticalAlignment="Top"
-               RenderTransformOrigin="-7.932,0.579" Height="25" Width="60" HorizontalContentAlignment="Right">
-
+               RenderTransformOrigin="-7.932,0.579" Height="25" 
+               Width="90" HorizontalContentAlignment="Right">
         </Label>
 
         <TextBox x:Name="MailTextBox" Height="25"
+                 Width="140"
                     VerticalAlignment="Top"
                  FlowDirection="RightToLeft"
-                 Margin="33,100,94,0"
-                    IsReadOnly="false" IsEnabled="True">
-
+                 Margin="130,100,130,0"
+                    IsReadOnly="false" IsEnabled="True"
+                  Text="{Binding CustomerEmail}">
         </TextBox>
 
 
         <Label x:Name="adddressLabel"
-               Content=":כתובת" 
+               Content="כתובת:" 
                HorizontalAlignment="Left" 
-               Margin="207,140,0,0" 
+               Margin="294,140,0,0"              
                VerticalAlignment="Top"
                FlowDirection="RightToLeft"
                RenderTransformOrigin="-7.932,0.579" Height="25" Width="60" 
@@ -67,25 +72,31 @@
         </Label>
 
         <TextBox x:Name="addressTextBox" Height="25"
+                 Width="140"
+                 FlowDirection="RightToLeft"
                     VerticalAlignment="Top"
-                 Margin="33,140,94,0"
-                    IsReadOnly="false" IsEnabled="true" >
+                 Margin="130,140,130,0"
+                    IsReadOnly="false" IsEnabled="true"
+                   Text="{Binding CustomerAddress}">
+
 
         </TextBox>
         <Label x:Name="StatusLabel"
                Content=":סטטוס משלוח" 
                HorizontalAlignment="Left" 
-               Margin="207,180,0,0" 
+                        Margin="294,180,0,0"              
                VerticalAlignment="Top"
-               RenderTransformOrigin="-7.932,0.579" Height="25" Width="60"
+                Height="25" Width="90"
                HorizontalContentAlignment="Right">
 
         </Label>
         <TextBox x:Name="AmountOfItemTextBox" Height="25"
+                 Width="140"
                     VerticalAlignment="Top"
-                 Margin="33,180,94,0"
-                   
-                    IsReadOnly="false" IsEnabled="true">
+                 Margin="130,180,130,0"    
+                 FlowDirection="RightToLeft"
+                    IsReadOnly="false" IsEnabled="true"
+                 Text="{Binding OrderStatus}">
 
         </TextBox>
 
@@ -94,46 +105,88 @@
                HorizontalAlignment="Right" 
                Margin="0,220,30,0" 
                VerticalAlignment="Top"
-               RenderTransformOrigin="-7.932,0.579" Height="25" Width="60"
-               HorizontalContentAlignment="Right">
-
+               Height="25" Width="90"
+               HorizontalContentAlignment="Right" >
         </Label>
+
         <TextBox x:Name="orderDateTextBox" Height="25"
+                 Width="140"
+                 FlowDirection="RightToLeft"
                       VerticalAlignment="Top"
-                 Margin="33,220,94,0"
-                IsReadOnly="false" IsEnabled="true">
-
+                 Margin="130,220,130,0"
+                IsReadOnly="false" IsEnabled="true"
+                 Text="{Binding OrderDate}">
         </TextBox>
-
-
 
         <Label x:Name="ShipDateLabel"
                Content=":תאריך שילוח" 
                HorizontalAlignment="Right" 
                Margin="0,260,30,0" 
                VerticalAlignment="Top"
-               RenderTransformOrigin="-7.932,0.579" Height="25" Width="60" HorizontalContentAlignment="Right"/>
+              Height="25" Width="90" HorizontalContentAlignment="Right"/>
         <TextBox x:Name="ShipDateTextBox" Height="25"
+                 Width="140"
                       VerticalAlignment="Top"
-                 Margin="33,260,94,0"
-                IsReadOnly="false" IsEnabled="true">
+                 Margin="130,260,130,0"
+                IsReadOnly="false" IsEnabled="true"
+                 Text="{Binding ShipDate}">
+
+        </TextBox>
+        <Label x:Name="deliveryDateLabel"
+               Content=":תאריך אספקה" 
+               HorizontalAlignment="Right" 
+               Margin="0,300,30,0" 
+               VerticalAlignment="Top"
+              Height="25" Width="90" 
+               HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="DeliveryDateTextBox" Height="25"
+                 Width="140"
+                      VerticalAlignment="Top"
+                 Margin="130,300,130,0"
+                IsReadOnly="false" IsEnabled="true"
+                 Text="{Binding DeliveryDate}">
 
         </TextBox>
 
         <Label x:Name="totalPriceLabel"
                Content=":מחיר כללי" 
                HorizontalAlignment="Right" 
-               Margin="0,300,30,0" 
+               Margin="0,340,30,0" 
                VerticalAlignment="Top"
-               RenderTransformOrigin="-7.932,0.579" Height="25" Width="60" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="DeliveryDateTextBox" Height="25"
+              Height="25" Width="90" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name= "TotalPriceTextBox" Height="25"
                       VerticalAlignment="Top"
-                 Margin="33,300,94,0"
-                IsReadOnly="false" IsEnabled="true">
+                 Margin="130,340,130,0"
+                IsReadOnly="false" IsEnabled="true" 
+                 FlowDirection="RightToLeft"
+                 Text="{Binding TotalPrice}">
 
         </TextBox>
-        
-        
+
+        <Button x:Name="ShowItemList"
+                Content="הצג פריטים"
+               Width="80" Height="30"
+                Margin="110,360,110,10"
+                FontSize="8" Background="CadetBlue">
+        </Button>
+        <Button x:Name="updateShipDate"
+                Content="עדכן לנשלח"
+               Width="80" Height="20"
+                Margin="160,264,160,166"
+                FontSize="8" Background="CadetBlue" Click="updateShipDate_Click">
+        </Button>
+        <Button   Name="updateDeliveryDate" 
+                Content="עדכן לנמסר"
+                Width="80" Height="20" 
+                Margin="160,302,160,128"
+                FontSize="8" Background="CadetBlue" Click="updateDeliveryDate_Click" 
+                >
+            
+        </Button>
+
+
+
+
 
     </Grid>
 </Window>

@@ -39,6 +39,7 @@ namespace PL.productWindow
                 addToButton.Visibility = Visibility.Hidden;
                 p = bl.Product.GetProductbyId(updateP.ID);
                 UpdateButton.DataContext = p;
+                IDTextBox.IsEnabled = false;
                
                    //  IDTextBox.Text = p!.ID.ToString();
                // NameTextBox.Text=p!.Name.ToString();

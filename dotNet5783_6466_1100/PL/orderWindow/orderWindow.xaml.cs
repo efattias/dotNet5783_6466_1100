@@ -33,16 +33,53 @@ namespace PL.orderWindow
             if(order!=null)
             {
                 o = bl.Order.GetOrder(order.ID);
-                IDTextBox.Text = o.ID.ToString();
-                CustomerNameTextBox.Text = o.CustomerName!.ToString();
-                MailTextBox.Text = o.CustomerEmail!.ToString();
-                addressTextBox.Text=o.CustomerAddress!.ToString();
+               // updateOrder.DataContext = o;
+                DataContext = o;
+                if(o.ShipDate is not null && o.DeliveryDate is not null)
+                {
+                    updateShipDate.Visibility = Visibility.Hidden;
+                    updateDeliveryDate.Visibility = Visibility.Hidden;
+                }
+                else if(o.ShipDate is null )
+                {
+                    //   updateShipDate.Visibility = Visibility.visible;
+                    updateDeliveryDate.Visibility = Visibility.Hidden;
+                }
+
+               else if(o.DeliveryDate is null)
+                {
+                    updateShipDate.Visibility = Visibility.Hidden;
+                }
+
+                //IDTextBox.Text = o.ID.ToString();
+                //CustomerNameTextBox.Text = o.CustomerName!.ToString();
+                //MailTextBox.Text = o.CustomerEmail!.ToString();
+                //addressTextBox.Text=o.CustomerAddress!.ToString();
                 
 
             }
         }
+
+        private void updateShipDate_Click(object sender, RoutedEventArgs e)
+        {
+            if (o != null)
+            {
+                bl!.Order.UpdateShipOrder(o.ID);
+                Close();
+            }
+        }
+
+        private void updateDeliveryDate_Click(object sender, RoutedEventArgs e)
+        {
+            if(o!=null)
+            {
+                bl!.Order.UpdateProvisionOrder(o.ID);
+                Close();
+            }
+        }
     }
 
+ 
 
 
     //public ProductWindow(BO.ProductForList? updateP = null)

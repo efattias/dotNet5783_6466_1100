@@ -65,7 +65,7 @@
 
         <StackPanel Grid.Row="2">
 
-            <Button
+            <!--<Button
                 x:Name="addOrder"  
                 Content="הוספת הזמנה "
                 Width="120"
@@ -83,7 +83,7 @@
                     </TransformGroup>
                 </Button.RenderTransform>
 
-            </Button>
+            </Button>-->
 
 
 
