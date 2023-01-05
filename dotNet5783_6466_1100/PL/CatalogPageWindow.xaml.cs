@@ -1,4 +1,5 @@
 ﻿using BO;
+using MaterialDesignThemes.Wpf;
 using PL.productWindow;
 using System;
 using System.Collections.Generic;
@@ -24,12 +25,17 @@ namespace PL
     public partial class CatalogPageWindow : Page
     {
         BlApi.IBL? bl = BlApi.Factory.GetBl() ?? throw new NullReferenceException("Missing bl");
+        BO.Product? p = new BO.Product();
+        Cart cart = new Cart() { CustomerAddress = "", CustomerEmail = "", CustomerName = "", Items = new List<BO.OrderItem?>(), TotalPrice = 0 };
+
+
         ObservableCollection<ProductForList> productListPO = new();
         public CatalogPageWindow()
         {
             InitializeComponent();
             IEnumerableToObservable(bl.Product.getProductForList());
-            productListV.DataContext = productListPO;
+            PList.DataContext = productListPO;
+            //productListV.DataContext = productListPO;
             categorySelector.ItemsSource = Enum.GetValues(typeof(BO.Category));
         }
 
@@ -49,12 +55,24 @@ namespace PL
                 IEnumerableToObservable(bl!.Product.getProductForList());
         }
 
-        private void doubleClickUpdateProduct(object sender, MouseButtonEventArgs e) => new ProductWindow((BO.ProductForList)productListV.SelectedItem).Show();
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             CartWindow caWindow = new CartWindow();
             caWindow.Show();
+        }
+
+        private void AddProductToCart_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                bl.cart.AddProductToCart(cart, (PList.SelectedItem as ProductForList).ID);
+                MessageBox.Show("seccssed");
+                //bl.cart.AddProductToCart(cart, p!.ID);
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show(x.Message);
+            }
         }
     }
 }
