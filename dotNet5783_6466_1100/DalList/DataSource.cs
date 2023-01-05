@@ -87,8 +87,12 @@ public class DataSource
 
 
             };
-            if (i <= 16)
+            if (i <= 16 && i>=8)
+            {
                 order.ShipDate = null;
+                order.DeliveryDate = null;
+            }
+                
 
             if (i<=8)
             {

@@ -254,7 +254,7 @@ class Program
                                 temp.Category = Category.קודש;
                                 break;
                             case 4:
-                                temp.Category = Category.לימוד;
+                                temp.Category = Category.השכלה;
                                 break;
                             default:
                                 Console.WriteLine("ERROR- category does not exist");
@@ -312,7 +312,7 @@ class Program
                                 temp1.Category = Category.קודש;
                                 break;
                             case 4:
-                                temp1.Category = Category.לימוד;
+                                temp1.Category = Category.השכלה;
                                 break;
                             default:
                                 Console.WriteLine("ERROR- category does not exist");

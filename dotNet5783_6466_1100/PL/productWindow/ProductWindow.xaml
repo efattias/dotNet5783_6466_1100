@@ -21,7 +21,7 @@
                  Text="{Binding ID}"
                     VerticalAlignment="Top"
                  Margin="33,50,94,0"
-                    IsReadOnly="True" IsEnabled="True"/>
+                    IsReadOnly="False" IsEnabled="True"/>
 
 
         <Label x:Name="NameLabel"
