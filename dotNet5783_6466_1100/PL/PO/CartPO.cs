@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PL.PO
 {
-    class CartPO
+  public  class CartPO
     {
         private string? name;
         public string? Name 

@@ -43,7 +43,7 @@
                   
                   ItemsSource="{Binding}"
                   Margin="2,7,3,5" Grid.ColumnSpan="2"
-                 MouseDoubleClick="productListView_MouseDoubleClick" >
+            >
             <ListView.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

@@ -58,7 +58,7 @@
         <TextBox x:Name="AmountOfItemTextBox" Height="25"
                     VerticalAlignment="Top"
                  Margin="33,200,94,0"
-                    Text="{Binding InStock}"
+                    
                     IsReadOnly="false" IsEnabled="true"/>
         <Label x:Name="categoryLabel"
                Content=":קטגוריה" 

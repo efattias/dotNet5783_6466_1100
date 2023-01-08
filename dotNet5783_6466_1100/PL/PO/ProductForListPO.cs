@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PL.PO
 {
-    class ProductForListPO
+   public class ProductForListPO
     {
         private int id;
         public int ID

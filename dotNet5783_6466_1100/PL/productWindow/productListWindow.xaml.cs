@@ -56,13 +56,13 @@ public partial class productListWindow : Window
     }
 
 
-    private void productListView_MouseDoubleClick(object sender, MouseButtonEventArgs e) => new ProductWindow((BO.ProductForList)productListView.SelectedItem).Show();
+ //   private void productListView_MouseDoubleClick(object sender, MouseButtonEventArgs e) => new ProductWindow(,(PO.ProductForListPO)productListView.SelectedItem).Show();
 
     private void addP_Click(object sender, RoutedEventArgs e)
     {
   
-            ProductWindow window = new ProductWindow();
-            window.Show();
+        //    ProductWindow window = new ProductWindow();
+          //  window.Show();
         
     }
     private void addTOList(BO.ProductForList product)

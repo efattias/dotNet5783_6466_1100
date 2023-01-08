@@ -75,7 +75,7 @@
                   Foreground="Black"
                   IsReadOnly="True"
                   d:ItemsSource="{d:SampleData ItemCount=5}"
-                  ItemsSource="{Binding}">
+                  ItemsSource="{Binding}" >
             <DataGrid.GroupStyle>
                 <GroupStyle ContainerStyle="{StaticResource ResourceKey=GroupHeaderStyle}">
                     <GroupStyle.Panel>

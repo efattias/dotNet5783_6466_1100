@@ -140,7 +140,7 @@
                 Background="#006bb3"
                 Foreground="white"
               
-                    Click="Manager_Click" RenderTransformOrigin="0.914,2.011" Margin="0,510,181,44" />
+                    Click="Manager_Click" RenderTransformOrigin="0.914,2.011" Margin="0,271,197,283" />
         <Button Style="{DynamicResource managerButtonstyle}" 
                 x:Name="customerButton" Content="לקוח"
                 HorizontalAlignment="Left"
@@ -150,7 +150,7 @@
                 FontFamily="aharoni"
                 Background="#006bb3"
                 Foreground="White"
-                Click="customerButton_Click" Margin="103,504,0,50"/>
+                Click="customerButton_Click" Margin="119,265,0,289" RenderTransformOrigin="0.733,-2.345"/>
 
 
 

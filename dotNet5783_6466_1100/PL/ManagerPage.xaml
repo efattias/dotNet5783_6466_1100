@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:PL"
       mc:Ignorable="d" 
       Background="AliceBlue"
@@ -52,9 +53,15 @@
                                    Width="40" Height="40"
                                    VerticalAlignment="Top"
                                    HorizontalAlignment="Left"/>-->
+                            <materialDesign:PackIcon Kind="Package" Height="53" Width="33" 
+                                                     VerticalAlignment="Center">
+
+                            </materialDesign:PackIcon>
                             <TextBlock Text="הזמנות" 
                                        HorizontalAlignment="Center" 
-                                       Margin="20,5,0,0"/>
+                                       Margin="20,5,0,0">
+                                
+                            </TextBlock>
                         </StackPanel>
                     </ListViewItem>
 
@@ -66,6 +73,10 @@
                                    Width="40" Height="40"
                                    VerticalAlignment="Top"
                                    HorizontalAlignment="Left"/>-->
+                            <materialDesign:PackIcon Kind="Notebook" Height="53" Width="33" 
+                                                     VerticalAlignment="Center">
+
+                            </materialDesign:PackIcon>
                             <TextBlock Text="מוצרים" 
                                        HorizontalAlignment="Center" 
                                        Margin="20,5,0,0"/>

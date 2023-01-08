@@ -33,7 +33,7 @@
             <ListView.View>
                 <GridView>
 
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=ID}" Header="מזהה הזמנה" Width="135"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding ID}" Header="מזהה הזמנה" Width="135"/>
 
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Header="שם הזמנה" Width="130"/>
 

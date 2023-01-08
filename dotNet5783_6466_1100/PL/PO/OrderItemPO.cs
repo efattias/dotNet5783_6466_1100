@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PL.PO
 {
-    class OrderItemPO
+  public  class OrderItemPO
     {
 
         private int id;

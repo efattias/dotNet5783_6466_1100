@@ -10,7 +10,7 @@ namespace BlTset;
 
 internal class Program
 {
-    static IBL bl = new Bl();
+    static IBL bl = BlApi.Factory.GetBl();
     static Cart? cart = new Cart() { CustomerAddress = "", CustomerEmail = "", CustomerName = "", Items = new List<BO.OrderItem?>(), TotalPrice = 0 };
     static void TestBoProduct()
     {
@@ -346,7 +346,7 @@ internal class Program
                 temp.Category = BO.Category.קודש;
                 break;
             case 4:
-                temp.Category = BO.Category.לימוד;
+                temp.Category = BO.Category.השכלה;
                 break;
             default:
                 break;

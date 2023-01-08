@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PL.PO
 {
-    class ProductPO:INotifyPropertyChanged
+   public class ProductPO:INotifyPropertyChanged
     {
         
         

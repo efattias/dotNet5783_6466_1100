@@ -62,10 +62,11 @@ namespace PL
         }
 
         private void AddProductToCart_Click(object sender, RoutedEventArgs e)
+        
         {
             try
             {
-                bl.cart.AddProductToCart(cart, (PList.SelectedItem as ProductForList).ID);
+               cart= bl.cart.AddProductToCart(cart, (PList.SelectedItem as ProductForList).ID);
                 MessageBox.Show("seccssed");
                 //bl.cart.AddProductToCart(cart, p!.ID);
             }
@@ -74,5 +75,7 @@ namespace PL
                 MessageBox.Show(x.Message);
             }
         }
+
+      
     }
 }
