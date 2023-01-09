@@ -62,11 +62,12 @@ namespace PL
         {
             personalDetailsCart detailsWindow= new personalDetailsCart(cartBO);
             detailsWindow.ShowDialog();
-            
             bl.cart.MakeCart(cartBO);
-            cartBO= null;
+            //to clear the cart to the next time
+            cartBO?.Items?.Clear();
+
+            cartBO = null;
             cartPO = null;
-            
             Close();
         }
 
