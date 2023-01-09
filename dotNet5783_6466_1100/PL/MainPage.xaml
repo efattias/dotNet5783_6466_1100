@@ -1,0 +1,52 @@
+﻿<Page x:Class="PL.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PL"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MainPage">
+
+    <Grid >
+        <Grid.Background>
+            <ImageBrush ImageSource="/Wood Wall And Wood Floor With Some Notebooks Photography Backdrop.jpg"/>
+        </Grid.Background>
+
+        <Button x:Name="showProductListWindow"
+            Content="לרשימת המוצרים"
+                HorizontalAlignment="Left" 
+                Margin="266,34,0,0" VerticalAlignment="Top" 
+                Click="showProductListWindow_Click" Grid.Column="1"
+                    Height="40" Width="140">
+        </Button>
+
+        <Button Style="{DynamicResource managerButtonstyle}" 
+                x:Name="ManagerButton" Content="מנהל"
+                Width="120"
+                Height="80"
+                FontSize="24"
+               
+                HorizontalAlignment="Right"
+                FontFamily="aharoni"
+                Background="#006bb3"
+                Foreground="Black"
+              
+                    Click="Manager_Click" RenderTransformOrigin="0.914,2.011" Margin="0,93,155,277" >
+            
+        </Button>
+        <Button Style="{DynamicResource managerButtonstyle}" 
+                x:Name="customerButton" Content="לקוח"
+                HorizontalAlignment="Left"
+                Width="120"
+                Height="80"
+                FontSize="24"
+                FontFamily="aharoni"
+                Background="#006bb3"
+                Foreground="Black"
+                Click="customerButton_Click" Margin="118,93,0,277" RenderTransformOrigin="0.733,-2.345"/>
+
+
+
+    </Grid>
+</Page>

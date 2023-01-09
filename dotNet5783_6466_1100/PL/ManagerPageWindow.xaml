@@ -10,13 +10,7 @@
 
     <Grid Background="AliceBlue"  >
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Background="AliceBlue">
-            <TextBlock Text="Welcome To Our Delivery system" 
-                       VerticalAlignment="Center" 
-                       FontSize="20" Margin="0,0,0,10"
-                       Foreground="Black"/>
-            <TextBlock Text="We hope you will enjoy your experience"
-                       Foreground="Black" 
-                       HorizontalAlignment="Center"/>
+            
         </StackPanel>
     </Grid>
 </Page>

@@ -28,34 +28,10 @@ namespace PL
         public MainWindow()
         {
             InitializeComponent();
+            mainFrame.Content = new MainPage(mainFrame);
         }
 
-        private void showProductListWindow_Click(object sender, RoutedEventArgs e)
-        {
-            //productListWindow window = new productListWindow();
-            //window.Show();
-            //ProductListPage page = new ProductListPage();
-            //this.Content = page;
-            OrderTrackingPage orderTrackingPage = new OrderTrackingPage();
-            this.Content = orderTrackingPage;
-        }
 
-        private void Manager_Click(object sender, RoutedEventArgs e)
-        {
-            //ManagerButton.Visibility = Visibility.Hidden;
-            //ManagerButton.IsEnabled = false;
-            //ManagerWindow managerWindow = new ManagerWindow();
-            //managerWindow.Show();
-            ManagerPage mPage = new ManagerPage();
-            this.Content = mPage;
-        }
-
-        private void customerButton_Click(object sender, RoutedEventArgs e)
-        {
-            CatalogPageWindow catalogPage = new CatalogPageWindow();
-            this.Content= catalogPage;
-            //ProductListPage page = new ProductListPage();
-            //this.Content = page;
-        }
+      
     }
 }

@@ -19,7 +19,7 @@
                NavigationUIVisibility="Hidden"/>
 
         <Grid x:Name="sidePanel" 
-              HorizontalAlignment="Right" Width="200" Height="600"
+              HorizontalAlignment="Right" Width="200" Height="580"
               VerticalAlignment="Bottom" >
 
             <StackPanel Background="AliceBlue"

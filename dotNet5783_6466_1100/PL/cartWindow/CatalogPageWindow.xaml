@@ -29,9 +29,11 @@
     </Page.Resources>
 
     <Grid x:Name="productList"
-          Background="{DynamicResource MaterialDesignBackground}">
+          Background="{DynamicResource MaterialDesignBackground}"
+          Height="400"
+          Width="800">
         <Grid.RowDefinitions>
-            <RowDefinition Height="80*"/>
+            <RowDefinition Height="100*"/>
             <RowDefinition Height="550*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
