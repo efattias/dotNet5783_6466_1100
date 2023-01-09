@@ -34,8 +34,10 @@ namespace PL
         {
             //productListWindow window = new productListWindow();
             //window.Show();
-            ProductListPage page = new ProductListPage();
-            this.Content = page;
+            //ProductListPage page = new ProductListPage();
+            //this.Content = page;
+            OrderTrackingPage orderTrackingPage = new OrderTrackingPage();
+            this.Content = orderTrackingPage;
         }
 
         private void Manager_Click(object sender, RoutedEventArgs e)
