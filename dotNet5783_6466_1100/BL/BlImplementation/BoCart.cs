@@ -79,6 +79,7 @@ internal class BoCart : IBoCart
             if (o?.TotalPrice < 0 || o?.Price < 0 || o?.Amount < 0 || o?.ID < 0 || (!(o?.ProductID >= 100000 && o?.ProductID < 1000000)))
                     throw new BO.InvalidInputExeption("one of the details in orderItem list is out of range");
             itemList.Add(o);
+
         }
         DO.Order orderToReturn = new DO.Order()// create the new order
         {
@@ -111,6 +112,7 @@ internal class BoCart : IBoCart
                 productDO.InStock -= item.Amount;
                 dal.Product.Update(productDO);
             }
+          
         }
         catch(BO.AlreadyExistExeption ex)
         {

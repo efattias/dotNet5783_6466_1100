@@ -42,6 +42,7 @@ namespace PL
         private void IEnumerableToObservable(IEnumerable<ProductForList> listTOConvert)
         {
             productListPO.Clear();
+            
             foreach (var p in listTOConvert)
                 productListPO.Add(p);
         }
