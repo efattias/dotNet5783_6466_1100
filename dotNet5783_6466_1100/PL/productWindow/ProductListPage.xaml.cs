@@ -102,8 +102,8 @@ namespace PL
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            CartWindow caWindow = new CartWindow();
-            caWindow.ShowDialog();
+            //CartWindow caWindow = new CartWindow();
+            //caWindow.ShowDialog();
         }
 
         public void addProductToOB(PO.ProductForListPO product) => productListPO.Add(product);

@@ -33,11 +33,11 @@
             <ListView.View>
                 <GridView>
 
-                    <GridViewColumn DisplayMemberBinding="{Binding ID}" Header="מזהה הזמנה" Width="135"/>
+                    <!--<GridViewColumn DisplayMemberBinding="{Binding ID}" Header="מזהה הזמנה" Width="135"/>-->
 
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Header="שם הזמנה" Width="130"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Header="שם מוצר" Width="130"/>
 
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=ProductID}" Header="מזהה מוצר" Width="130"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=IDProduct}" Header="מזהה מוצר" Width="130"/>
 
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Price}" Header="מחיר" Width="120"/>
 
@@ -50,11 +50,12 @@
         </ListView>
 
         <Grid x:Name="downGrid" Grid.Row="2">
-            <Button Content="השלם הזמנה"
+            <Button Content="השלם הזמנה" x:Name="completeCart"
                 HorizontalAlignment="Left"
                 Margin="645,0,0,0"
                 Grid.Row="2"
-                VerticalAlignment="Center"/>
+                VerticalAlignment="Center" Click="completeCart_Click"  />
+         
         </Grid>
     </Grid>
 </Window>

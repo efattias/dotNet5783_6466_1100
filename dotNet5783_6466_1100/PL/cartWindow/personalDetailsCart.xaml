@@ -1,0 +1,53 @@
+﻿<Window x:Class="PL.cartWindow.personalDetailsCart"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PL.cartWindow"
+        mc:Ignorable="d"
+        Title="personalDetailsCart" Height="450" Width="300">
+    <Grid x:Name="details">
+        <TextBox x:Name="customerNameTextBox"
+            Height="20" Width="80"
+                 Margin="0,-100,0,0"
+                 Text="{Binding CustomerName }"
+                 >
+        </TextBox>
+        <TextBox x:Name="customerAddressTextBox"
+            Height="20" Width="80"
+                 Margin="0,0,0,0"
+                 Text="{Binding CustomerEmail}">
+        </TextBox>
+        <TextBox x:Name="customerEmailTextBox"
+            Height="20" Width="80"
+                 Margin="0,100,0,0"
+                 Text="{Binding CustomerAddress}">
+        </TextBox>
+        <Label x:Name="customerNameLabel"
+               Content=":שם"
+               Height="20" Width="50"
+               FontSize="10" Margin="0,-100,-150,0">
+            
+        </Label>
+        <Label x:Name="customerAddressLabel"
+               Content="דואר אלקטרוני"
+               Height="20" Width="50"
+               FontSize="10" Margin="0,0,-150,0">
+
+        </Label>
+        <Label x:Name="customerEmailLabel"
+               Content=":כתובת"
+               Height="20" Width="50"
+               FontSize="10" Margin="0,100,-150,0">
+
+        </Label>
+        <Button x:Name="addDetails"
+                Content="סיום"
+                Height="30" Width="60"
+                Margin="0,200,0,0" Click="addDetails_Click">
+            
+            
+        </Button>
+
+    </Grid>
+</Window>

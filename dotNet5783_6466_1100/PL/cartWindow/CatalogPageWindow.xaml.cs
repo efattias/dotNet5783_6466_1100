@@ -26,7 +26,7 @@ namespace PL
     {
         BlApi.IBL? bl = BlApi.Factory.GetBl() ?? throw new NullReferenceException("Missing bl");
         BO.Product? p = new BO.Product();
-        Cart cart = new Cart() { CustomerAddress = "", CustomerEmail = "", CustomerName = "", Items = new List<BO.OrderItem?>(), TotalPrice = 0 };
+        Cart cart = new Cart(){ CustomerAddress = "", CustomerEmail = "", CustomerName = "", Items = new List<BO.OrderItem?>(), TotalPrice = 0 };
 
 
         ObservableCollection<ProductForList> productListPO = new();
@@ -57,7 +57,7 @@ namespace PL
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            CartWindow caWindow = new CartWindow();
+            CartWindow caWindow = new CartWindow(cart);
             caWindow.Show();
         }
 
@@ -66,7 +66,7 @@ namespace PL
         {
             try
             {
-               cart= bl.cart.AddProductToCart(cart, (PList.SelectedItem as ProductForList).ID);
+               bl!.cart.AddProductToCart(cart, (PList.SelectedItem as ProductForList).ID);
                 MessageBox.Show("seccssed");
                 //bl.cart.AddProductToCart(cart, p!.ID);
             }
@@ -104,6 +104,12 @@ namespace PL
         private void Button_Click_6(object sender, RoutedEventArgs e)
         {
             IEnumerableToObservable(bl!.Product.GetPartOfProduct(p => p.Category == (Category.קודש)));
+        }
+
+        private void backToManager_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow main=new MainWindow();
+            main.Show();
         }
     }
 }

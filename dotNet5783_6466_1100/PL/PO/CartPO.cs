@@ -53,8 +53,8 @@ namespace PL.PO
                 }
             }
         }
-        private List<BO.OrderItem>? orderItemList;
-        public List<BO.OrderItem>? OrderItemList
+        private List<PO.OrderItemPO>? orderItemList;
+        public List<PO.OrderItemPO>? OrderItemList
         {
             get
             { return orderItemList; }

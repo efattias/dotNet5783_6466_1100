@@ -102,8 +102,8 @@
                                     Height="30" Width="30"
                                     HorizontalAlignment="Center"
                                     Click="AddProductToCart_Click">
-                                <materialDesign:PackIcon  Kind="trash" 
-                                         Foreground="Blue"
+                                <materialDesign:PackIcon  Kind="Plus" 
+                                         Foreground="Black"
                                          Height="30" Width="30"/>
                             </Button>
                         </DataTemplate>
@@ -148,6 +148,11 @@
         <Grid Grid.Row="2">
             <Button Content="סל קניות"
                     Margin="523,9,154,9" Click="Button_Click"/>
+            <Button x:Name="backToManager"
+                    Content="חזרה לראשי"
+                    Width="120" Click="backToManager_Click"  >
+
+            </Button>
         </Grid>
     </Grid>
 </Page>

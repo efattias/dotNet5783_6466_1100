@@ -10,6 +10,8 @@ internal class BoCart : IBoCart
     {
         try
         {
+            if(cart== null) 
+            { cart=new BO.Cart(); }
             //BO.OrderItem? item = cart?.Items?.FirstOrDefault(o => o?.ProductID == ID);
             //if (item == null)
             //{ BO.OrderItem orderItemToReturn}
