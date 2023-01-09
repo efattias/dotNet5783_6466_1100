@@ -13,13 +13,12 @@
             <ImageBrush ImageSource="/Wood Wall And Wood Floor With Some Notebooks Photography Backdrop.jpg"/>
         </Grid.Background>
 
-        <Button x:Name="showProductListWindow"
-            Content="לרשימת המוצרים"
-                HorizontalAlignment="Left" 
-                Margin="266,34,0,0" VerticalAlignment="Top" 
-                Click="showProductListWindow_Click" Grid.Column="1"
-                    Height="40" Width="140">
-        </Button>
+        <Button x:Name="tracking"
+            Content=" למעקב הזמנה"
+                HorizontalAlignment="Center" 
+                Margin="0,67,0,0" VerticalAlignment="Top" 
+                Click="showProductListWindow_Click"
+                    Height="40" Width="140"/>
 
         <Button Style="{DynamicResource managerButtonstyle}" 
                 x:Name="ManagerButton" Content="מנהל"
@@ -33,7 +32,7 @@
                 Foreground="Black"
               
                     Click="Manager_Click" RenderTransformOrigin="0.914,2.011" Margin="0,93,155,277" >
-            
+
         </Button>
         <Button Style="{DynamicResource managerButtonstyle}" 
                 x:Name="customerButton" Content="לקוח"
