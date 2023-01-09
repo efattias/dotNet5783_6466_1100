@@ -62,7 +62,7 @@ namespace PL.orderWindow
 
                           }).ToList();
 
-          //  orderListPO.Clear();
+           orderListPO.Clear();
             foreach (var o in listPO)
                 orderListPO.Add(o);
 
