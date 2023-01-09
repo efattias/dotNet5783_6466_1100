@@ -167,7 +167,7 @@
                 Content="הצג פריטים"
                Width="80" Height="30"
                 Margin="110,360,110,10"
-                FontSize="8" Background="CadetBlue">
+                FontSize="8" Background="CadetBlue" Click="ShowItemList_Click">
         </Button>
         <Button x:Name="updateShipDate"
                 Content="עדכן לנשלח"

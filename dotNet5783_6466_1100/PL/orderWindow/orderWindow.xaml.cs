@@ -99,6 +99,12 @@ namespace PL.orderWindow
                 Close();
             }
         }
+
+        private void ShowItemList_Click(object sender, RoutedEventArgs e)
+        {
+            OrderItemWindow orderItemWindow=new OrderItemWindow(o);
+            orderItemWindow.Show();
+        }
     }
 
  
