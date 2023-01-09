@@ -1,4 +1,5 @@
 ﻿using BO;
+using PL.PO;
 using PL.productWindow;
 using System;
 using System.Collections.Generic;
@@ -25,13 +26,14 @@ namespace PL.orderWindow
     {
         BlApi.IBL? bl = BlApi.Factory.GetBl() ?? throw new NullReferenceException("Missing bl");
         // private IBL bl = Factory.GetBl();
-        ObservableCollection<OrderForList> orderListPO = new();
+        ObservableCollection<OrderForListPO> orderListPO = new();
 
         public orderListPage()
         {
             InitializeComponent();
             IEnumerableToObservable(bl.Order.getOrderForList());
-            orderListV.DataContext = orderListPO;
+              orderListV.DataContext = orderListPO;
+           // DataContext = orderListPO;
             //productListView.ItemsSource = bl.Product.getProductForList();
             orderSelector.ItemsSource = Enum.GetValues(typeof(BO.Status));
             // categorySelector.SelectedItem = BO.Category.All;
@@ -46,10 +48,22 @@ namespace PL.orderWindow
             else if (orderSelector.SelectedItem is "")
                 IEnumerableToObservable(bl!.Order.getOrderForList());
         }
-        private void IEnumerableToObservable(IEnumerable<OrderForList> listTOConvert)
+        private void IEnumerableToObservable(IEnumerable<BO.OrderForList> listTOConvert)
         {
-            orderListPO.Clear();
-            foreach (var o in listTOConvert)
+            var listPO = (from o in listTOConvert
+                          select new PO.OrderForListPO
+                          {
+                             ID= o.ID,
+                             CustomerName= o.CustomerName,
+                             OrderStatus= (PO.Status)o.OrderStatus!,
+                             AmountOfItems=o.AmountOfItems,
+                             TotalPrice=o.TotalPrice
+
+
+                          }).ToList();
+
+          //  orderListPO.Clear();
+            foreach (var o in listPO)
                 orderListPO.Add(o);
 
         }
@@ -62,9 +76,14 @@ namespace PL.orderWindow
         //}
 
         //  private void doubleClickShowOrder(object sender, MouseButtonEventArgs e) => new orderWindow((BO.Order)orderListV.SelectedItem).Show();
-        private void doubleClickShowOrder(object sender, MouseButtonEventArgs e) => new orderWindow((BO.OrderForList)orderListV.SelectedItem).ShowDialog();
+        private void doubleClickShowOrder(object sender, MouseButtonEventArgs e)
+        {
 
+            var order = (OrderForListPO)orderListV.SelectedItem;
+            new orderWindow(order).ShowDialog();
+           // new orderWindow((PO.OrderForListPO)orderListV.SelectedItem
 
+        }
     }
 }
 

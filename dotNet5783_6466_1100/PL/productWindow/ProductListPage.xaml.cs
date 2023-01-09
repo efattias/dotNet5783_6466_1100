@@ -54,7 +54,7 @@ namespace PL
         {
 
             if (categorySelector.SelectedItem is BO.Category.הכל)
-                               IEnumerableToObservable(bl!.Product.getProductForList());
+                IEnumerableToObservable(bl!.Product.getProductForList());
             else if (categorySelector.SelectedItem is BO.Category)
                 IEnumerableToObservable(bl!.Product.GetPartOfProduct(p => p.Category == (BO.Category)categorySelector.SelectedItem));
             else if (categorySelector.SelectedItem is "")
@@ -70,7 +70,7 @@ namespace PL
                               ID = p.ID,
                               Name = p.Name,
                               Price = (double)p.Price,
-                              Category = (Category)p.Category
+                              Category = (PO.Category)p.Category
                           }).ToList();
             productListPO.Clear();
             foreach (var p in listPO)
@@ -106,9 +106,37 @@ namespace PL
             caWindow.ShowDialog();
         }
 
-     public void addProductToOB(PO.ProductForListPO product)=>productListPO.Add(product);
+        public void addProductToOB(PO.ProductForListPO product) => productListPO.Add(product);
 
-        
+      private void DeleteProduct_Click(object sender, RoutedEventArgs e ) 
+        {
+            MessageBoxResult messageBoxResult = MessageBox.Show("Are you shur you want to delete the package?", "Are you sure?", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
+
+            if (messageBoxResult is (MessageBoxResult.Yes))
+            {
+                try
+                {
+                    PO.ProductForListPO po = productListV.SelectedItem as PO.ProductForListPO;
+                    
+                    //(PList.SelectedItem as produc).ID
+                 // int id = (PList.SelectedItem as PO.ProductPO).;
+                  int id = po.ID;
+                  bl.Product.DeledeProduct(id);
+                    productListPO.Remove(po);
+                 // bl!.Product.DeledeProduct((productListV.SelectedItem as Product).ID);
+                   // IEnumerableToObservable(bl.Product.getProductForList());
+                    categorySelector.SelectedItem = " ";
+                }
+                catch (Exception x)
+                {
+                    MessageBox.Show(x.Message);
+                }
+
+            }
+
+        }
+
+     
     }
 
 

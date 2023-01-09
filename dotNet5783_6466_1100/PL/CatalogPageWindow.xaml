@@ -58,7 +58,7 @@
         </Grid>
 
 
-
+        
         <DataGrid x:Name="PList"
                   Grid.Row="1" Margin="5,10,10,10"
                   CanUserAddRows="False"
@@ -75,7 +75,7 @@
                   Foreground="Black"
                   IsReadOnly="True"
                   d:ItemsSource="{d:SampleData ItemCount=5}"
-                  ItemsSource="{Binding}" >
+                  ItemsSource="{Binding}"  >
             <DataGrid.GroupStyle>
                 <GroupStyle ContainerStyle="{StaticResource ResourceKey=GroupHeaderStyle}">
                     <GroupStyle.Panel>
@@ -94,7 +94,7 @@
                                     Height="30" Width="30"
                                     HorizontalAlignment="Center"
                                     Click="AddProductToCart_Click">
-                                <materialDesign:PackIcon  Kind="Plus" 
+                                <materialDesign:PackIcon  Kind="trash" 
                                          Foreground="Blue"
                                          Height="30" Width="30"/>
                             </Button>

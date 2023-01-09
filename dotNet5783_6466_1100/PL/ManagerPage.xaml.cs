@@ -76,6 +76,8 @@ namespace PL
                         ListFrame.Content = new ProductListPage();
                         break;
                     }
+            
+             
                 default:
                     break;
             }

@@ -24,17 +24,34 @@ namespace PL.orderWindow
 
         //IBL bl =  Factory.GetBl();
         BO.Order? o = new BO.Order();
+        PO.OrderForListPO orPO = new PO.OrderForListPO();
         //Cart cart = new Cart() { CustomerAddress = "", CustomerEmail = "", CustomerName = "", Items = new List<BO.OrderItem?>(), TotalPrice = 0 };
 
 
-        public orderWindow(BO.OrderForList? order=null)
+        public orderWindow(PO.OrderForListPO? order=null)
         {
             InitializeComponent();
             if(order!=null)
             {
-                o = bl.Order.GetOrder(order.ID);
-               // updateOrder.DataContext = o;
-                DataContext = o;
+                orPO = order;
+                DataContext = orPO;
+
+                o = bl.Order.GetOrder((int)order.ID);
+                //for order fields
+                addressTextBox.Text = o.CustomerAddress.ToString();
+                MailTextBox.Text = o.CustomerEmail.ToString();
+                orderDateTextBox.Text= o.OrderDate.ToString();
+                ShipDateTextBox.Text = o.ShipDate.ToString();
+                DeliveryDateTextBox.Text=o.DeliveryDate.ToString();
+
+
+
+                // updateOrder.DataContext = o;
+              
+                
+
+
+              //  DataContext = o;
                 if(o.ShipDate is not null && o.DeliveryDate is not null)
                 {
                     updateShipDate.Visibility = Visibility.Hidden;
@@ -65,6 +82,10 @@ namespace PL.orderWindow
             if (o != null)
             {
                 bl!.Order.UpdateShipOrder(o.ID);
+
+
+                orPO.OrderStatus = PO.Status.נשלחו;
+             
                 Close();
             }
         }
@@ -74,6 +95,7 @@ namespace PL.orderWindow
             if(o!=null)
             {
                 bl!.Order.UpdateProvisionOrder(o.ID);
+                
                 Close();
             }
         }

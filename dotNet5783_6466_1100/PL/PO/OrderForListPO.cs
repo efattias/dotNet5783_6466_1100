@@ -1,74 +1,79 @@
-﻿using BO;
-using DO;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls.Ribbon.Primitives;
 
 namespace PL.PO
 {
-    public class CartPO
+   public class OrderForListPO
     {
-        private string? name;
-        public string? Name
+        private int? id;
+        public int? ID
         {
             get
-            { return name; }
+            { return id; }
             set
             {
-                name = value;
+                id = value;
                 if (PropertyChanged != null)
                 {
-                    PropertyChanged(this, new PropertyChangedEventArgs("Name"));
+                    PropertyChanged(this, new PropertyChangedEventArgs("ID"));
                 }
             }
         }
-        private string? email;
-        public string? Email
+        private string? customerName;
+        public string? CustomerName
         {
             get
-            { return email; }
+            { return customerName; }
             set
             {
-                email = value;
+                customerName = value;
                 if (PropertyChanged != null)
                 {
-                    PropertyChanged(this, new PropertyChangedEventArgs("Email"));
+                    PropertyChanged(this, new PropertyChangedEventArgs("CustomerName"));
                 }
             }
         }
-        private string? address;
-        public string? Address
+
+       
+       
+
+
+        private Status? orderStatus;
+        public Status? OrderStatus
         {
             get
-            { return address; }
+            { return orderStatus; }
             set
             {
-                address = value;
+                orderStatus = value;
                 if (PropertyChanged != null)
                 {
-                    PropertyChanged(this, new PropertyChangedEventArgs("Address"));
+                    PropertyChanged(this, new PropertyChangedEventArgs("OrderStatus"));
                 }
             }
         }
-        private List<BO.OrderItem>? orderItemList;
-        public List<BO.OrderItem>? OrderItemList
+
+        private int? amountOfItems;
+        public int? AmountOfItems
         {
             get
-            { return orderItemList; }
+            { return amountOfItems; }
             set
             {
-                orderItemList = value;
+                amountOfItems = value;
                 if (PropertyChanged != null)
                 {
-                    PropertyChanged(this, new PropertyChangedEventArgs("OrderItemList"));
+                    PropertyChanged(this, new PropertyChangedEventArgs("AmountOfItems"));
                 }
             }
         }
-        private double totalPrice;
-        public double TotalPrice
+        private double? totalPrice;
+        public double? TotalPrice
         {
             get
             { return totalPrice; }
@@ -83,6 +88,5 @@ namespace PL.PO
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
-
     }
 }

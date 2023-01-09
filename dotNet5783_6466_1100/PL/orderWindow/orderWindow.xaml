@@ -56,7 +56,7 @@
                  FlowDirection="RightToLeft"
                  Margin="130,100,130,0"
                     IsReadOnly="false" IsEnabled="True"
-                  Text="{Binding CustomerEmail}">
+                  >
         </TextBox>
 
 
@@ -76,8 +76,8 @@
                  FlowDirection="RightToLeft"
                     VerticalAlignment="Top"
                  Margin="130,140,130,0"
-                    IsReadOnly="false" IsEnabled="true"
-                   Text="{Binding CustomerAddress}">
+                    IsReadOnly="false" IsEnabled="true">
+
 
 
         </TextBox>
@@ -115,7 +115,7 @@
                       VerticalAlignment="Top"
                  Margin="130,220,130,0"
                 IsReadOnly="false" IsEnabled="true"
-                 Text="{Binding OrderDate}">
+              >
         </TextBox>
 
         <Label x:Name="ShipDateLabel"
@@ -129,7 +129,7 @@
                       VerticalAlignment="Top"
                  Margin="130,260,130,0"
                 IsReadOnly="false" IsEnabled="true"
-                 Text="{Binding ShipDate}">
+                 >
 
         </TextBox>
         <Label x:Name="deliveryDateLabel"
@@ -144,7 +144,7 @@
                       VerticalAlignment="Top"
                  Margin="130,300,130,0"
                 IsReadOnly="false" IsEnabled="true"
-                 Text="{Binding DeliveryDate}">
+                 >
 
         </TextBox>
 

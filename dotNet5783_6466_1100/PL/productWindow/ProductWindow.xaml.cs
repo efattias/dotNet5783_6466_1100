@@ -49,10 +49,10 @@ namespace PL.productWindow
                 //DataContext = updateP ;
                 addToButton.Visibility = Visibility.Hidden;
                 p = bl.Product.GetProductbyId(updateP.ID);
-                pPO.ID = p.ID;
-                pPO.Name = p.Name;
-                pPO.Price = (double)p.Price;
-                pPO.Category= (BO.Category)p.Category;
+                //pPO.ID = p.ID;
+                //pPO.Name = p.Name;
+                //pPO.Price = (double)p.Price;
+                //pPO.Category= (PO.Category)p.Category;
                 AmountOfItemTextBox.Text = p.InStock.ToString();
                 //pPO.InStock = (int)p.InStock;
                // UpdateButton.DataContext = p;
@@ -132,7 +132,7 @@ namespace PL.productWindow
                     ID = id,
                     Name = p.Name,
                     Price = (double)p.Price,
-                    Category = (BO.Category)p.Category
+                    Category = (PO.Category)p.Category
                 });     
                 
                 
