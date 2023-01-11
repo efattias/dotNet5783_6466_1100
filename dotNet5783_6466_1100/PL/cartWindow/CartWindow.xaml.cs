@@ -55,19 +55,42 @@ namespace PL
 
 
             }
-          
+            if (cartBO.Items.Count() == 0)
+                completeCart.IsEnabled = false;
+
         }
 
         private void completeCart_Click(object sender, RoutedEventArgs e)
         {
-            personalDetailsCart detailsWindow= new personalDetailsCart(cartBO);
-            detailsWindow.ShowDialog();
-            bl.cart.MakeCart(cartBO);
-            //to clear the cart to the next time
-            cartBO?.Items?.Clear();
+            if (cartBO.Items.Count() != 0)
+                completeCart.IsEnabled = true;
 
-            cartBO = null;
-            cartPO = null;
+            personalDetailsCart detailsWindow = new personalDetailsCart(cartBO);
+            detailsWindow.ShowDialog();
+            bl!.cart.MakeCart(cartBO);
+            List<BO.OrderItem>? orderItemsBO = new List<BO.OrderItem>();
+            try
+            {
+                foreach ( BO.OrderItem item in cartBO.Items.ToList())
+                {
+                    bl.cart.UpdateProductInCart(cartBO, item.ProductID, 0);
+                }
+                //cartBO.Items.ForEach(delegate (BO.OrderItem item)
+                //{
+                //    bl.cart.UpdateProductInCart(cartBO, item.ProductID, 0);
+                //});
+                if (cartBO.Items.Count() == 0)
+                    completeCart.IsEnabled = false;
+            }
+            catch (BO.AlreadyExistExeption) { }       
+            catch (BO.DoesntExistException) { }
+            catch (BO.InvalidInputExeption) { }
+           
+            //to clear the cart to the next time
+           // cartBO?.Items?.Clear();
+
+          //  cartBO = null;
+           // cartPO = null;
             Close();
         }
 

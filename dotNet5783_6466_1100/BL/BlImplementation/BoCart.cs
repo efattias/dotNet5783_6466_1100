@@ -33,11 +33,17 @@ internal class BoCart : IBoCart
                     cart?.Items?.Add(ItemToReturn);
                     cart!.TotalPrice = Tools.GetTotalPriceBO((cart?.Items!));
                 }
+                else
+                if(productDO?.InStock <= 0)
+                {
+                    throw new BO.ProductOutOfStockException("המוצר אזל מהמלאי");
+                }
+                 
             }
             else
             {
                 if (temp?.Amount >= productDO?.InStock)
-                    throw new BO.ProductOutOfStockException("cant add the wanted amount");
+                    throw new BO.ProductOutOfStockException("המוצר אזל מהמלאי");
                 temp!.Amount++;
                 temp!.TotalPrice += temp!.Price;
                 cart!.TotalPrice += temp!.Price;

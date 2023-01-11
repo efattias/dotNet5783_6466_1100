@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PL"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MainPage">
@@ -18,12 +19,15 @@
                 HorizontalAlignment="Center" 
                 Margin="0,67,0,0" VerticalAlignment="Top" 
                 Click="showProductListWindow_Click"
-                    Height="40" Width="140"/>
+                    Height="40" Width="140">
+
+        </Button>
+
+      
 
         <Button Style="{DynamicResource managerButtonstyle}" 
                 x:Name="ManagerButton" Content="מנהל"
-                Width="120"
-                Height="80"
+                Width="108"
                 FontSize="24"
                
                 HorizontalAlignment="Right"
@@ -31,9 +35,7 @@
                 Background="#006bb3"
                 Foreground="Black"
               
-                    Click="Manager_Click" RenderTransformOrigin="0.914,2.011" Margin="0,93,155,277" >
-
-        </Button>
+                    Click="Manager_Click" RenderTransformOrigin="0.914,2.011" Margin="0,139,146,255" />
         <Button Style="{DynamicResource managerButtonstyle}" 
                 x:Name="customerButton" Content="לקוח"
                 HorizontalAlignment="Left"

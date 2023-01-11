@@ -34,7 +34,7 @@ namespace PL
         {
             InitializeComponent();
             IEnumerableToObservable(bl.Product.getProductForList());
-            PList.DataContext = productListPO;
+            pList.ItemsSource = productListPO;
             //productListV.DataContext = productListPO;
             categorySelector.ItemsSource = Enum.GetValues(typeof(BO.Category));
         }
@@ -67,7 +67,8 @@ namespace PL
         {
             try
             {
-               bl!.cart.AddProductToCart(cart, (PList.SelectedItem as ProductForList).ID);
+              BO.ProductForList product = ((Button)(sender)).DataContext as ProductForList;
+               bl!.cart.AddProductToCart(cart, product.ID);
                 MessageBox.Show("seccssed");
                 //bl.cart.AddProductToCart(cart, p!.ID);
             }
