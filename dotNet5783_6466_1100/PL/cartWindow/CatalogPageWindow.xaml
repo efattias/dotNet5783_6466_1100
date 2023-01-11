@@ -97,7 +97,7 @@
 
                         <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
                                     Height="30" Width="30"
-                               
+                                
                                 
                                     HorizontalAlignment="Right"
                                     VerticalAlignment="Bottom"

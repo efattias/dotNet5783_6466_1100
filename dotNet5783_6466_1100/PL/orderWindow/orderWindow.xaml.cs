@@ -1,4 +1,5 @@
 ﻿using BO;
+using DO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,7 +37,7 @@ namespace PL.orderWindow
                 orPO = order;
                 DataContext = orPO;
 
-                o = bl.Order.GetOrder((int)order.ID);
+                o = bl.Order.GetOrder((int)order.ID!) ?? throw new NullReferenceException("הזמנה נאל");
                 //for order fields
                 addressTextBox.Text = o.CustomerAddress.ToString();
                 MailTextBox.Text = o.CustomerEmail.ToString();
@@ -44,14 +45,6 @@ namespace PL.orderWindow
                 ShipDateTextBox.Text = o.ShipDate.ToString();
                 DeliveryDateTextBox.Text=o.DeliveryDate.ToString();
 
-
-
-                // updateOrder.DataContext = o;
-              
-                
-
-
-              //  DataContext = o;
                 if(o.ShipDate is not null && o.DeliveryDate is not null)
                 {
                     updateShipDate.Visibility = Visibility.Hidden;
@@ -82,8 +75,6 @@ namespace PL.orderWindow
             if (o != null)
             {
                 bl!.Order.UpdateShipOrder(o.ID);
-
-
                 orPO.OrderStatus = PO.Status.נשלחו;
              
                 Close();

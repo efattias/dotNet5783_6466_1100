@@ -42,7 +42,7 @@ namespace PL.productWindow
             categoryComboBox.ItemsSource=Enum.GetValues(typeof(BO.Category));
             action = addToObserval;
             
-            if (updateP != null)
+            if (updateP != null)// update
             {
                 pPO = updateP;
                 DataContext = pPO;
