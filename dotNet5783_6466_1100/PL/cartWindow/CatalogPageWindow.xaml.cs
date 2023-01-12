@@ -1,5 +1,6 @@
 ﻿using BO;
 using MaterialDesignThemes.Wpf;
+using PL.PO;
 using PL.productWindow;
 using System;
 using System.Collections.Generic;
@@ -30,23 +31,55 @@ namespace PL
         Cart cart = new Cart(){ CustomerAddress = "", CustomerEmail = "", CustomerName = "", Items = new List<BO.OrderItem?>(), TotalPrice = 0 };
 
 
-        ObservableCollection<ProductForList> productListPO = new();
+        ObservableCollection<ProductItemPO>? productItemListPO = new();
         public CatalogPageWindow()
         {
             InitializeComponent();
             IEnumerableToObservable(bl.Product.getProductForList());
-            pList.ItemsSource = productListPO;
+            pList.ItemsSource = productItemListPO;
             //productListV.DataContext = productListPO;
             categorySelector.ItemsSource = Enum.GetValues(typeof(BO.Category));
         }
 
         private void IEnumerableToObservable(IEnumerable<ProductForList> listTOConvert)
         {
-            productListPO.Clear();
-            
+            productItemListPO.Clear();
+            //productItemListPO = (from p in listTOConvert
+            //                     let product = bl.Product.GetProductbyId(p.ID)
+            //                     select new ProductItemPO()
+            //                     {
+            //                         ID = p.ID,
+            //                         Name = p.Name,
+            //                         Price = (double)p.Price,
+            //                         Category = (PO.Category)p.Category,
+            //                         Amount = (int)product.InStock
+            //                     })
+
             foreach (var p in listTOConvert)
-                productListPO.Add(p);
+            {
+                Product? product = bl!.Product.GetProductbyId(p.ID);
+                bool inStockFlag;
+                if(product.InStock>0)
+                    inStockFlag = true;
+                else
+                    inStockFlag = false;
+
+                ProductItemPO proPO = new ProductItemPO()
+                {
+                    ID = p.ID,
+                    Name = p.Name,
+                    Price = (double)p.Price,
+                    Category = (PO.Category)p.Category,
+                    InStock = inStockFlag,
+                    Amount = (int)product.InStock
+                };
+                productItemListPO.Add(proPO);
+
+
+            }
+               
         }
+
         private void categorySelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (categorySelector.SelectedItem is BO.Category.הכל)
@@ -68,7 +101,7 @@ namespace PL
         {
             try
             {
-                BO.ProductForList? product = ((Button)(sender)).DataContext as ProductForList ?? throw new NullReferenceException("כפתור לא מחזיר מוצר ");
+                PO.ProductItemPO? product = ((Button)(sender)).DataContext as ProductItemPO ?? throw new NullReferenceException("כפתור לא מחזיר מוצר ");
                bl!.cart.AddProductToCart(cart, product.ID);
                 MessageBox.Show("seccssed");
                 //bl.cart.AddProductToCart(cart, p!.ID);
@@ -86,27 +119,27 @@ namespace PL
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            IEnumerableToObservable(bl!.Product.GetPartOfProduct(p => p.Category == (Category.בישול)));
+            IEnumerableToObservable(bl!.Product.GetPartOfProduct(p => p.Category == (BO.Category.בישול)));
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            IEnumerableToObservable(bl!.Product.GetPartOfProduct(p => p.Category == (Category.השכלה)));
+            IEnumerableToObservable(bl!.Product.GetPartOfProduct(p => p.Category == (BO.Category.השכלה)));
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            IEnumerableToObservable(bl!.Product.GetPartOfProduct(p => p.Category == (Category.נוער)));
+            IEnumerableToObservable(bl!.Product.GetPartOfProduct(p => p.Category == (BO.Category.נוער)));
         }
 
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
-            IEnumerableToObservable(bl!.Product.GetPartOfProduct(p => p.Category == (Category.ילדים)));
+            IEnumerableToObservable(bl!.Product.GetPartOfProduct(p => p.Category == (BO.Category.ילדים)));
         }
 
         private void Button_Click_6(object sender, RoutedEventArgs e)
         {
-            IEnumerableToObservable(bl!.Product.GetPartOfProduct(p => p.Category == (Category.קודש)));
+            IEnumerableToObservable(bl!.Product.GetPartOfProduct(p => p.Category == (BO.Category.קודש)));
         }
 
         private void backToManager_Click(object sender, RoutedEventArgs e)
