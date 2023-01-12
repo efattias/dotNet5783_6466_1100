@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace PL
 {
@@ -42,10 +43,16 @@ namespace PL
             //ManagerButton.IsEnabled = false;
             //ManagerWindow managerWindow = new ManagerWindow();
             //managerWindow.Show();
-            ManagerPage mPage = new ManagerPage();
-          //  this.Content = mPage;
-          frame.Content = mPage;
-          
+          //  ManagerPage mPage = new ManagerPage();
+          ////  this.Content = mPage;
+          //frame.Content = mPage;
+
+            ManagerButton.Visibility = Visibility.Hidden;
+            ManagerButton.IsEnabled = false;
+
+            managetLogin.Visibility = Visibility.Visible;
+            managetLogin.IsEnabled = true;
+
         }
 
         private void customerButton_Click(object sender, RoutedEventArgs e)
@@ -55,5 +62,38 @@ namespace PL
             //ProductListPage page = new ProductListPage();
             //this.Content = page;
         }
+
+        private void CloseManagerLogIn_Click(object sender, RoutedEventArgs e)
+        {
+            ManagerButton.Visibility = Visibility.Visible;
+            ManagerButton.IsEnabled = true;
+
+            managetLogin.Visibility = Visibility.Hidden;
+            managetLogin.IsEnabled = false;
+
+            PasswordBox.Password = "";
+        }
+
+        private void ManagerlogInWithPassword_Click(object sender, RoutedEventArgs e)
+        {
+            EnterPassword();
+        }
+
+        private void EnterPressed_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter) EnterPassword();
+        }
+
+        private void EnterPassword()
+        {
+            if (PasswordBox.Password == "1234")
+            {
+                ManagerPage homeManager = new();
+                PasswordBox.Password = "";
+                frame.Content = homeManager;
+                //homeManager.ShowDialog();
+            }
+        }   
+
     }
 }
