@@ -23,7 +23,10 @@ public class DalProduct : IProduct
         Product? temp = ds.products.Find(x => x?.ID == item.ID);
 
         if (temp != null)
-            throw new AlreadyExistExeption("ID is allready used");
+            throw new AlreadyExistExeption("המזהה כבר בשימוש");
+
+        if (item.InStock < 0)
+            throw new InvalidInputExeption("המלאי אינו יכול להיות שלילי");
 
         Product product = (Product)item;
 
@@ -39,7 +42,7 @@ public class DalProduct : IProduct
     public void Delete(int id)
     {
         if (ds.products.RemoveAll(Product => Product?.ID == id) == 0)
-            throw new DoesntExistException("cant Delete that - does not exist");
+            throw new DoesntExistException("בלתי ניתן למחיקה- המוצר אינו קיים");
     }
 
     /// <summary>
@@ -51,8 +54,10 @@ public class DalProduct : IProduct
     public Product GetByID(int id)
     {
         Product? temp = ds.products.Find(x => x?.ID == id);
+
         if (temp == null)
-            throw new DoesntExistException("product does not exist");
+            throw new DoesntExistException("המוצר אינו קיים");
+
         return (Product)temp;
     }
 
@@ -66,12 +71,11 @@ public class DalProduct : IProduct
         Product? temp = ds.products.Find(x => x?.ID == item.ID);
 
         if (temp == null)
-            throw new DoesntExistException("does not exist");
+            throw new DoesntExistException("המוצר אינו קיים");
 
         Delete(item.ID);
         Add(item);
     }
-
     #endregion
 
     /// <summary>
@@ -81,14 +85,14 @@ public class DalProduct : IProduct
     public IEnumerable<Product?> getAll(Func<Product?, bool>? filter = null)
     {
         if (filter == null)
-            return ds.products?.ToList<Product?>() ?? throw new DO.DoesntExistException("Orders list invalid");
-        return ds.products.Where(x => filter(x)) ?? throw new DO.DoesntExistException("Orders list invalid"); ;
+            return ds.products?.ToList<Product?>() ?? throw new DO.DoesntExistException("רשימת המוצרים אינה חוקית");
+        return ds.products.Where(x => filter(x)) ?? throw new DO.DoesntExistException("רשימת המוצרים אינה חוקית"); ;
 
     }
 
     public Product? getByFilter(Func<Product?, bool>? filter)
     {
-        var product = ds.products.Where(x => filter(x)) ?? throw new DoesntExistException("product by filter doesnt exists");
+        var product = ds.products.Where(x => filter(x)) ?? throw new DoesntExistException("המוצר לפי הסינון אינו קיים");
         return product.First();
     }
 }

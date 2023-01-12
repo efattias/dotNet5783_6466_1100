@@ -42,3 +42,12 @@ public class AlreadyExistExeption : Exception, ISerializable
     public AlreadyExistExeption(string message, Exception inner) : base(message, inner) { }
     protected AlreadyExistExeption(SerializationInfo info, StreamingContext context) : base(info, context) { }
 }
+
+[Serializable]
+public class InvalidInputExeption : Exception, ISerializable
+{
+    public InvalidInputExeption() : base() { }
+    public InvalidInputExeption(string message) : base(message) { }
+    public InvalidInputExeption(string message, Exception inner) : base(message, inner) { }
+    protected InvalidInputExeption(SerializationInfo info, StreamingContext context) : base(info, context) { }
+}

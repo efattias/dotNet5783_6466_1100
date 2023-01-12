@@ -27,7 +27,7 @@ public class DalOrderItem:IOrderItem
         }
 
         if (temp != null)
-            throw new AlreadyExistExeption("order item allready exists");
+            throw new AlreadyExistExeption("הפריט כבר קיים בהזמנה");
 
         item.ID = DataSource.ConfigOrderItem.NextOrderItemNumber;
         ds.OrderItems.Add(item);
@@ -42,7 +42,7 @@ public class DalOrderItem:IOrderItem
     public void Delete(int id)
     {
         if (ds.OrderItems.RemoveAll(OrderItem => OrderItem?.ID == id) == 0)
-            throw new DoesntExistException("cant Delete that-order item does not exist");
+            throw new DoesntExistException("לא ניתן למחיקה- הפריט אינו קיים בהזמנה");
     }
     
     /// <summary>
@@ -56,7 +56,7 @@ public class DalOrderItem:IOrderItem
         OrderItem? temp = ds.OrderItems.Find(x => x?.ID == id);
 
         if (temp == null)
-            throw new DoesntExistException("order item does not exist");
+            throw new DoesntExistException("הפריט אינו קיים בהזמנה");
 
         return (OrderItem)temp;
     }
@@ -71,7 +71,7 @@ public class DalOrderItem:IOrderItem
         OrderItem? temp = ds.OrderItems.Find(x => x?.ID == item.ID);
 
         if (temp == null)
-            throw new DoesntExistException(" does not exist");
+            throw new DoesntExistException("לא ניתן לעדכון- הפריט אינו קיים בהזמנה");
 
         Delete(item.ID);
         Add(item);
@@ -88,11 +88,14 @@ public class DalOrderItem:IOrderItem
     public OrderItem GetProductByOrderAndID(int orderId, int productId)
     {
         OrderItem? temp = ds.OrderItems.Find(x => x?.OrderID == orderId);
+
         if (temp == null)
-            throw new DoesntExistException("orderItem not exists");
+            throw new DoesntExistException("ההזמנה אינה קיימת");
+
         if (temp?.ProductID == productId)
             return (OrderItem)temp;
-        else throw new DoesntExistException(" product not exist in order");
+
+        else throw new DoesntExistException("הפריט אינו נמצא בהזמנה");
     }
     
     /// <summary>
@@ -102,9 +105,10 @@ public class DalOrderItem:IOrderItem
     public IEnumerable<OrderItem?> getAll(Func<OrderItem?, bool>? filter = null)
     {
         if (filter == null)
-            return ds.OrderItems?.ToList<OrderItem?>()?? throw new DO.DoesntExistException("Orders list invalid");
-        return ds.OrderItems.Where(x => filter(x)) ?? throw new DO.DoesntExistException("Orders list invalid"); ;
+            return ds.OrderItems?.ToList<OrderItem?>()?? throw new DO.DoesntExistException("רשימת ההזמנות אינה חוקית");
+        return ds.OrderItems.Where(x => filter(x)) ?? throw new DO.DoesntExistException("רשימת ההזמנות אינה חוקית"); ;
     }
+
     /// <summary>
     /// function-the function returns the items in order by given id
     /// </summary>
@@ -113,9 +117,12 @@ public class DalOrderItem:IOrderItem
     public IEnumerable<OrderItem?> GetItemsList(int orderId)
     {
         Order? order = ds.Orders.Find(x => x.GetValueOrDefault().ID == orderId);
+
         if (order == null)
-            throw new DoesntExistException("the order does not exist");
+            throw new DoesntExistException("ההזמנה אינה קיימת");
+
         List<OrderItem?> listToReturn = new List<OrderItem?>();
+
         foreach(OrderItem? item in ds.OrderItems)
         {
             if (item != null && item?.OrderID == order?.ID)
@@ -126,8 +133,7 @@ public class DalOrderItem:IOrderItem
 
     public OrderItem? getByFilter(Func<OrderItem?, bool>? filter)
     {
-            var orderItem = ds.OrderItems.Where(x => filter(x)) ?? throw new DoesntExistException("order by filter doesnt exists");
+            var orderItem = ds.OrderItems.Where(x => filter(x)) ?? throw new DoesntExistException("ההזמנה לפי המסנן אינה קיימת");
             return orderItem.First(); 
     }
 }
-

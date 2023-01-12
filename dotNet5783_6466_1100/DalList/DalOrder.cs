@@ -29,7 +29,7 @@ public class DalOrder : IOrder
         }
 
         if (temp != null)
-            throw new AlreadyExistExeption("order item allready exists");
+            throw new AlreadyExistExeption("ההזמנה קיימת כבר");
 
         item.ID = DataSource.ConfigOrder.NextOrderNumber;
         ds.Orders.Add(item);
@@ -44,7 +44,7 @@ public class DalOrder : IOrder
     public void Delete(int id)
     {
         if (ds.Orders.RemoveAll(Order => Order?.ID == id) == 0)
-            throw new DoesntExistException("cant Delete that- order does not exist");
+            throw new DoesntExistException("לא ניתן למחיקה- המוצר אינו קיים");
     }
     
     /// <summary>
@@ -57,7 +57,7 @@ public class DalOrder : IOrder
     { 
         Order? temp = ds.Orders.Find(x => x?.ID == id);
         if (temp == null)
-            throw new DoesntExistException("order does not exist");
+            throw new DoesntExistException("ההזמנה אינה קיימת");
         return (Order)temp;
     }
     
@@ -71,7 +71,7 @@ public class DalOrder : IOrder
         Order? temp = ds.Orders.Find(x => x?.ID == item.ID);
 
         if (temp == null)
-            throw new DoesntExistException("order does not exist");
+            throw new DoesntExistException("ההזמנה אינה קיימת");
 
         Delete(item.ID);
         Add(item);
@@ -85,8 +85,8 @@ public class DalOrder : IOrder
     public IEnumerable<Order?> getAll(Func<Order?, bool>? filter = null)
     {
         if(filter == null)  
-            return  ds.Orders?.ToList<Order?>() ?? throw new DO.DoesntExistException("Orders list invalid");
-        return ds.Orders.Where(x => filter(x)) ?? throw new DO.DoesntExistException("Orders list invalid"); ;
+            return  ds.Orders?.ToList<Order?>() ?? throw new DO.DoesntExistException("רשימת ההזמנות לא חוקית");
+        return ds.Orders.Where(x => filter(x)) ?? throw new DO.DoesntExistException("רשימת ההזמנות לא חוקית"); ;
     }
     /// <summary>
     /// function- returns an order by filter
@@ -96,7 +96,7 @@ public class DalOrder : IOrder
 
     public Order? getByFilter(Func<Order?, bool>? filter)
     { 
-        var order= ds.Orders.Where(x => filter(x)) ?? throw new DoesntExistException("order by filter doesnt exists");
+        var order= ds.Orders.Where(x => filter(x)) ?? throw new DoesntExistException("ההזמנה לפי המסנן אינה קיימת");
         return order.First();
     }
 }

@@ -4,13 +4,12 @@ using BO;
 namespace BlImplementation;
 internal class BoOrder : IBoOrder
 {
-
-    DalApi.IDal? dal = DalApi.Factory.Get() ?? throw new NullReferenceException("Missing Dal");
+    DalApi.IDal? dal = DalApi.Factory.Get() ?? throw new NullReferenceException("שכבת הגישה לנתונים חסרה");
 
     public BO.Order GetOrder(int ID)
     {
         if (ID < 0)// test id
-            throw new BO.InvalidInputExeption("ID is out of range");
+            throw new BO.InvalidInputExeption("המזהה אינו בתחום");
         
         try
         {
@@ -73,7 +72,7 @@ internal class BoOrder : IBoOrder
     public BO.OrderTracking TrackOrder(int ID)
     {
         if (ID < 0)
-            throw new BO.InvalidInputExeption("id is not in range");
+            throw new BO.InvalidInputExeption("המזהה אינו בתחום");
         
         try
         {
@@ -116,7 +115,7 @@ internal class BoOrder : IBoOrder
     public BO.Order UpdateProvisionOrder(int ID)
     {
         if (ID < 0)
-            throw new BO.InvalidInputExeption("id is out of range");
+            throw new BO.InvalidInputExeption("המזהה אינו בתחום");
         
         try
         {
@@ -170,7 +169,7 @@ internal class BoOrder : IBoOrder
     {
         //test
         if (ID<0)
-            throw new BO.InvalidInputExeption("id is out of range");
+            throw new BO.InvalidInputExeption("המזהה אינו בתחום");
         
         try
         {

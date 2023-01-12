@@ -5,7 +5,8 @@ namespace BlImplementation;
 
 internal class BoProduct :IBoProduct
 {
-    DalApi.IDal? dal = DalApi.Factory.Get() ?? throw new NullReferenceException("Missing Dal");
+    DalApi.IDal? dal = DalApi.Factory.Get() ?? throw new NullReferenceException("שכבת הגישה לנתונים חסרה");
+    
     /// <summary>
     /// function- adding product to data source
     /// </summary>
@@ -16,16 +17,16 @@ internal class BoProduct :IBoProduct
     {
         //testing 
         if (!(product?.ID >= 100000 && product?.ID < 1000000))// id test
-           throw new BO.InvalidInputExeption("ID is out of range");
+           throw new BO.InvalidInputExeption("המזהה אינו בתחום");
   
         if (product?.Name == null)// name test 
-            throw new BO.InvalidInputExeption("Name is not correct");
+            throw new BO.InvalidInputExeption("השם אינו נכון");
 
         if (product?.Price <= 0)// price test
-            throw new BO.InvalidInputExeption("Price is out of range");
+            throw new BO.InvalidInputExeption("המחיר אינו יכול להיות שלילי");
 
         if (product?.InStock < 0)// stock test
-            throw new BO.InvalidInputExeption("Product is out of stock");
+            throw new BO.InvalidInputExeption("המלאי אינו יכול להיות שלילי");
         try
         {
             DO.Product productTempDO = new DO.Product()// create DO product to enter the DAL
@@ -44,6 +45,7 @@ internal class BoProduct :IBoProduct
             throw new BO.AlreadyExistExeption(ex.Message, ex);
         } 
     }
+
     /// <summary>
     /// function- delete product from DAL
     /// </summary>
@@ -60,19 +62,15 @@ internal class BoProduct :IBoProduct
             {
                 itemsInO = (List<DO.OrderItem?>)dal.OrderItem.GetItemsList((int)(o?.ID!));
                 if(itemsInO.Find((x => x?.ProductID == IDProduct))!=null)// product was found in order
-                    throw new BO.CantDeleteItemException("Product exists in order - can not delete");
-
+                    throw new BO.CantDeleteItemException("בלתי ניתן למחיקה- המוצר קיים בהזמנה");
             }
             catch (BO.CantDeleteItemException ex)// exeption for product in order case
             {
-            
                 throw new BO.CantDeleteItemException(ex.Message, ex);
-
             }
         }
         try
         {
-           
             dal.Product.Delete(IDProduct); // deleting from DAL
         }
         catch (DO.DoesntExistException ex)// if doesnt work catch exeption
@@ -80,6 +78,7 @@ internal class BoProduct :IBoProduct
             throw new BO.DoesntExistException(ex.Message, ex);
         }
     }
+
     /// <summary>
     /// funcion- returns product from DAL by ID
     /// </summary>
@@ -90,7 +89,7 @@ internal class BoProduct :IBoProduct
     public BO.Product? GetProductbyId(int ID)
     {
         if(ID < 0)// test id
-            throw new BO.InvalidInputExeption("ID is out of range");
+            throw new BO.InvalidInputExeption("המזהה אינו בתחום");
         
         try
         {
@@ -114,7 +113,7 @@ internal class BoProduct :IBoProduct
     public BO.ProductItem GetProductByIDAndCart(int ID, BO.Cart? cart)
     {//testing
         if (ID<0)
-            throw new BO.InvalidInputExeption("id is out of range");
+            throw new BO.InvalidInputExeption("המזהה אינו בתחום");
         
         try
         {
@@ -136,6 +135,7 @@ internal class BoProduct :IBoProduct
             throw new BO.DoesntExistException(ex.Message, ex);
         }
     }
+
     /// <summary>
     /// function- returns list of ProductForList 
     /// </summary>
@@ -154,26 +154,29 @@ internal class BoProduct :IBoProduct
                     Category = (BO.Category?)p?.Category
                 }).ToList();
     }
+
     public IEnumerable<ProductForList> GetPartOfProduct(Predicate<ProductForList> check)
     {       
         var listToReturn = (from p in getProductForList()
                      where check(p)
                      select p).ToList<ProductForList>();
+
         return listToReturn;  
     }
+
     public void UpdateDetailProduct(BO.Product? product)
     {
         if (!(product?.ID >= 100000 && product?.ID < 1000000))// id test
-            throw new BO.InvalidInputExeption("ID is out of range");
+            throw new BO.InvalidInputExeption("המזהה אינו בתחום");
 
         if (product?.Name == "")// name test 
-            throw new BO.InvalidInputExeption("Name is not correct");
+            throw new BO.InvalidInputExeption("השם אינו נכון");
 
         if (product?.Price <= 0)// price test
-            throw new BO.InvalidInputExeption("Price is out of range");
+            throw new BO.InvalidInputExeption("המחיר אינו יכול להיות שלילי");
 
         if (product?.InStock < 0)// stock test
-            throw new BO.InvalidInputExeption("Product is out of stock");
+            throw new BO.InvalidInputExeption("המלאי אינו יכול להיות שלילי");
 
         try
         {
