@@ -78,7 +78,6 @@ namespace PL.orderWindow
         //  private void doubleClickShowOrder(object sender, MouseButtonEventArgs e) => new orderWindow((BO.Order)orderListV.SelectedItem).Show();
         private void doubleClickShowOrder(object sender, MouseButtonEventArgs e)
         {
-
             var order = (OrderForListPO)orderListV.SelectedItem;
             new orderWindow(order).ShowDialog();
            // new orderWindow((PO.OrderForListPO)orderListV.SelectedItem

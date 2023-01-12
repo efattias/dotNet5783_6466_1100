@@ -67,7 +67,7 @@ namespace PL
         {
             try
             {
-              BO.ProductForList product = ((Button)(sender)).DataContext as ProductForList;
+                BO.ProductForList? product = ((Button)(sender)).DataContext as ProductForList ?? throw new NullReferenceException("כפתור לא מחזיר מוצר ");
                bl!.cart.AddProductToCart(cart, product.ID);
                 MessageBox.Show("seccssed");
                 //bl.cart.AddProductToCart(cart, p!.ID);
