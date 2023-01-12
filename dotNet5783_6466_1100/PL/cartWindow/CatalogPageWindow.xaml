@@ -94,6 +94,12 @@
                         <TextBlock
                             Text="{Binding Category}">
                         </TextBlock>
+                        <TextBlock
+                            Text="{Binding InStock}">
+                        </TextBlock>
+                        <TextBlock
+                            Text="{Binding Amount}">
+                        </TextBlock>
 
                         <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
                                     Height="30" Width="30"

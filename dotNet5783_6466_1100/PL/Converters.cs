@@ -9,7 +9,6 @@ using System.Windows;
 
 namespace PLConverter
 {
-
     public class NotVisibilityToVisibilityConverter : IValueConverter
     {
         //convert from source property type to target property type
@@ -39,6 +38,27 @@ namespace PLConverter
             {
                 return Visibility.Hidden;
             }
+        }
+    }
+    public class AllTextBoxEntered : IMultiValueConverter
+    {
+        public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
+        {
+            bool res = true;
+
+            foreach (object val in values)
+            {
+                if (string.IsNullOrEmpty(val as string))
+                {
+                    res = false;
+                }
+            }
+            return res;
+        }
+
+        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
         }
     }
 
@@ -73,7 +93,6 @@ namespace PLConverter
         }
     }
 
-    internal class Converters
-    {
-    }
+
+
 }

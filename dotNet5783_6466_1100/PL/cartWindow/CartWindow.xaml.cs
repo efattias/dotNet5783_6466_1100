@@ -71,7 +71,7 @@ namespace PL
             List<BO.OrderItem>? orderItemsBO = new List<BO.OrderItem>();
             try
             {
-                foreach ( BO.OrderItem item in cartBO.Items.ToList())
+                foreach (BO.OrderItem item in cartBO.Items.ToList())
                 {
                     bl.cart.UpdateProductInCart(cartBO, item.ProductID, 0);
                 }
@@ -82,19 +82,21 @@ namespace PL
                 if (cartBO.Items.Count() == 0)
                     completeCart.IsEnabled = false;
             }
-            catch (BO.AlreadyExistExeption) { }       
-            catch (BO.DoesntExistException) { }
-            catch (BO.InvalidInputExeption) { }
-           
-            //to clear the cart to the next time
-           // cartBO?.Items?.Clear();
+            catch (Exception x)
+            {
+                MessageBox.Show(x.Message);
+            }
 
-          //  cartBO = null;
-           // cartPO = null;
+
+            //to clear the cart to the next time
+            // cartBO?.Items?.Clear();
+
+            //  cartBO = null;
+            // cartPO = null;
             Close();
         }
-
+    }
      
         
-    }
+    
 }

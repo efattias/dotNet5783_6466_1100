@@ -32,6 +32,7 @@ namespace PL.cartWindow
 
         private void addDetails_Click(object sender, RoutedEventArgs e)
         {
+           
             Close();
         
         }

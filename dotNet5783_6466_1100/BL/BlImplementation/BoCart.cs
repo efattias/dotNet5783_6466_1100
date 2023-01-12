@@ -1,4 +1,5 @@
 ﻿using BlApi;
+using BO;
 //bla
 
 namespace BlImplementation;
@@ -66,7 +67,7 @@ internal class BoCart : IBoCart
         try { 
         //testing
         if (!((bool)(cart!.CustomerEmail!.Contains('@'))) || (!((bool)(cart.CustomerEmail.Contains('.')))))
-            throw new BO.InvalidInputExeption("email is not writen good");
+            throw new  BO.InvalidInputExeption("email is not writen good");
         if (cart?.CustomerEmail == null)
             throw new BO.DoesntExistException("email adress is missing");
         if (cart?.CustomerAddress == null)
@@ -120,10 +121,11 @@ internal class BoCart : IBoCart
             }
           
         }
-        catch(BO.AlreadyExistExeption ex)
+        catch(DO.AlreadyExistExeption ex)
         {
             throw new BO.DoesntExistException(ex.Message, ex);
         }
+
         catch (BO.InvalidInputExeption ex)
         {
             throw new BO.InvalidInputExeption(ex.Message, ex);
