@@ -93,7 +93,12 @@ namespace PL
                 frame.Content = homeManager;
                 //homeManager.ShowDialog();
             }
-        }   
+            else
+            {
+                MessageBox.Show("סיסמה שגויה");
+                PasswordBox.Password = "";
+            }
+        }
 
     }
 }
