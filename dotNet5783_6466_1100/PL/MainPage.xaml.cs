@@ -91,6 +91,12 @@ namespace PL
                 ManagerPage homeManager = new();
                 PasswordBox.Password = "";
                 frame.Content = homeManager;
+
+                ManagerButton.Visibility = Visibility.Visible;
+                ManagerButton.IsEnabled = true;
+
+                managetLogin.Visibility = Visibility.Hidden;
+                managetLogin.IsEnabled = false;
                 //homeManager.ShowDialog();
             }
             else

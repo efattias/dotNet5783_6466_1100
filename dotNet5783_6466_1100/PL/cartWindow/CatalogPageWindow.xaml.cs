@@ -4,6 +4,7 @@ using PL.productWindow;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -112,6 +113,41 @@ namespace PL
         {
             MainWindow main=new MainWindow();
             main.Show();
+        }
+
+        private void Button_Click_7(object sender, RoutedEventArgs e)
+        {
+            RemoveGrouping_Click(sender, e);
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(pList.ItemsSource);
+            PropertyGroupDescription groupDescription = new PropertyGroupDescription("Name");
+            SortDescription sortDscription = new SortDescription("Name", ListSortDirection.Ascending);
+            view.GroupDescriptions.Add(groupDescription);
+            view.SortDescriptions.Add(sortDscription);
+            GroupByName.IsEnabled = false;
+        }
+
+        private void Button_Click_8(object sender, RoutedEventArgs e)
+        {
+            RemoveGrouping_Click(sender, e);
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(pList.ItemsSource);
+            PropertyGroupDescription groupDescription = new PropertyGroupDescription("Price");
+            SortDescription sortDscription = new SortDescription("Price", ListSortDirection.Ascending);
+            view.GroupDescriptions.Add(groupDescription);
+            view.SortDescriptions.Add(sortDscription);
+            GroupByPrice.IsEnabled = false;
+        }
+
+        private void RemoveGrouping_Click(object sender, RoutedEventArgs e)
+        {
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(pList.ItemsSource);
+            //CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(productListPO);
+            
+            view.GroupDescriptions.Clear();
+            view.SortDescriptions.Clear();
+
+            GroupByPrice.IsEnabled = true;
+            GroupByName.IsEnabled = true;
+
         }
     }
 }

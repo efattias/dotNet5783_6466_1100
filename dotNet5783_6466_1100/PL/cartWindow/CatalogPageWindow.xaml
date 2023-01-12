@@ -75,13 +75,13 @@
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
-                <DataTemplate> 
+                <DataTemplate>
                     <StackPanel Width="200"
                                 Height="150"
                                 Background="AliceBlue">
-                      
-                     
-                     
+
+
+
                         <TextBlock 
                             Text="{Binding ID}">
                         </TextBlock>
@@ -107,8 +107,8 @@
                                          Height="30" Width="30"/>
                         </Button>
                     </StackPanel>
-                
-                   
+
+
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
@@ -196,12 +196,27 @@
 
         <Grid Grid.Row="2">
             <Button Content="סל קניות"
-                    Margin="523,9,154,9" Click="Button_Click"/>
+                    Margin="588,9,89,9" Click="Button_Click"/>
             <Button x:Name="backToManager"
                     Content="חזרה לראשי"
-                    Width="120" Click="backToManager_Click"  >
+                    Width="120" Click="backToManager_Click" Margin="440,9,240,9"  >
 
             </Button>
+            <Button Name="GroupByName"
+                    Content="GroupByName"
+                    HorizontalAlignment="Left"
+                    Margin="292,0,0,0"
+                    VerticalAlignment="Center" Click="Button_Click_7"/>
+            <Button Name="GroupByPrice"
+                    Content="GroupByPrice"
+                    HorizontalAlignment="Left"
+                    Margin="148,0,0,0"
+                    VerticalAlignment="Center" Click="Button_Click_8"/>
+            <Button Name="RemoveGrouping"
+                    Content="RemoveGrouping"
+                    HorizontalAlignment="Left"
+                    Margin="5,0,0,0"
+                    VerticalAlignment="Center" Click="RemoveGrouping_Click"/>
         </Grid>
     </Grid>
 </Page>
