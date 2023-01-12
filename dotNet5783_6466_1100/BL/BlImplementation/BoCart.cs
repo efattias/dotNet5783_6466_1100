@@ -1,5 +1,5 @@
 ﻿using BlApi;
-
+//bla
 
 namespace BlImplementation;
 internal class BoCart : IBoCart
@@ -33,11 +33,17 @@ internal class BoCart : IBoCart
                     cart?.Items?.Add(ItemToReturn);
                     cart!.TotalPrice = Tools.GetTotalPriceBO((cart?.Items!));
                 }
+                else
+                if(productDO?.InStock <= 0)
+                {
+                    throw new BO.ProductOutOfStockException("המוצר אזל מהמלאי");
+                }
+                 
             }
             else
             {
                 if (temp?.Amount >= productDO?.InStock)
-                    throw new BO.ProductOutOfStockException("cant add the wanted amount");
+                    throw new BO.ProductOutOfStockException("המוצר אזל מהמלאי");
                 temp!.Amount++;
                 temp!.TotalPrice += temp!.Price;
                 cart!.TotalPrice += temp!.Price;
@@ -79,6 +85,7 @@ internal class BoCart : IBoCart
             if (o?.TotalPrice < 0 || o?.Price < 0 || o?.Amount < 0 || o?.ID < 0 || (!(o?.ProductID >= 100000 && o?.ProductID < 1000000)))
                     throw new BO.InvalidInputExeption("one of the details in orderItem list is out of range");
             itemList.Add(o);
+
         }
         DO.Order orderToReturn = new DO.Order()// create the new order
         {
@@ -111,6 +118,7 @@ internal class BoCart : IBoCart
                 productDO.InStock -= item.Amount;
                 dal.Product.Update(productDO);
             }
+          
         }
         catch(BO.AlreadyExistExeption ex)
         {

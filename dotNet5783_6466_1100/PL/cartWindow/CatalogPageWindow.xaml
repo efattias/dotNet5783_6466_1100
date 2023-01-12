@@ -62,14 +62,61 @@
             <Button Content="ילדים" HorizontalAlignment="Left" Margin="105,12,0,0" VerticalAlignment="Top" Width="70" Click="Button_Click_5"/>
             <Button Content="קודש" HorizontalAlignment="Left" Margin="5,12,0,0" VerticalAlignment="Top" Width="70" Click="Button_Click_6"/>
 
-
-
-
         </Grid>
 
 
-        
-        <DataGrid x:Name="PList"
+        <ListView Name="pList"
+                  Grid.Row="1"
+                  ItemsSource="{Binding}"
+                    d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate >
+                    <UniformGrid Columns="3"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate> 
+                    <StackPanel Width="200"
+                                Height="150"
+                                Background="AliceBlue">
+                      
+                     
+                     
+                        <TextBlock 
+                            Text="{Binding ID}">
+                        </TextBlock>
+                        <TextBlock
+                            Text="{Binding Name}">
+                        </TextBlock>
+                        <TextBlock
+                            Text="{Binding Price}">
+                        </TextBlock>
+                        <TextBlock
+                            Text="{Binding Category}">
+                        </TextBlock>
+
+                        <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                                    Height="30" Width="30"
+                               
+                                
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Bottom"
+                                    Click="AddProductToCart_Click">
+                            <materialDesign:PackIcon  Kind="Plus" 
+                                         Foreground="Black"
+                                         Height="30" Width="30"/>
+                        </Button>
+                    </StackPanel>
+                
+                   
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+
+
+        <!--<DataGrid x:Name="PList"
                   Grid.Row="1" Margin="5,10,10,10"
                   CanUserAddRows="False"
                   materialDesign:DataGridAssist.CellPadding="10"
@@ -125,7 +172,7 @@
                                     MinWidth="10"/>
 
             </DataGrid.Columns>
-        </DataGrid>
+        </DataGrid>-->
 
 
 
