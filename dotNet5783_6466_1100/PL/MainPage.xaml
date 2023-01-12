@@ -4,10 +4,21 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PL"
+      xmlns:converter="clr-namespace:PLConverter"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MainPage">
 
+    <!--<Page.Resources>
+        <converter:NotVisibilityToVisibilityConverter x:Key="notVisibilityToVisibilityConverter"/>
+        <converter:FalseToTrueConverter x:Key="falseToTrueConverter"/>
+    </Page.Resources>-->
+
+    <Page.Resources>
+        <converter:NotVisibilityToVisibilityConverter x:Key="notVisibilityToVisibilityConverter"/>
+        <converter:FalseToTrueConverter x:Key="falseToTrueConverter"/>
+    </Page.Resources>
     <Grid >
         <Grid.Background>
             <ImageBrush ImageSource="/Wood Wall And Wood Floor With Some Notebooks Photography Backdrop.jpg"/>
@@ -19,6 +30,64 @@
                 Margin="0,67,0,0" VerticalAlignment="Top" 
                 Click="showProductListWindow_Click"
                     Height="40" Width="140"/>
+
+
+        <materialDesign:Card
+                materialDesign:ShadowAssist.ShadowDepth="Depth5"
+                Padding="32"
+                Background="#26E8E5E5"
+                Width="350" Height="400" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Center" Margin="422,0,0,0">
+
+            <StackPanel Name="managetLogin"  
+                            Orientation="Vertical" 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center"
+                        Visibility="{Binding ElementName=ManagerButton,Path=Visibility,Converter={StaticResource notVisibilityToVisibilityConverter}}"
+                        IsEnabled="{Binding ElementName=ManagerButton,Path=IsEnabled,Converter={StaticResource falseToTrueConverter}}">
+
+
+                <Button
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Click="CloseManagerLogIn_Click" 
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Top" Margin="0,-20,0,0">
+
+                    <materialDesign:PackIcon Kind="ArrowLeftThin"
+                                                 Height="30" Width="30"/>
+
+                </Button>
+                <TextBlock x:Name="manager" 
+                               Text="כניסת מנהל" 
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center" 
+                               Foreground="#006bb3"
+                               FontSize="30" 
+                               Margin="0,0,0,30"/>
+                <PasswordBox  x:Name="PasswordBox"
+                                  materialDesign:HintAssist.Hint="Password"
+                                  Width="300" Height="70"
+                                  materialDesign:HintAssist.Foreground="#006bb3"
+                                  materialDesign:TextFieldAssist.UnderlineBrush="#006bb3"
+                                  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+                                  FontSize="20" 
+                                  KeyDown="EnterPressed_KeyDown" />
+
+                <Button Grid.Column="1"
+                            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                            Width="150" Height="35"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Content="Log In" Background="#006bb3" 
+                            FontFamily="Bahnschrift" 
+                            FontSize="25" Margin="10,30,20,0" 
+                            BorderBrush="Transparent"
+                            Click="ManagerlogInWithPassword_Click"/>
+            </StackPanel>
+        </materialDesign:Card>
+
 
         <Button Style="{DynamicResource managerButtonstyle}" 
                 x:Name="ManagerButton" Content="מנהל"
