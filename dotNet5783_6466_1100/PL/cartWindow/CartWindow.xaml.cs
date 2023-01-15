@@ -76,7 +76,7 @@ namespace PL
                 // DataContext= cartBO;
 
                 cartBO.CustomerName = null;
-                cartBO.CustomerAddress= null;
+                cartBO.CustomerAddress = null;
                 cartBO.CustomerEmail = null;
                 foreach (BO.OrderItem item in cartBO.Items.ToList())
                 {
@@ -109,8 +109,14 @@ namespace PL
             cartBO.Items.Clear();
             Close();
         }
+
+        private void doubleClickUpdateProduct(object sender, MouseButtonEventArgs e)
+        {
+            var product = (PO.OrderItemPO)CartListView.SelectedItem;
+            //new UpdateProductWindow(cartPO, product).ShowDialog;
+            UpdateProductWindow up = new UpdateProductWindow(cartBO, product);
+            up.ShowDialog();
+        }
+
     }
-     
-        
-    
 }
