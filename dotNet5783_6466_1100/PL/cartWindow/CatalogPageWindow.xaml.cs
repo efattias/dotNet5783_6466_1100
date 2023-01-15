@@ -28,7 +28,7 @@ namespace PL
     {
         BlApi.IBL? bl = BlApi.Factory.GetBl() ?? throw new NullReferenceException("Missing bl");
         BO.Product? p = new BO.Product();
-        Cart cart = new Cart(){ CustomerAddress = "", CustomerEmail = "", CustomerName = "", Items = new List<BO.OrderItem?>(), TotalPrice = 0 };
+         public Cart cart = new Cart(){ CustomerAddress = "", CustomerEmail = "", CustomerName = "", Items = new List<BO.OrderItem?>(), TotalPrice = 0 };
 
 
         ObservableCollection<ProductItemPO>? productItemListPO = new();
@@ -38,7 +38,9 @@ namespace PL
             IEnumerableToObservable(bl.Product.getProductForList());
             pList.ItemsSource = productItemListPO;
             //productListV.DataContext = productListPO;
-            categorySelector.ItemsSource = Enum.GetValues(typeof(BO.Category));
+
+
+            //categorySelector.ItemsSource = Enum.GetValues(typeof(BO.Category));
         }
 
         private void IEnumerableToObservable(IEnumerable<ProductForList> listTOConvert)
@@ -80,15 +82,15 @@ namespace PL
                
         }
 
-        private void categorySelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (categorySelector.SelectedItem is BO.Category.הכל)
-                IEnumerableToObservable(bl!.Product.getProductForList());
-            else if (categorySelector.SelectedItem is BO.Category)
-                IEnumerableToObservable(bl!.Product.GetPartOfProduct(p => p.Category == (BO.Category)categorySelector.SelectedItem));
-            else if (categorySelector.SelectedItem is "")
-                IEnumerableToObservable(bl!.Product.getProductForList());
-        }
+        //private void categorySelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    if (categorySelector.SelectedItem is BO.Category.הכל)
+        //        IEnumerableToObservable(bl!.Product.getProductForList());
+        //    else if (categorySelector.SelectedItem is BO.Category)
+        //        IEnumerableToObservable(bl!.Product.GetPartOfProduct(p => p.Category == (BO.Category)categorySelector.SelectedItem));
+        //    else if (categorySelector.SelectedItem is "")
+        //        IEnumerableToObservable(bl!.Product.getProductForList());
+        //}
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

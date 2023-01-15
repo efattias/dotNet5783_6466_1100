@@ -30,37 +30,100 @@
 
     <Grid x:Name="productList"
           Background="{DynamicResource MaterialDesignBackground}"
-          Height="400"
+          Height="500"
           Width="800">
         <Grid.RowDefinitions>
-            <RowDefinition Height="100*"/>
+            <RowDefinition Height="150*"/>
             <RowDefinition Height="550*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Grid x:Name="upStack"
               Grid.Row="0">
-            <Label x:Name="category"
+            <!--<Label x:Name="category"
                    Content="קטגוריה"
                    HorizontalAlignment="Left"
                    Margin="698,0,0,0"
                    VerticalAlignment="Center"
                    Height="46" Width="80"
                    FontSize="18">
-            </Label>
+            </Label>-->
 
-            <ComboBox
+            <!--<ComboBox
                  x:Name="categorySelector"
                 Height="25"
                 HorizontalAlignment="Left" 
                       Margin="604,13,0,13"
                       Width="71"
-                      SelectionChanged="categorySelector_SelectionChanged"/>
-            <Button Content="הכל" HorizontalAlignment="Left" Margin="505,12,0,0" VerticalAlignment="Top" Width="70" Click="Button_Click_1"/>
-            <Button Content="בישול" HorizontalAlignment="Left" Margin="405,12,0,0" VerticalAlignment="Top" Width="70" Click="Button_Click_2"/>
-            <Button Content="השכלה" HorizontalAlignment="Left" Margin="305,12,0,0" VerticalAlignment="Top" Width="70" Click="Button_Click_3"/>
-            <Button Content="נוער" HorizontalAlignment="Left" Margin="205,12,0,0" VerticalAlignment="Top" Width="70" Click="Button_Click_4"/>
-            <Button Content="ילדים" HorizontalAlignment="Left" Margin="105,12,0,0" VerticalAlignment="Top" Width="70" Click="Button_Click_5"/>
-            <Button Content="קודש" HorizontalAlignment="Left" Margin="5,12,0,0" VerticalAlignment="Top" Width="70" Click="Button_Click_6"/>
+                      SelectionChanged="categorySelector_SelectionChanged">
+                
+            </ComboBox>-->
+            <Button Content="הכל" HorizontalAlignment="Right"
+                    Margin="0,12,20,0" VerticalAlignment="Top" 
+                    Width="70" Click="Button_Click_1">
+
+            </Button>
+            <Label Content="בישול"
+                   Grid.Row="0"
+                   Margin="637,56,123,15"
+                   Width="40"
+                   Height="25"
+                   FontFamily="Cooper Black">
+
+            </Label>
+            <Button x:Name="cooking" HorizontalAlignment="Left" 
+                    Margin="619,12,0,0" VerticalAlignment="Top"              
+                    Width="70" Click="Button_Click_2">
+                <materialDesign:PackIcon Kind="PotSteam"                                         
+                                         Width="30" Height="30">
+                </materialDesign:PackIcon>
+
+            </Button>
+            <Label Content="השכלה"
+                   Grid.Row="0"
+                   Margin="537,56,211,15"
+                   FontFamily="Cooper Black"/>
+            <Button  HorizontalAlignment="Left"
+                    Margin="529,12,0,0" VerticalAlignment="Top" Width="70"
+                     Click="Button_Click_3">
+                <materialDesign:PackIcon Kind="GraduationCap"
+                                         Width="30" Height="25">
+                </materialDesign:PackIcon>
+            </Button>
+            <Label Content="נוער"
+                   Grid.Row="0"
+                   Margin="455,56,293,15"
+                   FontFamily="Cooper Black"/>
+            <Button HorizontalAlignment="Left"
+                    Margin="437,12,0,0" VerticalAlignment="Top" Width="70"
+                    Click="Button_Click_4"
+                    >
+                <materialDesign:PackIcon Kind="Sparkles"
+                                         Width="30" Height="25">
+                </materialDesign:PackIcon>
+            </Button>
+            <Label Content="קודש"
+                   Grid.Row="0"
+                   Margin="252,56,496,15"
+                   FontFamily="Cooper Black"/>
+            <Label Content="ילדים"
+                   Grid.Row="0"
+                   Margin="359,56,389,15"
+                   FontFamily="Cooper Black"/>
+            <Button HorizontalAlignment="Left"
+                    Margin="345,12,0,0" VerticalAlignment="Top"
+                    Width="70" Click="Button_Click_5">
+                <materialDesign:PackIcon Kind="TeddyBear"
+                                         Width="30" Height="25">
+                </materialDesign:PackIcon>
+            </Button>
+            <Button  HorizontalAlignment="Left" 
+                    Margin="245,12,0,0" VerticalAlignment="Top"                    
+                    Width="71" Click="Button_Click_6">
+                <materialDesign:PackIcon Kind="MagenDavid"
+                                         Width="30" Height="25">
+                </materialDesign:PackIcon>
+
+            </Button>
 
         </Grid>
 
@@ -108,7 +171,7 @@
                                     HorizontalAlignment="Right"
                                     VerticalAlignment="Bottom"
                                     Click="AddProductToCart_Click">
-                            <materialDesign:PackIcon  Kind="Plus" 
+                            <materialDesign:PackIcon  Kind="CartAdd" 
                                          Foreground="Black"
                                          Height="30" Width="30"/>
                         </Button>

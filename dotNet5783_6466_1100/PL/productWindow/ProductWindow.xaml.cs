@@ -123,7 +123,7 @@ namespace PL.productWindow
             {
                 //p!.ID = int.Parse(IDTextBox.Text);
                 //p!.Name = NameTextBox.Text;
-                // p!.InStock = int.Parse(AmountOfItemTextBox.Text);
+                 p!.InStock = int.Parse(AmountOfItemTextBox.Text);
                 // p!.Category = (BO.Category?)categoryComboBox.SelectedItem;
                 //p!.Price = double.Parse(PriceTextBox.Text);
                 int id = bl!.Product.AddProduct(p);

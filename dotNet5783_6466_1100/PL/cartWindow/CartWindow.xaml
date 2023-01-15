@@ -54,8 +54,14 @@
                 HorizontalAlignment="Left"
                 Margin="645,0,0,0"
                 Grid.Row="2"
-                VerticalAlignment="Center" Click="completeCart_Click"  />
-         
+                VerticalAlignment="Center" Click="completeCart_Click"  >
+            </Button>
+            <Button Content=" מחק סל" x:Name="deleteCart"
+                HorizontalAlignment="Left"
+                Margin="26,0,0,0"
+                VerticalAlignment="Center" Click="deleteCart_Click"   />
+
+
         </Grid>
     </Grid>
 </Window>

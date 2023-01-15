@@ -71,10 +71,18 @@ namespace PL
             List<BO.OrderItem>? orderItemsBO = new List<BO.OrderItem>();
             try
             {
+                // cart = new();
+                //  cartBO.Items = new();
+                // DataContext= cartBO;
+
+                cartBO.CustomerName = null;
+                cartBO.CustomerAddress= null;
+                cartBO.CustomerEmail = null;
                 foreach (BO.OrderItem item in cartBO.Items.ToList())
                 {
                     bl.cart.UpdateProductInCart(cartBO, item.ProductID, 0);
                 }
+
                 //cartBO.Items.ForEach(delegate (BO.OrderItem item)
                 //{
                 //    bl.cart.UpdateProductInCart(cartBO, item.ProductID, 0);
@@ -93,6 +101,12 @@ namespace PL
 
             //  cartBO = null;
             // cartPO = null;
+            Close();
+        }
+
+        private void deleteCart_Click(object sender, RoutedEventArgs e)
+        {
+            cartBO.Items.Clear();
             Close();
         }
     }
