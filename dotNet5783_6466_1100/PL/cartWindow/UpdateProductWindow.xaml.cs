@@ -39,26 +39,18 @@ namespace PL.cartWindow
             product = productItem;
             DataContext = product;
             p!.ID = productItem.IDProduct;
+            p!.Price = productItem.Price;
             p!.InStock = (int)productItem.Amount;
         }
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
-            //p!.ID = int.Parse(IDTextBox.Text);
-            //p!.InStock = int.Parse(AmountOfItemTextBox.Text);
-
-            //bl.cart.UpdateProductInCart(cartBO, p.ID, (int)p.InStock);
-            //Close();
-            //MessageBox.Show("הכמות עודכן בהצלחה");
             p!.InStock = int.Parse(AmountOfItemTextBox.Text);
             try
             {
-                //PO.ProductItemPO? product = ((Button)(sender)).DataContext as ProductItemPO ?? throw new NullReferenceException("כפתור לא מחזיר מוצר ");
-                //PO.OrderItemPO? orderItemPO = ((bu))
-                //PO.ProductItemPO productItemPO = 
-                //bl!.cart.AddProductToCart(cart, orderItemPO.ID);
                 bl!.cart.UpdateProductInCart(cart, p!.ID, (int)p.InStock);
-                    Close();
+
+                Close();
                 MessageBox.Show("seccssed");
             }
             catch (Exception x)
