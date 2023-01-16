@@ -15,13 +15,6 @@
     <InStock>89</InStock>
   </Product>
   <Product>
-    <ID>100005</ID>
-    <Name>עוגות לשבת</Name>
-    <Price>80</Price>
-    <Category>בישול</Category>
-    <InStock>90</InStock>
-  </Product>
-  <Product>
     <ID>100000</ID>
     <Name>הארי פוטר ואבן החכמים</Name>
     <Price>90</Price>
@@ -34,5 +27,12 @@
     <Price>89</Price>
     <Category>נוער</Category>
     <InStock>38</InStock>
+  </Product>
+  <Product>
+    <ID>100005</ID>
+    <Name>עוגות לשבת</Name>
+    <Price>80</Price>
+    <Category>בישול</Category>
+    <InStock>89</InStock>
   </Product>
 </products>
