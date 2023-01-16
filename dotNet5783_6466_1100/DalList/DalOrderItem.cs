@@ -106,7 +106,7 @@ public class DalOrderItem:IOrderItem
     {
         if (filter == null)
             return ds.OrderItems?.ToList<OrderItem?>()?? throw new DO.DoesntExistException("רשימת ההזמנות אינה חוקית");
-        return ds.OrderItems.Where(x => filter(x)) ?? throw new DO.DoesntExistException("רשימת ההזמנות אינה חוקית"); ;
+        return (List<OrderItem?>)(ds.OrderItems.Where(x => filter(x)) ?? throw new DO.DoesntExistException("רשימת ההזמנות אינה חוקית")); ;
     }
 
     /// <summary>

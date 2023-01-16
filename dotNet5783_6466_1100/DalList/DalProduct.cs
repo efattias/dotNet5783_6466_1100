@@ -86,9 +86,10 @@ public class DalProduct : IProduct
     {
         if (filter == null)
             return ds.products?.ToList<Product?>() ?? throw new DO.DoesntExistException("רשימת המוצרים אינה חוקית");
-        return ds.products.Where(x => filter(x)) ?? throw new DO.DoesntExistException("רשימת המוצרים אינה חוקית"); ;
+        return (List<Product?>)(ds.products.Where(x => filter(x)) ?? throw new DO.DoesntExistException("רשימת המוצרים אינה חוקית")); ;
 
     }
+
 
     public Product? getByFilter(Func<Product?, bool>? filter)
     {

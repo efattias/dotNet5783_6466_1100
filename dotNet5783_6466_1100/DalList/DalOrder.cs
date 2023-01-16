@@ -86,7 +86,7 @@ public class DalOrder : IOrder
     {
         if(filter == null)  
             return  ds.Orders?.ToList<Order?>() ?? throw new DO.DoesntExistException("רשימת ההזמנות לא חוקית");
-        return ds.Orders.Where(x => filter(x)) ?? throw new DO.DoesntExistException("רשימת ההזמנות לא חוקית"); ;
+        return (List<Order?>)(ds.Orders.Where(x => filter(x)) ?? throw new DO.DoesntExistException("רשימת ההזמנות לא חוקית")); ;
     }
     /// <summary>
     /// function- returns an order by filter
