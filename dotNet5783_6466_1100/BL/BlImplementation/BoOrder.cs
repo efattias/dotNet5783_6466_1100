@@ -48,6 +48,7 @@ internal class BoOrder : IBoOrder
         {
             throw new BO.DoesntExistException(ex.Message, ex);
         }
+        catch(Exception ex) { throw new BO.DoesntExistException(ex.Message,ex); }
     }
 
     public IEnumerable<BO.OrderForList> getOrderForList()
@@ -81,13 +82,13 @@ internal class BoOrder : IBoOrder
 
             if (orderDO.OrderDate != null)
             {
-                tempTrackList.Add(Tuple.Create(orderDO.OrderDate, "order created"));
+                tempTrackList.Add(Tuple.Create(orderDO.OrderDate, "הזמנה אושרה"));
                 if (orderDO.ShipDate != null)
                 {
-                    tempTrackList.Add(Tuple.Create(orderDO.ShipDate, "order sent"));
+                    tempTrackList.Add(Tuple.Create(orderDO.ShipDate, " הזמנה נשלחה"));
                     if (orderDO.DeliveryDate != null)
                     {
-                        tempTrackList.Add(Tuple.Create(orderDO.DeliveryDate, "order provided"));
+                        tempTrackList.Add(Tuple.Create(orderDO.DeliveryDate, " הזמנה נמסרה"));
                     }
                 }
             }

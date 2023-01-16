@@ -10,42 +10,49 @@
 
     <Grid Name="OrderTracking" Background="AliceBlue" Margin="416,0,0,-50">
         <Label x:Name="IDLabel"
-               Content=":הכנס מזהה למעקב" 
+               Content=":הכנס מספר הזמנה למעקב" 
+               FontFamily=" Cooper Black"
                HorizontalAlignment="Left" 
-               Margin="222,50,0,0" 
+               Margin="192,50,0,0" 
                VerticalAlignment="Top"
-               RenderTransformOrigin="-7.932,0.579" Height="25" Width="117" HorizontalContentAlignment="Right"/>
+               RenderTransformOrigin="-7.932,0.579" Height="25" Width="162" HorizontalContentAlignment="Right"/>
 
         <TextBox x:Name="IDTextBox" Height="25"
+                 Width="80"
                  Text="{Binding ID}"
                     VerticalAlignment="Top"
-                 Margin="33,50,192,0"
+                 Margin="73,50,231,0"
                     IsReadOnly="False" IsEnabled="True"/>
 
-        <Button Content="לחץ למעקב" HorizontalAlignment="Left" Margin="60,130,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Button Content="לחץ למעקב" HorizontalAlignment="Left" Margin="120,100,0,0" VerticalAlignment="Top" Click="Button_Click"/>
 
         <Label Content="מצב הזמנה"
                HorizontalAlignment="Right"
-               Margin="222,190,0,0"
+               FontFamily="Cooper Black"
+               Margin="0,190,-12,0"
                VerticalAlignment="Top"
                Width="94"/>
 
         <TextBox x:Name="StatusTextBox" Height="25"
-                 Text="{Binding ID}"
+                 Width="80"
+                 Text="{Binding OrderStatus}"
+                 FlowDirection="RightToLeft"
                     VerticalAlignment="Top"
-                 Margin="33,189,192,0"
+                 Margin="220,189,84,0"
                     IsReadOnly="False" IsEnabled="True"/>
 
         <Label Content="רשימת מעקב"
                HorizontalAlignment="Right"
+               FontFamily="Cooper Black"
                Margin="290,251,0,0"
                VerticalAlignment="Top"
                Width="94"/>
-
-        <TextBox x:Name="ListTextBox" Height="25"
-                 Text="{Binding ID}"
+   
+        <TextBox x:Name="ListTextBox" Height="60"
+                 Text="{Binding trackList}"
                     VerticalAlignment="Top"
-                 Margin="33,250,192,0"
+                 FlowDirection="RightToLeft"
+                 Margin="121,250,104,0"
                     IsReadOnly="False" IsEnabled="True"/>
 
         <!--<ListBox x:Name="trackListBox" d:ItemsSource="{d:SampleData ItemCount=3}" Margin="60,294,-60,-294">

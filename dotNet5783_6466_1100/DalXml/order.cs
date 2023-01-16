@@ -33,7 +33,7 @@ namespace Dal
         public DO.Order GetByID(int id) =>
             XMLTools.LoadListFromXMLSerializer<DO.Order>(s_orders).FirstOrDefault(o => o?.ID == id)
             //DalMissingIdException(id, "Lecturer");
-            ?? throw new Exception("missing id");
+            ?? throw new Exception("הזמנה לא קיימת במערכת");
 
         public int Add(DO.Order order)
         {

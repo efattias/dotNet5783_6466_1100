@@ -27,21 +27,34 @@ namespace PL
         BO.OrderTracking oTrack=new BO.OrderTracking();
         public OrderTrackingPage()
         {
+
             InitializeComponent();
+           
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            oTrack=bl.Order.TrackOrder(int.Parse(IDTextBox.Text));
+            try
+            {
+                BO.Order order = bl.Order.GetOrder(int.Parse(IDTextBox.Text));
 
-            StatusTextBox.Text=oTrack!.OrderStatus.ToString();
-            string s = "";
-            foreach (var o in oTrack.trackList!)
-                s += (o.ToString())+"\n";
-            ListTextBox.Text = s;
+                oTrack = bl.Order.TrackOrder(order.ID);
+                DataContext = oTrack;
+
+                //  StatusTextBox.Text = oTrack!.OrderStatus.ToString();
+                string s = "";
+                foreach (var o in oTrack.trackList!)
+                    s += (o.ToString()) + "\n";
+                ListTextBox.Text = s;
+            }
+            catch(BO.DoesntExistException x)         
+                  
+            {
+                MessageBox.Show(x.Message);
+            }
+        }
             //ListTextBox.Text=oTrack.trackList!.ToString();
             //List<Tuple<DateTime?, string>>? trackList = oTrack.trackList;
             //trackListBox = trackList.ToList();
         }
     }
-}

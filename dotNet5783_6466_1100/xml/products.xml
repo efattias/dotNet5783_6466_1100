@@ -8,31 +8,31 @@
     <InStock>33</InStock>
   </Product>
   <Product>
-    <ID>100002</ID>
-    <Name>הארי פוטר וחדר הסודות</Name>
-    <Price>89</Price>
-    <Category>נוער</Category>
-    <InStock>38</InStock>
+    <ID>100003</ID>
+    <Name>איילת מטיילת</Name>
+    <Price>60</Price>
+    <Category>ילדים</Category>
+    <InStock>88</InStock>
   </Product>
   <Product>
     <ID>100001</ID>
     <Name>הארי פוטר ואוצרות המוות</Name>
     <Price>1014</Price>
     <Category>נוער</Category>
-    <InStock>8</InStock>
+    <InStock>6</InStock>
+  </Product>
+  <Product>
+    <ID>100002</ID>
+    <Name>הארי פוטר וחדר הסודות</Name>
+    <Price>89</Price>
+    <Category>נוער</Category>
+    <InStock>37</InStock>
   </Product>
   <Product>
     <ID>100005</ID>
     <Name>עוגות לשבת</Name>
     <Price>80</Price>
     <Category>בישול</Category>
-    <InStock>88</InStock>
-  </Product>
-  <Product>
-    <ID>100003</ID>
-    <Name>איילת מטיילת</Name>
-    <Price>60</Price>
-    <Category>ילדים</Category>
-    <InStock>88</InStock>
+    <InStock>87</InStock>
   </Product>
 </products>
