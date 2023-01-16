@@ -76,6 +76,7 @@ namespace PL.orderWindow
             {
                 bl!.Order.UpdateShipOrder(o.ID);
                 orPO.OrderStatus = PO.Status.נשלחו;
+                
              
                 Close();
             }
@@ -86,6 +87,7 @@ namespace PL.orderWindow
             if(o!=null)
             {
                 bl!.Order.UpdateProvisionOrder(o.ID);
+                orPO.OrderStatus = PO.Status.סופקו;
                 
                 Close();
             }
