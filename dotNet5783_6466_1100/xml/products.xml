@@ -1,13 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <products>
   <Product>
-    <ID>100002</ID>
-    <Name>הארי פוטר וחדר הסודות</Name>
-    <Price>89</Price>
-    <Category>נוער</Category>
-    <InStock>39</InStock>
-  </Product>
-  <Product>
     <ID>100001</ID>
     <Name>הארי פוטר ואוצרות המוות</Name>
     <Price>101</Price>
@@ -34,5 +27,12 @@
     <Price>90</Price>
     <Category>נוער</Category>
     <InStock>33</InStock>
+  </Product>
+  <Product>
+    <ID>100002</ID>
+    <Name>הארי פוטר וחדר הסודות</Name>
+    <Price>89</Price>
+    <Category>נוער</Category>
+    <InStock>38</InStock>
   </Product>
 </products>
