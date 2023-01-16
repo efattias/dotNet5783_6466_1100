@@ -160,7 +160,7 @@ namespace PL
             view.SortDescriptions.Add(sortDscription);
             GroupByName.IsEnabled = false;
         }
-
+        
         private void Button_Click_8(object sender, RoutedEventArgs e)
         {
             RemoveGrouping_Click(sender, e);

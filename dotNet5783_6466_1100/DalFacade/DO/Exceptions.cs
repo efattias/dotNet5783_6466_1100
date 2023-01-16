@@ -51,3 +51,22 @@ public class InvalidInputExeption : Exception, ISerializable
     public InvalidInputExeption(string message, Exception inner) : base(message, inner) { }
     protected InvalidInputExeption(SerializationInfo info, StreamingContext context) : base(info, context) { }
 }
+
+[Serializable]
+public class LoadingException : Exception
+{
+    string filePath;
+    public LoadingException() : base() { filePath = ""; }
+    public LoadingException(string message) : base(message) { filePath = ""; }
+    public LoadingException(string message, Exception inner) : base(message, inner) { filePath = ""; }
+
+    public LoadingException(string path, string messege, Exception inner) => filePath = path;
+    protected LoadingException(SerializationInfo info, StreamingContext context) : base(info, context) { filePath = ""; }
+}
+
+[Serializable]
+public class DalConfigException : Exception
+{
+    public DalConfigException(string msg) : base(msg) { }
+    public DalConfigException(string msg, Exception ex) : base(msg, ex) { }
+}

@@ -10,17 +10,29 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DalList", "DalList\DalList.csproj", "{0D47C5AC-838B-4E34-A963-37488E5F0716}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DalTest", "DalTest\DalTest.csproj", "{56FC5DA6-EBF1-4A9F-A61A-BB9F730138BD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D8A432E2-7DB9-40BF-961F-3855D659D3DD} = {D8A432E2-7DB9-40BF-961F-3855D659D3DD}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BL", "BL\BL.csproj", "{79333494-4CCB-407F-9775-A44C3F803674}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D8A432E2-7DB9-40BF-961F-3855D659D3DD} = {D8A432E2-7DB9-40BF-961F-3855D659D3DD}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlTset", "BlTset\BlTset.csproj", "{77871C5B-CB9B-4256-82C3-690EEE1C1118}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xml", "xml", "{7577E38A-CAF7-4846-9560-E75B54AC9559}"
 	ProjectSection(SolutionItems) = preProject
+		xml\config.xml = xml\config.xml
 		xml\dal-config.xml = xml\dal-config.xml
+		xml\orderItems.xml = xml\orderItems.xml
+		xml\orders.xml = xml\orders.xml
+		xml\products.xml = xml\products.xml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PL", "PL\PL.csproj", "{A655D13A-E77C-4A04-8070-C818DFB9505F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PL", "PL\PL.csproj", "{A655D13A-E77C-4A04-8070-C818DFB9505F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DalXml", "DalXml\DalXml.csproj", "{D8A432E2-7DB9-40BF-961F-3855D659D3DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,6 +68,10 @@ Global
 		{A655D13A-E77C-4A04-8070-C818DFB9505F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A655D13A-E77C-4A04-8070-C818DFB9505F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A655D13A-E77C-4A04-8070-C818DFB9505F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8A432E2-7DB9-40BF-961F-3855D659D3DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8A432E2-7DB9-40BF-961F-3855D659D3DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8A432E2-7DB9-40BF-961F-3855D659D3DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8A432E2-7DB9-40BF-961F-3855D659D3DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

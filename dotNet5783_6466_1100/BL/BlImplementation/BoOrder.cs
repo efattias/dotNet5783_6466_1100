@@ -13,7 +13,7 @@ internal class BoOrder : IBoOrder
         
         try
         {
-            List<DO.Order?> orderListDO = (List<DO.Order?>)dal!.Order.getAll();
+            IEnumerable<DO.Order?> orderListDO = dal!.Order.getAll();
             BO.Order orderTempBO = new BO.Order();// create BO Order list
             DO.Order orderTempDO = dal!.Order.GetByID(ID);// create DO Order list
             IEnumerable<DO.OrderItem?> itemsListDO = dal!.OrderItem.GetItemsList(orderTempDO.ID);  // orderItem list of given id          
@@ -52,7 +52,7 @@ internal class BoOrder : IBoOrder
 
     public IEnumerable<BO.OrderForList> getOrderForList()
     {
-        List<DO.Order?> orderListDO = (List<DO.Order?>)dal!.Order.getAll();// get order list drom DO
+        IEnumerable<DO.Order?> orderListDO = dal!.Order.getAll();// get order list drom DO
 
         BO.OrderForList orderForListTemp = new BO.OrderForList();
 

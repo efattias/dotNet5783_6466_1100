@@ -1,5 +1,6 @@
 ﻿using BlApi;
 using BO;
+using Dal;
 
 namespace BlImplementation;
 
@@ -113,6 +114,7 @@ internal class BoCart : IBoCart
                 DO.OrderItem orderItemToUpdate = new DO.OrderItem();
 
                 orderItemToUpdate.ID = item.ID;
+                //orderItemToUpdate.ID = ConfigOrderItem.getNumOrder();
                 orderItemToUpdate.ProductID = productDO.ID;
                 orderItemToUpdate = (DO.OrderItem)Tools.CopyPropToStruct(item, typeof(DO.OrderItem));
                 orderItemToUpdate.OrderID = idNewOrder;

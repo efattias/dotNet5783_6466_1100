@@ -54,7 +54,7 @@ internal class BoProduct :IBoProduct
     /// <exception cref="CantDeleteItem"></exception>
     public void DeledeProduct(int IDProduct)
     {
-        List<DO.Order?> tempList = (List<DO.Order?>)dal!.Order.getAll();// create temp list to get הכל orders from DAL
+        IEnumerable<DO.Order?> tempList = dal!.Order.getAll();// create temp list to get הכל orders from DAL
         foreach (DO.Order? o in tempList )// go over the list of orders
         {
             List<DO.OrderItem?> itemsInO = new List<DO.OrderItem?>();// create orderItem list for testing
@@ -142,7 +142,7 @@ internal class BoProduct :IBoProduct
     /// <returns></returns>
     public IEnumerable<BO.ProductForList> getProductForList()
     {
-        List<DO.Product?> productListDO = (List<DO.Product?>)dal?.Product.getAll();
+        IEnumerable<DO.Product?> productListDO = dal?.Product.getAll();
 
         return (from p in productListDO
                 let productFromBL = GetProductbyId((int)(p?.ID!))

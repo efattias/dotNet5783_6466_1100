@@ -80,6 +80,7 @@ namespace PL
         }
 
         private void EnterPressed_KeyDown(object sender, KeyEventArgs e)
+        
         {
             if (e.Key == Key.Enter) EnterPassword();
         }
