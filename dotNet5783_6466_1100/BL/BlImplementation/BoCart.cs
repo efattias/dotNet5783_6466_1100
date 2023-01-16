@@ -165,7 +165,7 @@ internal class BoCart : IBoCart
                     if (item.Amount < amount)
                     {
                         if (!(p?.InStock >= difference))
-                            throw new BO.ProductOutOfStockException("בלתי אפשרי להוספה- המוצר אזל מהמלאי");
+                            throw new BO.ProductOutOfStockException("בלתי אפשרי להוספה- אין מספיק במלאי מהמלאי");
 
                         item.Amount = amount;
                         cart.TotalPrice = (cart.TotalPrice ?? 0) + (item.Price * difference);
