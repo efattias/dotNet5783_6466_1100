@@ -1,4 +1,5 @@
 ﻿using BO;
+using MaterialDesignThemes.Wpf;
 using PL.cartWindow;
 using PL.PO;
 using PL.productWindow;
@@ -23,6 +24,12 @@ namespace PL
     /// </summary>
     public partial class CartWindow : Window
     {
+        //public CartWindow(BO.Cart cart)
+        //{
+        //    InitializeComponent();
+        //}
+
+
         BlApi.IBL? bl = BlApi.Factory.GetBl() ?? throw new NullReferenceException("Missing bl");
         BO.Cart? cartBO = new BO.Cart();
         PO.CartPO? cartPO = new PO.CartPO();
@@ -51,7 +58,7 @@ namespace PL
                                                                TotalPrice = (double)o.TotalPrice
 
                                                            }).ToList();
-                CartListView.ItemsSource = cartPO.OrderItemList;
+                cartListView.ItemsSource = cartPO.OrderItemList;
 
 
             }
@@ -110,13 +117,38 @@ namespace PL
             Close();
         }
 
-        private void doubleClickUpdateProduct(object sender, MouseButtonEventArgs e)
-        {
-            var product = (PO.OrderItemPO)CartListView.SelectedItem;
-            //new UpdateProductWindow(cartPO, product).ShowDialog;
-            UpdateProductWindow up = new UpdateProductWindow(cartBO, product);
-            up.ShowDialog();
-        }
+        //private void doubleClickUpdateProduct(object sender, MouseButtonEventArgs e)
+        //{
+        //    var product = (PO.OrderItemPO)cartListView.SelectedItem;
+        //    //new UpdateProductWindow(cartPO, product).ShowDialog;
+        //    UpdateProductWindow up = new UpdateProductWindow(cartBO, product);
+        //    up.ShowDialog();
+        //}
 
+        private void DeleteProduct_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                PO.OrderItemPO? orderItemPO = cartListView.SelectedItem as PO.OrderItemPO;
+                BO.OrderItem? orderItemBO = new BO.OrderItem();
+                orderItemBO.ID = orderItemPO.ID;
+                orderItemBO.Name = orderItemPO.Name;
+                orderItemBO.ProductID = orderItemPO.IDProduct;
+                orderItemBO.Price = orderItemPO.Price;
+                orderItemBO.Amount = (int)orderItemPO.Amount;
+                orderItemBO.TotalPrice = orderItemPO.TotalPrice;
+
+                //BO.OrderItem? orderItemBO= cartListView.SelectedItem as BO.OrderItem;
+                int id = orderItemBO.ProductID;
+                int zeroAmount = 0;
+                bl.cart.UpdateProductInCart(cartBO, id, zeroAmount);
+                cartPO!.OrderItemList!.Remove(orderItemPO);
+                MessageBox.Show("seccssed");
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show(x.Message);
+            }
+        }
     }
 }

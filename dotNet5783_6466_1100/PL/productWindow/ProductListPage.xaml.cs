@@ -117,14 +117,9 @@ namespace PL
                 try
                 {
                     PO.ProductForListPO po = productListV.SelectedItem as PO.ProductForListPO;
-                    
-                    //(PList.SelectedItem as produc).ID
-                 // int id = (PList.SelectedItem as PO.ProductPO).;
-                  int id = po.ID;
-                  bl.Product.DeledeProduct(id);
+                    int id = po.ID; 
+                    bl.Product.DeledeProduct(id);
                     productListPO.Remove(po);
-                 // bl!.Product.DeledeProduct((productListV.SelectedItem as Product).ID);
-                   // IEnumerableToObservable(bl.Product.getProductForList());
                     categorySelector.SelectedItem = " ";
                 }
                 catch (Exception x)
