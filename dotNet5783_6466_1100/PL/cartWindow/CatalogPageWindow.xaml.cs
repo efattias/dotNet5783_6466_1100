@@ -1,5 +1,6 @@
 ﻿using BO;
 using MaterialDesignThemes.Wpf;
+using PL.cartWindow;
 using PL.PO;
 using PL.productWindow;
 using System;
@@ -30,11 +31,12 @@ namespace PL
         BO.Product? p = new BO.Product();
          public Cart cart = new Cart(){ CustomerAddress = "", CustomerEmail = "", CustomerName = "", Items = new List<BO.OrderItem?>(), TotalPrice = 0 };
 
-
+        Frame frame;
         ObservableCollection<ProductItemPO>? productItemListPO = new();
-        public CatalogPageWindow()
+        public CatalogPageWindow(Frame f)
         {
             InitializeComponent();
+            frame = f;
             IEnumerableToObservable(bl.Product.getProductForList());
            // pList.ItemsSource = productItemListPO;
             DataContext = productItemListPO;
@@ -94,8 +96,11 @@ namespace PL
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            CartWindow caWindow = new CartWindow(cart);
-            caWindow.Show();
+            //CartWindow caWindow = new CartWindow(cart);
+            //caWindow.Show();
+            CartPage cartPage = new CartPage(cart,frame);
+            frame.Content= cartPage;
+            
         }
 
         private void AddProductToCart_Click(object sender, RoutedEventArgs e)

@@ -1,4 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <products>
-
+  <Product>
+    <ID>100000</ID>
+    <Name>הארי פוטר וחדר הסודות</Name>
+    <Price>89</Price>
+    <Category>נוער</Category>
+    <InStock>97</InStock>
+  </Product>
 </products>
