@@ -42,7 +42,7 @@
             <Label x:Name="category"
                    Content="קטגוריה"
                    HorizontalAlignment="Left"
-                   Margin="450,0,0,0"
+                   Margin="621,24,0,0"
                    VerticalAlignment="Top"
                    Height="46" Width="80"
                    FontSize="18">
@@ -51,7 +51,7 @@
                  x:Name="categorySelector"
                 Height="25"
                 HorizontalAlignment="Left" 
-                     Margin="252,12,0,0"
+                     Margin="420,26,0,13"
                       Width="181"
                       SelectionChanged="categorySelector_SelectionChanged"/>
 
@@ -59,8 +59,9 @@
 
         </Grid>
 
-        
-            <DataGrid x:Name="productListV"
+
+        <DataGrid x:Name="productListV"
+                  
                   Grid.Row="1" Margin="5,10,10,10"
                   CanUserAddRows="False"
                   materialDesign:DataGridAssist.CellPadding="10"
@@ -75,7 +76,7 @@
                   CanUserResizeRows="False"
                   Foreground="Black"
                   IsReadOnly="True"
-                  d:ItemsSource="{d:SampleData ItemCount=5}"
+                  d:ItemsSource="{d:SampleData ItemCount=6}"
                   ItemsSource="{Binding}" 
                    MouseDoubleClick="doubleClickUpdateProduct"   >
             <DataGrid.GroupStyle>
@@ -153,16 +154,20 @@
         <Grid Grid.Row="2">
             <Button
                 x:Name="addProduct"  
-                Content="הוספת מוצר "
-                Width="120"
-                HorizontalAlignment="Right"
-                Background="CadetBlue"
+               
+                Width="82"
+                Height="50"
+                HorizontalAlignment="Left"
+                Background="#006bb3"
                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                 Style="{StaticResource MaterialDesignRaisedSecondaryLightButton}"
                 ToolTip="Resource name: MaterialDesignRaisedSecondaryLightButton" 
-                RenderTransformOrigin="0.5,0.5" 
-                Click="addProduct_Click" >
-             
+               
+                Click="addProduct_Click" Margin="581,-10,0,10" >
+                <materialDesign:PackIcon Kind="BookAdd" 
+                                         Foreground="Black"
+                                         Height="30" Width="30"/>
+
             </Button>
 
 

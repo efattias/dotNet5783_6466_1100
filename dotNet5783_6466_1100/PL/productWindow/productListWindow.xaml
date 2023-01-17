@@ -10,7 +10,7 @@
     <Grid Name="MainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="800*"/>
-           
+
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="40*"/>
@@ -26,17 +26,17 @@
             </Grid.ColumnDefinitions >
             <ComboBox x:Name="categorySelector"
                 HorizontalAlignment="Left" 
-                      Margin="200,0,0,0" 
+                      Margin="395,0,0,0" 
                       VerticalAlignment="Top"
                       Width="174" Height="46"
-                      SelectionChanged="categorySelector_SelectionChanged"/>
+                      SelectionChanged="categorySelector_SelectionChanged" Grid.ColumnSpan="2"/>
             <Label x:Name="category"
                    Grid.Column="1"
                    Content="קטגוריה"
                    HorizontalAlignment="Left"
-                   Margin="90,0,0,0"
+                   Margin="180,15,0,0"
                    VerticalAlignment="Top"
-                   Height="46" Width="81" FontSize="18"/>
+                   Height="46" Width="85" FontSize="18"/>
 
         </Grid>
         <ListView x:Name="productListView" Grid.Row="1"
@@ -62,8 +62,8 @@
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Price}" Header="מחיר" Width="100"/>
 
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Category}" Header="קטגוריה" Width="100"/>
-                    
-                  
+
+
 
                 </GridView>
             </ListView.View>
@@ -72,17 +72,19 @@
         <Grid x:Name="downGrid" Grid.Row="2">
 
             <Button
-                x:Name="addP" Content="להוספת מוצר" Background="CadetBlue"
+                x:Name="addP" 
                 HorizontalAlignment="Left" Margin="639,34,0,0"
-                Click="addP_Click">
-
+                Click="addP_Click"
+               >
+                
+                    
 
 
 
             </Button>
 
-        </Grid>       
-      
+        </Grid>
+
 
 
     </Grid>

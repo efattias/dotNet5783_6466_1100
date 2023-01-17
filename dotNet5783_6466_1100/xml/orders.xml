@@ -7,7 +7,7 @@
     <CustomerAddress>blf[ejkw</CustomerAddress>
     <OrderDate>2023-01-16T23:23:54.5169712+02:00</OrderDate>
     <ShipDate>2023-01-17T00:02:33.0852765+02:00</ShipDate>
-    <DeliveryDate xsi:nil="true" />
+    <DeliveryDate>2023-01-17T11:49:34.2611064+02:00</DeliveryDate>
   </Order>
   <Order>
     <ID>1012</ID>
@@ -15,7 +15,7 @@
     <CustomerEmail>@.</CustomerEmail>
     <CustomerAddress>mfo</CustomerAddress>
     <OrderDate>2023-01-17T00:18:21.3987257+02:00</OrderDate>
-    <ShipDate xsi:nil="true" />
+    <ShipDate>2023-01-17T12:00:37.0930721+02:00</ShipDate>
     <DeliveryDate xsi:nil="true" />
   </Order>
 </ArrayOfOrder>

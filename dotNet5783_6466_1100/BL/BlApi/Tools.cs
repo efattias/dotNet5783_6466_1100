@@ -44,11 +44,11 @@ public static class Tools
     public static Status GetStatus(DO.Order order)
     {  
         if (order.DeliveryDate != null && order.DeliveryDate < DateTime.Now)
-            return Status.סופקו;
+            return Status.נמסר;
         else if (order.ShipDate != null && order.ShipDate < DateTime.Now)
-            return Status.נשלחו;
+            return Status.נשלח;
         else if (order.OrderDate != null && order.OrderDate < DateTime.Now)
-            return Status.אושרו;
+            return Status.מאושר;
         else
             return Status.הכל;
 

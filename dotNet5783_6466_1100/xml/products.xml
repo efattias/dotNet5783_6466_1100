@@ -35,4 +35,11 @@
     <Category>בישול</Category>
     <InStock>87</InStock>
   </Product>
+  <Product>
+    <ID>123456</ID>
+    <Name>גמרא</Name>
+    <Price>89</Price>
+    <Category>ילדים</Category>
+    <InStock>100</InStock>
+  </Product>
 </products>

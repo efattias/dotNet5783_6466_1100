@@ -30,10 +30,10 @@
 
     <Grid x:Name="productList"
           Background="{DynamicResource MaterialDesignBackground}"
-          Height="500"
+          Height="450"
           Width="800">
         <Grid.RowDefinitions>
-            <RowDefinition Height="150*"/>
+            <RowDefinition Height="180*"/>
             <RowDefinition Height="550*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
@@ -72,7 +72,7 @@
             </Label>
             <Button x:Name="cooking" HorizontalAlignment="Left" 
                     Margin="619,12,0,0" VerticalAlignment="Top"              
-                    Width="70" Click="Button_Click_2">
+                    Width="60" Click="Button_Click_2">
                 <materialDesign:PackIcon Kind="PotSteam"                                         
                                          Width="30" Height="30">
                 </materialDesign:PackIcon>
@@ -83,7 +83,7 @@
                    Margin="537,56,211,15"
                    FontFamily="Cooper Black"/>
             <Button  HorizontalAlignment="Left"
-                    Margin="529,12,0,0" VerticalAlignment="Top" Width="70"
+                    Margin="529,12,0,0" VerticalAlignment="Top" Width="60"
                      Click="Button_Click_3">
                 <materialDesign:PackIcon Kind="GraduationCap"
                                          Width="30" Height="25">
@@ -94,7 +94,7 @@
                    Margin="455,56,293,15"
                    FontFamily="Cooper Black"/>
             <Button HorizontalAlignment="Left"
-                    Margin="437,12,0,0" VerticalAlignment="Top" Width="70"
+                    Margin="437,12,0,0" VerticalAlignment="Top" Width="60"
                     Click="Button_Click_4"
                     >
                 <materialDesign:PackIcon Kind="Sparkles"
@@ -111,14 +111,14 @@
                    FontFamily="Cooper Black"/>
             <Button HorizontalAlignment="Left"
                     Margin="345,12,0,0" VerticalAlignment="Top"
-                    Width="70" Click="Button_Click_5">
+                    Width="60" Click="Button_Click_5">
                 <materialDesign:PackIcon Kind="TeddyBear"
                                          Width="30" Height="25">
                 </materialDesign:PackIcon>
             </Button>
             <Button  HorizontalAlignment="Left" 
                     Margin="245,12,0,0" VerticalAlignment="Top"                    
-                    Width="71" Click="Button_Click_6">
+                    Width="60" Click="Button_Click_6">
                 <materialDesign:PackIcon Kind="MagenDavid"
                                          Width="30" Height="25">
                 </materialDesign:PackIcon>
@@ -266,18 +266,14 @@
         <Grid Grid.Row="2">
             <Button Content="סל קניות"
                     Margin="588,9,89,9" Click="Button_Click"/>
-            <Button x:Name="backToManager"
-                    Content="חזרה לראשי"
-                    Width="120" Click="backToManager_Click" Margin="440,9,240,9"  >
-
-            </Button>
+         
             <Button Name="GroupByName"
-                    Content="GroupByName"
+                    Content="מיין לפי א-ב"
                     HorizontalAlignment="Left"
-                    Margin="292,0,0,0"
-                    VerticalAlignment="Center" Click="Button_Click_7"/>
+                    Margin="292,0,0,219"
+                    VerticalAlignment="Bottom" Click="Button_Click_7"/>
             <Button Name="GroupByPrice"
-                    Content="GroupByPrice"
+                    Content="מיין לפי מחיר"
                     HorizontalAlignment="Left"
                     Margin="148,0,0,0"
                     VerticalAlignment="Center" Click="Button_Click_8"/>

@@ -9,20 +9,31 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition x:Name="upGrid" Height="20"></RowDefinition>
+            <RowDefinition x:Name="upGrid" Height="0"></RowDefinition>
             <RowDefinition x:Name="main" Height="650"></RowDefinition>
         </Grid.RowDefinitions>
         <Frame x:Name="mainFrame"
                Height="630"
                Margin="0,0,0,21"
-               Grid.Row="1"/>
+               Grid.Row="1">
+        </Frame>
         <StackPanel x:Name="upPanel"
                     Grid.Row="0"
                     Background="AliceBlue">
           
             
         </StackPanel>
-        
+        <!--<Label
+            Grid.Row="1"
+            Content="מערכת ניהול"
+            Width="200"
+            Height="100"
+            FontSize="30" FontFamily="Cooper Black"
+           Visibility="Hidden"
+           
+         >
+            
+        </Label>-->
     </Grid>
 
 </Window>

@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:PL.productWindow"
+        xmlns:local="clr-namespace:PL.productWindow" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="חלון מוצר" Height="400" Width="300">
     <Grid  Name="mainGrid" RenderTransformOrigin="1.424,0.455" Margin="0,0,0,-6">
@@ -72,12 +72,20 @@
                       ItemsSource="{Binding }" 
                   IsEnabled="true" Height="25"
                       />
-        <Button x:Name="addToButton" Content="הוספה" HorizontalAlignment="Left"
-                Margin="120,329,0,0" VerticalAlignment="Top" Height="30" Background="CadetBlue"
-                Width="65" FontSize="14" Click="addToButton_Click" />
-        <Button x:Name="UpdateButton" Content="עדכון" HorizontalAlignment="Left" Background="CadetBlue"
-                Margin="149,329,0,0" VerticalAlignment="Top" Height="30" Width="65" 
-                FontSize="14" Click="UpdateButton_Click" />
+        <Button x:Name="addToButton" HorizontalAlignment="Left"
+                Margin="120,315,0,0" VerticalAlignment="Top" Height="40" Background="#006bb3"
+                Width="60" FontSize="14" Click="addToButton_Click" >
+            <materialDesign:PackIcon Kind="add" 
+                                         Foreground="Black"
+                                         Height="30" Width="30"/>
+        </Button>
+        <Button x:Name="UpdateButton" HorizontalAlignment="Left" Background="#006bb3"
+                Margin="149,315,0,0" VerticalAlignment="Top" Height="40" Width="60" 
+                FontSize="14"  Click="UpdateButton_Click" >
+            <materialDesign:PackIcon Kind="check" 
+                                         Foreground="Black"
+                                         Height="30" Width="30"/>
+        </Button>
         <!--<Button Content="הוספה לסל"
                 HorizontalAlignment="Left"
                 Margin="10,308,0,0" 

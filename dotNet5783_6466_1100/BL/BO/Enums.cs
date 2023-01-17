@@ -11,5 +11,5 @@ public enum Category
 /// </summary>
 public enum Status
 {
-    אושרו, נשלחו, סופקו , הכל 
+    מאושר, נשלח, נמסר , הכל 
 }

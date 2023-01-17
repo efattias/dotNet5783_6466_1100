@@ -167,19 +167,19 @@
                 Content="הצג פריטים"
                Width="80" Height="30"
                 Margin="110,360,110,10"
-                FontSize="8" Background="CadetBlue" Click="ShowItemList_Click">
+                FontSize="8" Background="#006bb3" Click="ShowItemList_Click">
         </Button>
         <Button x:Name="updateShipDate"
                 Content="עדכן לנשלח"
                Width="80" Height="20"
                 Margin="160,264,160,166"
-                FontSize="8" Background="CadetBlue" Click="updateShipDate_Click">
+                FontSize="8" Background="#006bb3" Click="updateShipDate_Click">
         </Button>
         <Button   Name="updateDeliveryDate" 
                 Content="עדכן לנמסר"
                 Width="80" Height="20" 
                 Margin="160,302,160,128"
-                FontSize="8" Background="CadetBlue" Click="updateDeliveryDate_Click" 
+                FontSize="8" Background="#006bb3" Click="updateDeliveryDate_Click" 
                 >
             
         </Button>
