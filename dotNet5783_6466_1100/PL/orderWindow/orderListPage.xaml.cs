@@ -83,7 +83,7 @@ namespace PL.orderWindow
             new orderWindow((PO.OrderForListPO)orderListV.SelectedItem).ShowDialog();
             // new orderWindow((PO.OrderForListPO)orderListV.SelectedItem
             // DataContext = orderListPO;
-            IEnumerableToObservable(bl.Order.getOrderForList());
+          //  IEnumerableToObservable(bl.Order.getOrderForList());
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Windows.Controls.Ribbon.Primitives;
 
 namespace PL.PO
 {
-   public class OrderForListPO
+   public class OrderForListPO:INotifyPropertyChanged
     {
         private int? id;
         public int? ID

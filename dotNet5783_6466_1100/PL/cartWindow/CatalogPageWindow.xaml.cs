@@ -36,8 +36,8 @@ namespace PL
         {
             InitializeComponent();
             IEnumerableToObservable(bl.Product.getProductForList());
-            pList.ItemsSource = productItemListPO;
-            //productListV.DataContext = productListPO;
+           // pList.ItemsSource = productItemListPO;
+            DataContext = productItemListPO;
 
 
             //categorySelector.ItemsSource = Enum.GetValues(typeof(BO.Category));
@@ -107,7 +107,7 @@ namespace PL
                bl!.cart.AddProductToCart(cart, product.ID);
                 MessageBox.Show("seccssed");
                 //bl.cart.AddProductToCart(cart, p!.ID);
-            }
+                }
             catch (Exception x)
             {
                 MessageBox.Show(x.Message);
@@ -158,7 +158,7 @@ namespace PL
             SortDescription sortDscription = new SortDescription("Name", ListSortDirection.Ascending);
             view.GroupDescriptions.Add(groupDescription);
             view.SortDescriptions.Add(sortDscription);
-            GroupByName.IsEnabled = false;
+            sortByAB.IsEnabled = false;
         }
         
         private void Button_Click_8(object sender, RoutedEventArgs e)
@@ -169,7 +169,7 @@ namespace PL
             SortDescription sortDscription = new SortDescription("Price", ListSortDirection.Ascending);
             view.GroupDescriptions.Add(groupDescription);
             view.SortDescriptions.Add(sortDscription);
-            GroupByPrice.IsEnabled = false;
+            SortByPrice.IsEnabled = false;
         }
 
         private void RemoveGrouping_Click(object sender, RoutedEventArgs e)
@@ -180,8 +180,8 @@ namespace PL
             view.GroupDescriptions.Clear();
             view.SortDescriptions.Clear();
 
-            GroupByPrice.IsEnabled = true;
-            GroupByName.IsEnabled = true;
+            SortByPrice.IsEnabled = true;
+            sortByAB.IsEnabled = true;
 
         }
     }

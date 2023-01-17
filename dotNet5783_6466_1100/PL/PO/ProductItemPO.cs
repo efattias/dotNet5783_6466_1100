@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PL.PO
 {
-    internal class ProductItemPO
+    internal class ProductItemPO:INotifyPropertyChanged
     {
 
 

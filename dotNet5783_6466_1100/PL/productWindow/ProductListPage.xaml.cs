@@ -59,8 +59,6 @@ namespace PL
                 IEnumerableToObservable(bl!.Product.GetPartOfProduct(p => p.Category == (BO.Category)categorySelector.SelectedItem));
             else if (categorySelector.SelectedItem is "")
                 IEnumerableToObservable(bl!.Product.getProductForList());
-
-
         }
         private void IEnumerableToObservable(IEnumerable<BO.ProductForList> listTOConvert)
         {
@@ -94,9 +92,7 @@ namespace PL
             //pPo!.ID = pBO.ID;
             //pPo.Name = pBO.Name;
             //pPo.Price = (double)pBO.Price;
-            //pPo.Category = (Category)(pBO.Category);
-            
-
+            //pPo.Category = (Category)(pBO.Category);          
         }
 
 

@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:PL"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="600" d:DesignWidth="800"
       Title="CatalogPageWindow">
 
     <Page.Resources>
@@ -30,15 +30,42 @@
 
     <Grid x:Name="productList"
           Background="{DynamicResource MaterialDesignBackground}"
-          Height="450"
+          Height="600"
           Width="800">
         <Grid.RowDefinitions>
-            <RowDefinition Height="180*"/>
-            <RowDefinition Height="550*"/>
+            <RowDefinition Height="140*"/>
+            <RowDefinition Height="410*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Grid x:Name="upStack"
               Grid.Row="0">
+            <Button Name="sortByAB" Click="Button_Click_7"
+                    Content="מיין לפי  א-ב"
+                    Width="120"
+                    Background="#006bb3"
+                    HorizontalAlignment="Left" Margin="28,6,0,61">
+
+            </Button>
+
+            <Button Name="SortByPrice"
+                    Content="מיין לפי מחיר"
+                    HorizontalAlignment="Left"
+                    Width="120"
+                    Margin="28,26,0,0"
+                      Background="#006bb3"
+                    VerticalAlignment="Center" Click="Button_Click_8">
+
+            </Button>
+            <Button Name="RemoveGrouping"
+                    
+                    HorizontalAlignment="Left"
+                    Margin="60,103,0,0"
+                       Background="#006bb3"
+                    VerticalAlignment="Top" Click="RemoveGrouping_Click">
+                <materialDesign:PackIcon Kind="RemoveBold">
+                    
+                </materialDesign:PackIcon>
+            </Button>
             <!--<Label x:Name="category"
                    Content="קטגוריה"
                    HorizontalAlignment="Left"
@@ -124,6 +151,7 @@
                 </materialDesign:PackIcon>
 
             </Button>
+
 
         </Grid>
 
@@ -264,24 +292,16 @@
         </ListView>-->
 
         <Grid Grid.Row="2">
-            <Button Content="סל קניות"
-                    Margin="588,9,89,9" Click="Button_Click"/>
-         
-            <Button Name="GroupByName"
-                    Content="מיין לפי א-ב"
-                    HorizontalAlignment="Left"
-                    Margin="292,0,0,219"
-                    VerticalAlignment="Bottom" Click="Button_Click_7"/>
-            <Button Name="GroupByPrice"
-                    Content="מיין לפי מחיר"
-                    HorizontalAlignment="Left"
-                    Margin="148,0,0,0"
-                    VerticalAlignment="Center" Click="Button_Click_8"/>
-            <Button Name="RemoveGrouping"
-                    Content="RemoveGrouping"
-                    HorizontalAlignment="Left"
-                    Margin="5,0,0,0"
-                    VerticalAlignment="Center" Click="RemoveGrouping_Click"/>
+            <Button 
+                   Background="#006bb3" Margin="500,0,89,9" Click="Button_Click"
+                Width="80" Height="40">
+                <materialDesign:PackIcon Kind="ShoppingFavorite" Width="40" Height="30">
+                    
+                </materialDesign:PackIcon>
+            </Button>
+
+
+
         </Grid>
     </Grid>
 </Page>

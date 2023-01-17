@@ -7,24 +7,6 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="CartWindow" Height="450" Width="800">
-    <Window.Resources>
-        <Style x:Key="GroupHeaderStyle" TargetType="{x:Type GroupItem}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type GroupItem}">
-                        <Expander x:Name="expander" IsExpanded="True"
-                                  Background="Transparent"
-                                  Foreground="#2b331f">
-                            <Expander.Header>
-                                <TextBlock Text="{Binding Name}"/>
-                            </Expander.Header>
-                            <ItemsPresenter/>
-                        </Expander>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
 
     <Grid x:Name="cartList"
           Background="{DynamicResource MaterialDesignBackground}"
@@ -38,30 +20,20 @@
         <DataGrid x:Name="cartListView"
                   Grid.Row="1"
                   Margin="5,10,10,10"
-                  CanUserAddRows="False"
+                
                   materialDesign:DataGridAssist.CellPadding="5"
-                  materialDesign:DataGridAssist.ColumnHeaderPadding="30" 
-                  IsTextSearchEnabled="True" 
+                  materialDesign:DataGridAssist.ColumnHeaderPadding="30"                   
                   AutoGenerateColumns="False" 
-                  GridLinesVisibility="Horizontal" 
-                  AreRowDetailsFrozen="True"
+ 
                   HorizontalGridLinesBrush="Transparent"
                   ScrollViewer.VerticalScrollBarVisibility="Visible" 
                   CanUserDeleteRows="False" 
                   CanUserResizeRows="False"
                   Foreground="Black"
                   IsReadOnly="True"
+                 ItemsSource="{Binding Items}"
                   d:ItemsSource="{d:SampleData ItemCount=5}"
-                  ItemsSource="{Binding}" MinColumnWidth="10">
-            <DataGrid.GroupStyle>
-                <GroupStyle ContainerStyle="{StaticResource ResourceKey=GroupHeaderStyle}">
-                    <GroupStyle.Panel>
-                        <ItemsPanelTemplate>
-                            <DataGridRowsPresenter/>
-                        </ItemsPanelTemplate>
-                    </GroupStyle.Panel>
-                </GroupStyle>
-            </DataGrid.GroupStyle>
+                   MinColumnWidth="10">
 
             <DataGrid.Columns>
 
@@ -81,7 +53,7 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-                <DataGridTemplateColumn Header="{materialDesign:PackIcon Kind=Plus}"
+                <!--<DataGridTemplateColumn Header="{materialDesign:PackIcon Kind=Plus}"
                                     MinWidth="10">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -95,14 +67,14 @@
                             </Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
+                </DataGridTemplateColumn>-->
 
                 <DataGridTextColumn Header="שם מוצר"
                                     Binding="{Binding Path= Name}"
                                     MinWidth="10"/>
 
                 <DataGridTextColumn Header="מזהה מוצר"
-                                    Binding="{Binding Path= IDProduct}"
+                                    Binding="{Binding Path= ProductID}"
                                     MinWidth="10"/>
 
                 <DataGridTextColumn Header="מחיר"
@@ -122,13 +94,22 @@
 
         <Grid x:Name="downGrid" Grid.Row="1" Margin="0,349,0,0" Grid.RowSpan="2">
             <Button Content="השלם הזמנה" x:Name="completeCart"
-                HorizontalAlignment="Left"
+                HorizontalAlignment="left"
                 Margin="589,0,0,0"
-                VerticalAlignment="Center" Click="completeCart_Click" RenderTransformOrigin="0.237,0.413"  />
-            <Button Content=" מחק סל" x:Name="deleteCart"
-                HorizontalAlignment="Left"
-                Margin="26,0,0,0"
-                VerticalAlignment="Center" Click="deleteCart_Click"/>
+                VerticalAlignment="Center" Click="completeCart_Click"  >
+            </Button>
+            <Button x:Name="deleteAllCart"
+                    HorizontalAlignment="left"
+                    Click="deleteCart_Click"
+                    >
+                <materialDesign:PackIcon Kind="RemoveShoppingCart"
+                                        Width="40"
+                                         Height="25">
+                    
+                </materialDesign:PackIcon>
+                
+            </Button>
+
         </Grid>
     </Grid>
 
