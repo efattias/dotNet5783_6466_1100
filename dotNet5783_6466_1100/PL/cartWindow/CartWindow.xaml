@@ -81,9 +81,21 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-                <DataGridTextColumn Header="מזהה הזמנה"
-                                    Binding="{Binding Path= ID}"
-                                    MinWidth="10"/>
+                <DataGridTemplateColumn Header="{materialDesign:PackIcon Kind=Plus}"
+                                    MinWidth="10">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                                    Height="30" Width="30"
+                                    HorizontalAlignment="Center"
+                                  Click="UpdateProduct_Click" >
+                                <materialDesign:PackIcon Kind="Plus" 
+                                         Foreground="Black"
+                                         Height="30" Width="30"/>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
 
                 <DataGridTextColumn Header="שם מוצר"
                                     Binding="{Binding Path= Name}"

@@ -150,5 +150,44 @@ namespace PL
                 MessageBox.Show(x.Message);
             }
         }
+
+        private void UpdateProduct_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                PO.OrderItemPO? orderItemPO = cartListView.SelectedItem as PO.OrderItemPO;
+                BO.OrderItem? orderItemBO = new BO.OrderItem();
+                orderItemBO.ID = orderItemPO.ID;
+                orderItemBO.Name = orderItemPO.Name;
+                orderItemBO.ProductID = orderItemPO.IDProduct;
+                orderItemBO.Price = orderItemPO.Price;
+                orderItemBO.Amount = (int)orderItemPO.Amount;
+                orderItemBO.TotalPrice = orderItemPO.TotalPrice;
+
+                int id = orderItemBO.ProductID;
+                int amount = 2;
+                bl.cart.UpdateProductInCart(cartBO, id, amount);
+                cartPO.OrderItemList = (List<OrderItemPO>)(from o in cartBO.Items
+                                                           let name = bl.Product.GetProductbyId(o.ProductID).Name
+                                                           select new OrderItemPO()
+                                                           {
+                                                               ID = o.ID,
+                                                               Price = (double)o.Price,
+                                                               IDProduct = o.ProductID,
+                                                               Name = name,
+                                                               Amount = (double)o.Amount,
+                                                               TotalPrice = (double)o.TotalPrice
+
+                                                           }).ToList();
+                cartPO.TotalPrice = (double)cartBO.TotalPrice;
+                
+
+                MessageBox.Show("seccssed");
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show(x.Message);
+            }
+        }
     }
 }
