@@ -1,38 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <products>
-  <Product>
-    <ID>100002</ID>
-    <Name>הארי פוטר וחדר הסודות</Name>
-    <Price>89</Price>
-    <Category>נוער</Category>
-    <InStock>37</InStock>
-  </Product>
-  <Product>
-    <ID>100005</ID>
-    <Name>עוגות לשבת</Name>
-    <Price>80</Price>
-    <Category>בישול</Category>
-    <InStock>87</InStock>
-  </Product>
-  <Product>
-    <ID>100000</ID>
-    <Name>הארי פוטר ואבן החכמים</Name>
-    <Price>90</Price>
-    <Category>נוער</Category>
-    <InStock>32</InStock>
-  </Product>
-  <Product>
-    <ID>100003</ID>
-    <Name>איילת מטיילת</Name>
-    <Price>60</Price>
-    <Category>ילדים</Category>
-    <InStock>87</InStock>
-  </Product>
-  <Product>
-    <ID>100001</ID>
-    <Name>הארי פוטר ואוצרות המוות</Name>
-    <Price>1014</Price>
-    <Category>נוער</Category>
-    <InStock>5</InStock>
-  </Product>
+
 </products>
