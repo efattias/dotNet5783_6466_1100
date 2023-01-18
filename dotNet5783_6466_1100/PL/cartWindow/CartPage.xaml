@@ -31,7 +31,8 @@
                   IsReadOnly="True"
                  ItemsSource="{Binding Items}"
                   d:ItemsSource="{d:SampleData ItemCount=5}"
-                   MinColumnWidth="10">
+                   MinColumnWidth="10"
+                  MouseDoubleClick="cartListView_MouseDoubleClick">
 
             <DataGrid.Columns>
 
