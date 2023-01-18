@@ -9,10 +9,17 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="OrderTrackingPage">
     <Page.Resources>
-        <converter:TextToBool x:Key="textToBool"/>
+        <converter:TextToBool
+            x:Key="textToBool"/>
+        <converter:NotVisibilityToVisibilityConverter 
+            x:Key="notVisibilityToVisibilityConverter"/>
     </Page.Resources>
 
     <Grid Name="OrderTracking" Background="AliceBlue" Margin="416,0,0,-50">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200*"/>
+            <RowDefinition Height="333*"/>
+        </Grid.RowDefinitions>
         <Label x:Name="IDLabel"
                Content=":הכנס מספר הזמנה למעקב" 
                FontFamily=" Cooper Black"
@@ -22,48 +29,41 @@
                RenderTransformOrigin="-7.932,0.579" Height="25" Width="162" HorizontalContentAlignment="Right"/>
 
         <TextBox x:Name="IDTextBox" Height="25"
-                 Width="80"
                  Text="{Binding ID}"
                     VerticalAlignment="Top"
                  Margin="73,50,231,0"
                     IsReadOnly="False" IsEnabled="True"/>
 
-        <Button Content="לחץ למעקב"
+        <Button x:Name="cleakToTrack"
+                Content="לחץ למעקב"
                 HorizontalAlignment="Left"
-                Margin="120,100,0,0"
+                Margin="140,100,0,0"
                 VerticalAlignment="Top"
                 IsEnabled="{Binding Text, Converter={StaticResource textToBool}, ElementName=IDTextBox}"
-                Click="Button_Click"/>
+                Click="Button_Click" Height="32" Grid.Row="0" Width="104"/>
 
-        <Label Content="מצב הזמנה"
-               HorizontalAlignment="Right"
-               FontFamily="Cooper Black"
-               Margin="0,190,-12,0"
-               VerticalAlignment="Top"
-               Width="94"/>
-
-        <TextBox x:Name="StatusTextBox" Height="25"
-                 Width="80"
+        <StackPanel Grid.Row="1">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="71">
+                <TextBox x:Name="StatusTextBox" Height="25"
+                 Width="105"
                  Text="{Binding OrderStatus}"
                  FlowDirection="RightToLeft"
-                    VerticalAlignment="Top"
-                 Margin="220,189,84,0"
                     IsReadOnly="False" IsEnabled="True"/>
-
-        <Label Content="רשימת מעקב"
-               HorizontalAlignment="Right"
+                <Label Content="מצב הזמנה"
                FontFamily="Cooper Black"
-               Margin="290,251,0,0"
-               VerticalAlignment="Top"
-               Width="94"/>
-   
-        <TextBox x:Name="ListTextBox" Height="60"
-                 Text="{Binding trackList}"
-                    VerticalAlignment="Top"
-                 FlowDirection="RightToLeft"
-                 Margin="121,250,104,0"
-                    IsReadOnly="False" IsEnabled="True"/>
+               Width="94" HorizontalContentAlignment="Right"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="71">
 
+                <TextBox x:Name="ListTextBox" Height="60"
+                 Text="{Binding trackList}"
+                 FlowDirection="RightToLeft"
+                    IsReadOnly="False" IsEnabled="True" Width="100"/>
+                <Label Content="רשימת מעקב"
+               FontFamily="Cooper Black"
+               Width="94" Height="100"/>
+            </StackPanel>
+        </StackPanel>
         <!--<ListBox x:Name="trackListBox" d:ItemsSource="{d:SampleData ItemCount=3}" Margin="60,294,-60,-294">
             <ListBox.ItemTemplate>
                 <DataTemplate>
