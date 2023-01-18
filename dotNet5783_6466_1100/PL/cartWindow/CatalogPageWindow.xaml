@@ -28,13 +28,13 @@
         </Style>
     </Page.Resources>
 
-    <Grid x:Name="productList"
-          Background="{DynamicResource MaterialDesignBackground}"
+    <Grid x:Name="productList" Background="AliceBlue"
+        
           Height="600"
           Width="800">
         <Grid.RowDefinitions>
             <RowDefinition Height="140*"/>
-            <RowDefinition Height="410*"/>
+            <RowDefinition Height="410*" />
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Grid x:Name="upStack"
@@ -156,17 +156,17 @@
         </Grid>
 
 
-        <ListView Name="pList"
+        <ListView Name="pList" Background="AliceBlue"
                   Grid.Row="1"
                   ItemsSource="{Binding}"
-                    d:ItemsSource="{d:SampleData ItemCount=5}">
+                    d:ItemsSource="{d:SampleData ItemCount=3}">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate >
                     <UniformGrid Columns="3"/>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
-                <DataTemplate>
+                <DataTemplate >
                     <StackPanel Width="200"
                                 Height="200"
                                 Background="AliceBlue">
@@ -182,13 +182,13 @@
                         <Image x:Name="productImage" Source="{Binding Path}"
                                   Width="100"
                                HorizontalAlignment="Stretch"
-                               Margin="50,-25,0,0"
+                               Margin="88,5,0,0"
                                Height="100"
                                />
                         <TextBlock
                             Text="{Binding Price}">
                         </TextBlock>
-                        <TextBlock
+                        <!--<TextBlock
                             Text="{Binding Category}">
                         </TextBlock>
                         <TextBlock
@@ -196,7 +196,7 @@
                         </TextBlock>
                         <TextBlock
                             Text="{Binding Amount}">
-                        </TextBlock>
+                        </TextBlock>-->
 
 
                         <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}"

@@ -119,12 +119,16 @@ namespace PL.productWindow
             //create the product
             try
             {
+                pPO.Path = path ;
+
+                
 
                 p!.ID = int.Parse(IDTextBox.Text);
                 p!.Name = NameTextBox.Text;
                 p!.InStock = int.Parse(AmountOfItemTextBox.Text);
                 p!.Category = (BO.Category?)categoryComboBox.SelectedItem;
                 p!.Price = double.Parse(PriceTextBox.Text);
+                p.Path = path;
                 
                 bl!.Product.UpdateDetailProduct(p); 
 
