@@ -1,5 +1,6 @@
 ﻿using BO;
 using MaterialDesignThemes.Wpf;
+using PL.cartWindow;
 using PL.PO;
 using PL.productWindow;
 using System;
@@ -30,14 +31,15 @@ namespace PL
         BO.Product? p = new BO.Product();
          public Cart cart = new Cart(){ CustomerAddress = "", CustomerEmail = "", CustomerName = "", Items = new List<BO.OrderItem?>(), TotalPrice = 0 };
 
-
+        Frame frame;
         ObservableCollection<ProductItemPO>? productItemListPO = new();
-        public CatalogPageWindow()
+        public CatalogPageWindow(Frame f)
         {
             InitializeComponent();
+            frame = f;
             IEnumerableToObservable(bl.Product.getProductForList());
-            pList.ItemsSource = productItemListPO;
-            //productListV.DataContext = productListPO;
+           // pList.ItemsSource = productItemListPO;
+            DataContext = productItemListPO;
 
 
             //categorySelector.ItemsSource = Enum.GetValues(typeof(BO.Category));
@@ -94,8 +96,11 @@ namespace PL
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            CartWindow caWindow = new CartWindow(cart);
-            caWindow.Show();
+            //CartWindow caWindow = new CartWindow(cart);
+            //caWindow.Show();
+            CartPage cartPage = new CartPage(cart,frame);
+            frame.Content= cartPage;
+            
         }
 
         private void AddProductToCart_Click(object sender, RoutedEventArgs e)
@@ -107,7 +112,7 @@ namespace PL
                bl!.cart.AddProductToCart(cart, product.ID);
                 MessageBox.Show("seccssed");
                 //bl.cart.AddProductToCart(cart, p!.ID);
-            }
+                }
             catch (Exception x)
             {
                 MessageBox.Show(x.Message);
@@ -158,7 +163,7 @@ namespace PL
             SortDescription sortDscription = new SortDescription("Name", ListSortDirection.Ascending);
             view.GroupDescriptions.Add(groupDescription);
             view.SortDescriptions.Add(sortDscription);
-            GroupByName.IsEnabled = false;
+            sortByAB.IsEnabled = false;
         }
         
         private void Button_Click_8(object sender, RoutedEventArgs e)
@@ -169,7 +174,7 @@ namespace PL
             SortDescription sortDscription = new SortDescription("Price", ListSortDirection.Ascending);
             view.GroupDescriptions.Add(groupDescription);
             view.SortDescriptions.Add(sortDscription);
-            GroupByPrice.IsEnabled = false;
+            SortByPrice.IsEnabled = false;
         }
 
         private void RemoveGrouping_Click(object sender, RoutedEventArgs e)
@@ -180,8 +185,8 @@ namespace PL
             view.GroupDescriptions.Clear();
             view.SortDescriptions.Clear();
 
-            GroupByPrice.IsEnabled = true;
-            GroupByName.IsEnabled = true;
+            SortByPrice.IsEnabled = true;
+            sortByAB.IsEnabled = true;
 
         }
     }

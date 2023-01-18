@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PL.PO
 {
-    public class OrderPO
+    public class OrderPO:INotifyPropertyChanged
     {
         private int? id;
         public int? ID

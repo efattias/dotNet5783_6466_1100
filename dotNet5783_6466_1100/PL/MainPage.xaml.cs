@@ -57,7 +57,7 @@ namespace PL
 
         private void customerButton_Click(object sender, RoutedEventArgs e)
         {
-            CatalogPageWindow catalogPage = new CatalogPageWindow();
+            CatalogPageWindow catalogPage = new CatalogPageWindow(frame);
             frame.Content= catalogPage;
             //ProductListPage page = new ProductListPage();
             //this.Content = page;

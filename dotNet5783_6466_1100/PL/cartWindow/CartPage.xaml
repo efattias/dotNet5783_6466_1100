@@ -1,13 +1,11 @@
-﻿<Window x:Class="PL.CartWindow"
+﻿<Page x:Class="PL.cartWindow.CartPage"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:PL"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:PL.cartWindow" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="CartWindow" Height="450" Width="800">
-
+        Title="CartPage" Height="450" Width="800">
     <Grid x:Name="cartList"
           Background="{DynamicResource MaterialDesignBackground}"
           Margin="0,0,0,-6">
@@ -105,9 +103,9 @@
                 <materialDesign:PackIcon Kind="RemoveShoppingCart"
                                         Width="40"
                                          Height="25">
-                    
+
                 </materialDesign:PackIcon>
-                
+
             </Button>
 
         </Grid>
@@ -174,4 +172,4 @@
 
         </Grid>
     </Grid>-->
-</Window>
+</Page>

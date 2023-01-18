@@ -38,7 +38,7 @@ namespace PL.cartWindow
 
             product = productItem;
             DataContext = product;
-            p!.ID = productItem.IDProduct;
+            p!.ID = (int)productItem.ProductID;
             p!.Price = productItem.Price;
             p!.InStock = (int)productItem.Amount;
         }

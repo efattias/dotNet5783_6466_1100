@@ -125,17 +125,17 @@ internal class BoCart : IBoCart
         }
         catch (DO.AlreadyExistExeption ex)
         {
-            throw new BO.DoesntExistException(ex.Message, ex);
+            throw new Exception(ex.Message, ex);
         }
 
         catch (BO.InvalidInputExeption ex)
         {
-            throw new BO.InvalidInputExeption(ex.Message, ex);
+            throw new Exception(ex.Message, ex);
         }
 
         catch (BO.ProductOutOfStockException ex)
         {
-            throw new BO.ProductOutOfStockException(ex.Message, ex);
+            throw new Exception(ex.Message, ex);
         }
     }
 

@@ -1,88 +1,179 @@
-﻿using BO;
-using DO;
+﻿//using BO;
+//using DO;
+//using System;
+//using System.Collections.Generic;
+//using System.ComponentModel;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
+
+//namespace PL.PO
+//{
+//    public class CartPO:INotifyPropertyChanged
+//    {
+//        private string? customerName;
+//        public string? CustomerName
+//        {
+//            get
+//            { return customerName; }
+//            set
+//            {
+//                customerName = value;
+//                if (PropertyChanged != null)
+//                {
+//                    PropertyChanged(this, new PropertyChangedEventArgs("CustomerName"));
+//                }
+//            }
+//        }
+//        private string? customerEmail;
+//        public string? CustomerEmail
+//        {
+//            get
+//            { return customerEmail; }
+//            set
+//            {
+//                customerEmail = value;
+//                if (PropertyChanged != null)
+//                {
+//                    PropertyChanged(this, new PropertyChangedEventArgs("CustomerEmail"));
+//                }
+//            }
+//        }
+//        private string? customerAddress;
+//        public string? CustomerAddress
+//        {
+//            get
+//            { return customerAddress; }
+//            set
+//            {
+//                customerAddress = value;
+//                if (PropertyChanged != null)
+//                {
+//                    PropertyChanged(this, new PropertyChangedEventArgs("CustomerAddress"));
+//                }
+//            }
+//        }
+//        private List<PO.OrderItemPO>? items;
+//        public List<PO.OrderItemPO>? Items
+//        {
+//            get
+//            { return items; }
+//            set
+//            {
+//                items = value;
+//                if (PropertyChanged != null)
+//                {
+//                    PropertyChanged(this, new PropertyChangedEventArgs("Items"));
+//                }
+//            }
+//        }
+//        private double totalPrice;
+//        public double TotalPrice
+//        {
+//            get
+//            { return totalPrice; }
+//            set
+//            {
+//                totalPrice = value;
+//                if (PropertyChanged != null)
+//                {
+//                    PropertyChanged(this, new PropertyChangedEventArgs("TotalPrice"));
+//                }
+//            }
+//        }
+
+//        public event PropertyChangedEventHandler? PropertyChanged;
+
+//    }
+//}
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BO;
+//using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 
-namespace PL.PO
+namespace PL.PO;
+
+public class CartPO : INotifyPropertyChanged
 {
-    public class CartPO
+    public event PropertyChangedEventHandler? PropertyChanged;
+
+    private string? customerName;
+    public string? CustomerName
     {
-        private string? name;
-        public string? Name
+        get
+        { return customerName;}
+        set
         {
-            get
-            { return name; }
-            set
+            customerName = value;
+            if (PropertyChanged != null)
             {
-                name = value;
-                if (PropertyChanged != null)
-                {
-                    PropertyChanged(this, new PropertyChangedEventArgs("Name"));
-                }
+                PropertyChanged(this, new PropertyChangedEventArgs("CustomerName"));
             }
         }
-        private string? email;
-        public string? Email
-        {
-            get
-            { return email; }
-            set
-            {
-                email = value;
-                if (PropertyChanged != null)
-                {
-                    PropertyChanged(this, new PropertyChangedEventArgs("Email"));
-                }
-            }
-        }
-        private string? address;
-        public string? Address
-        {
-            get
-            { return address; }
-            set
-            {
-                address = value;
-                if (PropertyChanged != null)
-                {
-                    PropertyChanged(this, new PropertyChangedEventArgs("Address"));
-                }
-            }
-        }
-        private List<PO.OrderItemPO>? orderItemList;
-        public List<PO.OrderItemPO>? OrderItemList
-        {
-            get
-            { return orderItemList; }
-            set
-            {
-                orderItemList = value;
-                if (PropertyChanged != null)
-                {
-                    PropertyChanged(this, new PropertyChangedEventArgs("OrderItemList"));
-                }
-            }
-        }
-        private double totalPrice;
-        public double TotalPrice
-        {
-            get
-            { return totalPrice; }
-            set
-            {
-                totalPrice = value;
-                if (PropertyChanged != null)
-                {
-                    PropertyChanged(this, new PropertyChangedEventArgs("TotalPrice"));
-                }
-            }
-        }
+    }
 
-        public event PropertyChangedEventHandler? PropertyChanged;
+    private string? customerEmail;
+    public string? CustomerEmail
+    {
+        get
+        { return customerEmail; }
+        set
+        {
+            customerEmail = value;
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(" CustomerEmail"));
+            }
+        }
+    }
 
+    private string? customerAddress;
+    public string? CustomerAddress
+    {
+        get
+        { return customerAddress; }
+        set
+        {
+            customerAddress = value;
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs("CustomerAddress"));
+            }
+        }
+    }
+
+    private ObservableCollection<PO.OrderItemPO>? items;
+    public ObservableCollection<PO.OrderItemPO>? Items
+    {
+        get
+        { return items; }
+        set
+        {
+            items = value;
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs("items"));
+            }
+        }
+    }
+
+    private double? totalPrice;
+    public double? TotalPrice
+    {
+        get
+        { return totalPrice; }
+        set
+        {
+            totalPrice = value;
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs("TotalPrice"));
+            }
+        }
     }
 }
