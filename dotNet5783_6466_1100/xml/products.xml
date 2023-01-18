@@ -1,14 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <products>
   <Product>
-    <ID>100001</ID>
-    <Name>הארי פוטר 3 והאסיר מאזקבאן</Name>
-    <Price>90</Price>
-    <Category>נוער</Category>
-    <InStock>120</InStock>
-    <Path>/images/HarryPoterAndThePrisoner.jpg</Path>
-  </Product>
-  <Product>
     <ID>100000</ID>
     <Name>הארי פוטר 2 וחדר הסודות</Name>
     <Price>89</Price>
@@ -79,5 +71,13 @@
     <Category>נוער</Category>
     <InStock>59</InStock>
     <Path>/images/haripoterDeathTreasure.jpg</Path>
+  </Product>
+  <Product>
+    <ID>100001</ID>
+    <Name>הארי פוטר 3 והאסיר מאזקבאן</Name>
+    <Price>90</Price>
+    <Category>נוער</Category>
+    <InStock>115</InStock>
+    <Path>/images/HarryPoterAndThePrisoner.jpg</Path>
   </Product>
 </products>

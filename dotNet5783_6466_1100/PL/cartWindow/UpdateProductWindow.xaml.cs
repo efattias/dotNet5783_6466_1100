@@ -23,32 +23,34 @@ namespace PL.cartWindow
     public partial class UpdateProductWindow : Window
     {
         BlApi.IBL? bl = BlApi.Factory.GetBl() ?? throw new NullReferenceException("Missing bl");
-        public Cart cart = new Cart() { CustomerAddress = "", CustomerEmail = "", CustomerName = "", Items = new List<BO.OrderItem?>(), TotalPrice = 0 };
-        BO.Product? p = new BO.Product();
-        private OrderItemPO? product;
+         Cart cart = new Cart() { CustomerAddress = "", CustomerEmail = "", CustomerName = "", Items = new List<BO.OrderItem?>(), TotalPrice = 0 };
+        BO.Product? productBO = new BO.Product();
+        CartPO cartPo = new();
+        PO.OrderItemPO? orderItemPO=new();
 
         public UpdateProductWindow(Cart? cartBO, OrderItemPO productItem)
         {
             InitializeComponent();
-            cart!.CustomerName = cartBO!.CustomerName;
-            cart.CustomerEmail = cartBO.CustomerEmail;
-            cart.CustomerAddress = cartBO.CustomerAddress;
-            cart.Items = cartBO!.Items;
-            cart!.TotalPrice = cartBO.TotalPrice;
-
-            product = productItem;
-            DataContext = product;
-            p!.ID = (int)productItem.ProductID;
-            p!.Price = productItem.Price;
-            p!.InStock = (int)productItem.Amount;
+            cart = cartBO;
+            cartPo = Tools.BoTOPoCart(cart);
+            //cart!.CustomerName = cartBO!.CustomerName;
+            //cart.CustomerEmail = cartBO.CustomerEmail;
+            //cart.CustomerAddress = cartBO.CustomerAddress;
+            //cart.Items = cartBO!.Items;
+            //cart!.TotalPrice = cartBO.TotalPrice;
+            orderItemPO = productItem;
+            DataContext = orderItemPO;
+            productBO = bl.Product.GetProductbyId((int)productItem.ProductID);
         }
-
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
-            p!.InStock = int.Parse(upadteCB.Text);
+            int amount = int.Parse(upadteCB.Text);
             try
             {
-                bl!.cart.UpdateProductInCart(cart, p!.ID, (int)p.InStock);
+                bl!.cart.UpdateProductInCart(cart, productBO!.ID, amount);
+                cartPo = PL.Tools.BoTOPoCart(cart);
+                orderItemPO.Amount = amount;
+                orderItemPO.TotalPrice = amount * orderItemPO.Price;
 
                 Close();
                 MessageBox.Show("seccssed");

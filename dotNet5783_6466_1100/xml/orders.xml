@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfOrder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Order>
-    <ID>1001</ID>
-    <CustomerName>מרים פרץ</CustomerName>
-    <CustomerEmail>miri2451@gmail.com</CustomerEmail>
-    <CustomerAddress>אביבים</CustomerAddress>
-    <OrderDate>2023-01-18T16:00:12.7141157+02:00</OrderDate>
-    <ShipDate>2023-01-18T16:00:50.8009774+02:00</ShipDate>
-    <DeliveryDate xsi:nil="true" />
-  </Order>
+
+
 </ArrayOfOrder>
