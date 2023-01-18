@@ -8,7 +8,7 @@
         Title="חלון מוצר" Height="400" Width="300">
     <Grid  Name="mainGrid" RenderTransformOrigin="1.424,0.455" Margin="0,0,0,-6">
 
-     
+
 
         <Label x:Name="IDLabel"
                Content=":מזהה" 
@@ -79,6 +79,13 @@
                                          Foreground="Black"
                                          Height="30" Width="30"/>
         </Button>
+        <!--<Button Height="150" Margin="-20,-15,270,279" Width="150" Click="updateImage_Button">
+            <Image  x:Name="product_image" Source="{Binding path}"
+                    HorizontalAlignment="Center"  VerticalAlignment="Stretch" 
+                    Width="130" Height="130" />
+                   
+        </Button>-->
+
         <Button x:Name="UpdateButton" HorizontalAlignment="Left" Background="#006bb3"
                 Margin="149,315,0,0" VerticalAlignment="Top" Height="40" Width="60" 
                 FontSize="14"  Click="UpdateButton_Click" >
@@ -86,6 +93,23 @@
                                          Foreground="Black"
                                          Height="30" Width="30"/>
         </Button>
+        <Button  HorizontalAlignment="Left" Background="AliceBlue"
+                VerticalAlignment="Top" Height="50" Width="54" 
+                FontSize="14"  Click="updateImage_Button" Margin="237,0,0,0" >
+            <Image x:Name="productImage" Source="{Binding Path=Path}"
+                   Width="80"
+                   Height="80">
+
+            </Image>
+
+        </Button>
+
+        <!--<Button Height="150" Margin="-20,-15,270,279" Width="150" Click="updateImage_Button">
+            <Image  x:Name="product_image" Source="{Binding path}"
+                    HorizontalAlignment="Center"  VerticalAlignment="Stretch" 
+                    Width="130" Height="130" />
+                   
+        </Button>-->
         <!--<Button Content="הוספה לסל"
                 HorizontalAlignment="Left"
                 Margin="10,308,0,0" 

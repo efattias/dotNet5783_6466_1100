@@ -63,7 +63,7 @@
                        Background="#006bb3"
                     VerticalAlignment="Top" Click="RemoveGrouping_Click">
                 <materialDesign:PackIcon Kind="RemoveBold">
-                    
+
                 </materialDesign:PackIcon>
             </Button>
             <!--<Label x:Name="category"
@@ -168,7 +168,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Width="200"
-                                Height="150"
+                                Height="200"
                                 Background="AliceBlue">
 
 
@@ -179,6 +179,12 @@
                         <TextBlock
                             Text="{Binding Name}">
                         </TextBlock>
+                        <Image x:Name="productImage" Source="{Binding Path}"
+                                  Width="100"
+                               HorizontalAlignment="Stretch"
+                               Margin="50,-25,0,0"
+                               Height="100"
+                               />
                         <TextBlock
                             Text="{Binding Price}">
                         </TextBlock>
@@ -192,15 +198,18 @@
                             Text="{Binding Amount}">
                         </TextBlock>
 
+
                         <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
-                                    Height="30" Width="30"
+                                    Height="40" Width="40"
                                 
                                 
-                                    HorizontalAlignment="Right"
-                                    VerticalAlignment="Bottom"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch"
+                                Margin="0,-15,-115,0"
                                     Click="AddProductToCart_Click">
                             <materialDesign:PackIcon  Kind="CartAdd" 
                                          Foreground="Black"
+                                                     
                                          Height="30" Width="30"/>
                         </Button>
                     </StackPanel>
@@ -296,7 +305,7 @@
                    Background="#006bb3" Margin="500,0,89,9" Click="Button_Click"
                 Width="80" Height="40">
                 <materialDesign:PackIcon Kind="ShoppingFavorite" Width="40" Height="30">
-                    
+
                 </materialDesign:PackIcon>
             </Button>
 

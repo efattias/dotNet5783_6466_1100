@@ -116,6 +116,21 @@
                 <DataGridTextColumn Header="קטגוריה"
                                     Binding="{Binding Path=Category}"
                                     MinWidth="10"/>
+                <DataGridTemplateColumn Header="תמונה"
+                                    MinWidth="10">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Path=Path}"
+                                    Height="30" Width="30"
+                                    HorizontalAlignment="Center">
+
+                            </Image>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+
+
 
             </DataGrid.Columns>
         </DataGrid>

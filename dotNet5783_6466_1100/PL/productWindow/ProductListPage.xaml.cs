@@ -68,7 +68,9 @@ namespace PL
                               ID = p.ID,
                               Name = p.Name,
                               Price = (double)p.Price,
-                              Category = (PO.Category)p.Category
+                              Category = (PO.Category)p.Category,
+                              Path=p.Path
+                              
                           }).ToList();
             productListPO.Clear();
             foreach (var p in listPO)

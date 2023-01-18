@@ -44,6 +44,7 @@ public class ProductItem
     /// </summary>
     /// <returns></returns>
     /// 
+    public string? Path;
     public override string ToString() => this.ToStringProperty();
 
     //    public override string ToString() => $@"

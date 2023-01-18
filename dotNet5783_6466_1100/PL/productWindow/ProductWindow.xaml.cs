@@ -4,6 +4,7 @@ using BO;
 using DO;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +30,7 @@ namespace PL.productWindow
         BO.Product? p= new BO.Product();
         PO.ProductForListPO? pPO= new PO.ProductForListPO();
         PO.ProductPO? productPO=new PO.ProductPO();
-            
+        string? path;    
             
         //   Cart cart = new Cart() { CustomerAddress = "", CustomerEmail = "", CustomerName = "", Items = new List<BO.OrderItem?>(), TotalPrice = 0 };
         Action<PO.ProductForListPO> action;
@@ -87,6 +88,31 @@ namespace PL.productWindow
             }
             
         }
+        private void updateImage_Button(object sender, RoutedEventArgs e)// עדכון
+        {
+            Microsoft.Win32.OpenFileDialog f = new Microsoft.Win32.OpenFileDialog();
+            f.Filter = "Image Files(*.jpeg; *.jpg; *.png; *.gif; *.bmp)|*.jpeg; *.jpg; *.png; *.gif; *.bmp";
+            // f.Filter = "All Images Files (*.png;*.jpeg;*.gif;*.jpg;*.bmp;*.tiff;*.tif)|*.png;*.jpeg;*.gif;*.jpg;*.bmp;*.tiff;*.tif" +
+            //"|PNG Portable Network Graphics (*.png)|*.png" +
+            //"|JPEG File Interchange Format (*.jpg *.jpeg *jfif)|*.jpg;*.jpeg;*.jfif" +
+            //"|BMP Windows Bitmap (*.bmp)|*.bmp" +
+            //"|TIF Tagged Imaged File Format (*.tif *.tiff)|*.tif;*.tiff" +
+            //"|GIF Graphics Interchange Format (*.gif)|*.gif";
+            if (f.ShowDialog() == true)
+            {
+
+                productImage.Source = new BitmapImage(new Uri(f.FileName));
+                String[] spearator = { "PL" };
+                Int32 count = 2;
+                // using the method
+                String[] strlist = productImage.Source.ToString().Split(spearator, count,
+                       StringSplitOptions.RemoveEmptyEntries);
+                path = strlist[1];
+
+
+            }
+
+        }
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
@@ -99,6 +125,7 @@ namespace PL.productWindow
                 p!.InStock = int.Parse(AmountOfItemTextBox.Text);
                 p!.Category = (BO.Category?)categoryComboBox.SelectedItem;
                 p!.Price = double.Parse(PriceTextBox.Text);
+                
                 bl!.Product.UpdateDetailProduct(p); 
 
                 //pPO.ID=p.ID;
@@ -124,6 +151,7 @@ namespace PL.productWindow
                 //p!.ID = int.Parse(IDTextBox.Text);
                 //p!.Name = NameTextBox.Text;
                  p!.InStock = int.Parse(AmountOfItemTextBox.Text);
+                p.Path = path;
                 // p!.Category = (BO.Category?)categoryComboBox.SelectedItem;
                 //p!.Price = double.Parse(PriceTextBox.Text);
                 int id = bl!.Product.AddProduct(p);
@@ -132,7 +160,8 @@ namespace PL.productWindow
                     ID = id,
                     Name = p.Name,
                     Price = (double)p.Price,
-                    Category = (PO.Category)p.Category
+                    Category = (PO.Category)p.Category,
+                    Path=p.Path
                 });     
                 
                 

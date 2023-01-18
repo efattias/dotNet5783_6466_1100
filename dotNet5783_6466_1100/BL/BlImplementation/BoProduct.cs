@@ -35,7 +35,8 @@ internal class BoProduct :IBoProduct
                 Name = product?.Name,
                 Price = product?.Price,
                 Category = (DO.Category?)product?.Category,
-                InStock = product?.InStock
+                InStock = product?.InStock,
+                Path= product?.Path,
             };
            int id= dal!.Product.Add(productTempDO); // adding to DAL
             return id;
@@ -101,6 +102,7 @@ internal class BoProduct :IBoProduct
             productTempBO.Price = productTempDO.Price;
             productTempBO.Category = (BO.Category?)productTempDO.Category;
             productTempBO.InStock = productTempDO.InStock;
+            productTempBO.Path =productTempDO.Path;
 
             return productTempBO;// return the product
         }
@@ -151,7 +153,8 @@ internal class BoProduct :IBoProduct
                     ID = (int)(p?.ID!),
                     Name = p?.Name,
                     Price = p?.Price,
-                    Category = (BO.Category?)p?.Category
+                    Category = (BO.Category?)p?.Category,
+                    Path=p?.Path
                 }).ToList();
     }
 
@@ -186,7 +189,8 @@ internal class BoProduct :IBoProduct
                 Name = product?.Name,
                 Price = product?.Price,
                 Category = (DO.Category?)product?.Category,
-                InStock = product?.InStock
+                InStock = product?.InStock,
+                Path = product?.Path
             };
 
             dal!.Product.Update(productTempDO); // updating

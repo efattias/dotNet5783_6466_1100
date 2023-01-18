@@ -75,8 +75,10 @@ namespace PL
                     Price = (double)p.Price,
                     Category = (PO.Category)p.Category,
                     InStock = inStockFlag,
-                    Amount = (int)product.InStock
+                    Amount = (int)product.InStock,
+                    Path=p.Path
                 };
+
                 productItemListPO.Add(proPO);
 
 

@@ -5,6 +5,7 @@
     <Name>הארי פוטר וחדר הסודות</Name>
     <Price>89</Price>
     <Category>נוער</Category>
-    <InStock>97</InStock>
+    <InStock>100</InStock>
+    <Path>/images/HarryPoterSecretsRoom.jpg</Path>
   </Product>
 </products>

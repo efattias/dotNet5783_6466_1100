@@ -119,7 +119,7 @@ namespace PL.PO;
 
 public class OrderItemPO : INotifyPropertyChanged
 {
-    public event PropertyChangedEventHandler PropertyChanged;
+    public event PropertyChangedEventHandler? PropertyChanged;
 
    
 

@@ -35,7 +35,7 @@ public struct Product
     /// <summary>
     /// path for image
     /// </summary>
-    public string? path { get; set; }
+    public string? Path { get; set; }
     public override string ToString() => $@"
     
         Product ID={ID}: {Name}, 

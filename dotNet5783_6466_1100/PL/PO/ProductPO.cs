@@ -87,8 +87,21 @@ namespace PL.PO
                     }
                 }
             }
-
-            public event PropertyChangedEventHandler? PropertyChanged;
+        private string path;
+        public string Path
+        {
+            get
+            { return path; }
+            set
+            {
+                path = value;
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs("Path"));
+                }
+            }
+        }
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         
     }

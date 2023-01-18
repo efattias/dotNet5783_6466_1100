@@ -20,7 +20,8 @@ namespace Dal
                 Name = (string?)p.Element("Name"),
                 Price = (double?)p.Element("Price"),
                 Category = p.ToEnumNullable<DO.Category>("Category"),
-                InStock = (int?)p.Element("InStock")
+                InStock = (int?)p.Element("InStock"),
+                Path= (string?)p.Element("Path")
             };
 
         static IEnumerable<XElement> createStudentElement(DO.Product product)
@@ -34,6 +35,8 @@ namespace Dal
                 yield return new XElement("Category", product.Category);
             if (product.InStock is not null)
                 yield return new XElement("InStock", product.InStock);
+            if (product.Path is not null)
+                yield return new XElement("Path", product.Path);
         }
 
         public IEnumerable<DO.Product?> getAll(Func<DO.Product?, bool>? filter = null)

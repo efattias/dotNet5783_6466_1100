@@ -13,7 +13,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="images\HarryPoterSecretsRoom.jpg" />
+    <None Remove="images\Notepads On Table In Front Of Chalkboard For Children Backdrop.jpg" />
+    <None Remove="images\Wood Wall And Wood Floor With Some Notebooks Photography Backdrop.jpg" />
     <None Remove="Wood Wall And Wood Floor With Some Notebooks Photography Backdrop.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="images\HarryPoterSecretsRoom.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -26,7 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Wood Wall And Wood Floor With Some Notebooks Photography Backdrop.jpg" />
+    <Resource Include="images\Wood Wall And Wood Floor With Some Notebooks Photography Backdrop.jpg" />
   </ItemGroup>
 
 </Project>
