@@ -7,75 +7,28 @@
         mc:Ignorable="d"
         Title="UpdateProductWindow" Height="400" Width="300">
     <Grid  Name="mainGrid" RenderTransformOrigin="1.424,0.455" Margin="0,0,0,-6">
-
-
-
-        <Label x:Name="IDLabel"
-               Content=":מזהה" 
-               HorizontalAlignment="Left" 
-               Margin="207,50,0,0" 
-               VerticalAlignment="Top"
-               RenderTransformOrigin="-7.932,0.579" Height="25" Width="60" HorizontalContentAlignment="Right"/>
-
-        <TextBox x:Name="IDTextBox" Height="25"
-                 Text="{Binding ID}"
-                    VerticalAlignment="Top"
-                 Margin="33,50,94,0"
-                    IsReadOnly="True" IsEnabled="True"/>
-
-
-        <Label x:Name="NameLabel"
-               Content=":שם" 
-               HorizontalAlignment="Left" 
-               Margin="207,100,0,0" 
-               VerticalAlignment="Top"
-               RenderTransformOrigin="-7.932,0.579" Height="25" Width="60" HorizontalContentAlignment="Right"/>
-
-        <TextBox x:Name="NameTextBox" Height="25"
-                    VerticalAlignment="Top"
-                 Text="{Binding Name}"
-                 Margin="33,100,94,0"
-                    IsReadOnly="True" IsEnabled="True"/>
-
-        <Label x:Name="PriceLabel"
-               Content=":מחיר" 
-               HorizontalAlignment="Left" 
-               Margin="207,150,0,0" 
-               VerticalAlignment="Top"
-               RenderTransformOrigin="-7.932,0.579" Height="25" Width="60" HorizontalContentAlignment="Right"/>
-
-        <TextBox x:Name="PriceTextBox" Height="25"
-                    VerticalAlignment="Top"
-                 Margin="33,150,94,0"
-                   Text="{Binding Price}"
-                    IsReadOnly="True" IsEnabled="true" />
         <Label x:Name="AmountOfItemsLabel"
                Content=":כמות" 
                HorizontalAlignment="Left" 
-               Margin="207,200,0,0" 
+               Margin="215,105,0,0" 
                VerticalAlignment="Top"
                RenderTransformOrigin="-7.932,0.579" Height="25" Width="60" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="AmountOfItemTextBox" Height="25"
-                 VerticalAlignment="Top"
-                 Margin="33,200,94,0"
-                 IsReadOnly="False"
-                 IsEnabled="true"/>
-        <Label x:Name="categoryLabel"
-               Content=":קטגוריה" 
-               HorizontalAlignment="Right" 
-               Margin="0,250,18,0" 
-               VerticalAlignment="Top"
-               RenderTransformOrigin="-7.932,0.579" Height="25" Width="60" HorizontalContentAlignment="Right"/>
-        <ComboBox x:Name="categoryComboBox"
-                      Margin="33,250,94,89" 
-                  Text="{Binding Category}"
-                      ItemsSource="{Binding }" 
-                  IsEnabled="true" Height="25"
-                  IsReadOnly="True"/>
-        
+
         <Button x:Name="UpdateButton" Content="עדכון" HorizontalAlignment="Left" Background="CadetBlue"
-                Margin="149,329,0,0" VerticalAlignment="Top" Height="30" Width="65" 
-                FontSize="14" Click="UpdateButton_Click"/>
-        
+                Margin="71,165,0,0" VerticalAlignment="Top" Height="30" Width="65" 
+                FontSize="14"  Click="UpdateButton_Click"/>
+        <ComboBox x:Name="upadteCB" HorizontalAlignment="Left" Margin="76,105,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged">
+            <ComboBoxItem Content="1" />
+            <ComboBoxItem Content="2" />
+            <ComboBoxItem Content="3" />
+            <ComboBoxItem Content="4" />
+            <ComboBoxItem Content="5" />
+            <ComboBoxItem Content="6" />
+            <ComboBoxItem Content="7" />
+            <ComboBoxItem Content="8" />
+            <ComboBoxItem Content="9" />
+            <ComboBoxItem Content="10" />
+        </ComboBox>
+
     </Grid>
 </Window>

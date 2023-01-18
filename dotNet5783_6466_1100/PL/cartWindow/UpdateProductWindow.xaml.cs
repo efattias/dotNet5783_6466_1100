@@ -45,7 +45,7 @@ namespace PL.cartWindow
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
-            p!.InStock = int.Parse(AmountOfItemTextBox.Text);
+            p!.InStock = int.Parse(upadteCB.Text);
             try
             {
                 bl!.cart.UpdateProductInCart(cart, p!.ID, (int)p.InStock);
@@ -57,6 +57,11 @@ namespace PL.cartWindow
             {
                 MessageBox.Show(x.Message);
             }
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

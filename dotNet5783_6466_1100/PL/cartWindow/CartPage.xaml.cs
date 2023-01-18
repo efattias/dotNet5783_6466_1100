@@ -210,5 +210,12 @@ namespace PL.cartWindow
             //    }
             //}
         }
+
+        private void cartListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var product = (PO.OrderItemPO)cartListView.SelectedItem;
+            UpdateProductWindow up = new UpdateProductWindow(cartBO, product);
+            up.ShowDialog();
+        }
     }
 }
