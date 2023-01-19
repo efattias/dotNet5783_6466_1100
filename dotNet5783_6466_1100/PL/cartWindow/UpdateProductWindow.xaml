@@ -17,7 +17,9 @@
         <Button x:Name="UpdateButton" Content="עדכון" HorizontalAlignment="Left" Background="CadetBlue"
                 Margin="71,165,0,0" VerticalAlignment="Top" Height="30" Width="65" 
                 FontSize="14"  Click="UpdateButton_Click"/>
-        <ComboBox x:Name="upadteCB" HorizontalAlignment="Left" Margin="76,105,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged">
+        <ComboBox   Name="updateCB" HorizontalAlignment="Left" Margin="76,105,0,0" 
+                  VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged"
+                   >
             <ComboBoxItem Content="1" />
             <ComboBoxItem Content="2" />
             <ComboBoxItem Content="3" />

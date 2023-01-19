@@ -170,7 +170,7 @@ internal class BoCart : IBoCart
                         item.Amount = amount;
                         item.TotalPrice = (item.TotalPrice ?? 0) + (item.Price * difference);
                         cart.TotalPrice = (cart.TotalPrice ?? 0) + (item.Price * difference);
-                        cart.TotalPrice = Math.Round(cart.TotalPrice ?? 0, 2);
+                        //cart.TotalPrice = Math.Round(cart.TotalPrice ?? 0, 2);
                         return cart;
                     }
 

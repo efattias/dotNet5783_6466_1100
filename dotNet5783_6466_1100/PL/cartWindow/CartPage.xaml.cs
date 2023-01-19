@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BO;
+using PL.PO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -128,7 +130,7 @@ namespace PL.cartWindow
         {
             try
             {
-                PO.OrderItemPO? orderItemPO = cartListView.SelectedItem as PO.OrderItemPO;
+                PO.OrderItemPO? orderItemPO = ((Button)(sender)).DataContext as PO.OrderItemPO;
                 //BO.OrderItem? orderItemBO = new BO.OrderItem();
                 //orderItemBO.ID = orderItemPO.ID;//לא מקבל ID
                 //orderItemBO.Name = orderItemPO.Name;
@@ -210,12 +212,85 @@ namespace PL.cartWindow
             //    }
             //}
         }
+        private void UpdateButton_Click(object sender, RoutedEventArgs e)
+        {
+            //int amount = int.Parse(.Text);
+            //try
+            //{
+            //    bl!.cart.UpdateProductInCart(cart, productBO!.ID, amount);
+            //    cartPo = PL.Tools.BoTOPoCart(cart);
+            //    orderItemPO.Amount = amount;
+            //    orderItemPO.TotalPrice = amount * orderItemPO.Price;
+
+            //    Close();
+            //    MessageBox.Show("seccssed");
+            //}
+            //catch (Exception x)
+            //{
+            //    MessageBox.Show(x.Message);
+            //}
+        }
 
         private void cartListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            var product = (PO.OrderItemPO)cartListView.SelectedItem;
+            var product = (PO.OrderItemPO)cartlistView.SelectedItem;
             UpdateProductWindow up = new UpdateProductWindow(cartBO, product);
             up.ShowDialog();
+        }
+        private void txtNum_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+            var t = (TextBox)sender;
+            int amount;
+            if (t.Text != "")
+            {               
+                amount = int.Parse(t.Text);
+                if (amount == 0)
+                    amount = 1;
+
+                UpdateAmount(sender, amount, true);
+            }
+        }
+        private void UpdateAmount(object sender, int amount, bool isTextBox = false)
+        {
+            try
+            {
+                PO.OrderItemPO item = new();
+                TextBox t;
+                Button b;
+                if (isTextBox)
+                {
+                    t = (TextBox)sender;
+                    item = (PO.OrderItemPO)t.DataContext;
+                }
+                else
+                {
+                    b = (Button)sender;
+                    item = (PO.OrderItemPO)b.DataContext;
+                }
+                bl.cart.UpdateProductInCart(cartBO, (int)item.ProductID, amount);
+                item = cartPO.Items.FirstOrDefault(x => x.ProductID == item.ProductID);
+                cartPO.TotalPrice = cartBO.TotalPrice;
+                if (amount == 0)
+                {
+                    cartPO.Items.Remove(item);
+                    cartPO.TotalPrice = cartBO.TotalPrice;
+                    return;
+                }
+                item.Amount = amount;
+                item.TotalPrice = item.Amount * item.Price;
+            }
+            catch (BO.ProductOutOfStockException ex)
+            {
+                MessageBox.Show("אין עוד מהמוצר הזה במלאי" +
+                   "", "Error", MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                return;
+            }
+        }
+        private void UpdateSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var orderItem = sender as OrderItemPO;
+           
         }
     }
 }

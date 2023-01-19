@@ -1,52 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <products>
   <Product>
-    <ID>100000</ID>
-    <Name>הארי פוטר 2 וחדר הסודות</Name>
-    <Price>89</Price>
-    <Category>נוער</Category>
-    <InStock>100</InStock>
-    <Path>/images/HarryPoterSecretsRoom.jpg</Path>
-  </Product>
-  <Product>
     <ID>100002</ID>
     <Name>הארי פוטר 1 ואבן החכמים</Name>
     <Price>89</Price>
     <Category>נוער</Category>
     <InStock>110</InStock>
     <Path>/images/HarryPoterSmartStone.jpg</Path>
-  </Product>
-  <Product>
-    <ID>100004</ID>
-    <Name>הארי פוטר 4 וגביע האש</Name>
-    <Price>90</Price>
-    <Category>נוער</Category>
-    <InStock>90</InStock>
-    <Path>/images/HarryPoterAndCupOfFire.jpg</Path>
-  </Product>
-  <Product>
-    <ID>100005</ID>
-    <Name>הארי פוטר 5 ומסדר עוף החול</Name>
-    <Price>89</Price>
-    <Category>נוער</Category>
-    <InStock>70</InStock>
-    <Path>/images/haripotterChicken.jpg</Path>
-  </Product>
-  <Product>
-    <ID>100008</ID>
-    <Name>חנן הגנן</Name>
-    <Price>39.9</Price>
-    <Category>ילדים</Category>
-    <InStock>65</InStock>
-    <Path>/images/hanan_haganan.jpg</Path>
-  </Product>
-  <Product>
-    <ID>100010</ID>
-    <Name>דירה להשכיר </Name>
-    <Price>38</Price>
-    <Category>ילדים</Category>
-    <InStock>56</InStock>
-    <Path>/images/dira_lehaskir_vaod.jpg</Path>
   </Product>
   <Product>
     <ID>100009</ID>
@@ -79,5 +39,53 @@
     <Category>נוער</Category>
     <InStock>115</InStock>
     <Path>/images/HarryPoterAndThePrisoner.jpg</Path>
+  </Product>
+  <Product>
+    <ID>100000</ID>
+    <Name>הארי פוטר 2 וחדר הסודות</Name>
+    <Price>89</Price>
+    <Category>נוער</Category>
+    <InStock>99</InStock>
+    <Path>/images/HarryPoterSecretsRoom.jpg</Path>
+  </Product>
+  <Product>
+    <ID>100008</ID>
+    <Name>חנן הגנן</Name>
+    <Price>39.9</Price>
+    <Category>ילדים</Category>
+    <InStock>64</InStock>
+    <Path>/images/hanan_haganan.jpg</Path>
+  </Product>
+  <Product>
+    <ID>100005</ID>
+    <Name>הארי פוטר 5 ומסדר עוף החול</Name>
+    <Price>89</Price>
+    <Category>נוער</Category>
+    <InStock>69</InStock>
+    <Path>/images/haripotterChicken.jpg</Path>
+  </Product>
+  <Product>
+    <ID>200200</ID>
+    <Name>פילים בצבעים </Name>
+    <Price>30</Price>
+    <Category>ילדים</Category>
+    <InStock>44</InStock>
+    <Path>/images/pilim_bechol_hatzvaim_1.jpg</Path>
+  </Product>
+  <Product>
+    <ID>100010</ID>
+    <Name>דירה להשכיר </Name>
+    <Price>38</Price>
+    <Category>ילדים</Category>
+    <InStock>55</InStock>
+    <Path>/images/dira_lehaskir_vaod.jpg</Path>
+  </Product>
+  <Product>
+    <ID>100004</ID>
+    <Name>הארי פוטר 4 וגביע האש</Name>
+    <Price>90</Price>
+    <Category>נוער</Category>
+    <InStock>87</InStock>
+    <Path>/images/HarryPoterAndCupOfFire.jpg</Path>
   </Product>
 </products>
