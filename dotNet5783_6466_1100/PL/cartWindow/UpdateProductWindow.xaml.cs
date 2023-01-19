@@ -44,7 +44,7 @@ namespace PL.cartWindow
         }
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
-            int amount = int.Parse(upadteCB.Text);
+            int amount = int.Parse(updateCB.Text);
             try
             {
                 bl!.cart.UpdateProductInCart(cart, productBO!.ID, amount);

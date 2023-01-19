@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PL"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="CartWindow" Height="450" Width="800">
+        Title="CartWindow" Height="450" Width="900">
 
     <Grid x:Name="cartList"
           Background="{DynamicResource MaterialDesignBackground}"
@@ -19,7 +19,7 @@
 
         <DataGrid x:Name="cartListView"
                   Grid.Row="1"
-                  Margin="5,10,10,10"
+                  Margin="5,10,267,10"
                 
                   materialDesign:DataGridAssist.CellPadding="5"
                   materialDesign:DataGridAssist.ColumnHeaderPadding="30"                   
@@ -69,29 +69,38 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>-->
 
-                <DataGridTextColumn Header="שם מוצר"
-                                    Binding="{Binding Path= Name}"
-                                    MinWidth="10"/>
 
-                <DataGridTextColumn Header="מזהה מוצר"
-                                    Binding="{Binding Path= ProductID}"
-                                    MinWidth="10"/>
 
-                <DataGridTextColumn Header="מחיר"
-                                    Binding="{Binding Path= Price}"
-                                    MinWidth="10"/>
 
-                <DataGridTextColumn Header="כמות"
-                                    Binding="{Binding Path= Amount}"
-                                    MinWidth="10"/>
+
+
 
                 <DataGridTextColumn Header="מחיר סופי"
                                     Binding="{Binding Path= TotalPrice}"
                                     MinWidth="10"/>
 
+
+                <DataGridTextColumn Header="מחיר"
+                                    Binding="{Binding Path= Price}"
+                                    MinWidth="10"/>
+                <DataGridTextColumn Header="כמות"
+                                    Binding="{Binding Path= Amount}"
+                                    MinWidth="10"/>
+                <DataGridTextColumn Header="מזהה מוצר"
+                                    Binding="{Binding Path= ProductID}"
+                                    MinWidth="10"/>
+                <DataGridTextColumn Header="שם מוצר"
+                                    Binding="{Binding Path= Name}"
+                                    MinWidth="10"/>
+
             </DataGrid.Columns>
         </DataGrid>
+        <StackPanel Width="200"
+                    Height="400"
+                    HorizontalAlignment="Right"
+                    Background="AliceBlue" Margin="0,10,0,30" Grid.RowSpan="3">
 
+        </StackPanel>
         <Grid x:Name="downGrid" Grid.Row="1" Margin="0,349,0,0" Grid.RowSpan="2">
             <Button Content="השלם הזמנה" x:Name="completeCart"
                 HorizontalAlignment="left"
@@ -105,9 +114,9 @@
                 <materialDesign:PackIcon Kind="RemoveShoppingCart"
                                         Width="40"
                                          Height="25">
-                    
+
                 </materialDesign:PackIcon>
-                
+
             </Button>
 
         </Grid>
