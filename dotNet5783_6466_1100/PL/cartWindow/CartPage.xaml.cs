@@ -247,8 +247,16 @@ namespace PL.cartWindow
                 amount = int.Parse(t.Text);
                 if (amount == 0)
                     amount = 1;
-
-                UpdateAmount(sender, amount, true);
+                try
+                {
+                    UpdateAmount(sender, amount, true);
+                }
+                catch
+                {
+                    MessageBox.Show("אין עוד מהמוצר הזה במלאי" +
+                   "", "Error", MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                    amount = 1;
+                }
             }
         }
         private void UpdateAmount(object sender, int amount, bool isTextBox = false)
@@ -268,6 +276,7 @@ namespace PL.cartWindow
                     b = (Button)sender;
                     item = (PO.OrderItemPO)b.DataContext;
                 }
+
                 bl.cart.UpdateProductInCart(cartBO, (int)item.ProductID, amount);
                 item = cartPO.Items.FirstOrDefault(x => x.ProductID == item.ProductID);
                 cartPO.TotalPrice = cartBO.TotalPrice;
