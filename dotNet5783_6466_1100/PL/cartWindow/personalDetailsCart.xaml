@@ -8,53 +8,48 @@
         xmlns:local="clr-namespace:PL.cartWindow" 
         xmlns:converter="clr-namespace:PLConverter"
         mc:Ignorable="d"
-        Title="personalDetailsCart" Height="450" Width="300">
+        Title="personalDetailsCart" Height="450" Width="400">
     <Window.Resources>
         <converter:AllTextBoxEntered x:Key="AllTextBoxEntered"/>
-
     </Window.Resources>
-    <Grid x:Name="details">
- 
+
+
+    <Grid x:Name="details" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="400"/>
+        </Grid.RowDefinitions>
+
         <TextBox x:Name="customerNameTextBox"
-            Height="40" Width="80"
-                 Margin="0,-100,0,0"
+            Height="40" FlowDirection="RightToLeft"
+                 Margin="113,110,120,250"
+                 FontFamily="Cooper Black" FontSize="14"
                  Text="{Binding CustomerName }"
-                >
-            
-        </TextBox>
+                />
 
         <TextBox x:Name="customerEmailTextBox"
-            Height="40" Width="100"
-                 Margin="70,197,130,197"
-                 Text="{Binding CustomerEmail}">
-        </TextBox>
+                 Margin="62,192,146,175" FontFamily="Cooper Black"
+                 FontSize="14"
+                 Text="{Binding CustomerEmail}"/>
         <TextBox x:Name="customerAddressTextBox"
-            Height="40" Width="80"
-                 Margin="0,100,0,0"
-                 Text="{Binding CustomerAddress}">
-        </TextBox>
+                 FontSize="14"
+                 FlowDirection="RightToLeft"
+                 Margin="139,261,106,104"
+                 FontFamily="Cooper Black"
+                 Text="{Binding CustomerAddress}"/>
         <Label x:Name="customerNameLabel"
-               Content=":שם"
-               Height="20" Width="50"
-               FontSize="10" Margin="0,-100,-150,0">
-            
-        </Label>
+               Content=":שם לקוח"
+               FontFamily="Cooper Black"
+               FontSize="15" Margin="290,112,10,258"/>
         <Label x:Name="customerAddressLabel"
-               Content="דואר אלקטרוני"
-               Height="20" Width="80"
-               FontSize="10" Margin="0,0,-150,0">
-
-        </Label>
+               Content=":דואר אלקטרוני"
+               FontSize="15" FontFamily="Cooper Black" Margin="259,192,-5,180"/>
         <Label x:Name="customerEmailLabel"
                Content=":כתובת"
-               Height="20" Width="50"
-               FontSize="10" Margin="0,100,-150,0">
-
-        </Label>
+               FontSize="15" FontFamily="Cooper Black" Margin="310,270,0,100"/>
         <Button x:Name="addDetails"
                 Content="סיום"
                 Height="30" Width="60"
-                Margin="0,200,0,0" Click="addDetails_Click">
+                Margin="160,356,180,14" Click="addDetails_Click">
             <Button.IsEnabled>
                 <MultiBinding Converter="{StaticResource AllTextBoxEntered }">
                     <Binding ElementName="customerNameTextBox" Path="Text"/>

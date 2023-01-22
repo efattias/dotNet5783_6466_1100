@@ -61,7 +61,7 @@ internal class BoCart : IBoCart
     }
 
 
-    public void MakeCart(BO.Cart? cart)
+    public int MakeCart(BO.Cart? cart)
     {
         try
         {
@@ -122,7 +122,9 @@ internal class BoCart : IBoCart
                 productDO.InStock -= item.Amount;
                 dal.Product.Update(productDO);
             }
+            return idNewOrder;
         }
+        
         catch (DO.AlreadyExistExeption ex)
         {
             throw new Exception(ex.Message, ex);
@@ -137,6 +139,9 @@ internal class BoCart : IBoCart
         {
             throw new Exception(ex.Message, ex);
         }
+       
+
+
     }
 
     public BO.Cart UpdateProductInCart(BO.Cart? cart, int ID, int amount)

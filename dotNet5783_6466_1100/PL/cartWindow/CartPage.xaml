@@ -7,14 +7,15 @@
         mc:Ignorable="d"
         Title="CartPage" Height="450" Width="900">
     <Grid x:Name="cartList"
-          Background="{DynamicResource MaterialDesignBackground}"
-          Margin="0,0,0,-6">
+          Background="{DynamicResource MaterialDesignBackground}" Margin="0,0,10,-49"
+         >
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="25*"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="350"/>
+            <RowDefinition Height="100"/>
+
+
         </Grid.RowDefinitions>
-        <ListView x:Name="cartlistView" Margin="10,0,0,114" Grid.Row="1"
+        <ListView x:Name="cartlistView" Margin="10,0,0,10"
                   ItemsSource="{Binding Items}"
                   d:ItemsSource="{d:SampleData ItemCount=5}">
             <ListView.View>
@@ -211,20 +212,17 @@
 
             </DataGrid.Columns>
         </DataGrid>-->
-        <StackPanel Background="AliceBlue" Margin="10,281,10,1" Grid.Row="1">
-            <Label Content="סך מחיר" FlowDirection="RightToLeft" FontFamily="Cooper Black"/>
-            <TextBlock Width="80" Text="{Binding TotalPrice}" TextAlignment="Center"/>
-        </StackPanel>
 
-        <Grid x:Name="downGrid" Grid.Row="1" Margin="0,349,0,0" Grid.RowSpan="2">
+        
+
+        <StackPanel Background="AliceBlue" Margin="0,0,0,-53" Grid.Row="1" >
+            <Label Content="מחיר כולל לסל:" Margin="700,20,0,0" FlowDirection="RightToLeft" Width="120" FontSize="15" FontFamily="Cooper Black"/>
             <Button Content="השלם הזמנה" x:Name="completeCart"
-                HorizontalAlignment="Left"
-                Margin="758,24,0,0"
-                VerticalAlignment="Top" Click="completeCart_Click"  >
-            </Button>
+                Click="completeCart_Click" Width="140" Margin="600,50,0,0"/>
+            <TextBlock Width="80" Height="20" Margin="520,-180,0,0" FontSize="15" Text="{Binding TotalPrice}"  FontFamily="Cooper Black" TextAlignment="Center"/>
             <Button x:Name="deleteAllCart"
                     HorizontalAlignment="Left"
-                    Click="deleteCart_Click" Margin="10,30,0,29"
+                    Click="deleteCart_Click" Margin="10,-70,0,29"
                     >
                 <materialDesign:PackIcon Kind="RemoveShoppingCart"
                                         Width="40"
@@ -233,8 +231,9 @@
                 </materialDesign:PackIcon>
 
             </Button>
+        </StackPanel>
 
-        </Grid>
+
     </Grid>
 
     <!--<Grid Name="MainGrid">

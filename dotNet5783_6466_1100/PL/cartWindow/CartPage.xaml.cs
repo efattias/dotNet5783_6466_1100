@@ -33,6 +33,7 @@ namespace PL.cartWindow
             //CartListView.ItemsSource=c.Items;
             cartBO = cart;
             cartPO = PL.Tools.BoTOPoCart(cartBO);
+            frame=f;
 
 
             //if (cart.Items != null)
@@ -65,48 +66,49 @@ namespace PL.cartWindow
         private void completeCart_Click(object sender, RoutedEventArgs e)
         {
             if (cartBO.Items.Count() != 0)
-                completeCart.IsEnabled = true;
-
-            personalDetailsCart detailsWindow = new personalDetailsCart(cartBO);
-            detailsWindow.ShowDialog();
-
-            List<BO.OrderItem>? orderItemsBO = new List<BO.OrderItem>();
-            try
             {
-                bl!.cart.MakeCart(cartBO);
-                // cart = new();
-                //  cartBO.Items = new();
-                // DataContext= cartBO;
+                personalDetailsCart detailsWindow = new personalDetailsCart(cartBO);
+                detailsWindow.ShowDialog();
 
-                cartBO.CustomerName = null;
-                cartBO.CustomerAddress = null;
-                cartBO.CustomerEmail = null;
-                foreach (BO.OrderItem item in cartBO.Items.ToList())
+                List<BO.OrderItem>? orderItemsBO = new List<BO.OrderItem>();
+                try
                 {
-                    bl.cart.UpdateProductInCart(cartBO, item.ProductID, 0);
+                  int orderId=  bl!.cart.MakeCart(cartBO);
+                    // cart = new();
+                    //  cartBO.Items = new();
+                    // DataContext= cartBO;
+
+                    cartBO.CustomerName = null;
+                    cartBO.CustomerAddress = null;
+                    cartBO.CustomerEmail = null;
+                    foreach (BO.OrderItem item in cartBO.Items.ToList())
+                    {
+                        bl.cart.UpdateProductInCart(cartBO, item.ProductID, 0);
+                    }
+
+                    //cartBO.Items.ForEach(delegate (BO.OrderItem item)
+                    //{
+                    //    bl.cart.UpdateProductInCart(cartBO, item.ProductID, 0);
+                    //});
+                    if (cartBO.Items.Count() == 0)
+                        completeCart.IsEnabled = false;
+                    CustomerDetails page = new CustomerDetails(orderId,frame);
+                    frame.Content = page;
+                }
+                catch (Exception x)
+                {
+                    MessageBox.Show(x.Message);
                 }
 
-                //cartBO.Items.ForEach(delegate (BO.OrderItem item)
-                //{
-                //    bl.cart.UpdateProductInCart(cartBO, item.ProductID, 0);
-                //});
-                if (cartBO.Items.Count() == 0)
-                    completeCart.IsEnabled = false;
+
+                //to clear the cart to the next time
+                // cartBO?.Items?.Clear();
+
+                //  cartBO = null;
+                // cartPO = null;
+              
+                //NavigationService.GoBack();
             }
-            catch (Exception x)
-            {
-                MessageBox.Show(x.Message);
-            }
-
-
-            //to clear the cart to the next time
-            // cartBO?.Items?.Clear();
-
-            //  cartBO = null;
-            // cartPO = null;
-
-
-            NavigationService.GoBack();
         }
 
         private void deleteCart_Click(object sender, RoutedEventArgs e)

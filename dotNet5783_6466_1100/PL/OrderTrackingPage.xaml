@@ -43,23 +43,25 @@
                 Click="Button_Click" Height="32" Grid.Row="0" Width="104"/>
 
         <StackPanel Grid.Row="1">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="71">
-                <TextBox x:Name="StatusTextBox" Height="25"
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="71">
+                <TextBox x:Name="StatusTextBox" Height="30"
                  Width="105"
+                         Margin="0,-40,0,0"
                  Text="{Binding OrderStatus}"
                  FlowDirection="RightToLeft"
-                    IsReadOnly="False" IsEnabled="True"/>
+                    
+                    IsReadOnly="True" IsEnabled="True"/>
                 <Label Content="מצב הזמנה"
                FontFamily="Cooper Black"
                Width="94" HorizontalContentAlignment="Right"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="71">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Height="71">
 
-                <TextBox x:Name="ListTextBox" Height="60"
+                <TextBox x:Name="ListTextBox" Height="100"
                  Text="{Binding trackList}"
                  FlowDirection="RightToLeft"
-                    IsReadOnly="False" IsEnabled="True" Width="100"/>
-                <Label Content="רשימת מעקב"
+                    IsReadOnly="False" IsEnabled="True" Width="200"/>
+                <Label Content="רשימת מעקב" FlowDirection="RightToLeft"
                FontFamily="Cooper Black"
                Width="94" Height="100"/>
             </StackPanel>

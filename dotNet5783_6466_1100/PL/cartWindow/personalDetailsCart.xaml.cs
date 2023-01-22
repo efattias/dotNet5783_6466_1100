@@ -9,6 +9,8 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Navigation;
+
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
@@ -34,7 +36,10 @@ namespace PL.cartWindow
         {
            
             Close();
-        
+            //CustomerDetails page= new CustomerDetails();
+            //this.Content = page;
+
+
         }
     }
 }
