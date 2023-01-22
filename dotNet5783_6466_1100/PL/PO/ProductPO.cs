@@ -87,11 +87,11 @@ namespace PL.PO
                     }
                 }
             }
-        private string path;
+        private string? path;
         public string Path
         {
             get
-            { return path; }
+            { return path!; }
             set
             {
                 path = value;

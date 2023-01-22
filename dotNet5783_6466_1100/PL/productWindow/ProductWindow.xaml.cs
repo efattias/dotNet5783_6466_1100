@@ -30,7 +30,7 @@ namespace PL.productWindow
         BO.Product? p= new BO.Product();
         PO.ProductForListPO? pPO= new PO.ProductForListPO();
         PO.ProductPO? productPO=new PO.ProductPO();
-        string? path;    
+        string path;    
             
         //   Cart cart = new Cart() { CustomerAddress = "", CustomerEmail = "", CustomerName = "", Items = new List<BO.OrderItem?>(), TotalPrice = 0 };
         Action<PO.ProductForListPO> action;
@@ -54,7 +54,7 @@ namespace PL.productWindow
                 //pPO.Name = p.Name;
                 //pPO.Price = (double)p.Price;
                 //pPO.Category= (PO.Category)p.Category;
-                AmountOfItemTextBox.Text = p.InStock.ToString();
+                AmountOfItemTextBox.Text = p!.InStock!.ToString();
                 //pPO.InStock = (int)p.InStock;
                // UpdateButton.DataContext = p;
                 IDTextBox.IsEnabled = false;
@@ -119,8 +119,8 @@ namespace PL.productWindow
             //create the product
             try
             {
-               if(pPO.Path== null ) 
-                pPO.Path = path ;
+               if(pPO!.Path== null ) 
+                pPO!.Path = path ;
 
                 
 
@@ -164,9 +164,9 @@ namespace PL.productWindow
                 {
                     ID = id,
                     Name = p.Name,
-                    Price = (double)p.Price,
-                    Category = (PO.Category)p.Category,
-                    Path=p.Path
+                    Price = (double)p!.Price!,
+                    Category = (PO.Category)p!.Category!,
+                    Path=p!.Path!
                 });     
                 
                 

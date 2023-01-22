@@ -5,21 +5,24 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PL.cartWindow"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="500" d:DesignWidth="800"
       Title="CustomerDetails">
 
-    <Grid Background="AliceBlue">
-        <Label Content=":מספר הזמנה למעקב" FontSize="25" FontFamily="Cooper Black" Width="300" Height="50" Margin="299,95,201,305" >
-            
+    <Grid Margin="0,0,-24,0">
+        <Grid.Background>
+            <ImageBrush ImageSource="/cartWindow/man with books.png"/>
+        </Grid.Background>
+        <Label Content=":מספר הזמנה למעקב" FontSize="25" FontFamily="Cooper Black" Width="300" Height="50" Margin="525,19,-1,431" >
+
         </Label>
-        <TextBlock x:Name="orderNumTextBox" Height="80" Width="100" FontSize="20" FontFamily="Cooper Black" Margin="370,125,330,245" >
-            
+        <TextBlock x:Name="orderNumTextBox" Height="80" Width="100" FontSize="20" FontFamily="Cooper Black" Margin="591,55,133,365" >
+
         </TextBlock>
-        <Label Content="תודה שקנית אצלנו" FontSize="25" FontFamily="Cooper Black" Width="300" Height="50" Margin="318,293,182,107">
-            
+        <Label Content="תודה שקנית אצלנו" FontSize="20" FontFamily="Cooper Black" Width="300" Height="50" Margin="26,356,498,94">
+
         </Label>
-        <Button x:Name="backToCatalog" Width="160" Height="60" Content="למעבר לדף הבית" Margin="40,375,600,15" Click="backToCatalog_Click"> 
-            
+        <Button x:Name="backToCatalog" Width="160" Height="60" Content="למעבר לדף הבית" Margin="40,375,600,15" Click="backToCatalog_Click">
+
         </Button>
     </Grid>
 </Page>

@@ -47,6 +47,7 @@ namespace PL
 
         private void IEnumerableToObservable(IEnumerable<ProductForList> listTOConvert)
         {
+            if(productItemListPO!=null)
             productItemListPO.Clear();
             //productItemListPO = (from p in listTOConvert
             //                     let product = bl.Product.GetProductbyId(p.ID)
@@ -63,7 +64,7 @@ namespace PL
             {
                 Product? product = bl!.Product.GetProductbyId(p.ID);
                 bool inStockFlag;
-                if(product.InStock>0)
+                if(product!.InStock>0)
                     inStockFlag = true;
                 else
                     inStockFlag = false;
@@ -72,16 +73,14 @@ namespace PL
                 {
                     ID = p.ID,
                     Name = p.Name,
-                    Price = (double)p.Price,
-                    Category = (PO.Category)p.Category,
+                    Price = (double)p!.Price!,
+                    Category = (PO.Category)p!.Category!,
                     InStock = inStockFlag,
-                    Amount = (int)product.InStock,
+                    Amount = (int)product!.InStock!,
                     Path=p.Path
                 };
 
-                productItemListPO.Add(proPO);
-
-
+                productItemListPO!.Add(proPO);
             }
                
         }

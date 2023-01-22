@@ -1,62 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <products>
   <Product>
-    <ID>100001</ID>
-    <Name>הארי פוטר 3 והאסיר מאזקבאן</Name>
-    <Price>90</Price>
-    <Category>נוער</Category>
-    <InStock>112</InStock>
-    <Path>/images/HarryPoterAndThePrisoner.jpg</Path>
-  </Product>
-  <Product>
-    <ID>100005</ID>
-    <Name>הארי פוטר 5 ומסדר עוף החול</Name>
-    <Price>89</Price>
-    <Category>נוער</Category>
-    <InStock>66</InStock>
-    <Path>/images/haripotterChicken.jpg</Path>
-  </Product>
-  <Product>
-    <ID>100004</ID>
-    <Name>הארי פוטר 4 וגביע האש</Name>
-    <Price>90</Price>
-    <Category>נוער</Category>
-    <InStock>84</InStock>
-    <Path>/images/HarryPoterAndCupOfFire.jpg</Path>
-  </Product>
-  <Product>
-    <ID>100010</ID>
-    <Name>דירה להשכיר </Name>
-    <Price>38</Price>
-    <Category>ילדים</Category>
-    <InStock>50</InStock>
-    <Path>/images/dira_lehaskir_vaod.jpg</Path>
-  </Product>
-  <Product>
-    <ID>100000</ID>
-    <Name>הארי פוטר 2 וחדר הסודות</Name>
-    <Price>89</Price>
-    <Category>נוער</Category>
-    <InStock>91</InStock>
-    <Path>/images/HarryPoterSecretsRoom.jpg</Path>
-  </Product>
-  <Product>
-    <ID>100006</ID>
-    <Name>הארי פוטר 6 והנסיך חצוי הדם</Name>
-    <Price>88</Price>
-    <Category>נוער</Category>
-    <InStock>65</InStock>
-    <Path>/images/haripoterPrinceHalfBlood.jpg</Path>
-  </Product>
-  <Product>
-    <ID>100008</ID>
-    <Name>חנן הגנן</Name>
-    <Price>39.9</Price>
-    <Category>ילדים</Category>
-    <InStock>60</InStock>
-    <Path>/images/hanan_haganan.jpg</Path>
-  </Product>
-  <Product>
     <ID>100002</ID>
     <Name>הארי פוטר 1 ואבן החכמים</Name>
     <Price>89</Price>
@@ -87,5 +31,61 @@
     <Category>ילדים</Category>
     <InStock>0</InStock>
     <Path>/images/pilim_bechol_hatzvaim_1.jpg</Path>
+  </Product>
+  <Product>
+    <ID>100001</ID>
+    <Name>הארי פוטר 3 והאסיר מאזקבאן</Name>
+    <Price>90</Price>
+    <Category>נוער</Category>
+    <InStock>111</InStock>
+    <Path>/images/HarryPoterAndThePrisoner.jpg</Path>
+  </Product>
+  <Product>
+    <ID>100005</ID>
+    <Name>הארי פוטר 5 ומסדר עוף החול</Name>
+    <Price>89</Price>
+    <Category>נוער</Category>
+    <InStock>65</InStock>
+    <Path>/images/haripotterChicken.jpg</Path>
+  </Product>
+  <Product>
+    <ID>100004</ID>
+    <Name>הארי פוטר 4 וגביע האש</Name>
+    <Price>90</Price>
+    <Category>נוער</Category>
+    <InStock>83</InStock>
+    <Path>/images/HarryPoterAndCupOfFire.jpg</Path>
+  </Product>
+  <Product>
+    <ID>100010</ID>
+    <Name>דירה להשכיר </Name>
+    <Price>38</Price>
+    <Category>ילדים</Category>
+    <InStock>49</InStock>
+    <Path>/images/dira_lehaskir_vaod.jpg</Path>
+  </Product>
+  <Product>
+    <ID>100000</ID>
+    <Name>הארי פוטר 2 וחדר הסודות</Name>
+    <Price>89</Price>
+    <Category>נוער</Category>
+    <InStock>90</InStock>
+    <Path>/images/HarryPoterSecretsRoom.jpg</Path>
+  </Product>
+  <Product>
+    <ID>100006</ID>
+    <Name>הארי פוטר 6 והנסיך חצוי הדם</Name>
+    <Price>88</Price>
+    <Category>נוער</Category>
+    <InStock>64</InStock>
+    <Path>/images/haripoterPrinceHalfBlood.jpg</Path>
+  </Product>
+  <Product>
+    <ID>100008</ID>
+    <Name>חנן הגנן</Name>
+    <Price>39.9</Price>
+    <Category>ילדים</Category>
+    <InStock>56</InStock>
+    <Path>/images/hanan_haganan.jpg</Path>
   </Product>
 </products>

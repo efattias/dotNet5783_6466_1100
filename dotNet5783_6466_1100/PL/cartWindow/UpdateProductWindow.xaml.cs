@@ -31,8 +31,8 @@ namespace PL.cartWindow
         public UpdateProductWindow(Cart? cartBO, OrderItemPO productItem)
         {
             InitializeComponent();
-            cart = cartBO;
-            cartPo = Tools.BoTOPoCart(cart);
+            cart = cartBO!;
+            cartPo = Tools.BoTOPoCart(cart!);
             //cart!.CustomerName = cartBO!.CustomerName;
             //cart.CustomerEmail = cartBO.CustomerEmail;
             //cart.CustomerAddress = cartBO.CustomerAddress;
@@ -40,7 +40,7 @@ namespace PL.cartWindow
             //cart!.TotalPrice = cartBO.TotalPrice;
             orderItemPO = productItem;
             DataContext = orderItemPO;
-            productBO = bl.Product.GetProductbyId((int)productItem.ProductID);
+            productBO = bl.Product.GetProductbyId((int)productItem.ProductID!);
         }
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
@@ -49,7 +49,7 @@ namespace PL.cartWindow
             {
                 bl!.cart.UpdateProductInCart(cart, productBO!.ID, amount);
                 cartPo = PL.Tools.BoTOPoCart(cart);
-                orderItemPO.Amount = amount;
+                orderItemPO!.Amount = amount;
                 orderItemPO.TotalPrice = amount * orderItemPO.Price;
 
                 Close();

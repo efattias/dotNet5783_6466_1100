@@ -37,7 +37,7 @@ namespace PL
         {
             try
             {
-                BO.Order order = bl.Order.GetOrder(int.Parse(IDTextBox.Text));
+                BO.Order order = bl!.Order.GetOrder(int.Parse(IDTextBox.Text));
 
                 oTrack = bl.Order.TrackOrder(order.ID);
                 DataContext = oTrack;

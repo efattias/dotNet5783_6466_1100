@@ -65,7 +65,7 @@ namespace PL.cartWindow
 
         private void completeCart_Click(object sender, RoutedEventArgs e)
         {
-            if (cartBO.Items.Count() != 0)
+            if (cartBO!.Items!.Count() != 0)
             {
                 personalDetailsCart detailsWindow = new personalDetailsCart(cartBO);
                 detailsWindow.ShowDialog();
@@ -81,16 +81,16 @@ namespace PL.cartWindow
                     cartBO.CustomerName = null;
                     cartBO.CustomerAddress = null;
                     cartBO.CustomerEmail = null;
-                    foreach (BO.OrderItem item in cartBO.Items.ToList())
+                    foreach (BO.OrderItem? item in cartBO!.Items!.ToList())
                     {
-                        bl.cart.UpdateProductInCart(cartBO, item.ProductID, 0);
+                        bl.cart.UpdateProductInCart(cartBO, item!.ProductID, 0);
                     }
 
                     //cartBO.Items.ForEach(delegate (BO.OrderItem item)
                     //{
                     //    bl.cart.UpdateProductInCart(cartBO, item.ProductID, 0);
                     //});
-                    if (cartBO.Items.Count() == 0)
+                    if (cartBO!.Items!.Count() == 0)
                         completeCart.IsEnabled = false;
                     CustomerDetails page = new CustomerDetails(orderId,frame);
                     frame.Content = page;
@@ -114,8 +114,8 @@ namespace PL.cartWindow
         private void deleteCart_Click(object sender, RoutedEventArgs e)
         {
 
-            cartBO.Items.Clear();
-            cartPO.Items.Clear();
+            cartBO!.Items!.Clear();
+            cartPO!.Items!.Clear();
             cartBO.TotalPrice = 0;
             cartPO.TotalPrice = 0;
         }
@@ -146,10 +146,10 @@ namespace PL.cartWindow
                 // int zeroAmount = 0;
 
 
-                bl.cart.UpdateProductInCart(cartBO, id, 0);
+                bl!.cart!.UpdateProductInCart(cartBO, id, 0);
 
-                cartPO!.Items!.Remove(orderItemPO);
-                cartPO.TotalPrice = cartPO.TotalPrice - orderItemPO.Price * orderItemPO.Amount;
+                cartPO!.Items!.Remove(orderItemPO!);
+                cartPO.TotalPrice = cartPO.TotalPrice - orderItemPO!.Price * orderItemPO.Amount;
 
             }
             catch (Exception x)
@@ -265,7 +265,7 @@ namespace PL.cartWindow
         {
             try
             {
-                PO.OrderItemPO item = new();
+                PO.OrderItemPO? item = new();
                 TextBox t;
                 Button b;
                 if (isTextBox)
@@ -279,19 +279,19 @@ namespace PL.cartWindow
                     item = (PO.OrderItemPO)b.DataContext;
                 }
 
-                bl.cart.UpdateProductInCart(cartBO, (int)item.ProductID, amount);
-                item = cartPO.Items.FirstOrDefault(x => x.ProductID == item.ProductID);
-                cartPO.TotalPrice = cartBO.TotalPrice;
+                bl!.cart.UpdateProductInCart(cartBO, (int)item!.ProductID!, amount);
+                item = cartPO!.Items!.FirstOrDefault(x => x!.ProductID! == item!.ProductID!);
+                cartPO.TotalPrice = cartBO!.TotalPrice;
                 if (amount == 0)
                 {
-                    cartPO.Items.Remove(item);
+                    cartPO!.Items!.Remove(item!);
                     cartPO.TotalPrice = cartBO.TotalPrice;
                     return;
                 }
-                item.Amount = amount;
+                item!.Amount = amount;
                 item.TotalPrice = item.Amount * item.Price;
             }
-            catch (BO.ProductOutOfStockException ex)
+            catch (BO.ProductOutOfStockException )
             {
                 MessageBox.Show("אין עוד מהמוצר הזה במלאי" +
                    "", "Error", MessageBoxButton.OKCancel, MessageBoxImage.Error);

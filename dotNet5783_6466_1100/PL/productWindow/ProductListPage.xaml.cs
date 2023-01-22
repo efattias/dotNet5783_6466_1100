@@ -67,9 +67,9 @@ namespace PL
                           {
                               ID = p.ID,
                               Name = p.Name,
-                              Price = (double)p.Price,
-                              Category = (PO.Category)p.Category,
-                              Path=p.Path
+                              Price = (double)p!.Price!,
+                              Category = (PO.Category)p!.Category!,
+                              Path=p!.Path!
                               
                           }).ToList();
             productListPO.Clear();
@@ -114,9 +114,9 @@ namespace PL
             {
                 try
                 {
-                    PO.ProductForListPO po = productListV.SelectedItem as PO.ProductForListPO;
-                    int id = po.ID; 
-                    bl.Product.DeledeProduct(id);
+                    PO.ProductForListPO? po = productListV!.SelectedItem! as PO.ProductForListPO;
+                    int id = po!.ID!; 
+                    bl!.Product.DeledeProduct(id);
                     productListPO.Remove(po);
                     categorySelector.SelectedItem = " ";
                 }

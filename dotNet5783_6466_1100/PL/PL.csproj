@@ -13,6 +13,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="cartWindow\Free Photo _ Close up of a light wooden floorboard textured background.jpeg" />
+    <None Remove="cartWindow\man with books.png" />
+    <None Remove="cartWindow\Wood Wall And Wood Floor With Some Notebooks Photography Backdrop.jpg" />
     <None Remove="images\caspion_.jpg" />
     <None Remove="images\dira_lehaskir_vaod.jpg" />
     <None Remove="images\hanan_haganan.jpg" />
@@ -77,6 +80,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="cartWindow\Free Photo _ Close up of a light wooden floorboard textured background.jpeg" />
+    <Resource Include="cartWindow\man with books.png" />
+    <Resource Include="cartWindow\Wood Wall And Wood Floor With Some Notebooks Photography Backdrop.jpg" />
     <Resource Include="images\Wood Wall And Wood Floor With Some Notebooks Photography Backdrop.jpg" />
     <Resource Include="Wood Wall And Wood Floor With Some Notebooks Photography Backdrop.jpg" />
   </ItemGroup>
