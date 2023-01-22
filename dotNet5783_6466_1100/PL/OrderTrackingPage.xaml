@@ -15,11 +15,14 @@
             x:Key="notVisibilityToVisibilityConverter"/>
     </Page.Resources>
 
-    <Grid Name="OrderTracking" Background="AliceBlue" Margin="416,0,0,-50">
+    <Grid Name="OrderTracking" Background="AliceBlue" Margin="0,0,0,0" Height="450" Width="400">
         <Grid.RowDefinitions>
             <RowDefinition Height="200*"/>
-            <RowDefinition Height="333*"/>
+            <RowDefinition Height="250*"/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"/>
+        </Grid.ColumnDefinitions>
         <Label x:Name="IDLabel"
                Content=":הכנס מספר הזמנה למעקב" 
                FontFamily=" Cooper Black"
@@ -43,7 +46,7 @@
                 Click="Button_Click" Height="32" Grid.Row="0" Width="104"/>
 
         <StackPanel Grid.Row="1">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="71">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"  Height="71">
                 <TextBox x:Name="StatusTextBox" Height="30"
                  Width="105"
                          Margin="0,-40,0,0"
@@ -94,4 +97,6 @@
             </ListBox.ItemTemplate>
         </ListBox>-->
     </Grid>
+   
+    
 </Page>
