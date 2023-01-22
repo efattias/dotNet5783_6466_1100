@@ -13,9 +13,10 @@
             <RowDefinition x:Name="main" Height="650"></RowDefinition>
         </Grid.RowDefinitions>
         <Frame x:Name="mainFrame"
-               Height="630"
+               Height="650"
                Margin="0,0,0,21"
-               Grid.Row="1">
+               Grid.Row="1"
+              NavigationUIVisibility="Hidden">
         </Frame>
         <StackPanel x:Name="upPanel"
                     Grid.Row="0"

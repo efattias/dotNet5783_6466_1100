@@ -24,12 +24,13 @@ namespace PL
     public partial class OrderTrackingPage : Page
     {
         BlApi.IBL? bl = BlApi.Factory.GetBl() ?? throw new NullReferenceException("Missing bl");
-        BO.OrderTracking oTrack=new BO.OrderTracking();
-        public OrderTrackingPage()
+        BO.OrderTracking oTrack = new BO.OrderTracking();
+        Frame f;
+        public OrderTrackingPage(Frame mainFrame)
         {
-
+            f = mainFrame;
             InitializeComponent();
-           
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -47,14 +48,26 @@ namespace PL
                     s += (o.ToString()) + "\n";
                 ListTextBox.Text = s;
             }
-            catch(BO.DoesntExistException x)         
-                  
+            catch (BO.DoesntExistException x)
+
             {
                 MessageBox.Show(x.Message);
             }
         }
-            //ListTextBox.Text=oTrack.trackList!.ToString();
-            //List<Tuple<DateTime?, string>>? trackList = oTrack.trackList;
-            //trackListBox = trackList.ToList();
+
+     
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            f.Content = new MainPage(f);
         }
+
+        private void newOrder_Click(object sender, RoutedEventArgs e)
+        {
+            f.Content = new OrderTrackingPage(f);
+        }
+        //ListTextBox.Text=oTrack.trackList!.ToString();
+        //List<Tuple<DateTime?, string>>? trackList = oTrack.trackList;
+        //trackListBox = trackList.ToList();
     }
+}

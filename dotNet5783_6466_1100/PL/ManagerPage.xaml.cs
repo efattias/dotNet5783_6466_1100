@@ -25,14 +25,15 @@ namespace PL
         DispatcherTimer timer;
         readonly double panelWidth;
         private bool hidden = true;
+        Frame f;
 
-        public ManagerPage()
+        public ManagerPage(Frame mainFrame)
         {
             InitializeComponent();
             timer = new DispatcherTimer();
             timer.Interval = new TimeSpan(0, 0, 0, 0, 10);
             timer.Tick += Timer_Tick;
-
+            f = mainFrame;
             panelWidth = sidePanel.Width;
             sidePanel.Width = 60;
             ListFrame.Content = new ManagerPageWindow();
@@ -74,6 +75,11 @@ namespace PL
                 case 1:
                     {
                         ListFrame.Content = new ProductListPage();
+                        break;
+                    }
+                    case 2:
+                    {
+                        f.Content = new MainPage(f);
                         break;
                     }
             

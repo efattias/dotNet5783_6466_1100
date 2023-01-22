@@ -191,5 +191,10 @@ namespace PL
             sortByAB.IsEnabled = true;
 
         }
+
+        private void home_Click(object sender, RoutedEventArgs e)
+        {
+           NavigationService.GoBack();
+        }
     }
 }

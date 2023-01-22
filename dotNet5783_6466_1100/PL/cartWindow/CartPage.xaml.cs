@@ -303,5 +303,10 @@ namespace PL.cartWindow
             var orderItem = sender as OrderItemPO;
            
         }
+
+        private void backToCatelog_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

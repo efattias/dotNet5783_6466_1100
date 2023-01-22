@@ -43,7 +43,7 @@
                     Content="מיין לפי  א-ב"
                     Width="120"
                     Background="#006bb3"
-                    HorizontalAlignment="Left" Margin="28,6,0,61">
+                    HorizontalAlignment="Left" Margin="107,26,0,82">
 
             </Button>
 
@@ -51,21 +51,28 @@
                     Content="מיין לפי מחיר"
                     HorizontalAlignment="Left"
                     Width="120"
-                    Margin="28,26,0,0"
+                    Margin="108,67,0,0"
                       Background="#006bb3"
-                    VerticalAlignment="Center" Click="Button_Click_8">
+                    VerticalAlignment="Top" Click="Button_Click_8">
 
             </Button>
             <Button Name="RemoveGrouping"
                     
                     HorizontalAlignment="Left"
-                    Margin="60,103,0,0"
+                    Margin="137,103,0,0"
                        Background="#006bb3"
                     VerticalAlignment="Top" Click="RemoveGrouping_Click">
                 <materialDesign:PackIcon Kind="RemoveBold">
 
                 </materialDesign:PackIcon>
             </Button>
+            <Button x:Name="home" Margin="-700,0,0,0" Width="50" Height="50" Click="home_Click">
+                <materialDesign:PackIcon Kind="Home">
+                    
+                </materialDesign:PackIcon> 
+                
+            </Button>
+          
             <!--<Label x:Name="category"
                    Content="קטגוריה"
                    HorizontalAlignment="Left"

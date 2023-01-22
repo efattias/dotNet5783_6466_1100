@@ -33,7 +33,7 @@ namespace PL
             //window.Show();
             //ProductListPage page = new ProductListPage();
             //this.Content = page;
-            OrderTrackingPage orderTrackingPage = new OrderTrackingPage();
+            OrderTrackingPage orderTrackingPage = new OrderTrackingPage(frame);
             frame.Content = orderTrackingPage;
         }
 
@@ -89,7 +89,7 @@ namespace PL
         {
             if (PasswordBox.Password == "1234")
             {
-                ManagerPage homeManager = new();
+                ManagerPage homeManager = new(frame);
                 PasswordBox.Password = "";
                 frame.Content = homeManager;
 

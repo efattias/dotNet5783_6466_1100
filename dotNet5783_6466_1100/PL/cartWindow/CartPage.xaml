@@ -222,9 +222,20 @@
             <TextBlock Width="80" Height="20" Margin="520,-180,0,0" FontSize="15" Text="{Binding TotalPrice}"  FontFamily="Cooper Black" TextAlignment="Center"/>
             <Button x:Name="deleteAllCart"
                     HorizontalAlignment="Left"
-                    Click="deleteCart_Click" Margin="10,-70,0,29"
+                    Click="deleteCart_Click" Margin="10,-40,0,29"
                     >
                 <materialDesign:PackIcon Kind="RemoveShoppingCart"
+                                        Width="40"
+                                         Height="25">
+
+                </materialDesign:PackIcon>
+
+            </Button>
+            <Button x:Name="backToCatelog"
+                    HorizontalAlignment="Left"
+                    Margin="10,-200,0,29" Click="backToCatelog_Click"
+                    >
+                <materialDesign:PackIcon Kind="ShoppingCartAdd"
                                         Width="40"
                                          Height="25">
 
