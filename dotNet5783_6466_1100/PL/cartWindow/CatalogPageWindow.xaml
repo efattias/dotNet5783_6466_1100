@@ -163,6 +163,7 @@
         <ListView Name="pList" Background="AliceBlue"
                   Grid.Row="1"
                   ItemsSource="{Binding}"
+                  MouseDoubleClick="doubleClickShowProduct"
                     d:ItemsSource="{d:SampleData ItemCount=3}">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate >

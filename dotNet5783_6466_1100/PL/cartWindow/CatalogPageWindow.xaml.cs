@@ -195,5 +195,11 @@ namespace PL
         {
            NavigationService.GoBack();
         }
+
+        private void doubleClickShowProduct(object sender, MouseButtonEventArgs e)
+        {
+            var product = (PO.ProductItemPO)pList.SelectedItem;
+            new ProductWindowForCart(product.ID).ShowDialog();
+        }
     }
 }
