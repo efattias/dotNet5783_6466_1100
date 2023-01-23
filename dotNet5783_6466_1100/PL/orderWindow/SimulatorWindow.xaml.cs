@@ -45,6 +45,15 @@ public partial class SimulatorWindow : Window
         IEnumerableToObservable(bl.Order.getOrderForList());
         DataContext = orderListPO;
     }
+    private void doubleClickShowOrder(object sender, MouseButtonEventArgs e)
+    {
+        //DataContext = orderListPO;
+        // var order = (OrderForListPO)orderListV.SelectedItem;
+        new orderTrackSimulator((PO.OrderForListPO)orderListV.SelectedItem).ShowDialog();
+        // new orderWindow((PO.OrderForListPO)orderListV.SelectedItem
+        // DataContext = orderListPO;
+        //  IEnumerableToObservable(bl.Order.getOrderForList());
+    }
     private void IEnumerableToObservable(IEnumerable<BO.OrderForList> listTOConvert)
     {
         var listPO = (from o in listTOConvert
