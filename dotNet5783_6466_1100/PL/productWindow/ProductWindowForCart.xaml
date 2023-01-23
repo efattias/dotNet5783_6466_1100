@@ -6,14 +6,14 @@
         xmlns:local="clr-namespace:PL.productWindow"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="ProductWindowForCart" Height="400" Width="300">
+        Title="ProductWindowForCart" Height="450" Width="300">
     <Grid>
         <Label x:Name="IDLabel"
                Content=":מזהה" 
                HorizontalAlignment="Left" 
                Margin="208,139,0,0" 
                VerticalAlignment="Top"
-               RenderTransformOrigin="-7.932,0.579" Height="25" Width="60" HorizontalContentAlignment="Right"/>
+               RenderTransformOrigin="-7.932,0.579" Height="25" Width="80" HorizontalContentAlignment="Right"/>
 
         <TextBox x:Name="IDTextBox"
                  Height="25"
@@ -26,63 +26,81 @@
         <Label x:Name="NameLabel"
                Content=":שם" 
                HorizontalAlignment="Left" 
-               Margin="208,189,0,0" 
+               Margin="208,179,0,0" 
                VerticalAlignment="Top"
                RenderTransformOrigin="-7.932,0.579"
-               Height="25" Width="60"
+               Height="25" Width="80"
                HorizontalContentAlignment="Right"/>
 
         <TextBox x:Name="NameTextBox" Height="25"
                  VerticalAlignment="Top"
                  Text="{Binding Name}"
-                 Margin="34,189,93,0"
+                 Margin="34,179,93,0"
                  IsReadOnly="True"
                  IsEnabled="True"/>
 
         <Label x:Name="PriceLabel"
                Content=":מחיר" 
                HorizontalAlignment="Left" 
-               Margin="208,239,0,0" 
+               Margin="208,219,0,0" 
                VerticalAlignment="Top"
                RenderTransformOrigin="-7.932,0.579"
-               Height="25" Width="60"
+               Height="25" Width="80"
                HorizontalContentAlignment="Right"/>
 
         <TextBox x:Name="PriceTextBox"
                  Height="25"
                  VerticalAlignment="Top"
-                 Margin="34,239,93,0"
+                 Margin="34,219,93,0"
                  Text="{Binding Price}"
                  IsReadOnly="True"
                  IsEnabled="true"/>
 
         <Label x:Name="AmountOfItemsLabel"
-               Content=":כמות" 
+               Content=":כמות בסל" 
                HorizontalAlignment="Left" 
-               Margin="208,289,0,0" 
+               Margin="208,259,0,0" 
                VerticalAlignment="Top"
                RenderTransformOrigin="-7.932,0.579"
-               Height="25" Width="60"
+               Height="25" Width="80"
                HorizontalContentAlignment="Right"/>
 
         <TextBox x:Name="AmountOfItemTextBox"
                  Height="25"
                  VerticalAlignment="Top"
-                 Margin="34,289,93,0"
+                 Margin="34,259,93,0"
                  IsReadOnly="True"
-                 IsEnabled="true"/>
+                 IsEnabled="true"
+                 Text="{Binding Amount}"/>
+
+        <Label x:Name="InStockOfItemsLabel"
+               Content=":כמות במלאי" 
+               HorizontalAlignment="Left" 
+               Margin="208,299,0,0" 
+               VerticalAlignment="Top"
+               RenderTransformOrigin="-7.932,0.579"
+               Height="25" Width="80"
+               HorizontalContentAlignment="Right"/>
+
+        <TextBox x:Name="InStockOfItemTextBox"
+                 Height="25"
+                 VerticalAlignment="Top"
+                 Margin="34,299,93,0"
+                 IsReadOnly="True"
+                 IsEnabled="true"
+                 Text="{Binding InStock}"/>
 
         <Label x:Name="categoryLabel"
                Content=":קטגוריה" 
                HorizontalAlignment="Right" 
-               Margin="0,345,32,0" 
+               Margin="0,345,12,0" 
                VerticalAlignment="Top"
                RenderTransformOrigin="-7.932,0.579"
-               Height="25" Width="60"
+               Height="25" Width="80"
                HorizontalContentAlignment="Right"/>
 
         <ComboBox x:Name="categoryComboBox"
-                  Margin="34,349,93,10" 
+                  Margin="34,315,93,10" 
                   Text="{Binding Category}"
                   ItemsSource="{Binding }"
                   IsReadOnly="True"
