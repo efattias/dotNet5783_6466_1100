@@ -21,15 +21,18 @@ namespace PL.productWindow
     {
         BlApi.IBL? bl = BlApi.Factory.GetBl() ?? throw new NullReferenceException("Missing bl");
         BO.Product productBO = new BO.Product();
+        BO.ProductItem productItemBO = new BO.ProductItem();
         //PO.ProductItemPO product= new PO.ProductItemPO();
-        public ProductWindowForCart(int idPO)
+        public ProductWindowForCart(int id, BO.Cart cart)
         {
             InitializeComponent();
-            categoryComboBox.ItemsSource = Enum.GetValues(typeof(BO.Category));
-            productBO = bl.Product.GetProductbyId(idPO);
+            
+            //productBO = bl.Product.GetProductbyId(idPO);
+            productItemBO = bl.Product.GetProductByIDAndCart(id, cart);
             AmountOfItemTextBox.Text = productBO!.InStock!.ToString();
             //PL.Tools.CopyPropTo(productBO, product);
-            DataContext = productBO;
+            DataContext = productItemBO;
+            categoryComboBox.ItemsSource = Enum.GetValues(typeof(BO.Category));
         }
     }
 }

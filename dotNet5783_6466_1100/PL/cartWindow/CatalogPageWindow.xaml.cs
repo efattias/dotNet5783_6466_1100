@@ -199,7 +199,7 @@ namespace PL
         private void doubleClickShowProduct(object sender, MouseButtonEventArgs e)
         {
             var product = (PO.ProductItemPO)pList.SelectedItem;
-            new ProductWindowForCart(product.ID).ShowDialog();
+            new ProductWindowForCart(product.ID, cart).ShowDialog();
         }
     }
 }
