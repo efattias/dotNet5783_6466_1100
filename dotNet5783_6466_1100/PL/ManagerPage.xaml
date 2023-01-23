@@ -24,6 +24,7 @@
             <materialDesign:PackIcon Kind="BookOpenBlankVariant" Width="254" Height="267" Margin="279,111,0,0">
 
             </materialDesign:PackIcon>
+            <Label Content="מערכת ניהול" Height="100" FontFamily="Cooper Black" FontSize="24" Width="208"/>
         </StackPanel>
        
         <Grid x:Name="sidePanel" 
