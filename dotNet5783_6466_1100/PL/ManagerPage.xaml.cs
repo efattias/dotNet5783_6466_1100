@@ -69,11 +69,13 @@ namespace PL
             {
                 case 0:
                     {
+                        icon.Visibility = Visibility.Hidden;
                         ListFrame.Content = new orderListPage();
                         break;
                     }
                 case 1:
                     {
+                        icon.Visibility = Visibility.Hidden;
                         ListFrame.Content = new ProductListPage();
                         break;
                     }

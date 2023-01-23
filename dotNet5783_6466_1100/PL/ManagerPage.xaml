@@ -17,9 +17,15 @@
                 Width="855" Height="550"
                Margin="0,0,35,0"
                NavigationUIVisibility="Hidden"
-               />
+               >
 
+        </Frame>
+        <StackPanel Name="icon">
+            <materialDesign:PackIcon Kind="BookOpenBlankVariant" Width="254" Height="267" Margin="279,111,0,0">
 
+            </materialDesign:PackIcon>
+        </StackPanel>
+       
         <Grid x:Name="sidePanel" 
               HorizontalAlignment="Right" Width="200" Height="580"
               VerticalAlignment="Bottom" >

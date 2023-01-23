@@ -127,7 +127,9 @@ internal class BoProduct :IBoProduct
                 Price = productTempDO?.Price,
                 Category = (BO.Category?)productTempDO?.Category,
                 InStock = Tools.inStock((int)productTempDO?.InStock!),
-                Amount = Tools.getAmountOfProduct( cart?.Items!, (int)(productTempDO?.ID!))
+                Amount = Tools.getAmountOfProduct( cart?.Items!, (int)(productTempDO?.ID!)),
+                Path=productTempDO?.Path
+                
             };
             return productItemBO;
 

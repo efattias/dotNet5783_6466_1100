@@ -39,12 +39,14 @@ public class ProductItem
     /// amount of product in cart
     /// </summary>
     public int? Amount { get; set; }
+
+     public string? Path { get; set; }
     /// <summary>
     /// function- print ProductItem class
     /// </summary>
     /// <returns></returns>
     /// 
-    public string? Path;
+
     public override string ToString() => this.ToStringProperty();
 
     //    public override string ToString() => $@"
