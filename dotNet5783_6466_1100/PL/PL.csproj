@@ -31,7 +31,9 @@
     <None Remove="images\Notepads On Table In Front Of Chalkboard For Children Backdrop.jpg" />
     <None Remove="images\pilim_bechol_hatzvaim_1.jpg" />
     <None Remove="images\Wood Wall And Wood Floor With Some Notebooks Photography Backdrop.jpg" />
+    <None Remove="man with books.png" />
     <None Remove="Wood Wall And Wood Floor With Some Notebooks Photography Backdrop.jpg" />
+    <None Remove="הורדה.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -84,7 +86,9 @@
     <Resource Include="cartWindow\man with books.png" />
     <Resource Include="cartWindow\Wood Wall And Wood Floor With Some Notebooks Photography Backdrop.jpg" />
     <Resource Include="images\Wood Wall And Wood Floor With Some Notebooks Photography Backdrop.jpg" />
+    <Resource Include="man with books.png" />
     <Resource Include="Wood Wall And Wood Floor With Some Notebooks Photography Backdrop.jpg" />
+    <Resource Include="הורדה.png" />
   </ItemGroup>
 
 </Project>

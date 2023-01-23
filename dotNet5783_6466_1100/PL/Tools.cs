@@ -38,7 +38,7 @@ public static class Tools
         cartPO.Items = new();
         CopyPropTo(cartBO,cartPO);
         if (cartPO.Items != null)
-            foreach (var item in cartBO.Items)
+            foreach (var item in cartBO!.Items!)
                 cartPO.Items.Add(CopyPropTo(item, new PO.OrderItemPO()));
         return cartPO;
         //    {

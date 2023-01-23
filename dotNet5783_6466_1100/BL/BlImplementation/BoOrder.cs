@@ -67,7 +67,7 @@ internal class BoOrder : IBoOrder
                  OrderStatus = Tools.GetStatus((DO.Order)orderDO),
                  AmountOfItems = Tools.GetAmountOfItems(orderFromBL),
                  TotalPrice = Tools.GetTotalPrice(orderFromBL)
-             }).ToList();
+             }).ToList().OrderBy(x=> x.ID);
     }
 
     public BO.OrderTracking TrackOrder(int ID)

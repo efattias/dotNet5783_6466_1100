@@ -92,6 +92,23 @@
                                    Width="40" Height="40"
                                    VerticalAlignment="Top"
                                    HorizontalAlignment="Left"/>-->
+                            <materialDesign:PackIcon Kind="TrackChanges" Height="53" Width="33" 
+                                                     VerticalAlignment="Center">
+
+                            </materialDesign:PackIcon>
+                            <TextBlock Text="סימולציה" 
+                                       HorizontalAlignment="Center" 
+                                       Margin="20,5,0,0"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="80"
+                                  Background="AliceBlue">
+
+                        <StackPanel Orientation="Horizontal">
+                            <!--<Image Source="/Drone/drone.png"
+                                   Width="40" Height="40"
+                                   VerticalAlignment="Top"
+                                   HorizontalAlignment="Left"/>-->
                             <materialDesign:PackIcon Kind="Home" Height="53" Width="33" 
                                                      VerticalAlignment="Center">
 

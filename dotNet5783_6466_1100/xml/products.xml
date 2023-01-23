@@ -9,14 +9,6 @@
     <Path>/images/HarryPoterSmartStone.jpg</Path>
   </Product>
   <Product>
-    <ID>100007</ID>
-    <Name>הארי פוטר 7 ואוצרות המוות</Name>
-    <Price>87</Price>
-    <Category>נוער</Category>
-    <InStock>55</InStock>
-    <Path>/images/haripoterDeathTreasure.jpg</Path>
-  </Product>
-  <Product>
     <ID>100009</ID>
     <Name>כספיון</Name>
     <Price>40</Price>
@@ -87,5 +79,13 @@
     <Category>ילדים</Category>
     <InStock>56</InStock>
     <Path>/images/hanan_haganan.jpg</Path>
+  </Product>
+  <Product>
+    <ID>100007</ID>
+    <Name>הארי פוטר 7 ואוצרות המוות</Name>
+    <Price>87</Price>
+    <Category>נוער</Category>
+    <InStock>54</InStock>
+    <Path>/images/haripoterDeathTreasure.jpg</Path>
   </Product>
 </products>

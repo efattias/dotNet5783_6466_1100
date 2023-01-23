@@ -155,7 +155,7 @@ internal class BoProduct :IBoProduct
                     Price = p?.Price,
                     Category = (BO.Category?)p?.Category,
                     Path=p?.Path
-                }).ToList();
+                }).ToList().OrderBy(x => x.ID);
     }
 
     public IEnumerable<ProductForList> GetPartOfProduct(Predicate<ProductForList> check)

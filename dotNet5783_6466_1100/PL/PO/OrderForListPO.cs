@@ -16,6 +16,7 @@ namespace PL.PO
             get
             { return id; }
             set
+
             {
                 id = value;
                 if (PropertyChanged != null)

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL"
         mc:Ignorable="d"
-        Title="חלון ראשי" Height="650" Width="900" Icon="/images/Wood Wall And Wood Floor With Some Notebooks Photography Backdrop.jpg">
+        Title="חלון ראשי" Height="650" Width="900" Icon="/man with books.png">
 
     <Grid>
         <Grid.RowDefinitions>

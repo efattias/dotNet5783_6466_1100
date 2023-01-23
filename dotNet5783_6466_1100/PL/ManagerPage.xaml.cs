@@ -77,7 +77,15 @@ namespace PL
                         ListFrame.Content = new ProductListPage();
                         break;
                     }
-                    case 2:
+                case 2:
+                    {
+                        SimulatorWindow window=new SimulatorWindow();
+                        window.Show();
+                        break;
+                    }
+            
+
+                    case 3:
                     {
                         f.Content = new MainPage(f);
                         break;
