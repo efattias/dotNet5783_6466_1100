@@ -63,14 +63,14 @@ public partial class CartWindow : Window
         //cartListView.DataContext = cartPO.Items;
         DataContext = cartPO;
     
-        if (cartBO.Items.Count() == 0)
+        if (cartBO!.Items!.Count() == 0)
             completeCart.IsEnabled = false;
 
     } 
 
     private void completeCart_Click(object sender, RoutedEventArgs e)
     {
-        if (cartBO.Items.Count() != 0)
+        if (cartBO!.Items!.Count() != 0)
             completeCart.IsEnabled = true;
 
         personalDetailsCart detailsWindow = new personalDetailsCart(cartBO);
@@ -87,16 +87,16 @@ public partial class CartWindow : Window
             cartBO.CustomerName = null;
             cartBO.CustomerAddress = null;
             cartBO.CustomerEmail = null;
-            foreach (BO.OrderItem item in cartBO.Items.ToList())
+            foreach (BO.OrderItem? item in cartBO!.Items!.ToList())
             {
-                bl.cart.UpdateProductInCart(cartBO, item.ProductID, 0);
+                bl.cart.UpdateProductInCart(cartBO, item!.ProductID, 0);
             }
 
             //cartBO.Items.ForEach(delegate (BO.OrderItem item)
             //{
             //    bl.cart.UpdateProductInCart(cartBO, item.ProductID, 0);
             //});
-            if (cartBO.Items.Count() == 0)
+            if (cartBO!.Items!.Count() == 0)
                 completeCart.IsEnabled = false;
         }
         catch (Exception x)
@@ -116,8 +116,8 @@ public partial class CartWindow : Window
     private void deleteCart_Click(object sender, RoutedEventArgs e)
     {
 
-        cartBO.Items.Clear();
-        cartPO.Items.Clear();
+        cartBO!.Items!.Clear();
+        cartPO!.Items!.Clear();
         cartBO.TotalPrice = 0;
         cartPO.TotalPrice = 0;
     }
@@ -148,10 +148,10 @@ public partial class CartWindow : Window
             // int zeroAmount = 0;
            
            
-                bl.cart.UpdateProductInCart(cartBO, id, 0);
+                bl!.cart.UpdateProductInCart(cartBO, id, 0);
             
-            cartPO!.Items!.Remove(orderItemPO);
-            cartPO.TotalPrice = cartPO.TotalPrice - orderItemPO.Price * orderItemPO.Amount;
+            cartPO!.Items!.Remove(orderItemPO!);
+            cartPO.TotalPrice = cartPO.TotalPrice - orderItemPO!.Price * orderItemPO.Amount;
             
         }
         catch (Exception x)

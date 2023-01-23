@@ -39,8 +39,8 @@ namespace PL.orderWindow
 
                 o = bl.Order.GetOrder((int)order.ID!) ?? throw new NullReferenceException("הזמנה נאל");
                 //for order fields
-                addressTextBox.Text = o.CustomerAddress.ToString();
-                MailTextBox.Text = o.CustomerEmail.ToString();
+                addressTextBox.Text = o!.CustomerAddress!.ToString();
+                MailTextBox.Text = o!.CustomerEmail!.ToString();
                 orderDateTextBox.Text= o.OrderDate.ToString();
                 ShipDateTextBox.Text = o.ShipDate.ToString();
                 DeliveryDateTextBox.Text=o.DeliveryDate.ToString();
@@ -95,7 +95,7 @@ namespace PL.orderWindow
 
         private void ShowItemList_Click(object sender, RoutedEventArgs e)
         {
-            OrderItemWindow orderItemWindow=new OrderItemWindow(o);
+            OrderItemWindow orderItemWindow=new OrderItemWindow(o!);
             orderItemWindow.Show();
         }
     }

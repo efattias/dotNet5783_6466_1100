@@ -35,7 +35,7 @@ public partial class SimulatorWindow : Window
         InitializeComponent();
         worker= new BackgroundWorker();
         worker.DoWork += Worker_DoWork;
-        worker.ProgressChanged += Worker_ProgressChanged;
+        worker.ProgressChanged += Worker_ProgressChanged!;
         worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
         worker.WorkerSupportsCancellation = true;
         worker.WorkerReportsProgress= true;
@@ -66,12 +66,12 @@ public partial class SimulatorWindow : Window
 
     private void Worker_RunWorkerCompleted(object? sender, RunWorkerCompletedEventArgs e)
     {
-       
+        MessageBox.Show("סימולטור בהפסקה");
     }
 
     private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
     {// לבדוק אם 0\1
-        IEnumerableToObservable(bl.Order.getOrderForList());
+        IEnumerableToObservable(bl!.Order.getOrderForList());
         foreach (PO.OrderForListPO order in orderListPO)
         {
             //DateTime currentTime = DateTime.Now; 
@@ -87,7 +87,7 @@ public partial class SimulatorWindow : Window
             //}
             if (order.OrderStatus == PO.Status.מאושר)
             {
-                DateTime orderDateTime = (DateTime)bl!.Order.GetOrder((int)order.ID).OrderDate;
+                DateTime orderDateTime = (DateTime)bl!.Order.GetOrder((int)order!.ID!).OrderDate!;
                 orderDateTime = orderDateTime.AddDays(3);
                 if (orderDateTime <= time)
                 { order.OrderStatus = PO.Status.נשלח;
@@ -96,8 +96,8 @@ public partial class SimulatorWindow : Window
             }
             else if (order.OrderStatus == PO.Status.נשלח)
             {
-                 BO.Order o = bl.Order.GetOrder((int)order.ID);
-                DateTime orderDateTime = (DateTime)bl!.Order.GetOrder((int)order.ID).ShipDate;
+                // BO.Order o = bl.Order.GetOrder((int)order.ID);
+                DateTime orderDateTime = (DateTime)bl!.Order.GetOrder((int)order!.ID!).ShipDate!;
                 orderDateTime = orderDateTime.AddDays(4);
                 if (orderDateTime <= time)
                 { order.OrderStatus = PO.Status.נמסר;
@@ -118,7 +118,7 @@ public partial class SimulatorWindow : Window
             }
             else
             {
-                if (worker.WorkerReportsProgress == true)
+                if (worker!.WorkerReportsProgress! == true)
                 {
                     time = time.AddHours(8);
                       Thread.Sleep(3000);
@@ -131,11 +131,11 @@ public partial class SimulatorWindow : Window
     private void Button_Click(object sender, RoutedEventArgs e)
     {
         
-        worker.RunWorkerAsync();
+        worker!.RunWorkerAsync();
     }
 
     private void Button_Click_1(object sender, RoutedEventArgs e)
     {
-        worker.CancelAsync();
+        worker!.CancelAsync();
     }
 }

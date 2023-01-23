@@ -30,7 +30,7 @@ namespace PL.productWindow
         BO.Product? p= new BO.Product();
         PO.ProductForListPO? pPO= new PO.ProductForListPO();
         PO.ProductPO? productPO=new PO.ProductPO();
-        string path;    
+        string? path;    
             
         //   Cart cart = new Cart() { CustomerAddress = "", CustomerEmail = "", CustomerName = "", Items = new List<BO.OrderItem?>(), TotalPrice = 0 };
         Action<PO.ProductForListPO> action;
@@ -120,7 +120,7 @@ namespace PL.productWindow
             try
             {
                if(pPO!.Path== null ) 
-                pPO!.Path = path ;
+                pPO!.Path = path! ;
 
                 
 

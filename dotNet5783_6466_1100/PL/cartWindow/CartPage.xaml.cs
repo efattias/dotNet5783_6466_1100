@@ -58,7 +58,7 @@ namespace PL.cartWindow
             //cartListView.DataContext = cartPO.Items;
             DataContext = cartPO;
 
-            if (cartBO.Items.Count() == 0)
+            if (cartBO!.Items!.Count() == 0)
                 completeCart.IsEnabled = false;
 
         }

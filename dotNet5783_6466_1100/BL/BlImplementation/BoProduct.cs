@@ -144,7 +144,7 @@ internal class BoProduct :IBoProduct
     /// <returns></returns>
     public IEnumerable<BO.ProductForList> getProductForList()
     {
-        IEnumerable<DO.Product?> productListDO = dal?.Product.getAll();
+        IEnumerable<DO.Product?> productListDO = dal!.Product.getAll();
 
         return (from p in productListDO
                 let productFromBL = GetProductbyId((int)(p?.ID!))

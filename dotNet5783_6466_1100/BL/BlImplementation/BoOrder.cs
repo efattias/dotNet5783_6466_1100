@@ -29,7 +29,7 @@ internal class BoOrder : IBoOrder
             orderTempBO.DeliveryDate = orderTempDO.DeliveryDate;
 
             var v = (from o in itemsListDO
-                     let name = dal.Product.GetByID((int)(o?.ProductID)).Name 
+                     let name = dal.Product.GetByID((int)(o?.ProductID!)).Name 
                      select new BO.OrderItem
                      {
                          Name = name,
@@ -125,7 +125,7 @@ internal class BoOrder : IBoOrder
 
             // copy details
             var v = (from o in itemsListDO
-                     let name = dal!.Product.GetByID((int)(o?.ProductID)).Name
+                     let name = dal!.Product.GetByID((int)(o?.ProductID!)).Name
                      select new BO.OrderItem
                      {
                          Name = name,
@@ -177,7 +177,7 @@ internal class BoOrder : IBoOrder
             DO.Order orderDO = dal!.Order.GetByID(ID);// get order by id from DAL
             IEnumerable<DO.OrderItem?> itemsListDO = dal.OrderItem.GetItemsList(orderDO.ID);  // orderItem list of order (DO)                                          // copy details
             var v = (from o in itemsListDO
-                     let name = dal.Product.GetByID((int)(o?.ProductID)).Name
+                     let name = dal.Product.GetByID((int)(o?.ProductID!)).Name
                      select new BO.OrderItem
                      {
                          Name = name,

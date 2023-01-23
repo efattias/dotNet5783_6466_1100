@@ -32,7 +32,7 @@ namespace PL
             InitializeComponent();
             timer = new DispatcherTimer();
             timer.Interval = new TimeSpan(0, 0, 0, 0, 10);
-            timer.Tick += Timer_Tick;
+            timer.Tick += Timer_Tick!;
             f = mainFrame;
             panelWidth = sidePanel.Width;
             sidePanel.Width = 60;
