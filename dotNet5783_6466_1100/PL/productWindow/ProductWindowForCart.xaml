@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:PL.productWindow"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="ProductWindowForCart" Height="450" Width="300">
+        Title="ProductWindowForCart" Height="450" Width="300"
+        Icon="{Binding Path}">
     <Grid>
 
         <Label x:Name="NameLabel"
