@@ -22,9 +22,7 @@ using System.Windows.Shapes;
 
 namespace PL
 {
-    /// <summary>
-    /// Interaction logic for CatalogPageWindow.xaml
-    /// </summary>
+    
     public partial class CatalogPageWindow : Page
     {
         BlApi.IBL? bl = BlApi.Factory.GetBl() ?? throw new NullReferenceException("Missing bl");
@@ -38,28 +36,14 @@ namespace PL
             InitializeComponent();
             frame = f;
             IEnumerableToObservable(bl.Product.getProductForList());
-           // pList.ItemsSource = productItemListPO;
-            DataContext = productItemListPO;
-
-
-            //categorySelector.ItemsSource = Enum.GetValues(typeof(BO.Category));
+          
+            DataContext = productItemListPO;         
         }
 
         private void IEnumerableToObservable(IEnumerable<ProductForList> listTOConvert)
         {
             if(productItemListPO!=null)
             productItemListPO.Clear();
-            //productItemListPO = (from p in listTOConvert
-            //                     let product = bl.Product.GetProductbyId(p.ID)
-            //                     select new ProductItemPO()
-            //                     {
-            //                         ID = p.ID,
-            //                         Name = p.Name,
-            //                         Price = (double)p.Price,
-            //                         Category = (PO.Category)p.Category,
-            //                         Amount = (int)product.InStock
-            //                     })
-
             foreach (var p in listTOConvert)
             {
                 Product? product = bl!.Product.GetProductbyId(p.ID);
@@ -85,20 +69,10 @@ namespace PL
                
         }
 
-        //private void categorySelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
-        //    if (categorySelector.SelectedItem is BO.Category.הכל)
-        //        IEnumerableToObservable(bl!.Product.getProductForList());
-        //    else if (categorySelector.SelectedItem is BO.Category)
-        //        IEnumerableToObservable(bl!.Product.GetPartOfProduct(p => p.Category == (BO.Category)categorySelector.SelectedItem));
-        //    else if (categorySelector.SelectedItem is "")
-        //        IEnumerableToObservable(bl!.Product.getProductForList());
-        //}
-
+        
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //CartWindow caWindow = new CartWindow(cart);
-            //caWindow.Show();
+            
             CartPage cartPage = new CartPage(cart,frame);
             frame.Content= cartPage;
             
@@ -180,8 +154,7 @@ namespace PL
         private void RemoveGrouping_Click(object sender, RoutedEventArgs e)
         {
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(pList.ItemsSource);
-            //CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(productListPO);
-            
+          
             view.GroupDescriptions.Clear();
             view.SortDescriptions.Clear();
 

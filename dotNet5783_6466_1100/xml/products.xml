@@ -9,28 +9,12 @@
     <Path>/images/haripotterChicken.jpg</Path>
   </Product>
   <Product>
-    <ID>100010</ID>
-    <Name>דירה להשכיר </Name>
-    <Price>38</Price>
-    <Category>ילדים</Category>
-    <InStock>49</InStock>
-    <Path>/images/dira_lehaskir_vaod.jpg</Path>
-  </Product>
-  <Product>
     <ID>100006</ID>
     <Name>הארי פוטר 6 והנסיך חצוי הדם</Name>
     <Price>88</Price>
     <Category>נוער</Category>
     <InStock>64</InStock>
     <Path>/images/haripoterPrinceHalfBlood.jpg</Path>
-  </Product>
-  <Product>
-    <ID>100008</ID>
-    <Name>חנן הגנן</Name>
-    <Price>39.9</Price>
-    <Category>ילדים</Category>
-    <InStock>56</InStock>
-    <Path>/images/hanan_haganan.jpg</Path>
   </Product>
   <Product>
     <ID>100007</ID>
@@ -65,38 +49,6 @@
     <Path>/images/HarryPoterSmartStone.jpg</Path>
   </Product>
   <Product>
-    <ID>100001</ID>
-    <Name>הארי פוטר 3 והאסיר מאזקבאן</Name>
-    <Price>90</Price>
-    <Category>נוער</Category>
-    <InStock>109</InStock>
-    <Path>/images/HarryPoterAndThePrisoner.jpg</Path>
-  </Product>
-  <Product>
-    <ID>100000</ID>
-    <Name>הארי פוטר 2 וחדר הסודות</Name>
-    <Price>89</Price>
-    <Category>נוער</Category>
-    <InStock>89</InStock>
-    <Path>/images/HarryPoterSecretsRoom.jpg</Path>
-  </Product>
-  <Product>
-    <ID>100012</ID>
-    <Name>מבשלים עם אנאבל קרמל</Name>
-    <Price>75.9</Price>
-    <Category>בישול</Category>
-    <InStock>200</InStock>
-    <Path>/images/mevashlimeimanabel.jpg</Path>
-  </Product>
-  <Product>
-    <ID>100014</ID>
-    <Name>פשוט טעים לשבת</Name>
-    <Price>79</Price>
-    <Category>בישול</Category>
-    <InStock>56</InStock>
-    <Path>/images/pashutTaimleshabat.jpg</Path>
-  </Product>
-  <Product>
     <ID>100015</ID>
     <Name>להתאהב בארץ מחדש</Name>
     <Price>75.9</Price>
@@ -105,84 +57,36 @@
     <Path>/images/lehitahevBaaretzmechadash.jpg</Path>
   </Product>
   <Product>
-    <ID>100016</ID>
-    <Name>ביבי</Name>
-    <Price>100</Price>
-    <Category>השכלה</Category>
-    <InStock>82</InStock>
-    <Path>/images/BB.jpg</Path>
+    <ID>100014</ID>
+    <Name>פשוט טעים לשבת</Name>
+    <Price>79</Price>
+    <Category>בישול</Category>
+    <InStock>55</InStock>
+    <Path>/images/pashutTaimleshabat.jpg</Path>
+  </Product>
+  <Product>
+    <ID>100012</ID>
+    <Name>מבשלים עם אנאבל קרמל</Name>
+    <Price>75.9</Price>
+    <Category>בישול</Category>
+    <InStock>198</InStock>
+    <Path>/images/mevashlimeimanabel.jpg</Path>
   </Product>
   <Product>
     <ID>100013</ID>
     <Name>ספר הבישול של חלי ממן</Name>
     <Price>78</Price>
     <Category>בישול</Category>
-    <InStock>78</InStock>
+    <InStock>77</InStock>
     <Path>/images/bishulHeliMaman.jpg</Path>
-  </Product>
-  <Product>
-    <ID>100018</ID>
-    <Name>חומש בראשית</Name>
-    <Price>26</Price>
-    <Category>קודש</Category>
-    <InStock>87</InStock>
-    <Path>/images/bereshit.jpg</Path>
-  </Product>
-  <Product>
-    <ID>100019</ID>
-    <Name>חומש שמות</Name>
-    <Price>30</Price>
-    <Category>קודש</Category>
-    <InStock>60</InStock>
-    <Path>/images/shmot.jpeg</Path>
-  </Product>
-  <Product>
-    <ID>100020</ID>
-    <Name>חומש ויקרא</Name>
-    <Price>28</Price>
-    <Category>קודש</Category>
-    <InStock>90</InStock>
-    <Path>/images/vaikra.jpeg</Path>
-  </Product>
-  <Product>
-    <ID>100021</ID>
-    <Name>חומש במדבר</Name>
-    <Price>28</Price>
-    <Category>קודש</Category>
-    <InStock>47</InStock>
-    <Path>/images/bamidbar.jpeg</Path>
-  </Product>
-  <Product>
-    <ID>100022</ID>
-    <Name>חומש דברים</Name>
-    <Price>24</Price>
-    <Category>קודש</Category>
-    <InStock>87</InStock>
-    <Path>/images/dvarim.jpeg</Path>
   </Product>
   <Product>
     <ID>100023</ID>
     <Name>חמישה בלונים</Name>
     <Price>40.9</Price>
     <Category>ילדים</Category>
-    <InStock>15</InStock>
+    <InStock>13</InStock>
     <Path>/images/5baloons.jpeg</Path>
-  </Product>
-  <Product>
-    <ID>100026</ID>
-    <Name>שמח במטבח</Name>
-    <Price>62</Price>
-    <Category>בישול</Category>
-    <InStock>56</InStock>
-    <Path>/images/happyInMitnach.jpeg</Path>
-  </Product>
-  <Product>
-    <ID>100024</ID>
-    <Name>האריה שאהב תות</Name>
-    <Price>36</Price>
-    <Category>ילדים</Category>
-    <InStock>90</InStock>
-    <Path>/images/ariyeahavTut.jpeg</Path>
   </Product>
   <Product>
     <ID>200200</ID>
@@ -191,5 +95,101 @@
     <Category>ילדים</Category>
     <InStock>0</InStock>
     <Path>/images/pilim_bechol_hatzvaim_1.jpg</Path>
+  </Product>
+  <Product>
+    <ID>100016</ID>
+    <Name>ביבי</Name>
+    <Price>100</Price>
+    <Category>השכלה</Category>
+    <InStock>80</InStock>
+    <Path>/images/BB.jpg</Path>
+  </Product>
+  <Product>
+    <ID>100003</ID>
+    <Name>הארי פוטר 3 והאסיר מאזקבאן</Name>
+    <Price>91</Price>
+    <Category>נוער</Category>
+    <InStock>63</InStock>
+    <Path>/images/HarryPoterAndThePrisoner.jpg</Path>
+  </Product>
+  <Product>
+    <ID>100010</ID>
+    <Name>דירה להשכיר </Name>
+    <Price>38</Price>
+    <Category>ילדים</Category>
+    <InStock>46</InStock>
+    <Path>/images/dira_lehaskir_vaod.jpg</Path>
+  </Product>
+  <Product>
+    <ID>100022</ID>
+    <Name>חומש דברים</Name>
+    <Price>24</Price>
+    <Category>קודש</Category>
+    <InStock>86</InStock>
+    <Path>/images/dvarim.jpeg</Path>
+  </Product>
+  <Product>
+    <ID>100021</ID>
+    <Name>חומש במדבר</Name>
+    <Price>28</Price>
+    <Category>קודש</Category>
+    <InStock>46</InStock>
+    <Path>/images/bamidbar.jpeg</Path>
+  </Product>
+  <Product>
+    <ID>100020</ID>
+    <Name>חומש ויקרא</Name>
+    <Price>28</Price>
+    <Category>קודש</Category>
+    <InStock>89</InStock>
+    <Path>/images/vaikra.jpeg</Path>
+  </Product>
+  <Product>
+    <ID>100019</ID>
+    <Name>חומש שמות</Name>
+    <Price>30</Price>
+    <Category>קודש</Category>
+    <InStock>56</InStock>
+    <Path>/images/shmot.jpeg</Path>
+  </Product>
+  <Product>
+    <ID>100018</ID>
+    <Name>חומש בראשית</Name>
+    <Price>26</Price>
+    <Category>קודש</Category>
+    <InStock>84</InStock>
+    <Path>/images/bereshit.jpg</Path>
+  </Product>
+  <Product>
+    <ID>100000</ID>
+    <Name>הארי פוטר 2 וחדר הסודות</Name>
+    <Price>89</Price>
+    <Category>נוער</Category>
+    <InStock>84</InStock>
+    <Path>/images/HarryPoterSecretsRoom.jpg</Path>
+  </Product>
+  <Product>
+    <ID>100008</ID>
+    <Name>חנן הגנן</Name>
+    <Price>39.9</Price>
+    <Category>ילדים</Category>
+    <InStock>52</InStock>
+    <Path>/images/hanan_haganan.jpg</Path>
+  </Product>
+  <Product>
+    <ID>100024</ID>
+    <Name>האריה שאהב תות</Name>
+    <Price>36</Price>
+    <Category>ילדים</Category>
+    <InStock>86</InStock>
+    <Path>/images/ariyeahavTut.jpeg</Path>
+  </Product>
+  <Product>
+    <ID>100026</ID>
+    <Name>שמח במטבח</Name>
+    <Price>62</Price>
+    <Category>בישול</Category>
+    <InStock>52</InStock>
+    <Path>/images/happyInMitnach.jpeg</Path>
   </Product>
 </products>

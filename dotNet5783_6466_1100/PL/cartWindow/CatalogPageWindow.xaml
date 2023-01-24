@@ -164,10 +164,10 @@
                   Grid.Row="1"
                   ItemsSource="{Binding}"
                   MouseDoubleClick="doubleClickShowProduct"
-                    d:ItemsSource="{d:SampleData ItemCount=3}">
+                    d:ItemsSource="{d:SampleData ItemCount=4}">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate >
-                    <UniformGrid Columns="3"/>
+                    <UniformGrid Columns="4"/>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>

@@ -10,14 +10,14 @@ internal class BoOrder : IBoOrder
     {
         if (ID < 0)// test id
             throw new BO.InvalidInputExeption("המזהה אינו בתחום");
-        
+
         try
         {
             IEnumerable<DO.Order?> orderListDO = dal!.Order.getAll();
             BO.Order orderTempBO = new BO.Order();// create BO Order list
             DO.Order orderTempDO = dal!.Order.GetByID(ID);// create DO Order list
             IEnumerable<DO.OrderItem?> itemsListDO = dal!.OrderItem.GetItemsList(orderTempDO.ID);  // orderItem list of given id          
-            
+
             // copy details
             orderTempBO.ID = orderTempDO.ID;
             orderTempBO.CustomerName = orderTempDO.CustomerName;
@@ -29,7 +29,7 @@ internal class BoOrder : IBoOrder
             orderTempBO.DeliveryDate = orderTempDO.DeliveryDate;
 
             var v = (from o in itemsListDO
-                     let name = dal.Product.GetByID((int)(o?.ProductID!)).Name 
+                     let name = dal.Product.GetByID((int)(o?.ProductID!)).Name
                      select new BO.OrderItem
                      {
                          Name = name,
@@ -48,7 +48,7 @@ internal class BoOrder : IBoOrder
         {
             throw new BO.DoesntExistException(ex.Message, ex);
         }
-        catch(Exception ex) { throw new BO.DoesntExistException(ex.Message,ex); }
+        catch (Exception ex) { throw new BO.DoesntExistException(ex.Message, ex); }
     }
 
     public IEnumerable<BO.OrderForList> getOrderForList()
@@ -67,18 +67,18 @@ internal class BoOrder : IBoOrder
                  OrderStatus = Tools.GetStatus((DO.Order)orderDO),
                  AmountOfItems = Tools.GetAmountOfItems(orderFromBL),
                  TotalPrice = Tools.GetTotalPrice(orderFromBL)
-             }).ToList().OrderBy(x=> x.ID);
+             }).ToList().OrderBy(x => x.ID);
     }
 
     public BO.OrderTracking TrackOrder(int ID)
     {
         if (ID < 0)
             throw new BO.InvalidInputExeption("המזהה אינו בתחום");
-        
+
         try
         {
             DO.Order orderDO = dal!.Order.GetByID(ID); // order gy id from DO
-            List<Tuple<DateTime? , string>>? tempTrackList = new List<Tuple<DateTime? , string>>();// create the list
+            List<Tuple<DateTime?, string>>? tempTrackList = new List<Tuple<DateTime?, string>>();// create the list
 
             if (orderDO.OrderDate != null)
             {
@@ -117,7 +117,7 @@ internal class BoOrder : IBoOrder
     {
         if (ID < 0)
             throw new BO.InvalidInputExeption("המזהה אינו בתחום");
-        
+
         try
         {
             DO.Order orderDO = dal!.Order.GetByID(ID);// get order by id from DO
@@ -152,9 +152,9 @@ internal class BoOrder : IBoOrder
                 OrderDate = orderDO.OrderDate,
                 ShipDate = orderDO.ShipDate,
                 DeliveryDate = DateTime.Now,
-                Items =v, //(List<BO.OrderItem?>)Tools.getBOList(dal.OrderItem.GetItemsList(orderDO.ID)),
+                Items = v, //(List<BO.OrderItem?>)Tools.getBOList(dal.OrderItem.GetItemsList(orderDO.ID)),
                 TotalPrice = Tools.GetTotalPrice(itemsListDO!)
-                
+
             };
 
             DO.Order orderToUpdate = (DO.Order)Tools.CopyPropToStruct(orderToReturn, typeof(DO.Order));// convert BO to DO
@@ -169,9 +169,9 @@ internal class BoOrder : IBoOrder
     public BO.Order UpdateShipOrder(int ID)
     {
         //test
-        if (ID<0)
+        if (ID < 0)
             throw new BO.InvalidInputExeption("המזהה אינו בתחום");
-        
+
         try
         {
             DO.Order orderDO = dal!.Order.GetByID(ID);// get order by id from DAL
@@ -214,8 +214,5 @@ internal class BoOrder : IBoOrder
             throw new BO.DoesntExistException(ex.Message, ex);
         }
     }
-    //public BO.Order UpdateOrder(BO.Product product, int amount)
-    //{
-    //    throw new NotImplementedException();
-    //}
 }
+ 

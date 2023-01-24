@@ -27,19 +27,15 @@ namespace PL.cartWindow
             //cartBO.CustomerName = customerNameTextBox.Text;
             //cartBO.CustomerAddress = customerAddressTextBox.Text;
             //cartBO.CustomerEmail = customerEmailTextBox.Text;
-            details.DataContext= cartBO;
+           // details.DataContext= cartBO;
+            DataContext=cartBO;
 
           
         }
 
         private void addDetails_Click(object sender, RoutedEventArgs e)
-        {
-           
+        {           
             Close();
-            //CustomerDetails page= new CustomerDetails();
-            //this.Content = page;
-
-
         }
     }
 }

@@ -83,6 +83,7 @@ internal class BoCart : IBoCart
 
             List<BO.OrderItem> itemList = new List<BO.OrderItem>();
 
+
             foreach (BO.OrderItem? o in cart?.Items!)
             {
                 DO.Product prodectDO = dal!.Product.GetByID(o!.ProductID);
@@ -179,7 +180,6 @@ internal class BoCart : IBoCart
                         item.TotalPrice = Math.Round(item.TotalPrice ?? 0, 2);
                         return cart;
                     }
-
                     if (item.Amount > amount)
                     {
                         item.Amount = amount;

@@ -80,21 +80,21 @@ public static class Tools
         }
         return (int)total;
     }
-    public static IEnumerable<BO.OrderItem?> getBOList(IEnumerable<DO.OrderItem?> ListItems)
-    {
-        return (
-        from o in ListItems
+    //public static IEnumerable<BO.OrderItem?> getBOList(IEnumerable<DO.OrderItem?> ListItems)
+    //{
+    //    return (
+    //    from o in ListItems
        
-        select new BO.OrderItem
-        {
+    //    select new BO.OrderItem
+    //    {
           
-            ID = (int)(o?.ID!),
-            ProductID = (int)(o?.ProductID!),
-            Price = o?.Price,
-            Amount = o?.Amount,
-            TotalPrice = o?.Price * o?.Amount
-        }).ToList();
-    }
+    //        ID = (int)(o?.ID!),
+    //        ProductID = (int)(o?.ProductID!),
+    //        Price = o?.Price,
+    //        Amount = o?.Amount,
+    //        TotalPrice = o?.Price * o?.Amount
+    //    }).ToList();
+    //}
     public static string ToStringProperty<T>(this T t, string suffix = "")
     //מתודה להפיכת ישות למחרוזת לצורך הצגת הפרטים
     {
