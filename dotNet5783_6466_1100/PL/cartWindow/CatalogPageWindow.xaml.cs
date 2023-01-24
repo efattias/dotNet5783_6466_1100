@@ -110,9 +110,8 @@ namespace PL
             try
             {
                 PO.ProductItemPO? product = ((Button)(sender)).DataContext as ProductItemPO ?? throw new NullReferenceException("כפתור לא מחזיר מוצר ");
-               bl!.cart.AddProductToCart(cart, product.ID);
-                MessageBox.Show("seccssed");
-                //bl.cart.AddProductToCart(cart, p!.ID);
+                bl!.cart.AddProductToCart(cart, product.ID);
+                MessageBox.Show("נוסף לסל");
                 }
             catch (Exception x)
             {
