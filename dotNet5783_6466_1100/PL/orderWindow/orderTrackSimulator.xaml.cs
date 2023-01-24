@@ -26,17 +26,19 @@ namespace PL.orderWindow
         {
             
             InitializeComponent();
-            
-         
 
-            oTrack = bl.Order.TrackOrder((int)order.ID);
-            DataContext = oTrack;
 
-            //  StatusTextBox.Text = oTrack!.OrderStatus.ToString();
-            string s = "";
-            foreach (var o in oTrack.trackList!)
-                s += (o.ToString()) + "\n";
-            ListTextBox.Text = s;
+            if (order != null)
+            {
+                oTrack = bl.Order.TrackOrder((int)order.ID);
+                DataContext = oTrack;
+
+                //  StatusTextBox.Text = oTrack!.OrderStatus.ToString();
+                string s = "";
+                foreach (var o in oTrack.trackList!)
+                    s += (o.ToString()) + "\n";
+                ListTextBox.Text = s;
+            }
         }
     }
 }

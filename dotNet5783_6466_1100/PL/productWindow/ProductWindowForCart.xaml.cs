@@ -69,7 +69,7 @@ namespace PL.productWindow
         {
             try
             {
-                if (productItemBO.Amount == 0)
+                if (productItemPO.Amount == 0)
                     MessageBox.Show("אינו קיים בסל");
                 else
                 {

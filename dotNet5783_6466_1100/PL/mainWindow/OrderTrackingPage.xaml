@@ -15,7 +15,7 @@
             x:Key="notVisibilityToVisibilityConverter"/>
     </Page.Resources>
 
-    <Grid Name="OrderTracking" Width="900" Height="640">
+    <Grid Name="OrderTracking" Width="900" Height="650">
         <Grid.Background>
             <ImageBrush ImageSource="/istockphoto-1126130554-612x612.jpg"/>
         </Grid.Background>
@@ -57,7 +57,7 @@
 
 
 
-        <StackPanel Height="71" Margin="482,208,0,360" >
+        <StackPanel Height="71" Margin="548,215,81,364">
             <TextBox x:Name="StatusTextBox" Height="20"
                  Width="106"
                      FontSize="12"
@@ -85,7 +85,7 @@
 
         <Button x:Name="homeB" Height="50" Width="50"
                     Click="Button_Click_2"
-                    Margin="425,375,425,215">
+                    Margin="425,400,425,200">
 
             <materialDesign:PackIcon Kind="Home">
 
@@ -94,7 +94,7 @@
 
         <Button x:Name="newOrder"
                                     Height="50" Width="50"
-                    Margin="0,0,0,0"
+                    Margin="425,340,425,260"
                                     Click="newOrder_Click"
                                  >
             <materialDesign:PackIcon Kind="Reload"/>

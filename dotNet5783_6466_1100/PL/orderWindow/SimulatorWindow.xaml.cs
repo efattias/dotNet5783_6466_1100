@@ -1,22 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.ComponentModel;
-using System.Threading;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using BlApi;
 using PL.PO;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using Microsoft.VisualBasic;
-using BO;
+using System.ComponentModel;
+using System.Linq;
+using System.Threading;
+using System.Windows;
+using System.Windows.Input;
 
 namespace PL.orderWindow;
 
@@ -30,17 +21,18 @@ public partial class SimulatorWindow : Window
     ObservableCollection<OrderForListPO> orderListPO = new();
     BackgroundWorker? worker;
     DateTime time = DateTime.Now;
+    bool flag=true;
     public SimulatorWindow()
     {
         InitializeComponent();
-        worker= new BackgroundWorker();
+        worker = new BackgroundWorker();
         worker.DoWork += Worker_DoWork;
         worker.ProgressChanged += Worker_ProgressChanged!;
         worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
         worker.WorkerSupportsCancellation = true;
-        worker.WorkerReportsProgress= true;
+        worker.WorkerReportsProgress = true;
 
-        
+
 
         IEnumerableToObservable(bl.Order.getOrderForList());
         DataContext = orderListPO;
@@ -75,14 +67,27 @@ public partial class SimulatorWindow : Window
 
     private void Worker_RunWorkerCompleted(object? sender, RunWorkerCompletedEventArgs e)
     {
-        MessageBox.Show("סימולטור בהפסקה");
+        if (e.Cancelled == true)
+            MessageBox.Show("סימולטור בהפסקה");
+        else if (flag == false)
+        {
+            stop.IsEnabled= false;
+            play.IsEnabled = true;
+            MessageBox.Show("סימולטור סיים");
+        }
+
+
+
+    
     }
 
     private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
     {// לבדוק אם 0\1
         IEnumerableToObservable(bl!.Order.getOrderForList());
+         flag = false;
         foreach (PO.OrderForListPO order in orderListPO)
         {
+        
             //DateTime currentTime = DateTime.Now; 
             //if (order.OrderStatus is not Status.נשלח && time > currentTime.AddDays(4))
             //{
@@ -96,29 +101,36 @@ public partial class SimulatorWindow : Window
             //}
             if (order.OrderStatus == PO.Status.מאושר)
             {
+                flag = true;
                 DateTime orderDateTime = (DateTime)bl!.Order.GetOrder((int)order!.ID!).OrderDate!;
                 orderDateTime = orderDateTime.AddDays(3);
                 if (orderDateTime <= time)
-                { order.OrderStatus = PO.Status.נשלח;
+                {
+                    order.OrderStatus = PO.Status.נשלח;
                     bl.Order.UpdateShipOrder((int)order.ID);
-                    break; }
+                    break;
+                }
             }
             else if (order.OrderStatus == PO.Status.נשלח)
             {
+                flag = true;
                 // BO.Order o = bl.Order.GetOrder((int)order.ID);
                 DateTime orderDateTime = (DateTime)bl!.Order.GetOrder((int)order!.ID!).ShipDate!;
                 orderDateTime = orderDateTime.AddDays(4);
                 if (orderDateTime <= time)
-                { order.OrderStatus = PO.Status.נמסר;
+                {
+                    order.OrderStatus = PO.Status.נמסר;
                     bl.Order.UpdateProvisionOrder((int)order.ID);
-                    break; }
+                    break;
+                }
             }
+            
         }
     }
 
     private void Worker_DoWork(object? sender, DoWorkEventArgs e)
     {
-        while(true)
+        while (flag)
         {
             if (worker?.CancellationPending == true)
             {
@@ -129,8 +141,8 @@ public partial class SimulatorWindow : Window
             {
                 if (worker!.WorkerReportsProgress! == true)
                 {
-                    time = time.AddHours(8);
-                      Thread.Sleep(3000);
+                    time = time.AddHours(20);
+                    Thread.Sleep(2000);
                     worker.ReportProgress(4);
                 }
             }
@@ -139,16 +151,16 @@ public partial class SimulatorWindow : Window
 
     private void Button_Click(object sender, RoutedEventArgs e)
     {
-        
+
         worker!.RunWorkerAsync();
-        play.IsEnabled= false;
+        play.IsEnabled = false;
         stop.IsEnabled = true;
     }
 
     private void Button_Click_1(object sender, RoutedEventArgs e)
     {
         worker!.CancelAsync();
-        stop.IsEnabled= false;
+        stop.IsEnabled = false;
         play.IsEnabled = true;
     }
 }
