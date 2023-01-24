@@ -121,7 +121,7 @@
                Source="{Binding Path}"/>
 
         <Button 
-            Background="#006bb3"
+            Background="AliceBlue"
             Margin="0,300,204,0"
             Click="AddProductToCart_Click"
             Width="80" Height="40">
@@ -129,6 +129,15 @@
             <materialDesign:PackIcon Kind="CartAdd"
                                      Width="40" Height="30">
             </materialDesign:PackIcon>
+        </Button>
+        <Button 
+                Background="AliceBlue"
+                HorizontalAlignment="Left"
+                Margin="204,347,0,0"
+                VerticalAlignment="Top" Height="40">
+            <materialDesign:PackIcon Kind="Trash" 
+                                         Foreground="Black"
+                                         Height="20" Width="20"/>
         </Button>
 
     </Grid>
