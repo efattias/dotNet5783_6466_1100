@@ -41,8 +41,6 @@ namespace PL
             var orderitems = (from o in order.Items
                               select o).ToList();
             DataContext = orderitems;
-    
-
         }
       
     }

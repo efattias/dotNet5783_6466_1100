@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL"
+        
         mc:Ignorable="d"
         Title="OrderItemWindow" Height="450" Width="800">
     <Grid>
@@ -14,16 +15,16 @@
                 <GridView>
 
 
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Header="שם מוצר" Width="130"/>
-
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=ProductID}" Header="מזהה מוצר" Width="130"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=TotalPrice}" Header="מחיר סופי" Width="120"/>
 
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Price}" Header="מחיר" Width="120"/>
 
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Amount}" Header="כמות" Width="120"/>
 
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=TotalPrice}" Header="מחיר סופי" Width="120"/>
-                    
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=ProductID}" Header="מזהה מוצר" Width="130"/>
+
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Header="שם מוצר" Width="120060"/>
+
                 </GridView>
             </ListView.View>
         </ListView>
