@@ -8,7 +8,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="ProductWindowForCart" Height="450" Width="300"
         Icon="{Binding Path}">
-    <Grid>
+    <Grid Height="450" Width="300">
 
         <Label x:Name="NameLabel"
                Content=":שם"
@@ -123,18 +123,20 @@
 
         <Button 
             Background="AliceBlue"
-            Margin="0,300,204,0"
-            Click="AddProductToCart_Click"
-            Width="80" Height="40">
+           
+            Width="60"
+            Height="40"
+            Click="AddProductToCart_Click" Margin="48,347,192,63">
 
             <materialDesign:PackIcon Kind="CartAdd"
-                                     Width="40" Height="30">
+                                     Width="20" Height="20">
             </materialDesign:PackIcon>
         </Button>
         <Button Background="AliceBlue"
                 Click="DeleteProduct_Click"
                 HorizontalAlignment="Left"
-                Margin="204,347,0,0"
+                Margin="179,347,0,0"
+                Width="60"
                 VerticalAlignment="Top" Height="40">
             <materialDesign:PackIcon Kind="Trash"
                                      Foreground="Black"
