@@ -131,15 +131,15 @@
                                      Width="20" Height="20">
             </materialDesign:PackIcon>
         </Button>
-        <Button 
-                Background="AliceBlue"
+        <Button Background="AliceBlue"
+                Click="DeleteProduct_Click"
                 HorizontalAlignment="Left"
                 Margin="179,347,0,0"
                 Width="60"
                 VerticalAlignment="Top" Height="40">
-            <materialDesign:PackIcon Kind="Trash" 
-                                         Foreground="Black"
-                                         Height="20" Width="20"/>
+            <materialDesign:PackIcon Kind="Trash"
+                                     Foreground="Black"
+                                     Width="40" Height="30"/>
         </Button>
 
     </Grid>

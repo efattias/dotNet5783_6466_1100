@@ -12,9 +12,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="350"/>
             <RowDefinition Height="100"/>
-
-
         </Grid.RowDefinitions>
+
         <ListView x:Name="cartlistView" Margin="10,0,0,10"
                   ItemsSource="{Binding Items}"
                   d:ItemsSource="{d:SampleData ItemCount=5}">
@@ -25,287 +24,91 @@
                             <DataTemplate>
 
                                 <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
-                                    Height="20" Width="20"
-                                    HorizontalAlignment="Center"
-                                  Click="DeleteProduct_Click" >
-                                    <materialDesign:PackIcon Kind="Trash" 
-                                         Foreground="Black"
-                                         Height="20" Width="20"/>
+                                        Height="20" Width="20"
+                                        HorizontalAlignment="Center"
+                                        Click="DeleteProduct_Click" >
+                                    <materialDesign:PackIcon Kind="Trash"
+                                                             Foreground="Black"
+                                                             Height="20" Width="20"/>
                                 </Button>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn  Header=" מחיר סופי"
+                    <GridViewColumn Header=" מחיר סופי"
                                     DisplayMemberBinding="{Binding Path= TotalPrice}"/>
                     <GridViewColumn Header="{materialDesign:PackIcon Kind=BookAdd}" Width="80" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBox x:Name="textNumber" HorizontalContentAlignment="Center"
-                                     Margin="1" 
-                                     Width="20" 
+                                         Margin="1" 
+                                         Width="20" 
                                          IsReadOnly="False"
-                                     TextAlignment="Center"
-                                     FontSize="12"
-                                     Text="{Binding Amount , Mode=TwoWay}"
-                                     TextChanged="txtNum_TextChanged"
-                                     Height="25" />
+                                         TextAlignment="Center"
+                                         FontSize="12"
+                                         Text="{Binding Amount , Mode=TwoWay}"
+                                         TextChanged="txtNum_TextChanged"
+                                         Height="25" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn  Header="כמות"
+                    <GridViewColumn Header="כמות"
                                     DisplayMemberBinding="{Binding Path= Amount}">
 
                     </GridViewColumn>
 
-                    <GridViewColumn  Header=" מחיר" 
+                    <GridViewColumn Header=" מחיר" 
                                     DisplayMemberBinding="{Binding Path= Price}"/>
                     <GridViewColumn   Header="מזהה מוצר" Width="125"
                                     DisplayMemberBinding="{Binding Path= ProductID}"/>
-                    <GridViewColumn  Header="שם מוצר" Width="150"
+                    <GridViewColumn Header="שם מוצר" Width="150"
                                     DisplayMemberBinding="{Binding Path= Name}"/>
                 </GridView>
             </ListView.View>
         </ListView>
 
+        <StackPanel Background="AliceBlue"
+                    Margin="0,0,0,-53"
+                    Grid.Row="1" >
+            <Label Content="מחיר כולל לסל:"
+                   Margin="700,20,0,0"
+                   FlowDirection="RightToLeft"
+                   Width="120" FontSize="15"
+                   FontFamily="Cooper Black"/>
 
+            <Button Content="השלם הזמנה"
+                    x:Name="completeCart"
+                    Click="completeCart_Click"
+                    Width="140"
+                    Margin="600,50,0,0"/>
 
+            <TextBlock Width="80"
+                       Height="20"
+                       Margin="520,-180,0,0"
+                       FontSize="15"
+                       Text="{Binding TotalPrice}"
+                       FontFamily="Cooper Black"
+                       TextAlignment="Center"/>
 
-        <!--<DataGridTemplateColumn Header="{materialDesign:PackIcon Kind=Plus}"
-                                    MinWidth="10">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
-                                    Height="30" Width="30"
-                                    HorizontalAlignment="Center"
-                                  Click="UpdateProduct_Click" >
-                                <materialDesign:PackIcon Kind="Plus" 
-                                         Foreground="Black"
-                                         Height="30" Width="30"/>
-                            </Button>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>-->
-
-
-
-        <!--<ComboBox Name="UpdateSelector" Width="20" 
-                         >
-                                <ComboBoxItem Content="1" />
-                                <ComboBoxItem Content="2" />
-                                <ComboBoxItem Content="3" />
-                                <ComboBoxItem Content="4" />
-                                <ComboBoxItem Content="5" />
-                                <ComboBoxItem Content="6" />
-                                <ComboBoxItem Content="7" />
-                                <ComboBoxItem Content="8" />
-                                <ComboBoxItem Content="9" />
-                                <ComboBoxItem Content="10" />
-                            </ComboBox>-->
-
-
-
-
-
-
-        <!--<DataGrid x:Name="cartListView"
-                  Grid.Row="1"
-                  Margin="10,10,167,10"
-                
-                  materialDesign:DataGridAssist.CellPadding="5"
-                  materialDesign:DataGridAssist.ColumnHeaderPadding="30"                   
-                  AutoGenerateColumns="False" 
- 
-                  HorizontalGridLinesBrush="Transparent"
-                  ScrollViewer.VerticalScrollBarVisibility="Visible" 
-                  CanUserDeleteRows="False" 
-                  CanUserResizeRows="False"
-                  Foreground="Black"
-                  IsReadOnly="True"
-                 ItemsSource="{Binding Items}"
-                  d:ItemsSource="{d:SampleData ItemCount=5}"
-                   MinColumnWidth="10"
-                  MouseDoubleClick="cartListView_MouseDoubleClick">
-
-            <DataGrid.Columns>
-
-                <DataGridTemplateColumn Header="{materialDesign:PackIcon Kind=Trash}"
-                                    MinWidth="10">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
-                                    Height="30" Width="30"
-                                    HorizontalAlignment="Center"
-                                  Click="DeleteProduct_Click" >
-                                <materialDesign:PackIcon Kind="Trash" 
-                                         Foreground="Black"
-                                         Height="30" Width="30"/>
-                            </Button>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-
-                -->
-        <!--<DataGridTemplateColumn Header="{materialDesign:PackIcon Kind=Plus}"
-                                    MinWidth="10">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
-                                    Height="30" Width="30"
-                                    HorizontalAlignment="Center"
-                                  Click="UpdateProduct_Click" >
-                                <materialDesign:PackIcon Kind="Plus" 
-                                         Foreground="Black"
-                                         Height="30" Width="30"/>
-                            </Button>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>-->
-        <!--
-
-                <DataGridTextColumn Header="שם מוצר"
-                                    Binding="{Binding Path= Name}"
-                                    MinWidth="10"/>
-
-                <DataGridTextColumn Header="מזהה מוצר"
-                                    Binding="{Binding Path= ProductID}"
-                                    MinWidth="10"/>
-
-                <DataGridTextColumn Header="מחיר" FontSize="12"
-                                    Binding="{Binding Path= Price}"
-                                   
-                                    MinWidth="10"/>
-
-                <DataGridTextColumn Header="כמות"
-                                    Binding="{Binding Path= Amount}"
-                                    MinWidth="10"/>
-
-                <DataGridTextColumn Header="מחיר סופי"
-                                    Binding="{Binding Path= TotalPrice}"
-                                    MinWidth="10"/>
-                <DataGridTemplateColumn Header="{materialDesign:PackIcon Kind=BookAdd}"
-                                   
-                                    MinWidth="10">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBox Text="{Binding  Path= Amount}" TextChanged="">
-                                
-                            </TextBox>
-                            -->
-        <!--<ComboBox Name="UpdateSelector" Width="20" 
-                         >
-                                <ComboBoxItem Content="1" />
-                                <ComboBoxItem Content="2" />
-                                <ComboBoxItem Content="3" />
-                                <ComboBoxItem Content="4" />
-                                <ComboBoxItem Content="5" />
-                                <ComboBoxItem Content="6" />
-                                <ComboBoxItem Content="7" />
-                                <ComboBoxItem Content="8" />
-                                <ComboBoxItem Content="9" />
-                                <ComboBoxItem Content="10" />
-                            </ComboBox>-->
-        <!--
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-
-                </DataGridTemplateColumn>
-
-            </DataGrid.Columns>
-        </DataGrid>-->
-
-        
-
-        <StackPanel Background="AliceBlue" Margin="0,0,0,-53" Grid.Row="1" >
-            <Label Content="מחיר כולל לסל:" Margin="700,20,0,0" FlowDirection="RightToLeft" Width="120" FontSize="15" FontFamily="Cooper Black"/>
-            <Button Content="השלם הזמנה" x:Name="completeCart"
-                Click="completeCart_Click" Width="140" Margin="600,50,0,0"/>
-            <TextBlock Width="80" Height="20" Margin="520,-180,0,0" FontSize="15" Text="{Binding TotalPrice}"  FontFamily="Cooper Black" TextAlignment="Center"/>
             <Button x:Name="deleteAllCart"
                     HorizontalAlignment="Left"
-                    Click="deleteCart_Click" Margin="10,-40,0,29"
-                    >
+                    Click="deleteCart_Click"
+                    Margin="10,-40,0,29">
+
                 <materialDesign:PackIcon Kind="RemoveShoppingCart"
-                                        Width="40"
+                                         Width="40"
                                          Height="25">
-
                 </materialDesign:PackIcon>
-
             </Button>
+
             <Button x:Name="backToCatelog"
                     HorizontalAlignment="Left"
-                    Margin="10,-200,0,29" Click="backToCatelog_Click"
-                    >
+                    Margin="10,-200,0,29"
+                    Click="backToCatelog_Click">
                 <materialDesign:PackIcon Kind="ShoppingCartAdd"
-                                        Width="40"
+                                         Width="40"
                                          Height="25">
-
                 </materialDesign:PackIcon>
-
             </Button>
         </StackPanel>
-
-
     </Grid>
-
-    <!--<Grid Name="MainGrid">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="800*"/>
-
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="40*"/>
-            <RowDefinition Height="500*"/>
-            <RowDefinition Height="100"/>
-        </Grid.RowDefinitions>
-        <Grid Name="UpGrid" 
-              Height="auto" Grid.Row="0"
-              Width="auto" Margin="0,4,0,30" Grid.RowSpan="2" Grid.ColumnSpan="2" >
-            <Label x:Name="category"
-                   Content="סל קניות"
-                   HorizontalAlignment="Center"
-                   Margin="90,0,0,0"
-                   VerticalAlignment="Top"
-                   Height="46" Width="81" FontSize="18"/>
-        </Grid>
-
-        <ListView x:Name="CartListView" Grid.Row="1" 
-                  d:ItemsSource="{d:SampleData ItemCount=5}"
-                  ItemsSource="{Binding}"
-                  MouseDoubleClick="doubleClickUpdateProduct">
-            <ListView.View>
-                <GridView>
-
-                    -->
-    <!--<GridViewColumn DisplayMemberBinding="{Binding ID}" Header="מזהה הזמנה" Width="135"/>-->
-    <!--
-
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Header="שם מוצר" Width="130"/>
-
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=IDProduct}" Header="מזהה מוצר" Width="130"/>
-
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Price}" Header="מחיר" Width="120"/>
-
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Amount}" Header="כמות" Width="120"/>
-
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=TotalPrice}" Header="מחיר סופי" Width="120"/>
-
-                </GridView>
-            </ListView.View>
-        </ListView>
-
-        <Grid x:Name="downGrid" Grid.Row="2">
-            <Button Content="השלם הזמנה" x:Name="completeCart"
-                HorizontalAlignment="Left"
-                Margin="645,0,0,0"
-                Grid.Row="2"
-                VerticalAlignment="Center" Click="completeCart_Click"  >
-            </Button>
-            <Button Content=" מחק סל" x:Name="deleteCart"
-                HorizontalAlignment="Left"
-                Margin="26,0,0,0"
-                VerticalAlignment="Center" Click="deleteCart_Click"   />
-
-
-        </Grid>
-    </Grid>-->
 </Page>

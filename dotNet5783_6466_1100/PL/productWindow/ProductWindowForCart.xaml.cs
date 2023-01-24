@@ -32,23 +32,17 @@ namespace PL.productWindow
         public ProductWindowForCart(int id, BO.Cart cart)
         {
             InitializeComponent();
+
             cartBO = cart;
             cartPO = PL.Tools.BoTOPoCart(cartBO);
 
             productItemBO = bl.Product.GetProductByIDAndCart(id, cart);
-            
             DataContext = productItemBO;
-            if (productItemBO.InStock==true)
-            {
-                InStockOfItemTextBox.Text = "במלאי";
-            }
-            else
-            {
-                InStockOfItemTextBox.Text = "לא במלאי";
-            }
-            
 
-            //categoryComboBox.ItemsSource = Enum.GetValues(typeof(BO.Category));
+            if (productItemBO.InStock == true)
+                InStockOfItemTextBox.Text = "במלאי";
+            else
+                InStockOfItemTextBox.Text = "לא במלאי";
         }
 
         private void AddProductToCart_Click(object sender, RoutedEventArgs e)
@@ -56,13 +50,35 @@ namespace PL.productWindow
             try
             {
                 bl!.cart.AddProductToCart(cartBO, productItemBO.ID);
-                MessageBox.Show("seccssed");
+                Close();
+                MessageBox.Show("נוסף לסל");
             }
             catch (Exception x)
             {
+                Close();
                 MessageBox.Show(x.Message);
             }
-            Close();
+            
+        }
+
+        private void DeleteProduct_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (productItemBO.Amount == 0)
+                    MessageBox.Show("אינו קיים בסל");
+                else
+                {
+                    bl!.cart!.UpdateProductInCart(cartBO, productItemBO.ID, 0);
+                    Close();
+                    MessageBox.Show("נמחק מהסל");
+                }
+            }
+            catch (Exception x)
+            {
+                Close();
+                MessageBox.Show(x.Message);
+            }
         }
     }
 }
