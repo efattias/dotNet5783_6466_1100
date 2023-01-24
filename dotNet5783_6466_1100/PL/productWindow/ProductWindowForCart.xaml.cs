@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BO;
+using PL.PO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,19 +22,21 @@ namespace PL.productWindow
     public partial class ProductWindowForCart : Window
     {
         BlApi.IBL? bl = BlApi.Factory.GetBl() ?? throw new NullReferenceException("Missing bl");
+
         BO.Product productBO = new BO.Product();
         BO.ProductItem productItemBO = new BO.ProductItem();
-        
-        //PO.ProductItemPO product= new PO.ProductItemPO();
+
+        BO.Cart? cartBO = new();
+        PO.CartPO? cartPO = new();
+
         public ProductWindowForCart(int id, BO.Cart cart)
         {
             InitializeComponent();
-            
-            //productBO = bl.Product.GetProductbyId(idPO);
+            cartBO = cart;
+            cartPO = PL.Tools.BoTOPoCart(cartBO);
+
             productItemBO = bl.Product.GetProductByIDAndCart(id, cart);
             
-           // AmountOfItemTextBox.Text = productBO!.InStock!.ToString();
-            //PL.Tools.CopyPropTo(productBO, product);
             DataContext = productItemBO;
             if (productItemBO.InStock==true)
             {
@@ -45,6 +49,20 @@ namespace PL.productWindow
             
 
             //categoryComboBox.ItemsSource = Enum.GetValues(typeof(BO.Category));
+        }
+
+        private void AddProductToCart_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                bl!.cart.AddProductToCart(cartBO, productItemBO.ID);
+                MessageBox.Show("seccssed");
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show(x.Message);
+            }
+            Close();
         }
     }
 }
