@@ -25,6 +25,7 @@ namespace PL.productWindow
 
         BO.Product productBO = new BO.Product();
         BO.ProductItem productItemBO = new BO.ProductItem();
+        PO.ProductItemPO productItemPO=new ProductItemPO();
 
         BO.Cart? cartBO = new();
         PO.CartPO? cartPO = new();
@@ -37,7 +38,9 @@ namespace PL.productWindow
             cartPO = PL.Tools.BoTOPoCart(cartBO);
 
             productItemBO = bl.Product.GetProductByIDAndCart(id, cart);
-            DataContext = productItemBO;
+            productItemPO = Tools.CopyPropTo(productItemBO, productItemPO);
+            
+            DataContext = productItemPO;
 
             if (productItemBO.InStock == true)
                 InStockOfItemTextBox.Text = "במלאי";
@@ -50,7 +53,8 @@ namespace PL.productWindow
             try
             {
                 bl!.cart.AddProductToCart(cartBO, productItemBO.ID);
-                Close();
+                productItemPO.Amount += 1;
+               // Close();
                 MessageBox.Show("נוסף לסל");
             }
             catch (Exception x)
@@ -69,9 +73,16 @@ namespace PL.productWindow
                     MessageBox.Show("אינו קיים בסל");
                 else
                 {
-                    bl!.cart!.UpdateProductInCart(cartBO, productItemBO.ID, 0);
-                    Close();
-                    MessageBox.Show("נמחק מהסל");
+
+                    MessageBoxResult messageBoxResult = MessageBox.Show("?האם למחוק את המוצר מהסל", "מחיקת מוצר", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
+                    if  (messageBoxResult is (MessageBoxResult.Yes))
+                    {
+                        bl!.cart!.UpdateProductInCart(cartBO, productItemBO.ID, 0);
+                        Close();
+                        MessageBox.Show("נמחק מהסל");
+                    
+                    }
+                  
                 }
             }
             catch (Exception x)
