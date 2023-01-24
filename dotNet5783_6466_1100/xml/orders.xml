@@ -6,7 +6,7 @@
     <CustomerEmail>@.</CustomerEmail>
     <CustomerAddress>tyui</CustomerAddress>
     <OrderDate>2023-01-23T10:49:10.039575+02:00</OrderDate>
-    <ShipDate xsi:nil="true" />
-    <DeliveryDate xsi:nil="true" />
+    <ShipDate>2023-01-24T11:11:28.2559041+02:00</ShipDate>
+    <DeliveryDate>2023-01-24T11:11:49.3053126+02:00</DeliveryDate>
   </Order>
 </ArrayOfOrder>
