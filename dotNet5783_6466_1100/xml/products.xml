@@ -41,14 +41,6 @@
     <Path>/images/haripotterChicken.jpg</Path>
   </Product>
   <Product>
-    <ID>100004</ID>
-    <Name>הארי פוטר 4 וגביע האש</Name>
-    <Price>90</Price>
-    <Category>נוער</Category>
-    <InStock>83</InStock>
-    <Path>/images/HarryPoterAndCupOfFire.jpg</Path>
-  </Product>
-  <Product>
     <ID>100010</ID>
     <Name>דירה להשכיר </Name>
     <Price>38</Price>
@@ -87,5 +79,13 @@
     <Category>נוער</Category>
     <InStock>54</InStock>
     <Path>/images/haripoterDeathTreasure.jpg</Path>
+  </Product>
+  <Product>
+    <ID>100004</ID>
+    <Name>הארי פוטר 4 וגביע האש</Name>
+    <Price>90</Price>
+    <Category>נוער</Category>
+    <InStock>83</InStock>
+    <Path>/images/hanan_haganan.jpg</Path>
   </Product>
 </products>
