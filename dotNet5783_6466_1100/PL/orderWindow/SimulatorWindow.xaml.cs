@@ -141,10 +141,14 @@ public partial class SimulatorWindow : Window
     {
         
         worker!.RunWorkerAsync();
+        play.IsEnabled= false;
+        stop.IsEnabled = true;
     }
 
     private void Button_Click_1(object sender, RoutedEventArgs e)
     {
         worker!.CancelAsync();
+        stop.IsEnabled= false;
+        play.IsEnabled = true;
     }
 }

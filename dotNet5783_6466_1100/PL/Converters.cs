@@ -111,3 +111,21 @@ public class TextToBool : IValueConverter
     }
 }
 
+public class statusToProggressBarConverter : IValueConverter
+{
+    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+        if ((BO.Status)value == BO.Status.מאושר)
+            return 30;
+        else
+            if ((BO.Status)value == BO.Status.נשלח)
+            return 60;
+        else
+            return 100;
+    }
+    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+        return 0;
+    }
+}
+

@@ -6,7 +6,13 @@
          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:PL.orderWindow"
         mc:Ignorable="d"
-        Title="SimulatorWindow" Height="450" Width="800">
+         xmlns:converter="clr-namespace:PLConverter"
+        Title="SimulatorWindow" Height="450" Width="900">
+    <Window.Resources>
+        <converter:statusToProggressBarConverter x:Key="statusToProgress">
+            
+        </converter:statusToProggressBarConverter>
+    </Window.Resources>
     <Grid
         Background="{DynamicResource MaterialDesignBackground}" Margin="60,0,0,60">
         <Grid.RowDefinitions>
@@ -36,7 +42,7 @@
                   d:ItemsSource="{d:SampleData ItemCount=5}"
                   ItemsSource="{Binding}" 
                   MouseDoubleClick="doubleClickShowOrder"
-                  Margin="0,62,10,0" Grid.RowSpan="2" Width="700"
+                  Margin="0,62,10,0" Grid.RowSpan="2" Width="800"
                 >
             <ListView.View >
                 <GridView  >
@@ -52,7 +58,18 @@
                     <GridViewColumn DisplayMemberBinding="{Binding Path=AmountOfItems}" Header="מספר פריטים " Width="160"/>
 
                     <GridViewColumn DisplayMemberBinding="{Binding Path=TotalPrice}" Header= "סך לתשלום" Width="140"/>
-
+                    <GridViewColumn Header="התקדמות">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <ProgressBar 
+                             x:Name="progress"
+                              Height="15" Width="80"
+                                    Value="{Binding OrderStatus, Converter={StaticResource statusToProgress }}"
+                                Minimum="0" Maximum="100" Background="{x:Null}" Foreground="Gray">
+                                </ProgressBar>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
 
                 </GridView>
             </ListView.View>
@@ -80,14 +97,14 @@
 
             </Button>-->
 
-            <Button Margin="150,0,0,0" Width="80" Click="Button_Click_1">
+            <Button x:Name="stop" Margin="150,0,0,0" Width="80" Click="Button_Click_1">
                 <materialDesign:PackIcon Kind="Stop"
                                         Width="40"
                                          Height="25">
 
                 </materialDesign:PackIcon>
             </Button>
-            <Button Width="80" Margin="-200,-35,0,0" Click="Button_Click">
+            <Button Width="80" x:Name="play" Margin="-200,-35,0,0" Click="Button_Click">
                 <materialDesign:PackIcon Kind="Play"
                                         Width="40"
                                          Height="25" VerticalAlignment="Center">
