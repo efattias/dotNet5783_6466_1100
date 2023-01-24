@@ -119,7 +119,8 @@ namespace PL.productWindow
             //create the product
             try
             {
-               if(pPO!.Path== null ) 
+               //if(pPO!.Path== null ) 
+               if(path!=null)
                 pPO!.Path = path! ;
 
                 

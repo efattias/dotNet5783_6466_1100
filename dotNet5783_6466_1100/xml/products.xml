@@ -9,14 +9,6 @@
     <Path>/images/HarryPoterSmartStone.jpg</Path>
   </Product>
   <Product>
-    <ID>100009</ID>
-    <Name>כספיון</Name>
-    <Price>40</Price>
-    <Category>ילדים</Category>
-    <InStock>46</InStock>
-    <Path>/images/caspion_.jpg</Path>
-  </Product>
-  <Product>
     <ID>200200</ID>
     <Name>פילים בצבעים </Name>
     <Price>30</Price>
@@ -87,5 +79,12 @@
     <Category>נוער</Category>
     <InStock>83</InStock>
     <Path>/images/hanan_haganan.jpg</Path>
+  </Product>
+  <Product>
+    <ID>100009</ID>
+    <Name>כספיון</Name>
+    <Price>40</Price>
+    <Category>ילדים</Category>
+    <InStock>46</InStock>
   </Product>
 </products>
