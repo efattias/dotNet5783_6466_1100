@@ -6,115 +6,127 @@
         xmlns:local="clr-namespace:PL.productWindow"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
+        Icon="{Binding Path}"
         Title="חלון מוצר" Height="400" Width="300">
     <Grid  Name="mainGrid" RenderTransformOrigin="1.424,0.455" Margin="0,0,0,-6">
-
-
-
         <Label x:Name="IDLabel"
                Content=":מזהה" 
                HorizontalAlignment="Left" 
                Margin="207,50,0,0" 
                VerticalAlignment="Top"
-               RenderTransformOrigin="-7.932,0.579" Height="25" Width="60" HorizontalContentAlignment="Right"/>
+               RenderTransformOrigin="-7.932,0.579"
+               Height="25" Width="60"
+               HorizontalContentAlignment="Right"/>
 
-        <TextBox x:Name="IDTextBox" Height="25"
+        <TextBox x:Name="IDTextBox"
+                 Height="25"
                  Text="{Binding ID}"
-                    VerticalAlignment="Top"
+                 VerticalAlignment="Top"
                  Margin="33,50,94,0"
-                    IsReadOnly="False" IsEnabled="True"/>
-
+                 IsReadOnly="False"
+                 IsEnabled="True"/>
 
         <Label x:Name="NameLabel"
                Content=":שם" 
                HorizontalAlignment="Left" 
                Margin="207,100,0,0" 
                VerticalAlignment="Top"
-               RenderTransformOrigin="-7.932,0.579" Height="25" Width="60" HorizontalContentAlignment="Right"/>
+               RenderTransformOrigin="-7.932,0.579"
+               Height="25" Width="60"
+               HorizontalContentAlignment="Right"/>
 
-        <TextBox x:Name="NameTextBox" Height="25"
-                    VerticalAlignment="Top"
+        <TextBox x:Name="NameTextBox"
+                 Height="25"
+                 VerticalAlignment="Top"
                  Text="{Binding Name}"
                  Margin="33,100,94,0"
-                    IsReadOnly="false" IsEnabled="True"/>
+                 IsReadOnly="false"
+                 IsEnabled="True"/>
 
         <Label x:Name="PriceLabel"
                Content=":מחיר" 
                HorizontalAlignment="Left" 
                Margin="207,150,0,0" 
                VerticalAlignment="Top"
-               RenderTransformOrigin="-7.932,0.579" Height="25" Width="60" HorizontalContentAlignment="Right"/>
+               RenderTransformOrigin="-7.932,0.579"
+               Height="25" Width="60"
+               HorizontalContentAlignment="Right"/>
 
         <TextBox x:Name="PriceTextBox" Height="25"
-                    VerticalAlignment="Top"
+                 VerticalAlignment="Top"
                  Margin="33,150,94,0"
-                   Text="{Binding Price}"
-                    IsReadOnly="false" IsEnabled="true" />
+                 Text="{Binding Price}"
+                 IsReadOnly="false"
+                 IsEnabled="true"/>
+        
         <Label x:Name="AmountOfItemsLabel"
                Content=":כמות" 
                HorizontalAlignment="Left" 
                Margin="207,200,0,0" 
                VerticalAlignment="Top"
-               RenderTransformOrigin="-7.932,0.579" Height="25" Width="60" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="AmountOfItemTextBox" Height="25"
-                    VerticalAlignment="Top"
+               RenderTransformOrigin="-7.932,0.579"
+               Height="25" Width="60"
+               HorizontalContentAlignment="Right"/>
+        
+        <TextBox x:Name="AmountOfItemTextBox"
+                 Height="25"
+                 VerticalAlignment="Top"
                  Margin="33,200,94,0"
-                    
-                    IsReadOnly="false" IsEnabled="true"/>
+                 IsReadOnly="false"
+                 IsEnabled="true"/>
+        
         <Label x:Name="categoryLabel"
                Content=":קטגוריה" 
                HorizontalAlignment="Right" 
                Margin="0,250,18,0" 
                VerticalAlignment="Top"
-               RenderTransformOrigin="-7.932,0.579" Height="25" Width="60" HorizontalContentAlignment="Right"/>
+               RenderTransformOrigin="-7.932,0.579"
+               Height="25" Width="60"
+               HorizontalContentAlignment="Right"/>
+        
         <ComboBox x:Name="categoryComboBox"
-                      Margin="33,250,94,89" 
+                  Margin="33,250,94,89" 
                   Text="{Binding Category}"
-                      ItemsSource="{Binding }" 
-                  IsEnabled="true" Height="25"
-                      />
-        <Button x:Name="addToButton" HorizontalAlignment="Left"
-                Margin="120,315,0,0" VerticalAlignment="Top" Height="40" Background="#006bb3"
-                Width="60" FontSize="14" Click="addToButton_Click" >
-            <materialDesign:PackIcon Kind="add" 
-                                         Foreground="Black"
-                                         Height="30" Width="30"/>
-        </Button>
-        <!--<Button Height="150" Margin="-20,-15,270,279" Width="150" Click="updateImage_Button">
-            <Image  x:Name="product_image" Source="{Binding path}"
-                    HorizontalAlignment="Center"  VerticalAlignment="Stretch" 
-                    Width="130" Height="130" />
-                   
-        </Button>-->
+                  ItemsSource="{Binding }" 
+                  IsEnabled="true"
+                  Height="25"/>
 
-        <Button x:Name="UpdateButton" HorizontalAlignment="Left" Background="#006bb3"
-                Margin="149,315,0,0" VerticalAlignment="Top" Height="40" Width="60" 
-                FontSize="14"  Click="UpdateButton_Click" >
-            <materialDesign:PackIcon Kind="check" 
-                                         Foreground="Black"
-                                         Height="30" Width="30"/>
-        </Button>
-        <Button  HorizontalAlignment="Left" Background="AliceBlue"
-                VerticalAlignment="Top" Height="50" Width="54" 
-                FontSize="14"  Click="updateImage_Button" Margin="237,0,0,0" >
-            <Image x:Name="productImage" Source="{Binding Path=Path}"
-                   Width="80"
-                   Height="80">
-
-            </Image>
-
-        </Button>
-
-        <!--<Button Height="150" Margin="-20,-15,270,279" Width="150" Click="updateImage_Button">
-            <Image  x:Name="product_image" Source="{Binding path}"
-                    HorizontalAlignment="Center"  VerticalAlignment="Stretch" 
-                    Width="130" Height="130" />
-                   
-        </Button>-->
-        <!--<Button Content="הוספה לסל"
+        <Button x:Name="addToButton"
                 HorizontalAlignment="Left"
-                Margin="10,308,0,0" 
-                VerticalAlignment="Top" Click="Button_Click"/>-->
+                Margin="120,315,0,0"
+                VerticalAlignment="Top"
+                Height="40" Width="60"
+                Background="#006bb3"
+                FontSize="14"
+                Click="addToButton_Click">
+            <materialDesign:PackIcon Kind="add"
+                                     Foreground="Black"
+                                     Height="30" Width="30"/>
+        </Button>
 
+        <Button x:Name="UpdateButton"
+                HorizontalAlignment="Left"
+                Background="#006bb3"
+                Margin="149,315,0,0"
+                VerticalAlignment="Top"
+                Height="40" Width="60" 
+                FontSize="14"
+                Click="UpdateButton_Click">
+            <materialDesign:PackIcon Kind="check"
+                                     Foreground="Black"
+                                     Height="30" Width="30"/>
+        </Button>
+
+        <Button HorizontalAlignment="Left"
+                Background="AliceBlue"
+                VerticalAlignment="Top"
+                Height="50" Width="54" 
+                FontSize="14"
+                Click="updateImage_Button"
+                Margin="237,0,0,0">
+            <Image x:Name="productImage"
+                   Source="{Binding Path=Path}"
+                   Width="80" Height="80"/>
+        </Button>
     </Grid>
 </Window>
