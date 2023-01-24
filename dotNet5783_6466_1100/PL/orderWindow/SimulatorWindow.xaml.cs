@@ -62,7 +62,6 @@ public partial class SimulatorWindow : Window
         orderListPO.Clear();
         foreach (var o in listPO)
             orderListPO.Add(o);
-
     }
 
     private void Worker_RunWorkerCompleted(object? sender, RunWorkerCompletedEventArgs e)

@@ -53,10 +53,8 @@ namespace PL
             {
                 MessageBox.Show(x.Message);
             }
+            catch(Exception x) { MessageBox.Show(x.Message); }
         }
-
-     
-
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             f.Content = new MainPage(f);

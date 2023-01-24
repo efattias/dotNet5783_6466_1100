@@ -88,4 +88,43 @@
     <InStock>89</InStock>
     <Path>/images/HarryPoterSecretsRoom.jpg</Path>
   </Product>
+  <Product>
+    <ID>100012</ID>
+    <Name>מבשלים עם אנאבל קרמל</Name>
+    <Price>75.9</Price>
+    <Category>בישול</Category>
+    <InStock>200</InStock>
+    <Path>/images/mevashlimeimanabel.jpg</Path>
+  </Product>
+  <Product>
+    <ID>100014</ID>
+    <Name>פשוט טעים לשבת</Name>
+    <Price>79</Price>
+    <Category>בישול</Category>
+    <InStock>56</InStock>
+    <Path>/images/pashutTaimleshabat.jpg</Path>
+  </Product>
+  <Product>
+    <ID>100015</ID>
+    <Name>להתאהב בארץ מחדש</Name>
+    <Price>75.9</Price>
+    <Category>השכלה</Category>
+    <InStock>12</InStock>
+    <Path>/images/lehitahevBaaretzmechadash.jpg</Path>
+  </Product>
+  <Product>
+    <ID>100016</ID>
+    <Name>ביבי</Name>
+    <Price>100</Price>
+    <Category>השכלה</Category>
+    <InStock>82</InStock>
+    <Path>/images/BB.jpg</Path>
+  </Product>
+  <Product>
+    <ID>100013</ID>
+    <Name>ספר הבישול של חלי ממן</Name>
+    <Price>78</Price>
+    <Category>בישול</Category>
+    <InStock>78</InStock>
+  </Product>
 </products>
