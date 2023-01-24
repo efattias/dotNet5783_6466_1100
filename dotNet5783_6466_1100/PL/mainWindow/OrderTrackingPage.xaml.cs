@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using BO;
 using PL.productWindow;
 using System.Collections.ObjectModel;
+using PL.mainWindow;
 
 namespace PL
 {
@@ -29,7 +30,9 @@ namespace PL
         public OrderTrackingPage(Frame mainFrame)
         {
             f = mainFrame;
+           
             InitializeComponent();
+             showOrderDetails.IsEnabled = false;
 
         }
 
@@ -47,6 +50,7 @@ namespace PL
                 foreach (var o in oTrack.trackList!)
                     s += (o.ToString()) + "\n";
                 ListTextBox.Text = s;
+                showOrderDetails.IsEnabled = true;
             }
             catch (BO.DoesntExistException x)
 
@@ -63,6 +67,13 @@ namespace PL
         private void newOrder_Click(object sender, RoutedEventArgs e)
         {
             f.Content = new OrderTrackingPage(f);
+        }
+
+        private void showOrderDetails_Click(object sender, RoutedEventArgs e)
+        {
+            BO.Order order=bl!.Order.GetOrder(int.Parse((string)IDTextBox.Text));
+            OrderOfTrackWindow window= new OrderOfTrackWindow(order);
+            window.ShowDialog();
         }
         //ListTextBox.Text=oTrack.trackList!.ToString();
         //List<Tuple<DateTime?, string>>? trackList = oTrack.trackList;

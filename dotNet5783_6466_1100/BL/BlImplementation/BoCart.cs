@@ -176,7 +176,7 @@ internal class BoCart : IBoCart
                         item.TotalPrice = (item.TotalPrice ?? 0) + (item.Price * difference);
                         cart.TotalPrice = (cart.TotalPrice ?? 0) + (item.Price * difference);
                         cart.TotalPrice = Math.Round(cart.TotalPrice ?? 0, 2);
-                        cart.TotalPrice = Math.Round(item.TotalPrice ?? 0, 2);
+                        item.TotalPrice = Math.Round(item.TotalPrice ?? 0, 2);
                         return cart;
                     }
 
@@ -186,7 +186,7 @@ internal class BoCart : IBoCart
                         item.TotalPrice=(item.TotalPrice ?? 0) + (item.Price * difference);
                         cart.TotalPrice = (cart.TotalPrice ?? 0) + (item.Price * difference);
                         cart.TotalPrice = Math.Round(cart.TotalPrice ?? 0, 2);
-                        cart.TotalPrice = Math.Round(item.TotalPrice ?? 0, 2);
+                        item.TotalPrice = Math.Round(item.TotalPrice ?? 0, 2);
                         return cart;
                     }
                 }

@@ -119,9 +119,12 @@ namespace PL.productWindow
             //create the product
             try
             {
-               //if(pPO!.Path== null ) 
-               if(path!=null)
-                pPO!.Path = path! ;
+                //if(pPO!.Path== null ) 
+                if (path != null)
+                {
+                    pPO!.Path = path!;
+                    p!.Path= path!;
+                }
 
                 
 
@@ -130,7 +133,7 @@ namespace PL.productWindow
                 p!.InStock = int.Parse(AmountOfItemTextBox.Text);
                 p!.Category = (BO.Category?)categoryComboBox.SelectedItem;
                 p!.Price = double.Parse(PriceTextBox.Text);
-                p.Path = path;
+                
                 
                 bl!.Product.UpdateDetailProduct(p); 
 

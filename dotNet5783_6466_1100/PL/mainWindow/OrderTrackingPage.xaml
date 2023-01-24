@@ -30,12 +30,12 @@
                Content=":הכנס מספר הזמנה למעקב" 
                FontFamily=" Cooper Black"
                HorizontalAlignment="Left" 
-               Margin="350,38,0,0" 
+               Margin="380,38,0,0" 
                VerticalAlignment="Top"
                RenderTransformOrigin="-7.932,0.579" Height="24" Width="162" HorizontalContentAlignment="Right"/>
-        <materialDesign:PackIcon Kind="ArrowDown" Width="28" Height="32" Margin="430,51,0,0"/>
+        <materialDesign:PackIcon Kind="ArrowDown" Width="28" Height="32" Margin="460,51,0,0"/>
         <TextBox x:Name="IDTextBox" Height="25" Width="54"
-                Margin="408,74,0,0"
+                Margin="435,74,0,0"
                  FontSize="14"
                  HorizontalAlignment="Left"
                  FlowDirection="RightToLeft"
@@ -48,12 +48,16 @@
         <Button x:Name="newOrderTrack"
                 Content="לחץ למעקב"
                 HorizontalAlignment="Left"
-                Margin="400,150,0,0"
+                Margin="415,120,0,0"
                 VerticalAlignment="Top"
             IsEnabled="{Binding Text, Converter={StaticResource textToBool}, ElementName=IDTextBox}"
                 Click="Button_Click" Height="32" Grid.Row="0" Width="104">
 
         </Button >
+        <Button x:Name="showOrderDetails" Content="לחץ לפרטי הזמנה" 
+              FontSize="12"   Height="30" Width="126" Margin="395,210,355,410" Click="showOrderDetails_Click">
+
+        </Button>
 
 
 
@@ -70,7 +74,7 @@
                        Margin="150,-20,0,0"
                Width="94" HorizontalContentAlignment="Right"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Margin="39,210,526,359" Height="71">
+        <StackPanel Orientation="Horizontal" Margin="10,210,526,359" Height="71">
             <TextBox x:Name="ListTextBox" Height="100"
                  Text="{Binding trackList}"
                      Margin="20,0,0,0"

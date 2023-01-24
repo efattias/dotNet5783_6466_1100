@@ -16,11 +16,17 @@
     <None Remove="cartWindow\Free Photo _ Close up of a light wooden floorboard textured background.jpeg" />
     <None Remove="cartWindow\man with books.png" />
     <None Remove="cartWindow\Wood Wall And Wood Floor With Some Notebooks Photography Backdrop.jpg" />
+    <None Remove="images\5baloons.jpeg" />
+    <None Remove="images\ariyeahavTut.jpeg" />
+    <None Remove="images\bamidbar.jpeg" />
     <None Remove="images\BB.jpg" />
+    <None Remove="images\bereshit.jpg" />
     <None Remove="images\bishulHeliMaman.jpg" />
     <None Remove="images\caspion_.jpg" />
     <None Remove="images\dira_lehaskir_vaod.jpg" />
+    <None Remove="images\dvarim.jpeg" />
     <None Remove="images\hanan_haganan.jpg" />
+    <None Remove="images\happyInMitnach.jpeg" />
     <None Remove="images\haripoterDeathTreasure.jpg" />
     <None Remove="images\haripoterPrinceHalfBlood.jpg" />
     <None Remove="images\haripotterChicken.jpg" />
@@ -37,6 +43,8 @@
     <None Remove="images\Notepads On Table In Front Of Chalkboard For Children Backdrop.jpg" />
     <None Remove="images\pashutTaimleshabat.jpg" />
     <None Remove="images\pilim_bechol_hatzvaim_1.jpg" />
+    <None Remove="images\shmot.jpeg" />
+    <None Remove="images\vaikra.jpeg" />
     <None Remove="images\Wood Wall And Wood Floor With Some Notebooks Photography Backdrop.jpg" />
     <None Remove="istockphoto-1126130554-612x612.jpg" />
     <None Remove="man with books.png" />
@@ -44,7 +52,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="images\5baloons.jpeg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\ariyeahavTut.jpeg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\bamidbar.jpeg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="images\BB.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\bereshit.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="images\bishulHeliMaman.jpg">
@@ -56,7 +76,13 @@
     <Content Include="images\dira_lehaskir_vaod.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="images\dvarim.jpeg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="images\hanan_haganan.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\happyInMitnach.jpeg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="images\haripoterDeathTreasure.jpg">
@@ -93,6 +119,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="images\pilim_bechol_hatzvaim_1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\shmot.jpeg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\vaikra.jpeg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

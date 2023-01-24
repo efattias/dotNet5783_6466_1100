@@ -1,14 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <products>
   <Product>
-    <ID>200200</ID>
-    <Name>פילים בצבעים </Name>
-    <Price>30</Price>
-    <Category>ילדים</Category>
-    <InStock>0</InStock>
-    <Path>/images/pilim_bechol_hatzvaim_1.jpg</Path>
-  </Product>
-  <Product>
     <ID>100005</ID>
     <Name>הארי פוטר 5 ומסדר עוף החול</Name>
     <Price>89</Price>
@@ -126,5 +118,78 @@
     <Price>78</Price>
     <Category>בישול</Category>
     <InStock>78</InStock>
+    <Path>/images/bishulHeliMaman.jpg</Path>
+  </Product>
+  <Product>
+    <ID>100018</ID>
+    <Name>חומש בראשית</Name>
+    <Price>26</Price>
+    <Category>קודש</Category>
+    <InStock>87</InStock>
+    <Path>/images/bereshit.jpg</Path>
+  </Product>
+  <Product>
+    <ID>100019</ID>
+    <Name>חומש שמות</Name>
+    <Price>30</Price>
+    <Category>קודש</Category>
+    <InStock>60</InStock>
+    <Path>/images/shmot.jpeg</Path>
+  </Product>
+  <Product>
+    <ID>100020</ID>
+    <Name>חומש ויקרא</Name>
+    <Price>28</Price>
+    <Category>קודש</Category>
+    <InStock>90</InStock>
+    <Path>/images/vaikra.jpeg</Path>
+  </Product>
+  <Product>
+    <ID>100021</ID>
+    <Name>חומש במדבר</Name>
+    <Price>28</Price>
+    <Category>קודש</Category>
+    <InStock>47</InStock>
+    <Path>/images/bamidbar.jpeg</Path>
+  </Product>
+  <Product>
+    <ID>100022</ID>
+    <Name>חומש דברים</Name>
+    <Price>24</Price>
+    <Category>קודש</Category>
+    <InStock>87</InStock>
+    <Path>/images/dvarim.jpeg</Path>
+  </Product>
+  <Product>
+    <ID>100023</ID>
+    <Name>חמישה בלונים</Name>
+    <Price>40.9</Price>
+    <Category>ילדים</Category>
+    <InStock>15</InStock>
+    <Path>/images/5baloons.jpeg</Path>
+  </Product>
+  <Product>
+    <ID>100026</ID>
+    <Name>שמח במטבח</Name>
+    <Price>62</Price>
+    <Category>בישול</Category>
+    <InStock>56</InStock>
+    <Path>/images/happyInMitnach.jpeg</Path>
+  </Product>
+  <Product>
+    <ID>100024</ID>
+    <Name>האריה שאהב תות</Name>
+    <Price>36</Price>
+    <Category>ילדים</Category>
+    <InStock>90</InStock>
+    <Path>/images/ariyeahavTut.jpeg</Path>
+  </Product>
+  <Product>
+    <ID>200200</ID>
+    <Name>פילים בצבעים </Name>
+    <Price>30</Price>
+    <Category>ילדים</Category>
+    <InStock>0</InStock>
+    <Path>/images/pilim_bechol_hatzvaim_1.jpg</Path>
   </Product>
 </products>
