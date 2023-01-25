@@ -30,7 +30,7 @@ namespace PL.orderWindow
 
             if (order != null)
             {
-                oTrack = bl.Order.TrackOrder((int)order.ID);
+                oTrack = bl.Order.TrackOrder((int)order!.ID!);
                 DataContext = oTrack;
 
                 //  StatusTextBox.Text = oTrack!.OrderStatus.ToString();

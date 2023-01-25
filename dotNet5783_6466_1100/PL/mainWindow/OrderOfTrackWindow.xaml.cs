@@ -27,7 +27,7 @@ public partial class OrderOfTrackWindow : Window
     BO.Order orBO = new BO.Order();
     //Cart cart = new Cart() { CustomerAddress = "", CustomerEmail = "", CustomerName = "", Items = new List<BO.OrderItem?>(), TotalPrice = 0 };
 
-    public OrderOfTrackWindow(Order order = null)
+    public OrderOfTrackWindow(Order? order = null)
     {
         InitializeComponent();
 

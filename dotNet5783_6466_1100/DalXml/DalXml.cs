@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace Dal;
 
-public struct ImportentNumbers
-{
-    public double numberSaved { get; set; }
-    public string typeOfnumber { get; set; }
-}
+//public struct ImportentNumbers
+//{
+//    public double numberSaved { get; set; }
+//    public string typeOfnumber { get; set; }
+//}
 
 sealed class DalXml : IDal
 {
