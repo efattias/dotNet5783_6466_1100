@@ -41,22 +41,6 @@
     <Path>/images/HarryPoterAndCupOfFire.jpg</Path>
   </Product>
   <Product>
-    <ID>100002</ID>
-    <Name>הארי פוטר 1 ואבן החכמים</Name>
-    <Price>89</Price>
-    <Category>נוער</Category>
-    <InStock>102</InStock>
-    <Path>/images/HarryPoterSmartStone.jpg</Path>
-  </Product>
-  <Product>
-    <ID>100015</ID>
-    <Name>להתאהב בארץ מחדש</Name>
-    <Price>75.9</Price>
-    <Category>השכלה</Category>
-    <InStock>12</InStock>
-    <Path>/images/lehitahevBaaretzmechadash.jpg</Path>
-  </Product>
-  <Product>
     <ID>100014</ID>
     <Name>פשוט טעים לשבת</Name>
     <Price>79</Price>
@@ -65,36 +49,12 @@
     <Path>/images/pashutTaimleshabat.jpg</Path>
   </Product>
   <Product>
-    <ID>100012</ID>
-    <Name>מבשלים עם אנאבל קרמל</Name>
-    <Price>75.9</Price>
-    <Category>בישול</Category>
-    <InStock>198</InStock>
-    <Path>/images/mevashlimeimanabel.jpg</Path>
-  </Product>
-  <Product>
     <ID>100013</ID>
     <Name>ספר הבישול של חלי ממן</Name>
     <Price>78</Price>
     <Category>בישול</Category>
     <InStock>77</InStock>
     <Path>/images/bishulHeliMaman.jpg</Path>
-  </Product>
-  <Product>
-    <ID>100023</ID>
-    <Name>חמישה בלונים</Name>
-    <Price>40.9</Price>
-    <Category>ילדים</Category>
-    <InStock>13</InStock>
-    <Path>/images/5baloons.jpeg</Path>
-  </Product>
-  <Product>
-    <ID>200200</ID>
-    <Name>פילים בצבעים </Name>
-    <Price>30</Price>
-    <Category>ילדים</Category>
-    <InStock>0</InStock>
-    <Path>/images/pilim_bechol_hatzvaim_1.jpg</Path>
   </Product>
   <Product>
     <ID>100016</ID>
@@ -161,14 +121,6 @@
     <Path>/images/bereshit.jpg</Path>
   </Product>
   <Product>
-    <ID>100000</ID>
-    <Name>הארי פוטר 2 וחדר הסודות</Name>
-    <Price>89</Price>
-    <Category>נוער</Category>
-    <InStock>84</InStock>
-    <Path>/images/HarryPoterSecretsRoom.jpg</Path>
-  </Product>
-  <Product>
     <ID>100008</ID>
     <Name>חנן הגנן</Name>
     <Price>39.9</Price>
@@ -191,5 +143,53 @@
     <Category>בישול</Category>
     <InStock>52</InStock>
     <Path>/images/happyInMitnach.jpeg</Path>
+  </Product>
+  <Product>
+    <ID>200200</ID>
+    <Name>פילים בצבעים </Name>
+    <Price>30</Price>
+    <Category>ילדים</Category>
+    <InStock>0</InStock>
+    <Path>/images/pilim_bechol_hatzvaim_1.jpg</Path>
+  </Product>
+  <Product>
+    <ID>100023</ID>
+    <Name>חמישה בלונים</Name>
+    <Price>40</Price>
+    <Category>ילדים</Category>
+    <InStock>13</InStock>
+    <Path>/images/5baloons.jpeg</Path>
+  </Product>
+  <Product>
+    <ID>100015</ID>
+    <Name>להתאהב בארץ מחדש</Name>
+    <Price>75</Price>
+    <Category>השכלה</Category>
+    <InStock>12</InStock>
+    <Path>/images/lehitahevBaaretzmechadash.jpg</Path>
+  </Product>
+  <Product>
+    <ID>100012</ID>
+    <Name>מבשלים עם אנאבל קרמל</Name>
+    <Price>75</Price>
+    <Category>בישול</Category>
+    <InStock>198</InStock>
+    <Path>/images/mevashlimeimanabel.jpg</Path>
+  </Product>
+  <Product>
+    <ID>100002</ID>
+    <Name>הארי פוטר 1 ואבן החכמים</Name>
+    <Price>89</Price>
+    <Category>נוער</Category>
+    <InStock>101</InStock>
+    <Path>/images/HarryPoterSmartStone.jpg</Path>
+  </Product>
+  <Product>
+    <ID>100000</ID>
+    <Name>הארי פוטר 2 וחדר הסודות</Name>
+    <Price>89</Price>
+    <Category>נוער</Category>
+    <InStock>84</InStock>
+    <Path>/images/HarryPoterSecretsRoom.jpg</Path>
   </Product>
 </products>
