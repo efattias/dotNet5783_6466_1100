@@ -147,7 +147,7 @@ namespace PL
             PropertyGroupDescription groupDescription = new PropertyGroupDescription("Price");
             SortDescription sortDscription = new SortDescription("Price", ListSortDirection.Ascending);
             view.GroupDescriptions.Add(groupDescription);
-            view.SortDescriptions.Add(sortDscription);
+            view.SortDescriptions.Add(sortDscription); 
             SortByPrice.IsEnabled = false;
         }
 
