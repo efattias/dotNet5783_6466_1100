@@ -26,7 +26,7 @@ namespace Dal
 
         static IEnumerable<XElement> createStudentElement(DO.Product product)
         {
-            yield return new XElement("ID", product.ID);
+            yield return new XElement("ID", product.ID);    
             if (product.Name is not null)
                 yield return new XElement("Name", product.Name);
             if (product.Price is not null)
