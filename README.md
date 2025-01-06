@@ -1,5 +1,6 @@
-<h6>Project - Bookstore Management System</h6>
-<h6>Overview</h6>
+<h1>README: Mini Project - Bookstore Management System</h1>
+
+<h2>Overview</h2>
 <p>
 This project is a management system for a bookstore, providing two main interfaces:
 </p>
@@ -11,22 +12,23 @@ This project is a management system for a bookstore, providing two main interfac
 The system leverages a layered architecture and design patterns like Singleton and Factory Method to ensure modularity and scalability.
 </p>
 
-<h6>Features</h6>
-<h6>Admin Features:</h6>
+<h2>Features</h2>
+
+<h3>Admin Features</h3>
 <ul>
   <li>Add, update, and view book listings.</li>
   <li>Manage orders, including updating details, quantities, and statuses (e.g., processing, shipped).</li>
   <li>View detailed order summaries, including items and prices.</li>
 </ul>
 
-<h6>Customer Features:</h6>
+<h3>Customer Features</h3>
 <ul>
   <li>Browse the bookstore catalog and view detailed descriptions.</li>
   <li>Add books to a cart, adjust quantities, and remove items.</li>
   <li>Place orders and track their progress.</li>
 </ul>
 
-<h6>Project Structure</h6>
+<h2>Project Structure</h2>
 <p>The project is developed in phases:</p>
 <ul>
   <li><strong>Data Layer:</strong> CRUD operations for books and orders.</li>
@@ -38,7 +40,7 @@ The system leverages a layered architecture and design patterns like Singleton a
   <li><strong>Multithreading:</strong> Simulation and background task handling.</li>
 </ul>
 
-<h6>Technologies</h6>
+<h2>Technologies</h2>
 <ul>
   <li><strong>Language:</strong> C#.</li>
   <li><strong>Architecture:</strong> Hierarchical, layered.</li>
