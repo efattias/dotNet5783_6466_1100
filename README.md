@@ -1,4 +1,4 @@
-<h1>README: Project - Bookstore Management System</h1>
+<h1>Project - Bookstore Management System</h1>
 
 <h2>Overview</h2>
 <p>
